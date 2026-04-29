@@ -140,7 +140,7 @@ const Dashboard = () => {
                       <td className="p-4 pl-10 text-xs italic">{c.color_name}</td>
                       <td className="p-4 text-right text-xs">${Math.round(c.gld7).toLocaleString()}</td>
                       <td className="p-4 text-right text-xs">{c.u_oh}</td>
-                      <td className={`p-4 text-right text-xs font-semibold ${c.woh < 4 ? 'text-red-500' : ''}`}>{c.woh}</td>
+                      <td className={`p-4 text-right text-xs font-semibold ${c.woh < 16 ? 'text-red-500' : ''}`}>{c.woh}</td>
                       <td className="p-4 text-right text-xs">{Math.round(c['st_90d%'] * 100)}%</td>
                     </tr>
                   ))}
