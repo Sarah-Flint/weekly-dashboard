@@ -1,7 +1,9 @@
 {
   "metadata": {
     "week": "WEEK 16",
-    "lastUpdated": "2026-04-29T23:20:35.077Z"
+    "dateRange": "Apr 19-25, 2026",
+    "quarter": "Q2",
+    "lastUpdated": "2026-04-30T22:36:24.447Z"
   },
   "kpi": [
     {
@@ -803,37 +805,22 @@
       "metric": "new_net_rev",
       "metric_group": "revenue",
       "metric_label": "New Net Rev",
-      "Sun Apr 19 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 20354.48,
-      "Mon Apr 20 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 5556.17,
-      "Tue Apr 21 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 11665.04,
-      "Wed Apr 22 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 17184.06,
-      "Thu Apr 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 5438.81,
-      "Fri Apr 24 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 458.03,
-      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 9938.78
+      "#VALUE!": 0,
+      "Apr 19-25, 2026": 0
     },
     {
       "metric": "returning_net_rev",
       "metric_group": "revenue",
       "metric_label": "Returning Net Rev",
-      "Sun Apr 19 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 11355.7,
-      "Mon Apr 20 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 6618.04,
-      "Tue Apr 21 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 9385.16,
-      "Wed Apr 22 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 15404.03,
-      "Thu Apr 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 6259.23,
-      "Fri Apr 24 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 12576.47,
-      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 6182.34
+      "#VALUE!": 0,
+      "Apr 19-25, 2026": 0
     },
     {
       "metric": "total_net_rev",
       "metric_group": "revenue",
       "metric_label": "Total Net Rev",
-      "Sun Apr 19 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 31710.18,
-      "Mon Apr 20 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 12174.21,
-      "Tue Apr 21 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 21050.2,
-      "Wed Apr 22 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 32588.09,
-      "Thu Apr 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 11698.04,
-      "Fri Apr 24 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 13034.5,
-      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 16121.12
+      "#VALUE!": 0,
+      "Apr 19-25, 2026": 0
     }
   ],
   "weekly_trend": [
@@ -1105,7 +1092,7 @@
       "CPM": 23.03,
       "CPC": 0.3,
       "CPO": 75.66,
-      "Impressions": 29567,
+      "Impressions": 29568,
       "Clicks": 2263,
       "Orders": 9
     },
@@ -1210,7 +1197,7 @@
       "CPM": 7.71,
       "CPC": 6.41,
       "CPO": "-",
-      "Impressions": 40759,
+      "Impressions": 40757,
       "Clicks": 49,
       "Orders": 0
     },
@@ -1225,7 +1212,7 @@
       "CPM": 25.11,
       "CPC": 1.61,
       "CPO": 71.51,
-      "Impressions": 478518,
+      "Impressions": 478517,
       "Clicks": 7463,
       "Orders": 168
     },
@@ -1270,7 +1257,7 @@
       "CPM": 24.39,
       "CPC": 0.35,
       "CPO": 80.04,
-      "Impressions": 29540,
+      "Impressions": 29541,
       "Clicks": 2086,
       "Orders": 9
     },
@@ -1405,7 +1392,7 @@
       "CPM": 24.49,
       "CPC": 1.28,
       "CPO": 49.21,
-      "Impressions": 355613,
+      "Impressions": 355614,
       "Clicks": 6808,
       "Orders": 176.98
     },
