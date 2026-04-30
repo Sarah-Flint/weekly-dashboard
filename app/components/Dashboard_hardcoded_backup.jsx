@@ -2,18 +2,15 @@
 
 import React, { useState, useEffect } from "react";
 import { BarChart, Bar, ComposedChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, ReferenceLine, AreaChart, Area, PieChart, Pie, Legend } from "recharts";
-// ─── CORE DATA  ───
+// ─── CORE DATA (auto-generated from Weekly_Export_for_Claude) ───
 // Week 16 · Apr 19–25, 2026 · CW=Wk16, PW=Wk15
-
-
 
 const D = {
   grossRevenue:265728,priorGross:237270,
   discounts:42809,priorDiscounts:29949,
   gld:222919,priorGld:207321,
   returns:84543,priorReturns:81169,
-  netRevenue:138376,
-  priorNet:126152,netPlan:1833422,
+  netRevenue:138376,priorNet:126152,netPlan:1833422,
   mtdNet:391571,mtdNetPlan:359100,
   orders:438,priorOrders:433,ordersPlan:8763,
   items:625,priorItems:560,
@@ -540,16 +537,6 @@ const CampTbl=({data,title,tSpend,tWow,tRoas,tRoasW})=>(
 
 // ─── MAIN ───
 export default function Dashboard() {
-
-const [data, setData] = useState(null);
-
-useEffect(() => {
-  fetch('/dashboard_data.json')
-    .then(res => res.json())
-    .then(setData)
-    .catch(err => console.error(err));
-}, []);
-
   const [tab,setTab]=useState("overview");
   const [revF,setRevF]=useState("all");
   const [prodFilter,setProdFilter]=useState("all");
@@ -568,25 +555,6 @@ useEffect(() => {
   const [retTimeFilter,setRetTimeFilter]=useState("LW");
   const [expReasons,setExpReasons]=useState({});
 
-  if (!data) return <div>Loading...</div>;
-  const getMetric = (metric) =>
-  data.kpi.find((k) => k.metric === metric) || {};
-
-  const DD = {
-    ...D,
-    grossRevenue: getMetric("total_gross_rev")._cw || D.grossRevenue,
-    priorGross: getMetric("total_gross_rev")._pw || D.priorGross,
-    discounts: Math.abs(getMetric("total_discounts")._cw) || D.discounts,
-    priorDiscounts: Math.abs(getMetric("total_discounts")._pw) || D.priorDiscounts,
-    gld: getMetric("total_gld")._cw || D.gld,
-    priorGld: getMetric("total_gld")._pw || D.priorGld,
-    returns: Math.abs(getMetric("total_returns")._cw) || D.returns,
-    priorReturns: Math.abs(getMetric("total_returns")._pw) || D.priorReturns,
-    netRevenue: getMetric("total_net_rev")._cw || D.netRevenue,
-    priorNet: getMetric("total_net_rev")._pw || D.priorNet,
-  };
-  console.log(data);
-  
   const nROAS=(D.newNetRev/D.mktSpend).toFixed(2);
   const pROAS=(D.priorNewNetRev/D.priorMktSpend).toFixed(2);
   const mtdROAS=(D.mtdNewNet/D.mtdMktSpend).toFixed(2);
@@ -616,8 +584,8 @@ useEffect(() => {
     const pTh={textAlign:"right",padding:"6px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap"};
     const pTd=(v,col)=>({padding:"9px 6px",textAlign:col===0?"left":"right",fontWeight:col===0?600:500,color:col===0?C.nv:"inherit"});
     const rows=[
-      {l:"GROSS REV ($000s)",a:Math.round(DD.grossRevenue/1000),wp:Math.round(PLAN.gross/1000),mp:Math.round(PLAN.mtdGross/1000),qp:Math.round(PLAN.qtdGross/1000),dl:true},
-      {l:"NET REV ($000s)",a:Math.round(DD.netRevenue/1000),wp:Math.round(PLAN.net/1000),mp:Math.round(PLAN.mtdNet/1000),qp:Math.round(PLAN.qtdNet/1000),dl:true},
+      {l:"GROSS REV ($000s)",a:Math.round(D.grossRevenue/1000),wp:Math.round(PLAN.gross/1000),mp:Math.round(PLAN.mtdGross/1000),qp:Math.round(PLAN.qtdGross/1000),dl:true},
+      {l:"NET REV ($000s)",a:Math.round(D.netRevenue/1000),wp:Math.round(PLAN.net/1000),mp:Math.round(PLAN.mtdNet/1000),qp:Math.round(PLAN.qtdNet/1000),dl:true},
       {l:"NEW CUSTOMERS",a:D.newCustomers,wp:PLAN.newCust,mp:PLAN.mtdNewCust,qp:PLAN.qtdNewCust,dl:false}];
     return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14,overflowX:"auto"}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
@@ -686,7 +654,7 @@ useEffect(() => {
   {/* Weekly KPIs */}
   <SH t="Week 16 Performance" icon="📈"/>
   <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:10}}>
-    <MC l="Gross Revenue" v={fmt(DD.grossRevenue)} ww={w(D.grossRevenue,D.priorGross)} plan={w(DD.grossRevenue,PLAN.gross)} sub={`Plan: ${fmt(PLAN.gross)}`}/>
+    <MC l="Gross Revenue" v={fmt(D.grossRevenue)} ww={w(D.grossRevenue,D.priorGross)} plan={w(D.grossRevenue,PLAN.gross)} sub={`Plan: ${fmt(PLAN.gross)}`}/>
     <MC l="Net Revenue" v={fmt(D.netRevenue)} ww={w(D.netRevenue,D.priorNet)} plan={w(D.netRevenue,PLAN.net)} sub={`Plan: ${fmt(PLAN.net)}`}/>
     <MC l="New Customers" v={D.newCustomers} ww={w(D.newCustomers,D.priorNewCustomers)} plan={w(D.newCustomers,PLAN.newCust)} sub={`Plan: ${PLAN.newCust}`}/>
     <MC l="Returning Orders" v={REV_RET.orders} ww={w(REV_RET.orders,REV_RET.priorOrders)} sub={`PW: ${REV_RET.priorOrders} · Plan: ${PLAN.repeatCust}`}/>
@@ -739,9 +707,9 @@ useEffect(() => {
 
   {revF==="all"?<>
     <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:10}}>
-      <MC l="Gross Revenue" v={ff(DD.grossRevenue)} ww={w(DD.grossRevenue,D.priorGross)} plan={w(DD.grossRevenue,PLAN.gross)} sub={`Plan: ${ff(PLAN.gross)}`}/>
+      <MC l="Gross Revenue" v={ff(D.grossRevenue)} ww={w(D.grossRevenue,D.priorGross)} plan={w(D.grossRevenue,PLAN.gross)} sub={`Plan: ${ff(PLAN.gross)}`}/>
       <MC l="Discounts" v={ff(D.discounts)} ww={w(D.discounts,D.priorDiscounts)} inv sub={`PW: ${ff(D.priorDiscounts)}`}/>
-      <MC l="Returns" v={ff(DD.returns)} ww={w(DD.returns,D.priorReturns)} inv sub={`PW: ${ff(D.priorReturns)}`}/>
+      <MC l="Returns" v={ff(D.returns)} ww={w(D.returns,D.priorReturns)} inv sub={`PW: ${ff(D.priorReturns)}`}/>
       <MC l="Net Revenue" v={ff(D.netRevenue)} ww={w(D.netRevenue,D.priorNet)} plan={w(D.netRevenue,PLAN.net)} sub={`Plan: ${ff(PLAN.net)}`}/>
     </div>
     <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:10}}>
@@ -752,7 +720,7 @@ useEffect(() => {
     </div>
     <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:6}}>
       <MC l="GLD AOV" v={`$${D.gldAOV}`} ww={w(D.gldAOV,D.priorGldAOV)} sub={`Plan: $${PLAN.aov} · PW: $${D.priorGldAOV}`}/>
-      <MC l="Net AOV" v={`$${D.netAOV}`} ww={w(D.netAOV,D.priorNetAOV)} sub={`PW: $${DD.priorNetAOV}`}/>
+      <MC l="Net AOV" v={`$${D.netAOV}`} ww={w(D.netAOV,D.priorNetAOV)} sub={`PW: $${D.priorNetAOV}`}/>
       <MC l="AUR" v={`$${D.aur}`} ww={w(D.aur,D.priorAur)} sub={`Plan: $${PLAN.aur} · GLD ÷ Units`}/>
       <MC l="UPT" v={D.upt.toFixed(2)} ww={w(D.upt,D.priorUpt)} sub={`Plan: ${PLAN.upt} · Units ÷ Orders`}/>
     </div>
