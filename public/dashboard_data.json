@@ -3,7 +3,7 @@
     "week": "WEEK 16",
     "dateRange": "Apr 19-25, 2026",
     "quarter": "Q2",
-    "lastUpdated": "2026-05-01T02:23:45.631Z"
+    "lastUpdated": "2026-05-01T02:35:46.092Z"
   },
   "kpi": [
     {
@@ -805,22 +805,37 @@
       "metric": "new_net_rev",
       "metric_group": "revenue",
       "metric_label": "New Net Rev",
-      "#VALUE!": 0,
-      "Apr 19-25, 2026": 0
+      "Sun Apr 19 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 20354.48,
+      "Mon Apr 20 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 5556.17,
+      "Tue Apr 21 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 11665.04,
+      "Wed Apr 22 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 17184.06,
+      "Thu Apr 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 5438.81,
+      "Fri Apr 24 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 458.03,
+      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 9938.78
     },
     {
       "metric": "returning_net_rev",
       "metric_group": "revenue",
       "metric_label": "Returning Net Rev",
-      "#VALUE!": 0,
-      "Apr 19-25, 2026": 0
+      "Sun Apr 19 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 11355.7,
+      "Mon Apr 20 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 6618.04,
+      "Tue Apr 21 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 9385.16,
+      "Wed Apr 22 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 15404.03,
+      "Thu Apr 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 6259.23,
+      "Fri Apr 24 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 12576.47,
+      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 6182.34
     },
     {
       "metric": "total_net_rev",
       "metric_group": "revenue",
       "metric_label": "Total Net Rev",
-      "#VALUE!": 0,
-      "Apr 19-25, 2026": 0
+      "Sun Apr 19 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 31710.18,
+      "Mon Apr 20 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 12174.21,
+      "Tue Apr 21 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 21050.2,
+      "Wed Apr 22 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 32588.09,
+      "Thu Apr 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 11698.04,
+      "Fri Apr 24 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 13034.5,
+      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": 16121.12
     }
   ],
   "weekly_trend": [
