@@ -43,13 +43,16 @@ const MC = ({l, v, ww, pL, inv, sub}) => (
 );
 const SH=({t,icon})=><div style={{display:"flex",alignItems:"center",gap:7,marginBottom:13,marginTop:22}}><span style={{fontSize:16}}>{icon}</span><h2 style={{fontSize:15,fontWeight:700,color:C.nv,margin:0}}>{t}</h2></div>;
 const DEFS={
-  gross:"Total revenue before discounts or returns",disc:"Dollar amount discounted at checkout",gld:"Gross Revenue minus Discounts",ret:"Dollar value of returned items",
-  net:"GLD minus Returns",discPct:"Discounts / Gross Revenue",retPct:"Returns $ / GLD $",aov:"GLD / Orders",netAOV:"Net Revenue / Orders",aur:"GLD / Units Ordered",upt:"Units Ordered / Orders",
-  newNetROAS:"New Customer Net Revenue / Marketing Spend",gldROAS:"New Customer GLD / Marketing Spend",blendedROAS:"Total Net Revenue / Marketing Spend",
-  mer:"Marketing Spend / Net Revenue",merNew:"Marketing Spend / New Customer Net Revenue",cac:"Marketing Spend / New Customers Acquired",
-  sessions:"Total site visits (GA4)",conv:"Orders / Sessions",engagement:"Sessions with 1+ engaged event / Sessions",atcRate:"Add-to-Cart events / Sessions",bounce:"Bounced Sessions / Sessions",
-  st90:"90D Units Sold / (OH Units + 90D Units Sold)",woh:"OH Units / max(7D Units, 90D Units / 90 * 7)",ohVal:"On-hand inventory valued at unit cost",
-  newCust:"First-time purchasers (no prior Shopify order)",retOrders:"Orders from customers with 1+ prior purchase",mktSpend:"Total paid media spend (Meta + Google + Other)",
+  gross:"Total revenue before discounts or returns",disc:"Dollar amount discounted at checkout",gld:"Gross revenue minus discounts",ret:"Dollar value of returned items",
+  net:"GLD minus returns",discPct:"Discounts / gross revenue",retPct:"Returns / GLD",aov:"GLD / orders",netAOV:"Net revenue / orders",aur:"GLD / units ordered",upt:"Units ordered / orders",
+  newNetROAS:"New customer net revenue / marketing spend",gldROAS:"New customer GLD / marketing spend",blendedROAS:"Total net revenue / marketing spend",
+  mer:"Marketing spend / net revenue",merNew:"Marketing spend / new customer net revenue",cac:"Marketing spend / new customers acquired",
+  sessions:"Total site visits (GA4)",conv:"Orders / sessions",engagement:"Engaged sessions / total sessions",atcRate:"Add-to-cart events / total sessions",bounce:"Bounced sessions / sessions",
+  st7:"7D units sold / (OH units + 7D units sold)",st90:"90D units sold / (OH units + 90D units sold)",
+  woh:"OH units / avg weekly sell-through volume",wohOwned:"Total owned inventory / avg weekly sell-through volume",
+  ohVal:"On-hand inventory valued at unit cost",ohUnits:"Current on-hand unit count",onOrder:"Units on order (open orders + purchase orders)",
+  totalOwned:"OH units + on order units",unitCost:"Weighted average cost per unit",avgPrice:"Average selling price (GLD / units sold, 7D)",avgProfit:"Average selling price minus unit cost",
+  newCust:"Orders from new customers",retOrders:"Orders from returning customers",mktSpend:"Total paid media spend (Meta + Google + other)",
 };
 const Defs=({keys,show,toggle})=>(<div style={{marginTop:16}}>
   <div onClick={toggle} style={{cursor:"pointer",fontSize:11,color:C.sL,fontWeight:600,display:"flex",alignItems:"center",gap:4}}><span>{show?"▾":"▸"}</span>Metric Definitions</div>
@@ -107,6 +110,8 @@ useEffect(() => {
   const [lpChannel,setLpChannel]=useState("All");
   const [retTimeFilter,setRetTimeFilter]=useState("LW");
   const [expReasons,setExpReasons]=useState({});
+  const [reasonStyle,setReasonStyle]=useState("All");
+  const [reasonTime,setReasonTime]=useState("L5W");
 
   if (!data) return <div>Loading...</div>;
   const meta = data.metadata || {};
@@ -424,7 +429,7 @@ useEffect(() => {
     prior: pROAS != null ? parseFloat(pROAS) : null,
     planValue: null,
     format: "multiple",
-    subOverride: "New Net ÷ Spend"
+    subOverride: "New Net Rev / Marketing"
   },
   {
     l: "Sessions",
@@ -1102,13 +1107,16 @@ const rows = [
     const oh=Number(r.u_oh)||0;const ov=Number(r.oh_value)||0;
     const u7=Number(r.gu_7)||0;const u90=Number(r.gu_90)||0;
     const oo=(Number(r.u_oo)||0)+(Number(r.u_po)||0);
+    const owned=Number(r.u_owned)||(oh+oo);
     const uc=Number(r.unit_cost)||0;
     const gld=Number(r.gld7)||0;
-    const avgP=u7>0?Math.round(gld/u7):0;
-    const avgPr=avgP>0?Math.round(avgP-uc):0;
+    const gld90=Number(r.gld90)||0;
+    const avgP=u7>0&&gld>0?Math.round(gld/u7):u90>0&&gld90>0?Math.round(gld90/u90):0;
+    const avgPr=avgP>0&&uc>0?Math.round(avgP-uc):0;
     const stPct=(oh+u90)>0?+((u90/(oh+u90))*100).toFixed(1):0;
-    const rate=Math.max(u7,u90/90*7);const skuWoh=rate>0?Math.round(oh/rate):999;
-    styleMap[n].skus.push({c:r.color_name,s:r.sn,mc:r.merch_cat,oh,ov,u7,u90,st:stPct,woh:skuWoh,oo,uc,gld,avgP,avgPr});
+    const st7Pct=(oh+u7)>0?+((u7/(oh+u7))*100).toFixed(1):0;
+    const rate=Math.max(u7,u90/90*7);const skuWoh=rate>0?Math.round(owned/rate):999;
+    styleMap[n].skus.push({c:r.color_name,s:r.sn,mc:r.merch_cat,oh,ov,u7,u90,st:stPct,st7:st7Pct,woh:skuWoh,oo,owned,uc,gld,avgP,avgPr});
   });
   const invData = Object.values(styleMap).map(s=>{
     const dOH=s.skus.reduce((a,k)=>a+k.oh,0);
@@ -1116,13 +1124,22 @@ const rows = [
     const dU7=s.skus.reduce((a,k)=>a+k.u7,0);
     const dU90=s.skus.reduce((a,k)=>a+k.u90,0);
     const dOO=s.skus.reduce((a,k)=>a+k.oo,0);
+    const dOwned=s.skus.reduce((a,k)=>a+k.owned,0);
     const dGld=s.skus.reduce((a,k)=>a+k.gld,0);
     const dUC=dOH>0?Math.round(s.skus.reduce((a,k)=>a+k.uc*k.oh,0)/dOH):0;
-    const dAvgP=dU7>0?Math.round(dGld/dU7):0;
-    const dAvgPr=dAvgP>0?Math.round(dAvgP-dUC):0;
-    const dST=dU90>0?+((dU90/(dOH+dU90))*100).toFixed(1):0;
-    const rate=Math.max(dU7,dU90/90*7);const dWOH=rate>0?Math.round(dOH/rate):999;
-    return {...s,oh:dOH,ov:dOV,u7:dU7,u90:dU90,st:parseFloat(dST),woh:dWOH,oo:dOO,uc:dUC,avgP:dAvgP,avgPr:dAvgPr};
+    // Avg Price: use style-level GLD/units when available, otherwise weighted avg of per-SKU fallback prices
+    const dAvgP=(()=>{
+      if(dU7>0&&dGld>0) return Math.round(dGld/dU7);
+      // Fallback: weighted average of per-SKU avgP (which already fell back to gld90/gu90)
+      const wSum=s.skus.reduce((a,k)=>a+k.avgP*k.u7,0);
+      const wU=s.skus.reduce((a,k)=>a+(k.avgP>0?k.u7:0),0);
+      return wU>0?Math.round(wSum/wU):0;
+    })();
+    const dAvgPr=dAvgP>0&&dUC>0?Math.round(dAvgP-dUC):0;
+    const dST=(dOH+dU90)>0?+((dU90/(dOH+dU90))*100).toFixed(1):0;
+    const dST7=(dOH+dU7)>0?+((dU7/(dOH+dU7))*100).toFixed(1):0;
+    const rate=Math.max(dU7,dU90/90*7);const dWOH=rate>0?Math.round(dOwned/rate):999;
+    return {...s,oh:dOH,ov:dOV,u7:dU7,u90:dU90,st:parseFloat(dST),st7:parseFloat(dST7),woh:dWOH,oo:dOO,owned:dOwned,uc:dUC,avgP:dAvgP,avgPr:dAvgPr};
   });
 
   // Alert filter — applied at color/SKU level
@@ -1135,13 +1152,20 @@ const rows = [
     const dU7=matchedSkus.reduce((a,k)=>a+k.u7,0);
     const dU90=matchedSkus.reduce((a,k)=>a+k.u90,0);
     const dOO=matchedSkus.reduce((a,k)=>a+k.oo,0);
+    const dOwned=matchedSkus.reduce((a,k)=>a+k.owned,0);
     const dGld=matchedSkus.reduce((a,k)=>a+k.gld,0);
     const dUC=dOH>0?Math.round(matchedSkus.reduce((a,k)=>a+k.uc*k.oh,0)/dOH):0;
-    const dAvgP=dU7>0?Math.round(dGld/dU7):0;
-    const dAvgPr=dAvgP>0?Math.round(dAvgP-dUC):0;
-    const dST=dU90>0?+((dU90/(dOH+dU90))*100).toFixed(1):0;
-    const rate=Math.max(dU7,dU90/90*7);const dWOH=rate>0?Math.round(dOH/rate):999;
-    return {...s,skus:matchedSkus,oh:dOH,ov:dOV,u7:dU7,u90:dU90,st:parseFloat(dST),woh:dWOH,oo:dOO,uc:dUC,avgP:dAvgP,avgPr:dAvgPr};
+    const dAvgP=(()=>{
+      if(dU7>0&&dGld>0) return Math.round(dGld/dU7);
+      const wSum=matchedSkus.reduce((a,k)=>a+k.avgP*k.u7,0);
+      const wU=matchedSkus.reduce((a,k)=>a+(k.avgP>0?k.u7:0),0);
+      return wU>0?Math.round(wSum/wU):0;
+    })();
+    const dAvgPr=dAvgP>0&&dUC>0?Math.round(dAvgP-dUC):0;
+    const dST=(dOH+dU90)>0?+((dU90/(dOH+dU90))*100).toFixed(1):0;
+    const dST7=(dOH+dU7)>0?+((dU7/(dOH+dU7))*100).toFixed(1):0;
+    const rate=Math.max(dU7,dU90/90*7);const dWOH=rate>0?Math.round(dOwned/rate):999;
+    return {...s,skus:matchedSkus,oh:dOH,ov:dOV,u7:dU7,u90:dU90,st:parseFloat(dST),st7:parseFloat(dST7),woh:dWOH,oo:dOO,owned:dOwned,uc:dUC,avgP:dAvgP,avgPr:dAvgPr};
   }).filter(Boolean);
 
   // Sort
@@ -1158,7 +1182,7 @@ const rows = [
   const ttlST=ttlU90>0?((ttlU90/(ttlOH+ttlU90))*100).toFixed(1):"0";
   const btnS=(v,cur)=>({background:cur===v?C.b1:C.cd,color:cur===v?"#fff":C.sl,border:`1px solid ${cur===v?C.b1:C.bd}`,borderRadius:6,padding:"4px 8px",fontSize:10,fontWeight:600,cursor:"pointer"});
   const alertBtnS=(v,cur,color)=>({background:cur===v?color:C.cd,color:cur===v?"#fff":C.sl,border:`1px solid ${cur===v?color:C.bd}`,borderRadius:6,padding:"4px 8px",fontSize:10,fontWeight:600,cursor:"pointer"});
-  const invCols=[{h:"",k:null},{h:"Style",k:"n"},{h:"OH Units",k:"oh"},{h:"On Order",k:"oo"},{h:"OH Value",k:"ov"},{h:"Unit Cost",k:"uc"},{h:"7D Units",k:"u7"},{h:"Avg Price",k:"avgP"},{h:"Avg Profit",k:"avgPr"},{h:"90D Units",k:"u90"},{h:"90D ST%",k:"st"},{h:"WOH",k:"woh"}];
+  const invCols=[{h:"",k:null},{h:"Style",k:"n"},{h:"OH Units",k:"oh"},{h:"On Order",k:"oo"},{h:"Total Owned",k:"owned"},{h:"OH Value",k:"ov"},{h:"7D Units",k:"u7"},{h:"7D ST%",k:"st7"},{h:"90D Units",k:"u90"},{h:"90D ST%",k:"st"},{h:"Unit Cost",k:"uc"},{h:"Avg Price",k:"avgP"},{h:"Avg Profit",k:"avgPr"},{h:"WOH",k:"woh"}];
   const toggleSort=(k)=>{if(!k)return;setInvSort(p=>p.col===k?{...p,dir:p.dir==="desc"?"asc":"desc"}:{col:k,dir:"desc"});};
   return <>
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
@@ -1199,13 +1223,15 @@ const rows = [
         <td style={{padding:"7px 5px",fontWeight:600,color:C.nv}}>{s.n} <span style={{fontSize:9,color:C.sL,fontWeight:400}}>({fs.length} colors)</span></td>
         <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600}}>{s.oh.toLocaleString()}</td>
         <td style={{padding:"7px 5px",textAlign:"right",color:s.oo>0?C.nv:C.sL}}>{s.oo>0?s.oo.toLocaleString():"–"}</td>
+        <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600}}>{s.owned.toLocaleString()}</td>
         <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>{ff(s.ov)}</td>
-        <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>${s.uc}</td>
         <td style={{padding:"7px 5px",textAlign:"right"}}>{s.u7}</td>
-        <td style={{padding:"7px 5px",textAlign:"right"}}>{s.avgP>0?`$${s.avgP}`:"–"}</td>
-        <td style={{padding:"7px 5px",textAlign:"right",color:s.avgPr>0?C.gn:s.avgPr<0?C.rd:C.sL}}>{s.avgPr!==0?`$${s.avgPr}`:"–"}</td>
+        <td style={{padding:"7px 5px",textAlign:"right",color:s.st7>=5?C.gn:s.st7>=2?C.nv:s.st7>0?C.am:C.sL}}>{s.st7}%</td>
         <td style={{padding:"7px 5px",textAlign:"right"}}>{s.u90}</td>
         <td style={{padding:"7px 5px",textAlign:"right",fontWeight:500,color:s.st>=25?C.gn:s.st>=10?C.nv:s.st>0?C.am:C.rd}}>{s.st}%</td>
+        <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>${s.uc}</td>
+        <td style={{padding:"7px 5px",textAlign:"right"}}>{s.avgP>0?`$${s.avgP}`:"–"}</td>
+        <td style={{padding:"7px 5px",textAlign:"right",color:s.avgPr>0?C.gn:s.avgPr<0?C.rd:C.sL}}>{s.avgPr!==0?`$${s.avgPr}`:"–"}</td>
         <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600,color:s.woh>=100?C.rd:s.woh>=50?C.am:s.woh<=8?C.gn:s.woh<=16?"#ea580c":C.nv}}>{s.woh>=999?"No sales":s.woh}</td>
       </tr>
       {open&&fs.map((k,j)=>(
@@ -1214,20 +1240,22 @@ const rows = [
           <td style={{padding:"5px 5px 5px 20px",color:C.nv,fontSize:10}}><span style={{fontWeight:500}}>{k.c}</span> <span style={{color:C.sL}}>({k.s}{k.mc?` · ${k.mc}`:""})</span></td>
           <td style={{padding:"5px",textAlign:"right"}}>{k.oh}</td>
           <td style={{padding:"5px",textAlign:"right",color:k.oo>0?C.nv:C.sL}}>{k.oo>0?k.oo:"–"}</td>
+          <td style={{padding:"5px",textAlign:"right"}}>{k.owned}</td>
           <td style={{padding:"5px",textAlign:"right",color:C.sL}}>{k.ov?ff(k.ov):"–"}</td>
-          <td style={{padding:"5px",textAlign:"right",color:C.sL}}>${k.uc}</td>
           <td style={{padding:"5px",textAlign:"right"}}>{k.u7}</td>
-          <td style={{padding:"5px",textAlign:"right"}}>{k.avgP>0?`$${k.avgP}`:"–"}</td>
-          <td style={{padding:"5px",textAlign:"right",color:k.avgPr>0?C.gn:k.avgPr<0?C.rd:C.sL}}>{k.avgPr!==0?`$${k.avgPr}`:"–"}</td>
+          <td style={{padding:"5px",textAlign:"right",color:k.st7>=5?C.gn:k.st7>=2?C.nv:k.st7>0?C.am:C.sL}}>{k.st7}%</td>
           <td style={{padding:"5px",textAlign:"right"}}>{k.u90}</td>
           <td style={{padding:"5px",textAlign:"right",color:k.st>=25?C.gn:k.st>=10?C.nv:k.st>0?C.am:C.rd}}>{k.st}%</td>
+          <td style={{padding:"5px",textAlign:"right",color:C.sL}}>${k.uc}</td>
+          <td style={{padding:"5px",textAlign:"right"}}>{k.avgP>0?`$${k.avgP}`:"–"}</td>
+          <td style={{padding:"5px",textAlign:"right",color:k.avgPr>0?C.gn:k.avgPr<0?C.rd:C.sL}}>{k.avgPr!==0?`$${k.avgPr}`:"–"}</td>
           <td style={{padding:"5px",textAlign:"right",fontWeight:500,color:k.woh>=100?C.rd:k.woh>=50?C.am:k.woh<=8?C.gn:k.woh<=16?"#ea580c":C.nv}}>{k.woh>=999?"No sales":k.woh}</td>
         </tr>
       ))}
       </React.Fragment>;
     })}</tbody></table>
   </div>
-  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["st90","woh","ohVal"]}/>
+  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["ohUnits","onOrder","totalOwned","ohVal","st7","st90","unitCost","avgPrice","avgProfit","wohOwned"]}/>
   </>;
 })()}
 
@@ -1253,20 +1281,36 @@ const rows = [
   const getRetTrend = (metric) => (data.weekly_trend || []).find(r => r.metric === metric) || {};
   const newRetTrend = getRetTrend("new_returns");
   const retRetTrend = getRetTrend("returning_returns");
+  const totalRetTrend = getRetTrend("total_returns");
+  const totalNetTrend = getRetTrend("total_net_rev");
   const trendWeeks = Object.keys(newRetTrend).filter(k => !isNaN(Number(k))).sort((a,b)=>Number(a)-Number(b));
-  const retTrendData = trendWeeks.map(wk => ({
-    wk: `Wk ${wk}`,
-    newRefund: Math.abs(Number(newRetTrend[wk]) || 0),
-    retRefund: Math.abs(Number(retRetTrend[wk]) || 0),
-  }));
+  const retTrendData = trendWeeks.map(wk => {
+    const totalRet = Math.abs(Number(totalRetTrend[wk]) || 0);
+    const netRev = Number(totalNetTrend[wk]) || 0;
+    return {
+      wk: `Wk ${wk}`,
+      newRefund: Math.abs(Number(newRetTrend[wk]) || 0),
+      retRefund: Math.abs(Number(retRetTrend[wk]) || 0),
+      retPct: netRev > 0 ? +((totalRet / netRev) * 100).toFixed(1) : 0,
+    };
+  });
+
+  // Build style-level 7D GLD lookup from product_sku for "% of 7D Sales"
+  const styleGldMap = {};
+  (data.product_sku || []).forEach(r => {
+    const n = r.style_name;
+    styleGldMap[n] = (styleGldMap[n] || 0) + (Number(r.gld7) || 0);
+  });
+  const totalGld7All = Object.values(styleGldMap).reduce((a, v) => a + v, 0);
 
   // Style-level returns from returns_details
-  const timeTags = [...new Set(rd.map(r=>r['Time Tag']).filter(Boolean))];
+  const timeField = rd.length > 0 && rd[0]['Week No'] != null ? 'Week No' : 'Time Tag';
+  const timeTags = [...new Set(rd.map(r=>r[timeField]).filter(v=>v!=null&&v!==''))];
   const hasTimeTag = timeTags.length > 0;
   const numericTags = timeTags.filter(t=>!isNaN(Number(t))).map(Number).sort((a,b)=>b-a);
   const cwTag = numericTags.length > 0 ? String(numericTags[0]) : timeTags.includes("CW") ? "CW" : null;
   const retTimeTag = retTimeFilter === "LW" ? cwTag : null;
-  const rdFiltered = !hasTimeTag ? rd : retTimeTag ? rd.filter(r => r['Time Tag'] === retTimeTag) : rd.filter(r => r['Time Tag'] !== cwTag);
+  const rdFiltered = !hasTimeTag ? rd : retTimeTag ? rd.filter(r => String(r[timeField]) === retTimeTag) : rd.filter(r => String(r[timeField]) !== cwTag);
   const styleMap = {};
   rdFiltered.forEach(r => {
     const s = r['Product Title'];
@@ -1276,7 +1320,12 @@ const rows = [
   });
   const totalRefundFiltered = Object.values(styleMap).reduce((a, s) => a + s.value, 0);
   const retStyles = Object.values(styleMap)
-    .map(s => ({ ...s, pct: totalRefundFiltered > 0 ? +((s.value / totalRefundFiltered) * 100).toFixed(1) : 0 }))
+    .map(s => ({
+      ...s,
+      pct: totalRefundFiltered > 0 ? +((s.value / totalRefundFiltered) * 100).toFixed(1) : 0,
+      salesGld: styleGldMap[s.s] || 0,
+      pctOfSales: (styleGldMap[s.s] || 0) > 0 ? +((s.value / styleGldMap[s.s]) * 100).toFixed(1) : null,
+    }))
     .sort((a, b) => b.value - a.value);
   const retStylesShown = retStyles.slice(0, 15);
   const otherStyles = retStyles.slice(15);
@@ -1294,19 +1343,8 @@ const rows = [
   const reasonGroupMap = {};
   Object.entries(reasonGroups).forEach(([g, reasons]) => reasons.forEach(r => { reasonGroupMap[r] = g; }));
 
-  const reasonData = {};
-  rdFiltered.forEach(r => {
-    const parent = r['Parent Return Reason'];
-    const sub = r['Reason'];
-    const group = reasonGroupMap[parent] || "Other";
-    if (!reasonData[group]) reasonData[group] = { g: group, total: 0, subs: {} };
-    reasonData[group].total += r['count Return ID'];
-    const subKey = (sub && sub !== "#N/A") ? sub : parent;
-    if (!reasonData[group].subs[subKey]) reasonData[group].subs[subKey] = 0;
-    reasonData[group].subs[subKey] += r['count Return ID'];
-  });
-  const reasonRows = Object.values(reasonData).sort((a, b) => b.total - a.total);
-  const reasonGrandTotal = reasonRows.reduce((a, g) => a + g.total, 0);
+  // Unique product styles for reason filter dropdown
+  const allReturnStyles = [...new Set(rd.map(r => r['Product Title']).filter(Boolean))].sort();
 
   return <>
   {/* KPI Row */}
@@ -1325,15 +1363,18 @@ const rows = [
       <ComposedChart data={retTrendData} margin={{top:4,right:8,left:0,bottom:0}}>
         <CartesianGrid strokeDasharray="3 3" stroke={C.bd}/>
         <XAxis dataKey="wk" tick={{fontSize:11,fill:C.sL}}/>
-        <YAxis tick={{fontSize:10,fill:C.sL}} width={52} tickFormatter={v=>`${v<0?"-":""}$${(Math.abs(v)/1000).toFixed(0)}k`}/>
+        <YAxis yAxisId="left" tick={{fontSize:10,fill:C.sL}} width={52} tickFormatter={v=>`${v<0?"-":""}$${(Math.abs(v)/1000).toFixed(0)}k`}/>
+        <YAxis yAxisId="right" orientation="right" tick={{fontSize:10,fill:C.am}} width={40} tickFormatter={v=>`${v}%`}/>
         <Tooltip content={<CT/>}/>
-        <Bar dataKey="newRefund" stackId="a" fill={C.b1} radius={[0,0,0,0]} name="New Returns"/>
-        <Bar dataKey="retRefund" stackId="a" fill={C.b3} radius={[3,3,0,0]} name="Returning Returns"/>
+        <Bar yAxisId="left" dataKey="newRefund" stackId="a" fill={C.b1} radius={[0,0,0,0]} name="New Returns"/>
+        <Bar yAxisId="left" dataKey="retRefund" stackId="a" fill={C.b3} radius={[3,3,0,0]} name="Returning Returns"/>
+        <Line yAxisId="right" type="monotone" dataKey="retPct" stroke={C.am} strokeWidth={2} dot={{r:3,fill:C.am}} name="Returns / Net Sales %" connectNulls/>
       </ComposedChart>
     </ResponsiveContainer>
     <div style={{display:"flex",gap:16,marginTop:8,fontSize:11,color:C.sL}}>
       <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b1,borderRadius:2,display:"inline-block"}}/>New customer returns</span>
       <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b3,borderRadius:2,display:"inline-block"}}/>Returning customer returns</span>
+      <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:3,background:C.am,borderRadius:1,display:"inline-block"}}/>Returns / net sales %</span>
     </div>
   </div>
   </>}
@@ -1346,7 +1387,7 @@ const rows = [
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:18,marginBottom:14}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-        {["Style","Returns","Refund $","% of Total"].map(h=><th key={h} style={{textAlign:h==="Style"?"left":"right",padding:"5px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>{h}</th>)}
+        {["Style","Returns","Refund $","% of Total","% of 7D Sales"].map(h=><th key={h} style={{textAlign:h==="Style"?"left":"right",padding:"5px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>{h}</th>)}
       </tr></thead>
       <tbody>{retStylesShown.map((r,i)=>(
         <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}}>
@@ -1354,6 +1395,7 @@ const rows = [
           <td style={{padding:"7px 6px",textAlign:"right",fontWeight:600}}>{r.count}</td>
           <td style={{padding:"7px 6px",textAlign:"right",color:C.rd,fontWeight:500}}>{ff(r.value)}</td>
           <td style={{padding:"7px 6px",textAlign:"right"}}><div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:5}}><div style={{width:Math.round(r.pct*1.8),height:6,background:C.am,borderRadius:3,opacity:0.7}}/>{r.pct}%</div></td>
+          <td style={{padding:"7px 6px",textAlign:"right",fontWeight:500,color:r.pctOfSales!=null?(r.pctOfSales>=100?C.rd:r.pctOfSales>=50?C.am:C.nv):C.sL}}>{r.pctOfSales!=null?`${r.pctOfSales}%`:"–"}</td>
         </tr>
       ))}
       {otherStyles.length>0&&<tr style={{borderBottom:`1px solid ${C.bd}`,background:"rgba(0,0,0,0.03)"}}>
@@ -1361,12 +1403,14 @@ const rows = [
         <td style={{padding:"7px 6px",textAlign:"right"}}>{otherCount}</td>
         <td style={{padding:"7px 6px",textAlign:"right",color:C.sL}}>{ff(otherValue)}</td>
         <td style={{padding:"7px 6px",textAlign:"right"}}>{otherPct}%</td>
+        <td style={{padding:"7px 6px",textAlign:"right",color:C.sL}}>–</td>
       </tr>}
       <tr style={{borderTop:`2px solid ${C.bd}`,background:"rgba(0,0,0,0.02)"}}>
         <td style={{padding:"7px 6px",fontWeight:700,color:C.nv}}>Total</td>
         <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700}}>{retStyles.reduce((a,s)=>a+s.count,0)}</td>
         <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700,color:C.rd}}>{ff(totalRefundFiltered)}</td>
         <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700}}>100%</td>
+        <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700,color:C.nv}}>{totalGld7All>0?`${((totalRefundFiltered/totalGld7All)*100).toFixed(1)}%`:"–"}</td>
       </tr>
       </tbody>
     </table>
@@ -1374,7 +1418,49 @@ const rows = [
 
   {/* Return Reasons */}
   <SH t="Return Reasons" icon="🔍"/>
-  <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
+  {(()=>{
+    // Independent time filter for reasons: LW = current week, L5W = all weeks
+    const reasonTimeTag = reasonTime === "LW" ? cwTag : null;
+    const rdReasonFiltered = (()=>{
+      let rows = rd;
+      // Time filter
+      if(hasTimeTag && reasonTimeTag) rows = rows.filter(r => String(r[timeField]) === reasonTimeTag);
+      // Style filter
+      if(reasonStyle !== "All") rows = rows.filter(r => r['Product Title'] === reasonStyle);
+      return rows;
+    })();
+
+    // Aggregate reasons from filtered data
+    const reasonData = {};
+    rdReasonFiltered.forEach(r => {
+      const parent = r['Parent Return Reason'];
+      const sub = r['Reason'];
+      const group = reasonGroupMap[parent] || "Other";
+      if (!reasonData[group]) reasonData[group] = { g: group, total: 0, subs: {} };
+      reasonData[group].total += r['count Return ID'];
+      const subKey = (sub && sub !== "#N/A") ? sub : parent;
+      if (!reasonData[group].subs[subKey]) reasonData[group].subs[subKey] = 0;
+      reasonData[group].subs[subKey] += r['count Return ID'];
+    });
+    const reasonRows = Object.values(reasonData).sort((a, b) => b.total - a.total);
+    const reasonGrandTotal = reasonRows.reduce((a, g) => a + g.total, 0);
+
+    return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
+    {/* Filters row */}
+    <div style={{display:"flex",gap:12,marginBottom:14,flexWrap:"wrap",alignItems:"center"}}>
+      <div style={{display:"flex",gap:4,alignItems:"center"}}>
+        {[["LW",cwTag?`Wk ${cwTag}`:"This Week"],["L5W","All Weeks"]].map(([k,label])=><button key={k} onClick={()=>setReasonTime(k)} style={{background:reasonTime===k?C.b1:"#fff",color:reasonTime===k?"#fff":C.sl,border:`1px solid ${reasonTime===k?C.b1:C.bd}`,borderRadius:6,padding:"6px 14px",fontSize:12,fontWeight:600,cursor:"pointer"}}>{label}</button>)}
+      </div>
+      <div style={{display:"flex",gap:6,alignItems:"center",flex:1,minWidth:200}}>
+        <span style={{fontSize:11,fontWeight:600,color:C.sL,whiteSpace:"nowrap"}}>Style:</span>
+        <select value={reasonStyle} onChange={e=>setReasonStyle(e.target.value)} style={{border:`1px solid ${C.bd}`,borderRadius:6,padding:"6px 10px",fontSize:12,color:C.nv,background:"#fff",outline:"none",maxWidth:280,flex:1,cursor:"pointer"}}>
+          <option value="All">All Styles</option>
+          {allReturnStyles.map(s=><option key={s} value={s}>{s}</option>)}
+        </select>
+      </div>
+      {reasonStyle!=="All"&&<button onClick={()=>setReasonStyle("All")} style={{background:"transparent",border:`1px solid ${C.bd}`,borderRadius:6,padding:"5px 10px",fontSize:11,color:C.sL,cursor:"pointer"}}>✕ Clear</button>}
+    </div>
+    {reasonStyle!=="All"&&<div style={{fontSize:11,color:C.b1,fontWeight:600,marginBottom:10}}>Showing reasons for: {reasonStyle}</div>}
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`,background:"#f8fafc"}}>
         <th style={{textAlign:"left",padding:"7px 8px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>Reason</th>
@@ -1383,10 +1469,10 @@ const rows = [
       </tr></thead>
       <tbody>
         {reasonRows.map((grp,gi)=>{
-          const open=expReasons[gi];
+          const open=expReasons[grp.g];
           const subRows=Object.entries(grp.subs).sort((a,b)=>b[1]-a[1]);
-          return <React.Fragment key={gi}>
-            <tr style={{borderBottom:`1px solid ${C.bd}`,cursor:"pointer",background:"#f8fafc"}} onClick={()=>setExpReasons(p=>({...p,[gi]:!p[gi]}))} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="#f8fafc"}>
+          return <React.Fragment key={grp.g}>
+            <tr style={{borderBottom:`1px solid ${C.bd}`,cursor:"pointer",background:"#f8fafc"}} onClick={()=>setExpReasons(p=>({...p,[grp.g]:!p[grp.g]}))} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="#f8fafc"}>
               <td style={{padding:"8px 8px",fontWeight:700,color:C.nv}}><span style={{marginRight:6,fontSize:10,color:C.sL}}>{open?"▾":"▸"}</span>{grp.g}</td>
               <td style={{padding:"8px 8px",textAlign:"right",fontWeight:700}}>{grp.total}</td>
               <td style={{padding:"8px 8px",textAlign:"right",fontWeight:700}}>{reasonGrandTotal>0?((grp.total/reasonGrandTotal)*100).toFixed(0):0}%</td>
@@ -1400,14 +1486,16 @@ const rows = [
             ))}
           </React.Fragment>;
         })}
-        <tr style={{borderTop:`2px solid ${C.bd}`,background:"#f1f5f9"}}>
+        {reasonGrandTotal===0&&<tr><td colSpan={3} style={{padding:16,textAlign:"center",color:C.sL,fontStyle:"italic"}}>No return data for this selection</td></tr>}
+        {reasonGrandTotal>0&&<tr style={{borderTop:`2px solid ${C.bd}`,background:"#f1f5f9"}}>
           <td style={{padding:"8px 8px",fontWeight:700,color:C.nv}}>Grand Total</td>
           <td style={{padding:"8px 8px",textAlign:"right",fontWeight:700}}>{reasonGrandTotal}</td>
           <td style={{padding:"8px 8px",textAlign:"right",fontWeight:700}}>100%</td>
-        </tr>
+        </tr>}
       </tbody>
     </table>
-  </div>
+  </div>;
+  })()}
 
   <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gld","ret","retPct","net"]}/>
 </>;
