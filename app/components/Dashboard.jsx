@@ -124,6 +124,7 @@ useEffect(() => {
   const [invSC,setInvSC]=useState("All");
   const [invSort,setInvSort]=useState({col:"oh",dir:"desc"});
   const [invAlert,setInvAlert]=useState("All");
+  const [invTF,setInvTF]=useState("7D");
   const [showDefs,setShowDefs]=useState(true);
   const [lpChannel,setLpChannel]=useState("All");
   const [expReasons,setExpReasons]=useState({});
@@ -1103,100 +1104,148 @@ const rows = [
 {/* ═══ INVENTORY ═══ */}
 {tab==="inventory"&&(()=>{
   const allSkus = data.product_sku || [];
-  const invMClasses = [...new Set(allSkus.map(r=>r.m_class).filter(Boolean))].sort();
   const invMCats = [...new Set(allSkus.map(r=>r.merch_cat).filter(Boolean))].sort();
   const recentSeasons = ["S26","F25","S25"];
+
+  // Time-frame field mapping
+  const tfFields = {
+    "7D":  { uKey:"nu_7",  gldKey:"gld7",  weeks:1,   label:"7D" },
+    "90D": { uKey:"nu_90", gldKey:null,     weeks:90/7, label:"90D" },
+    "YTD": { uKey:null,    gldKey:null,     weeks:null, label:"YTD" },
+  };
+  const tf = tfFields[invTF] || tfFields["7D"];
 
   // Filter SKUs
   const filtered = allSkus.filter(r=>{
     if(invSeason==="2024 & Prior"&&recentSeasons.includes(r.sn)) return false;
     if(invSeason!=="All"&&invSeason!=="2024 & Prior"&&r.sn!==invSeason) return false;
-    if(invMC!=="All"&&r.m_class!==invMC) return false;
     if(invSC!=="All"&&r.merch_cat!==invSC) return false;
     return true;
   });
 
-  // Group by style
-  const styleMap = {};
-  filtered.forEach(r=>{
-    const n=r.style;
-    if(!styleMap[n]) styleMap[n]={n,d:r.m_class,skus:[]};
-    const oh=Number(r.u_oh)||0;const ov=Number(r.oh_value)||0;
-    const u7=Number(r.gu_7)||0;const u90=Number(r.gu_90)||0;
+  // Build SKU-level data
+  const buildSku = (r) => {
+    const oh=Number(r.u_oh)||0; const ov=Number(r.oh_value)||0;
     const oo=(Number(r.u_oo)||0)+(Number(r.u_po)||0);
     const owned=Number(r.u_owned)||(oh+oo);
     const uc=Number(r.unit_cost)||0;
-    const gld=Number(r.gld7)||0;
-    const avgP=u7>0&&gld>0?Math.round(gld/u7):0;
+    const nu=tf.uKey?Number(r[tf.uKey])||0:0;
+    const gld=tf.gldKey?Number(r[tf.gldKey])||0:0;
+    const st=(oh+nu)>0?+((nu/(oh+nu))*100).toFixed(1):0;
+    const avgP=nu>0&&gld>0?Math.round(gld/nu):0;
     const avgPr=avgP>0&&uc>0?Math.round(avgP-uc):0;
-    const stPct=(oh+u90)>0?+((u90/(oh+u90))*100).toFixed(1):0;
-    const st7Pct=(oh+u7)>0?+((u7/(oh+u7))*100).toFixed(1):0;
-    const rate=Math.max(u7,u90/90*7);const skuWoh=rate>0?Math.round(owned/rate):999;
-    styleMap[n].skus.push({c:r.color,s:r.sn,mc:r.merch_cat,oh,ov,u7,u90,st:stPct,st7:st7Pct,woh:skuWoh,oo,owned,uc,gld,avgP,avgPr});
-  });
-  const invData = Object.values(styleMap).map(s=>{
-    const dOH=s.skus.reduce((a,k)=>a+k.oh,0);
-    const dOV=s.skus.reduce((a,k)=>a+k.ov,0);
-    const dU7=s.skus.reduce((a,k)=>a+k.u7,0);
-    const dU90=s.skus.reduce((a,k)=>a+k.u90,0);
-    const dOO=s.skus.reduce((a,k)=>a+k.oo,0);
-    const dOwned=s.skus.reduce((a,k)=>a+k.owned,0);
-    const dGld=s.skus.reduce((a,k)=>a+k.gld,0);
-    const dUC=dOH>0?Math.round(s.skus.reduce((a,k)=>a+k.uc*k.oh,0)/dOH):0;
-    // Avg Price: use style-level GLD/units when available
-    const dAvgP=dU7>0&&dGld>0?Math.round(dGld/dU7):0;
-    const dAvgPr=dAvgP>0&&dUC>0?Math.round(dAvgP-dUC):0;
-    const dST=(dOH+dU90)>0?+((dU90/(dOH+dU90))*100).toFixed(1):0;
-    const dST7=(dOH+dU7)>0?+((dU7/(dOH+dU7))*100).toFixed(1):0;
-    const rate=Math.max(dU7,dU90/90*7);const dWOH=rate>0?Math.round(dOwned/rate):999;
-    return {...s,oh:dOH,ov:dOV,u7:dU7,u90:dU90,st:parseFloat(dST),st7:parseFloat(dST7),woh:dWOH,oo:dOO,owned:dOwned,uc:dUC,avgP:dAvgP,avgPr:dAvgPr};
-  });
+    const weeklyRate=tf.weeks?nu/tf.weeks:0;
+    const woh=weeklyRate>0?Math.round(owned/weeklyRate):999;
+    return {c:r.color,sn:r.sn,mc:r.merch_cat,style:r.style,mClass:r.m_class,oh,ov,oo,owned,uc,nu,gld,st:parseFloat(st),avgP,avgPr,woh,weeklyRate};
+  };
 
-  // Alert filter — applied at color/SKU level
+  const skuRows = filtered.map(buildSku);
+
+  // Alert filter at SKU level
   const skuMatch = (k) => invAlert==="Restock"?(k.woh<16&&k.woh>0):invAlert==="Slow"?(k.woh>30):invAlert==="High OH"?(k.oh>100):true;
-  const alertFiltered = invAlert==="All"?invData:invData.map(s=>{
-    const matchedSkus=s.skus.filter(skuMatch);
-    if(!matchedSkus.length) return null;
-    const dOH=matchedSkus.reduce((a,k)=>a+k.oh,0);
-    const dOV=matchedSkus.reduce((a,k)=>a+k.ov,0);
-    const dU7=matchedSkus.reduce((a,k)=>a+k.u7,0);
-    const dU90=matchedSkus.reduce((a,k)=>a+k.u90,0);
-    const dOO=matchedSkus.reduce((a,k)=>a+k.oo,0);
-    const dOwned=matchedSkus.reduce((a,k)=>a+k.owned,0);
-    const dGld=matchedSkus.reduce((a,k)=>a+k.gld,0);
-    const dUC=dOH>0?Math.round(matchedSkus.reduce((a,k)=>a+k.uc*k.oh,0)/dOH):0;
-    const dAvgP=dU7>0&&dGld>0?Math.round(dGld/dU7):0;
-    const dAvgPr=dAvgP>0&&dUC>0?Math.round(dAvgP-dUC):0;
-    const dST=(dOH+dU90)>0?+((dU90/(dOH+dU90))*100).toFixed(1):0;
-    const dST7=(dOH+dU7)>0?+((dU7/(dOH+dU7))*100).toFixed(1):0;
-    const rate=Math.max(dU7,dU90/90*7);const dWOH=rate>0?Math.round(dOwned/rate):999;
-    return {...s,skus:matchedSkus,oh:dOH,ov:dOV,u7:dU7,u90:dU90,st:parseFloat(dST),st7:parseFloat(dST7),woh:dWOH,oo:dOO,owned:dOwned,uc:dUC,avgP:dAvgP,avgPr:dAvgPr};
-  }).filter(Boolean);
+  const alertSkus = invAlert==="All"?skuRows:skuRows.filter(skuMatch);
 
-  // Sort
+  // Aggregation helper
+  const agg = (rows) => {
+    const oh=rows.reduce((a,r)=>a+r.oh,0);
+    const ov=rows.reduce((a,r)=>a+r.ov,0);
+    const oo=rows.reduce((a,r)=>a+r.oo,0);
+    const owned=rows.reduce((a,r)=>a+r.owned,0);
+    const nu=rows.reduce((a,r)=>a+r.nu,0);
+    const gld=rows.reduce((a,r)=>a+r.gld,0);
+    const uc=oh>0?Math.round(rows.reduce((a,r)=>a+r.uc*r.oh,0)/oh):0;
+    const st=(oh+nu)>0?+((nu/(oh+nu))*100).toFixed(1):0;
+    const avgP=nu>0&&gld>0?Math.round(gld/nu):0;
+    const avgPr=avgP>0&&uc>0?Math.round(avgP-uc):0;
+    const weeklyRate=rows.reduce((a,r)=>a+r.weeklyRate,0);
+    const woh=weeklyRate>0?Math.round(owned/weeklyRate):999;
+    return {oh,ov,oo,owned,nu,gld,uc,st:parseFloat(st),avgP,avgPr,woh};
+  };
+
+  // Group: Product Class → Style → Colors
+  const classMap = {};
+  alertSkus.forEach(sk => {
+    const cls = sk.mClass || 'Other';
+    const sty = sk.style || 'Unknown';
+    if (!classMap[cls]) classMap[cls] = { name: cls, styles: {} };
+    if (!classMap[cls].styles[sty]) classMap[cls].styles[sty] = { name: sty, skus: [] };
+    classMap[cls].styles[sty].skus.push(sk);
+  });
+
+  // Build hierarchical data with aggregates
+  const classData = Object.values(classMap).map(cls => {
+    const styleArr = Object.values(cls.styles).map(sty => ({
+      name: sty.name,
+      skus: sty.skus.sort((a,b)=>b.oh-a.oh),
+      ...agg(sty.skus),
+    })).sort((a,b)=>b.oh-a.oh);
+    return { name: cls.name, styles: styleArr, ...agg(styleArr.flatMap(s=>s.skus)) };
+  });
+
+  // Custom product class order
+  const classOrder = ["Pumps","Flats","Sandals","Boots","Sneakers","Accessories"];
+  const sorted = [...classData].sort((a,b)=>{
+    const ai=classOrder.indexOf(a.name), bi=classOrder.indexOf(b.name);
+    return (ai===-1?99:ai)-(bi===-1?99:bi);
+  });
+
+  // Grand totals
+  const gt = agg(alertSkus);
+
+  // Style-level: filter by selected product class, then sort
+  const styleSkus = invMC==="All"?alertSkus:alertSkus.filter(sk=>sk.mClass===invMC);
+  const styleMap = {};
+  styleSkus.forEach(sk=>{
+    const sty=sk.style||'Unknown';
+    if(!styleMap[sty]) styleMap[sty]={name:sty,skus:[]};
+    styleMap[sty].skus.push(sk);
+  });
+  const styleRows = Object.values(styleMap).map(s=>({...s,skus:s.skus.sort((a,b)=>b.oh-a.oh),...agg(s.skus)}));
   const sortCol=invSort.col;const sortDir=invSort.dir==="asc"?1:-1;
-  const sorted=[...alertFiltered].sort((a,b)=>{
-    if(sortCol==="n") return a.n.localeCompare(b.n)*sortDir;
+  const sortedStyles=[...styleRows].sort((a,b)=>{
+    if(sortCol==="name") return a.name.localeCompare(b.name)*sortDir;
     return ((a[sortCol]??0)-(b[sortCol]??0))*sortDir;
   });
 
-  const ttlOH=sorted.reduce((a,s)=>a+s.oh,0);
-  const ttlOV=sorted.reduce((a,s)=>a+s.ov,0);
-  const ttlU7=sorted.reduce((a,s)=>a+s.u7,0);
-  const ttlU90=sorted.reduce((a,s)=>a+s.u90,0);
-  const ttlST=ttlU90>0?((ttlU90/(ttlOH+ttlU90))*100).toFixed(1):"0";
   const btnS=(v,cur)=>({background:cur===v?C.b1:C.cd,color:cur===v?"#fff":C.sl,border:`1px solid ${cur===v?C.b1:C.bd}`,borderRadius:6,padding:"4px 8px",fontSize:10,fontWeight:600,cursor:"pointer"});
   const alertBtnS=(v,cur,color)=>({background:cur===v?color:C.cd,color:cur===v?"#fff":C.sl,border:`1px solid ${cur===v?color:C.bd}`,borderRadius:6,padding:"4px 8px",fontSize:10,fontWeight:600,cursor:"pointer"});
-  const invCols=[{h:"",k:null},{h:"Style",k:"n"},{h:"OH Units",k:"oh"},{h:"On Order",k:"oo"},{h:"Total Owned",k:"owned"},{h:"OH Value",k:"ov"},{h:"7D Units",k:"u7"},{h:"7D ST%",k:"st7"},{h:"90D Units",k:"u90"},{h:"90D ST%",k:"st"},{h:"Unit Cost",k:"uc"},{h:"Avg Price",k:"avgP"},{h:"Avg Profit",k:"avgPr"},{h:"WOH",k:"woh"}];
+  const tfBtnS=(v,cur)=>({background:cur===v?C.nv:C.cd,color:cur===v?"#fff":C.sl,border:`1px solid ${cur===v?C.nv:C.bd}`,borderRadius:8,padding:"6px 16px",fontSize:12,fontWeight:700,cursor:"pointer"});
+
+  const invCols=[{h:"Name",k:"name"},{h:"OH Units",k:"oh"},{h:"On Order",k:"oo"},{h:"Total Owned",k:"owned"},{h:"OH Value",k:"ov"},{h:`Net Units (${tf.label})`,k:"nu"},{h:"ST%",k:"st"},{h:"Unit Cost",k:"uc"},{h:"Avg Price",k:"avgP"},{h:"Avg Profit",k:"avgPr"},{h:"WOH",k:"woh"}];
+  const styleCols=[{h:"",k:null},...invCols];
   const toggleSort=(k)=>{if(!k)return;setInvSort(p=>p.col===k?{...p,dir:p.dir==="desc"?"asc":"desc"}:{col:k,dir:"desc"});};
+
+  // Render helpers
+  const fmtWoh=(v)=>v>=999?"–":v;
+  const wohColor=(v)=>v>=100?C.rd:v>=50?C.am:v<=8&&v>0?C.gn:v<=16?"#ea580c":C.nv;
+  const stColor=(v)=>v>=25?C.gn:v>=10?C.nv:v>0?C.am:C.sL;
+  const profitColor=(v)=>v>0?C.gn:v<0?C.rd:C.sL;
+  const renderCells=(d,bold)=><>
+    <td style={{padding:"7px 5px",textAlign:"right",fontWeight:bold?700:600}}>{d.oh.toLocaleString()}</td>
+    <td style={{padding:"7px 5px",textAlign:"right",color:d.oo>0?C.nv:C.sL}}>{d.oo>0?d.oo.toLocaleString():"–"}</td>
+    <td style={{padding:"7px 5px",textAlign:"right",fontWeight:bold?700:600}}>{d.owned.toLocaleString()}</td>
+    <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>{ff(d.ov)}</td>
+    <td style={{padding:"7px 5px",textAlign:"right"}}>{d.nu}</td>
+    <td style={{padding:"7px 5px",textAlign:"right",color:stColor(d.st)}}>{d.st}%</td>
+    <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>{d.uc>0?`$${d.uc}`:"–"}</td>
+    <td style={{padding:"7px 5px",textAlign:"right"}}>{d.avgP>0?`$${d.avgP}`:"–"}</td>
+    <td style={{padding:"7px 5px",textAlign:"right",color:profitColor(d.avgPr)}}>{d.avgPr!==0?`$${d.avgPr}`:"–"}</td>
+    <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600,color:wohColor(d.woh)}}>{fmtWoh(d.woh)}</td>
+  </>;
+
   return <>
+  {/* Time Frame Filter */}
+  <div style={{display:"flex",gap:6,marginBottom:10}}>
+    {["7D","90D","YTD"].map(v=><button key={v} onClick={()=>setInvTF(v)} style={tfBtnS(v,invTF)}>{v}</button>)}
+  </div>
+
+  <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
+    <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Product Class:</span>
+    {["All",...classOrder].map(v=><button key={v} onClick={()=>setInvMC(v)} style={btnS(v,invMC)}>{v}</button>)}
+  </div>
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
     <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Season:</span>
     {["All","S26","F25","S25","2024 & Prior"].map(v=><button key={v} onClick={()=>setInvSeason(v)} style={btnS(v,invSeason)}>{v}</button>)}
-  </div>
-  <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
-    <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Product Class:</span>
-    {["All",...invMClasses].map(v=><button key={v} onClick={()=>setInvMC(v)} style={btnS(v,invMC)}>{v}</button>)}
   </div>
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
     <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Merch Category:</span>
@@ -1205,62 +1254,76 @@ const rows = [
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:10,alignItems:"center"}}>
     <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Alerts:</span>
     <button onClick={()=>setInvAlert("All")} style={btnS("All",invAlert)}>All</button>
-    <button onClick={()=>setInvAlert("Restock")} style={alertBtnS("Restock",invAlert,C.rd)}>Restock Alert (WOH &lt; 16)</button>
+    <button onClick={()=>setInvAlert("Restock")} style={alertBtnS("Restock",invAlert,C.rd)}>Restock (WOH &lt; 16)</button>
     <button onClick={()=>setInvAlert("Slow")} style={alertBtnS("Slow",invAlert,C.am)}>Slow Moving (WOH &gt; 30)</button>
-    <button onClick={()=>setInvAlert("High OH")} style={alertBtnS("High OH",invAlert,"#7c3aed")}>High Inventory (Qty &gt; 100)</button>
+    <button onClick={()=>setInvAlert("High OH")} style={alertBtnS("High OH",invAlert,"#7c3aed")}>High OH (Qty &gt; 100)</button>
   </div>
-  <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:12}}>
-    <MC l="Total OH Units" v={ttlOH.toLocaleString()} sub={`${sorted.length} styles`}/>
-    <MC l="OH Value" v={fmt(ttlOV)} sub="At cost"/>
-    <MC l="7D Units Sold" v={ttlU7.toLocaleString()} sub="Last 7 days"/>
-    <MC l="90D Units Sold" v={ttlU90.toLocaleString()} sub="Last 90 days"/>
-    <MC l="90D ST%" v={`${ttlST}%`} sub="90D / (OH + 90D)"/>
+
+  {/* KPI Summary */}
+  <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
+    <MC l="Total OH Units" v={gt.oh.toLocaleString()} sub={`${sorted.length} product classes · ${alertSkus.length} SKUs`}/>
+    <MC l="OH Value" v={fmt(gt.ov)} sub="At cost"/>
+    <MC l={`Net Units (${tf.label})`} v={gt.nu.toLocaleString()} sub={`ST%: ${gt.st}%`}/>
+    <MC l="Total Owned" v={gt.owned.toLocaleString()} sub={`On order: ${gt.oo.toLocaleString()}`}/>
   </div>
-  <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,overflowX:"auto"}}>
-    <div style={{fontSize:11,color:C.sL,marginBottom:6}}>Click column header to sort · Click style to expand color-level detail</div>
-    <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}><thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-      {invCols.map(col=><th key={col.h||"_exp"} onClick={()=>toggleSort(col.k)} style={{textAlign:col.h===""||col.h==="Style"?"left":"right",padding:"6px 5px",color:invSort.col===col.k?C.nv:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap",cursor:col.k?"pointer":"default",userSelect:"none"}}>{col.h}{invSort.col===col.k?<span style={{marginLeft:3,fontSize:8}}>{invSort.dir==="desc"?"▼":"▲"}</span>:""}</th>)}
-    </tr></thead><tbody>{sorted.map((s,i)=>{
-      const open=expInv[s.n]; const fs=s.skus.sort((a,b)=>b.oh-a.oh);
-      return <React.Fragment key={i}>
-      <tr style={{borderBottom:open?"none":`1px solid ${C.bd}`,cursor:"pointer",background:s.woh>=100?"#fef2f2":s.woh<=8&&s.woh>0?"#f0fdf4":"transparent"}} onClick={()=>setExpInv(p=>({...p,[s.n]:!p[s.n]}))} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>{e.currentTarget.style.background=s.woh>=100?"#fef2f2":s.woh<=8&&s.woh>0?"#f0fdf4":"transparent"}}>
-        <td style={{padding:"7px 4px",color:C.sL,width:16}}>{open?"▾":"▸"}</td>
-        <td style={{padding:"7px 5px",fontWeight:600,color:C.nv}}>{s.n} <span style={{fontSize:9,color:C.sL,fontWeight:400}}>({fs.length} colors)</span></td>
-        <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600}}>{s.oh.toLocaleString()}</td>
-        <td style={{padding:"7px 5px",textAlign:"right",color:s.oo>0?C.nv:C.sL}}>{s.oo>0?s.oo.toLocaleString():"–"}</td>
-        <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600}}>{s.owned.toLocaleString()}</td>
-        <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>{ff(s.ov)}</td>
-        <td style={{padding:"7px 5px",textAlign:"right"}}>{s.u7}</td>
-        <td style={{padding:"7px 5px",textAlign:"right",color:s.st7>=5?C.gn:s.st7>=2?C.nv:s.st7>0?C.am:C.sL}}>{s.st7}%</td>
-        <td style={{padding:"7px 5px",textAlign:"right"}}>{s.u90}</td>
-        <td style={{padding:"7px 5px",textAlign:"right",fontWeight:500,color:s.st>=25?C.gn:s.st>=10?C.nv:s.st>0?C.am:C.rd}}>{s.st}%</td>
-        <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>${s.uc}</td>
-        <td style={{padding:"7px 5px",textAlign:"right"}}>{s.avgP>0?`$${s.avgP}`:"–"}</td>
-        <td style={{padding:"7px 5px",textAlign:"right",color:s.avgPr>0?C.gn:s.avgPr<0?C.rd:C.sL}}>{s.avgPr!==0?`$${s.avgPr}`:"–"}</td>
-        <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600,color:s.woh>=100?C.rd:s.woh>=50?C.am:s.woh<=8?C.gn:s.woh<=16?"#ea580c":C.nv}}>{s.woh>=999?"No sales":s.woh}</td>
-      </tr>
-      {open&&fs.map((k,j)=>(
-        <tr key={j} style={{borderBottom:`1px solid ${C.bd}`,background:"#f8fafc"}}>
-          <td/>
-          <td style={{padding:"5px 5px 5px 20px",color:C.nv,fontSize:10}}><span style={{fontWeight:500}}>{k.c}</span> <span style={{color:C.sL}}>({k.s}{k.mc?` · ${k.mc}`:""})</span></td>
-          <td style={{padding:"5px",textAlign:"right"}}>{k.oh}</td>
-          <td style={{padding:"5px",textAlign:"right",color:k.oo>0?C.nv:C.sL}}>{k.oo>0?k.oo:"–"}</td>
-          <td style={{padding:"5px",textAlign:"right"}}>{k.owned}</td>
-          <td style={{padding:"5px",textAlign:"right",color:C.sL}}>{k.ov?ff(k.ov):"–"}</td>
-          <td style={{padding:"5px",textAlign:"right"}}>{k.u7}</td>
-          <td style={{padding:"5px",textAlign:"right",color:k.st7>=5?C.gn:k.st7>=2?C.nv:k.st7>0?C.am:C.sL}}>{k.st7}%</td>
-          <td style={{padding:"5px",textAlign:"right"}}>{k.u90}</td>
-          <td style={{padding:"5px",textAlign:"right",color:k.st>=25?C.gn:k.st>=10?C.nv:k.st>0?C.am:C.rd}}>{k.st}%</td>
-          <td style={{padding:"5px",textAlign:"right",color:C.sL}}>${k.uc}</td>
-          <td style={{padding:"5px",textAlign:"right"}}>{k.avgP>0?`$${k.avgP}`:"–"}</td>
-          <td style={{padding:"5px",textAlign:"right",color:k.avgPr>0?C.gn:k.avgPr<0?C.rd:C.sL}}>{k.avgPr!==0?`$${k.avgPr}`:"–"}</td>
-          <td style={{padding:"5px",textAlign:"right",fontWeight:500,color:k.woh>=100?C.rd:k.woh>=50?C.am:k.woh<=8?C.gn:k.woh<=16?"#ea580c":C.nv}}>{k.woh>=999?"No sales":k.woh}</td>
+
+  {/* Product Class Summary Table */}
+  <SH t="Product Class Summary" icon="📊"/>
+  <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,marginBottom:14,overflowX:"auto"}}>
+    <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
+      <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
+        {invCols.map(col=><th key={col.h} style={{textAlign:col.h==="Name"?"left":"right",padding:"6px 5px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap"}}>{col.h}</th>)}
+      </tr></thead>
+      <tbody>
+        {sorted.map(cls=>(
+          <tr key={cls.name} style={{borderBottom:`1px solid ${C.bd}`,background:invMC===cls.name?"#eff6ff":"transparent",cursor:"pointer"}} onClick={()=>setInvMC(invMC===cls.name?"All":cls.name)} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>{e.currentTarget.style.background=invMC===cls.name?"#eff6ff":"transparent"}}>
+            <td style={{padding:"8px 5px",fontWeight:600,color:C.nv}}>{cls.name} <span style={{fontSize:9,color:C.sL,fontWeight:400}}>({cls.styles.length})</span></td>
+            {renderCells(cls,false)}
+          </tr>
+        ))}
+        <tr style={{borderTop:`2px solid ${C.bd}`,background:"#f1f5f9"}}>
+          <td style={{padding:"8px 5px",fontWeight:700,color:C.nv}}>Total</td>
+          {renderCells(gt,true)}
         </tr>
-      ))}
-      </React.Fragment>;
-    })}</tbody></table>
+      </tbody>
+    </table>
   </div>
-  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["ohUnits","onOrder","totalOwned","ohVal","u7","st7","u90","st90","unitCost","avgPrice","avgProfit","wohOwned"]}/>
+
+  {/* Style → Color Drill-down Table */}
+  <SH t={invMC==="All"?"All Styles":"Styles – "+invMC} icon="👠"/>
+  <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,overflowX:"auto"}}>
+    <div style={{fontSize:11,color:C.sL,marginBottom:6}}>Click column header to sort · Click style to expand color detail · {sortedStyles.length} styles</div>
+    <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
+      <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
+        {styleCols.map(col=><th key={col.h||"_exp"} onClick={()=>toggleSort(col.k)} style={{textAlign:col.h===""||col.h==="Name"?"left":"right",padding:"6px 5px",color:invSort.col===col.k?C.nv:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap",cursor:col.k?"pointer":"default",userSelect:"none"}}>{col.h}{invSort.col===col.k?<span style={{marginLeft:3,fontSize:8}}>{invSort.dir==="desc"?"▼":"▲"}</span>:""}</th>)}
+      </tr></thead>
+      <tbody>
+        {sortedStyles.map(sty=>{
+          const open=expInv[sty.name];
+          return <React.Fragment key={sty.name}>
+            <tr style={{borderBottom:open?"none":`1px solid ${C.bd}`,cursor:"pointer",background:sty.woh>=100?"#fef2f2":sty.woh<=8&&sty.woh>0?"#f0fdf4":"transparent"}} onClick={()=>setExpInv(p=>({...p,[sty.name]:!p[sty.name]}))} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>{e.currentTarget.style.background=sty.woh>=100?"#fef2f2":sty.woh<=8&&sty.woh>0?"#f0fdf4":"transparent"}}>
+              <td style={{padding:"7px 4px",color:C.sL,width:16}}>{open?"▾":"▸"}</td>
+              <td style={{padding:"7px 5px",fontWeight:600,color:C.nv}}>{sty.name} <span style={{fontSize:9,color:C.sL,fontWeight:400}}>({sty.skus.length})</span></td>
+              {renderCells(sty,false)}
+            </tr>
+            {open&&sty.skus.map((sk,si)=>(
+              <tr key={si} style={{borderBottom:`1px solid ${C.bd}`,background:"#fafbfc"}}>
+                <td/>
+                <td style={{padding:"5px 5px 5px 20px",color:C.nv,fontSize:10}}><span style={{fontWeight:500}}>{sk.c}</span> <span style={{color:C.sL}}>({sk.sn}{sk.mc?` · ${sk.mc}`:""})</span></td>
+                {renderCells(sk,false)}
+              </tr>
+            ))}
+          </React.Fragment>;
+        })}
+        {sortedStyles.length>0&&<tr style={{borderTop:`2px solid ${C.bd}`,background:"#f1f5f9"}}>
+          <td/>
+          <td style={{padding:"8px 5px",fontWeight:700,color:C.nv}}>Total ({sortedStyles.length} styles)</td>
+          {renderCells(agg(styleSkus),true)}
+        </tr>}
+      </tbody>
+    </table>
+  </div>
+  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["ohUnits","onOrder","totalOwned","ohVal","units","st7","unitCost","avgPrice","avgProfit","wohOwned"]}/>
   </>;
 })()}
 
