@@ -3,7 +3,7 @@
     "week": "WEEK 17",
     "dateRange": "Apr 26-2, 2026",
     "quarter": "Q2",
-    "lastUpdated": "2026-05-04T19:00:24.050Z"
+    "lastUpdated": "2026-05-04T19:01:50.981Z"
   },
   "kpi": [
     {
@@ -11110,7 +11110,8 @@
       "woh_owned": "-",
       "unit_cost": 21.7,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "4-Piece Dinner Napkin Set_Sarah Flint X Maman Blue And White Ditsy Floral Cotton",
@@ -11143,7 +11144,8 @@
       "woh_owned": "-",
       "unit_cost": 25.03,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Alexandra 50_Black Stretch Nappa",
@@ -11176,7 +11178,8 @@
       "woh_owned": "-",
       "unit_cost": 333.62,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Alexandra 50_Black Stretch Suede",
@@ -11209,7 +11212,8 @@
       "woh_owned": 1324.3,
       "unit_cost": 334.03,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Alexandra 50_Espresso Stretch Suede",
@@ -11242,7 +11246,8 @@
       "woh_owned": 565.7,
       "unit_cost": 328.22,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Alexandra 50_Navy Stretch Suede",
@@ -11275,7 +11280,8 @@
       "woh_owned": 327.9,
       "unit_cost": 327.49,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Alexandra 50_Olive Stretch Suede",
@@ -11308,7 +11314,8 @@
       "woh_owned": "-",
       "unit_cost": 331.27,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Alexandra 50_Taupe Stretch Suede",
@@ -11341,7 +11348,8 @@
       "woh_owned": "-",
       "unit_cost": 332.13,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "All Aboard Silk Scrunchie_Black And White Silk",
@@ -11374,7 +11382,8 @@
       "woh_owned": "-",
       "unit_cost": 19.82,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Alysia Sneaker_Black Crosta",
@@ -11407,7 +11416,8 @@
       "woh_owned": 197.7,
       "unit_cost": 129.52,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Alysia Sneaker_Desert Tan Crosta",
@@ -11440,7 +11450,8 @@
       "woh_owned": 59,
       "unit_cost": 129.3,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Alysia Sneaker_Gray Crosta",
@@ -11473,7 +11484,8 @@
       "woh_owned": 272.3,
       "unit_cost": 128.67,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Alysia Sneaker_Leopard Burnout Velvet",
@@ -11506,7 +11518,8 @@
       "woh_owned": 21,
       "unit_cost": 132.75,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Alysia Sneaker_Navy Crosta",
@@ -11539,7 +11552,8 @@
       "woh_owned": 50.4,
       "unit_cost": 125.51,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Alysia Sneaker_Ocean Blue Crosta",
@@ -11572,7 +11586,8 @@
       "woh_owned": 153,
       "unit_cost": 128.67,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Alysia Sneaker_Saddle Pebbled Leather",
@@ -11605,7 +11620,8 @@
       "woh_owned": 28,
       "unit_cost": 129.31,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Alysia Sneaker_Silver Textured Saffiano",
@@ -11638,7 +11654,8 @@
       "woh_owned": 67.5,
       "unit_cost": 135.73,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Arabesque Slide_Two-Tone Camel Nappa",
@@ -11671,7 +11688,8 @@
       "woh_owned": 51.8,
       "unit_cost": 144.92,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Arabesque Slide_White And Silver Textured Nappa",
@@ -11704,7 +11722,8 @@
       "woh_owned": "-",
       "unit_cost": 131.67,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Beetle Cat Grear Ties_Blue Nautical Silk",
@@ -11737,7 +11756,8 @@
       "woh_owned": 130.4,
       "unit_cost": 61.86,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Beetle Cat Scarf 90_Blue Nautical Silk",
@@ -11770,7 +11790,8 @@
       "woh_owned": 13,
       "unit_cost": 62.94,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Boat Shoe_Dusty Blue Nubuck",
@@ -11803,7 +11824,8 @@
       "woh_owned": 44.3,
       "unit_cost": 155.02,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Boat Shoe_Sandstone Nubuck",
@@ -11836,7 +11858,8 @@
       "woh_owned": 129,
       "unit_cost": 156.03,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Crosstown Sneaker_Black Crosta",
@@ -11869,7 +11892,8 @@
       "woh_owned": 54.6,
       "unit_cost": 171.14,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Crosstown Sneaker_Deep Espresso Crosta",
@@ -11902,7 +11926,8 @@
       "woh_owned": "-",
       "unit_cost": 172.71,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Darcy Sneaker_Deep Espresso Crosta",
@@ -11935,7 +11960,8 @@
       "woh_owned": 192.9,
       "unit_cost": 186.41,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Filigree Floral Scarf 140_Navy Flora Cashmere-Silk",
@@ -11968,7 +11994,8 @@
       "woh_owned": 6.4,
       "unit_cost": 164.58,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Fireside House Shoe_Cognac Suede",
@@ -12001,7 +12028,8 @@
       "woh_owned": 21,
       "unit_cost": 159.89,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Fireside House Shoe_Navy Rosette Suede",
@@ -12034,7 +12062,8 @@
       "woh_owned": 16,
       "unit_cost": 158.69,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Grear_Black Vachetta",
@@ -12067,7 +12096,8 @@
       "woh_owned": 108.4,
       "unit_cost": 109.13,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Grear_Gold Calf",
@@ -12100,7 +12130,8 @@
       "woh_owned": 45,
       "unit_cost": 105.52,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Grear_Saddle Vachetta",
@@ -12133,7 +12164,8 @@
       "woh_owned": 142,
       "unit_cost": 115.66,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Grear_White Vacchetta",
@@ -12166,7 +12198,8 @@
       "woh_owned": 96,
       "unit_cost": 103.46,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Gwp Twilly_Blue Phlox Silk",
@@ -12199,7 +12232,8 @@
       "woh_owned": 6,
       "unit_cost": 21.24,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Hidden Garden Scarf 45_Chestnut Silk",
@@ -12232,7 +12266,8 @@
       "woh_owned": "-",
       "unit_cost": 35.15,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Hidden Garden Scarf 45_Flora Blue Silk",
@@ -12265,7 +12300,8 @@
       "woh_owned": 162.9,
       "unit_cost": 35.15,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Hidden Garden Scarf 90_Chestnut Silk",
@@ -12298,7 +12334,8 @@
       "woh_owned": 16.7,
       "unit_cost": 55.75,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Hidden Garden Scarf 90_Flora Blue Silk",
@@ -12331,7 +12368,8 @@
       "woh_owned": 9.3,
       "unit_cost": 56.69,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Judy Loafer_Black Pebbled Leather",
@@ -12364,7 +12402,8 @@
       "woh_owned": 31.5,
       "unit_cost": 154.16,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Judy Loafer_Desert Tan Crosta",
@@ -12397,7 +12436,8 @@
       "woh_owned": 74.3,
       "unit_cost": 156.47,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Judy Loafer_Espresso Pebbled Leather",
@@ -12430,7 +12470,8 @@
       "woh_owned": 17,
       "unit_cost": 151.83,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Judy Loafer_Saddle Woven Calf",
@@ -12463,7 +12504,8 @@
       "woh_owned": 2.3,
       "unit_cost": 207.58,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Judy Loafer_Sapphire Floral Velvet Embroidery",
@@ -12496,7 +12538,8 @@
       "woh_owned": 231.4,
       "unit_cost": 454.93,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Julia_Cognac Nappa",
@@ -12529,7 +12572,8 @@
       "woh_owned": 20.8,
       "unit_cost": 232.64,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Knot Belt_Cream And Saddle Calf",
@@ -12562,7 +12606,8 @@
       "woh_owned": "-",
       "unit_cost": 65.5,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Knot Belt_Navy And Cobalt Calf",
@@ -12595,7 +12640,8 @@
       "woh_owned": "-",
       "unit_cost": 65.5,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Krystle Slide_Black Velvet",
@@ -12628,7 +12674,8 @@
       "woh_owned": 4,
       "unit_cost": 173.72,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Laurel 30_Black Suede",
@@ -12661,7 +12708,8 @@
       "woh_owned": 39,
       "unit_cost": 136.74,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Laurel 30_Cherry Ostrich Embossed Calf",
@@ -12694,7 +12742,8 @@
       "woh_owned": 25.7,
       "unit_cost": 133.13,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Laurel 30_Taupe Suede",
@@ -12727,7 +12776,8 @@
       "woh_owned": 14.5,
       "unit_cost": 137.5,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Lisa Slide_Blue Raffia",
@@ -12760,7 +12810,8 @@
       "woh_owned": 25.7,
       "unit_cost": 117.92,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Maeve Sandal_Caramel Nappa",
@@ -12793,7 +12844,8 @@
       "woh_owned": 23.1,
       "unit_cost": 136.75,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Maeve Sandal_Dusty Blue Nappa",
@@ -12826,7 +12878,8 @@
       "woh_owned": 2,
       "unit_cost": 136.75,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Mariner’S Scarf 140_Cream Nautical Cashmere-Silk",
@@ -12859,7 +12912,8 @@
       "woh_owned": 102.9,
       "unit_cost": 200.07,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Mariner’S Scarf 140_Sapphire Floral Cashmere Silk",
@@ -12892,7 +12946,8 @@
       "woh_owned": 45,
       "unit_cost": 202.21,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Mirjana Ballerina_Black Suede",
@@ -12925,7 +12980,8 @@
       "woh_owned": "-",
       "unit_cost": 170.22,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Mirjana Ballerina_Caramel Nappa",
@@ -12958,7 +13014,8 @@
       "woh_owned": 12.9,
       "unit_cost": 168.92,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Mirjana Ballerina_Petal Nappa And Patent",
@@ -12991,7 +13048,8 @@
       "woh_owned": 22,
       "unit_cost": 172.81,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Mirjana Hardware Sandal_Black Lizard Embossed Calf & Nappa",
@@ -13024,7 +13082,8 @@
       "woh_owned": 6.4,
       "unit_cost": 164.79,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Mirjana Hardware Sandal_Sand Lizard Embossed Calf & Nappa",
@@ -13057,7 +13116,8 @@
       "woh_owned": 17.7,
       "unit_cost": 164.79,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Mirjana Loafer_Black Suede",
@@ -13090,7 +13150,8 @@
       "woh_owned": 55.1,
       "unit_cost": 176.31,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Mirjana Loafer_Cognac Suede",
@@ -13123,7 +13184,8 @@
       "woh_owned": 28.3,
       "unit_cost": 176.67,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Mirjana Loafer_Olive Suede",
@@ -13156,7 +13218,8 @@
       "woh_owned": 19.3,
       "unit_cost": 231.28,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Mirjana_Camel Vacchetta",
@@ -13189,7 +13252,8 @@
       "woh_owned": 128.6,
       "unit_cost": 96.32,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Mirjana_Gold Nappa",
@@ -13222,7 +13286,8 @@
       "woh_owned": "-",
       "unit_cost": 94.25,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Mirjana_White Calf",
@@ -13255,7 +13320,8 @@
       "woh_owned": 450,
       "unit_cost": 99.14,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Natalie - Saddle Vachetta_Saddle Vachetta",
@@ -13288,7 +13354,8 @@
       "woh_owned": 85.3,
       "unit_cost": 139.93,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Natalie Before A Mirror_Velvet & Embroidery",
@@ -13321,7 +13388,8 @@
       "woh_owned": "-",
       "unit_cost": 532.14,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Natalie Sling_Black Calf",
@@ -13354,7 +13422,8 @@
       "woh_owned": 18,
       "unit_cost": 134.67,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Natalie Sling_Navy Striped Linen",
@@ -13387,7 +13456,8 @@
       "woh_owned": 40.9,
       "unit_cost": 142.81,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Natalie Sling_Petal Calf",
@@ -13420,7 +13490,8 @@
       "woh_owned": 26.5,
       "unit_cost": 141.63,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Natalie Sling_White Calf",
@@ -13453,7 +13524,8 @@
       "woh_owned": 33.4,
       "unit_cost": 140.73,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Natalie_Black Suede",
@@ -13486,7 +13558,8 @@
       "woh_owned": 85.3,
       "unit_cost": 143.2,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Natalie_Black Vachetta",
@@ -13519,7 +13592,8 @@
       "woh_owned": 27.4,
       "unit_cost": 141.34,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "Y"
     },
     {
       "style_color": "Natalie_Espresso Polished Calf",
@@ -13552,7 +13626,8 @@
       "woh_owned": 45,
       "unit_cost": 150.98,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Natalie_Gunmetal Lame",
@@ -13585,7 +13660,8 @@
       "woh_owned": 32,
       "unit_cost": 132.03,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Natalie_Hydrangea Blue Silk",
@@ -13618,7 +13694,8 @@
       "woh_owned": 26.2,
       "unit_cost": 153.36,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Natalie_Navy Suede",
@@ -13651,7 +13728,8 @@
       "woh_owned": 43.1,
       "unit_cost": 136.85,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Natalie_Saddle Vachetta",
@@ -13684,7 +13762,8 @@
       "woh_owned": 73.8,
       "unit_cost": 140.87,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Natalie_Sand Calf",
@@ -13717,7 +13796,8 @@
       "woh_owned": 20.8,
       "unit_cost": 137.77,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Natalie_Seafoam Embroidery",
@@ -13750,7 +13830,8 @@
       "woh_owned": "-",
       "unit_cost": 671.62,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Natalie_Taupe Suede",
@@ -13783,7 +13864,8 @@
       "woh_owned": 42.5,
       "unit_cost": 143.94,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Natalie_White Calf",
@@ -13816,7 +13898,8 @@
       "woh_owned": 107.1,
       "unit_cost": 139.32,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Parker 85_White Satin",
@@ -13849,7 +13932,8 @@
       "woh_owned": 19.3,
       "unit_cost": 271.35,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Parker Sling 50_White Satin 2",
@@ -13882,7 +13966,8 @@
       "woh_owned": "-",
       "unit_cost": 268.19,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perez_Black Suede",
@@ -13915,7 +14000,8 @@
       "woh_owned": "-",
       "unit_cost": 208.58,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Alison 85_Gold Textured Saffiano",
@@ -13948,7 +14034,8 @@
       "woh_owned": "-",
       "unit_cost": 496.57,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Arabesque Wedge 50_Two-Tone Camel Nappa & Woven Wedge",
@@ -13981,7 +14068,8 @@
       "woh_owned": 14,
       "unit_cost": 165.08,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Arabesque Wedge 80_Two-Tone Camel Nappa & Woven Wedge",
@@ -14014,7 +14102,8 @@
       "woh_owned": 60.7,
       "unit_cost": 165.34,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Perfect Aziza 85_Gold Textured Saffiano",
@@ -14047,7 +14136,8 @@
       "woh_owned": 84,
       "unit_cost": 193.29,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Aziza 85_White Satin",
@@ -14080,7 +14170,8 @@
       "woh_owned": 199.3,
       "unit_cost": 219.13,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Ballet Flat_Black Woven Calf",
@@ -14113,7 +14204,8 @@
       "woh_owned": 21.5,
       "unit_cost": 174.6,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Ballet Flat_Navy Striped Linen",
@@ -14146,7 +14238,8 @@
       "woh_owned": 30.2,
       "unit_cost": 130.99,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Ballet Flat_Saddle Woven Calf",
@@ -14179,7 +14272,8 @@
       "woh_owned": 49.4,
       "unit_cost": 175.2,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Ballet Flat_Silver Woven Calf",
@@ -14212,7 +14306,8 @@
       "woh_owned": 22.5,
       "unit_cost": 176.02,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 30_Black Suede",
@@ -14245,7 +14340,8 @@
       "woh_owned": 96.4,
       "unit_cost": 130.05,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 30_Gold Nappa",
@@ -14278,7 +14374,8 @@
       "woh_owned": 21.4,
       "unit_cost": 139.37,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 30_Sand Calf",
@@ -14311,7 +14408,8 @@
       "woh_owned": 36.3,
       "unit_cost": 146.22,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 30_White Calf",
@@ -14344,7 +14442,8 @@
       "woh_owned": 43.7,
       "unit_cost": 150.81,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 60_Almond Raffia",
@@ -14377,7 +14476,8 @@
       "woh_owned": 18,
       "unit_cost": 209.9,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 60_Black Suede",
@@ -14410,7 +14510,8 @@
       "woh_owned": 24.9,
       "unit_cost": 148.83,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 60_Dusty Blue Calf",
@@ -14443,7 +14544,8 @@
       "woh_owned": 12.9,
       "unit_cost": 169.31,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 60_Gold Nappa",
@@ -14476,7 +14578,8 @@
       "woh_owned": 16.3,
       "unit_cost": 140.16,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 60_Navy Striped Linen",
@@ -14509,7 +14612,8 @@
       "woh_owned": 24,
       "unit_cost": 159.09,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 60_Sand Calf",
@@ -14542,7 +14646,8 @@
       "woh_owned": 15.9,
       "unit_cost": 137.36,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 60_Silver Textured Saffiano",
@@ -14575,7 +14680,8 @@
       "woh_owned": 28.6,
       "unit_cost": 171.52,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 60_White Calf",
@@ -14608,7 +14714,8 @@
       "woh_owned": 67.6,
       "unit_cost": 132.83,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 60_White Satin And Lace",
@@ -14641,7 +14748,8 @@
       "woh_owned": 38.6,
       "unit_cost": 157.85,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 90_Black Suede",
@@ -14674,7 +14782,8 @@
       "woh_owned": 32,
       "unit_cost": 155.65,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 90_Gold Nappa",
@@ -14707,7 +14816,8 @@
       "woh_owned": 37.1,
       "unit_cost": 136.76,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Block Sandal 90_White Calf",
@@ -14740,7 +14850,8 @@
       "woh_owned": 191.7,
       "unit_cost": 131.07,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Perfect Crossover Platform 100_Gold Textured Saffiano",
@@ -14773,7 +14884,8 @@
       "woh_owned": 5.1,
       "unit_cost": 166.16,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Crossover Platform 80_Black Suede",
@@ -14806,7 +14918,8 @@
       "woh_owned": 22.7,
       "unit_cost": 197.56,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Crossover Platform 80_Black Velvet",
@@ -14839,7 +14952,8 @@
       "woh_owned": 6.4,
       "unit_cost": 281.12,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Crossover Platform 80_Gold Textured Saffiano",
@@ -14872,7 +14986,8 @@
       "woh_owned": 4.2,
       "unit_cost": 194.38,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Crossover Platform 80_Natural Fine Woven Linen",
@@ -14905,7 +15020,8 @@
       "woh_owned": 6.1,
       "unit_cost": 212.08,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Crossover Platform 80_Pink Floral Satin",
@@ -14938,7 +15054,8 @@
       "woh_owned": 8.5,
       "unit_cost": 375.62,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Crossover Platform 80_Sand Calf",
@@ -14971,7 +15088,8 @@
       "woh_owned": 24.5,
       "unit_cost": 204.09,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Crossover Platform 80_Silver Textured Saffiano",
@@ -15004,7 +15122,8 @@
       "woh_owned": 3.1,
       "unit_cost": 191.09,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Crossover Platform 80_White Satin",
@@ -15037,7 +15156,8 @@
       "woh_owned": 7.5,
       "unit_cost": 212.3,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Crossover Sandal 50_Black Calf",
@@ -15070,7 +15190,8 @@
       "woh_owned": 49.6,
       "unit_cost": 159.02,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Crossover Sandal 50_Cognac Calf",
@@ -15103,7 +15224,8 @@
       "woh_owned": 9.4,
       "unit_cost": 161.4,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Crossover Sandal 50_Gold Textured Saffiano",
@@ -15136,7 +15258,8 @@
       "woh_owned": 1.4,
       "unit_cost": 162.08,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Dress Boot 60_Black Stretch Suede",
@@ -15169,7 +15292,8 @@
       "woh_owned": 51.4,
       "unit_cost": 338.33,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Dress Boot 60_Deep Espresso Stretch Nappa",
@@ -15202,7 +15326,8 @@
       "woh_owned": 21,
       "unit_cost": 341.49,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Dress Boot 90_Black Stretch Suede",
@@ -15235,7 +15360,8 @@
       "woh_owned": 30,
       "unit_cost": 338.49,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Dress Bootie 60_Black Suede",
@@ -15268,7 +15394,8 @@
       "woh_owned": "-",
       "unit_cost": 219.5,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Dress Bootie 60_Deep Espresso Calf",
@@ -15301,7 +15428,8 @@
       "woh_owned": 17,
       "unit_cost": 229.42,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Dress Bootie 60_Gunmetal Lame",
@@ -15334,7 +15462,8 @@
       "woh_owned": "-",
       "unit_cost": 213.5,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Dress Bootie 60_Navy Suede",
@@ -15367,7 +15496,8 @@
       "woh_owned": 12.9,
       "unit_cost": 228.52,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Dress Bootie 60_Taupe Suede",
@@ -15400,7 +15530,8 @@
       "woh_owned": 148.4,
       "unit_cost": 243.31,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Perfect Dress Bootie 90_Black Suede",
@@ -15433,7 +15564,8 @@
       "woh_owned": 195.4,
       "unit_cost": 220.74,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Elizabeth 35_Black Crosta",
@@ -15466,7 +15598,8 @@
       "woh_owned": 110.6,
       "unit_cost": 322.17,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Elizabeth 35_Cognac Crosta",
@@ -15499,7 +15632,8 @@
       "woh_owned": 47.1,
       "unit_cost": 330.46,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Emma 85_Black Calf",
@@ -15532,7 +15666,8 @@
       "woh_owned": 62,
       "unit_cost": 157.68,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Emma 85_Black Suede",
@@ -15565,7 +15700,8 @@
       "woh_owned": 18,
       "unit_cost": 146.32,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Emma 85_Cognac Calf",
@@ -15598,7 +15734,8 @@
       "woh_owned": 25.4,
       "unit_cost": 157.68,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Emma 85_Taupe Suede",
@@ -15631,7 +15768,8 @@
       "woh_owned": 24.3,
       "unit_cost": 158.86,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Emma Sling 50_Black Calf",
@@ -15664,7 +15802,8 @@
       "woh_owned": 75.5,
       "unit_cost": 158.35,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Emma Sling 50_Cognac Calf",
@@ -15697,7 +15836,8 @@
       "woh_owned": 96.4,
       "unit_cost": 160.66,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Emma_Black Suede",
@@ -15730,7 +15870,8 @@
       "woh_owned": 34.9,
       "unit_cost": 153.88,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Perfect Emma_Cognac Calf",
@@ -15763,7 +15904,8 @@
       "woh_owned": 60,
       "unit_cost": 156.35,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Emma_Espresso Suede",
@@ -15796,7 +15938,8 @@
       "woh_owned": 75,
       "unit_cost": 144.16,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Emma_Gold Textured Saffiano",
@@ -15829,7 +15972,8 @@
       "woh_owned": 45,
       "unit_cost": 153.64,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Emma_Navy Suede",
@@ -15862,7 +16006,8 @@
       "woh_owned": 27.3,
       "unit_cost": 140.21,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "Y"
     },
     {
       "style_color": "Perfect Emma_Sand Calf",
@@ -15895,7 +16040,8 @@
       "woh_owned": 12.8,
       "unit_cost": 143.31,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Emma_Taupe Suede",
@@ -15928,7 +16074,8 @@
       "woh_owned": 43.5,
       "unit_cost": 153.75,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Erika 30_Gold Shimmer Suede",
@@ -15961,7 +16108,8 @@
       "woh_owned": 93.5,
       "unit_cost": 210.85,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Erika 30_Light Pink Shimmer Suede",
@@ -15994,7 +16142,8 @@
       "woh_owned": 59.1,
       "unit_cost": 211.44,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Erika 60_Gold Shimmer Suede",
@@ -16027,7 +16176,8 @@
       "woh_owned": 294.4,
       "unit_cost": 212.6,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Erika 60_Light Pink Shimmer Suede",
@@ -16060,7 +16210,8 @@
       "woh_owned": 72.9,
       "unit_cost": 211.44,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Gita 70_Black Suede",
@@ -16093,7 +16244,8 @@
       "woh_owned": 135,
       "unit_cost": 174.18,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Heather 50_Almond Raffia",
@@ -16126,7 +16278,8 @@
       "woh_owned": 1.6,
       "unit_cost": 242.79,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Julia 85_Ivory Nappa",
@@ -16159,7 +16312,8 @@
       "woh_owned": 50.6,
       "unit_cost": 239.6,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kendra 45_Light Pink Patent",
@@ -16192,7 +16346,8 @@
       "woh_owned": 105.8,
       "unit_cost": 183.07,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kendra 45_Navy Croc Embossed Calf",
@@ -16225,7 +16380,8 @@
       "woh_owned": 54.1,
       "unit_cost": 192.68,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Pump 50_Black Calf",
@@ -16258,7 +16414,8 @@
       "woh_owned": 34.3,
       "unit_cost": 147.46,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Pump 50_Black Patent",
@@ -16291,7 +16448,8 @@
       "woh_owned": 30,
       "unit_cost": 150.05,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Pump 50_Black Suede",
@@ -16324,7 +16482,8 @@
       "woh_owned": 27,
       "unit_cost": 147.39,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Pump 50_Dusty Brown Patent",
@@ -16357,7 +16516,8 @@
       "woh_owned": 89.1,
       "unit_cost": 147.97,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Pump 50_Gunmetal Lame",
@@ -16390,7 +16550,8 @@
       "woh_owned": 30.9,
       "unit_cost": 142.05,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Pump 50_Leopard Burnout Velvet",
@@ -16423,7 +16584,8 @@
       "woh_owned": 2,
       "unit_cost": 158.01,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Pump 50_Navy Suede",
@@ -16456,7 +16618,8 @@
       "woh_owned": 20.2,
       "unit_cost": 147.21,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Pump 50_Sand Calf",
@@ -16489,7 +16652,8 @@
       "woh_owned": 10.5,
       "unit_cost": 146.93,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Pump 50_Taupe Suede",
@@ -16522,7 +16686,8 @@
       "woh_owned": 68.9,
       "unit_cost": 149.06,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Pump 50_Toasted Mauve Patent",
@@ -16555,7 +16720,8 @@
       "woh_owned": 38.6,
       "unit_cost": 149.54,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Pump 50_White Calf",
@@ -16588,7 +16754,8 @@
       "woh_owned": 64.3,
       "unit_cost": 138.53,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Sling 50_Black Calf",
@@ -16621,7 +16788,8 @@
       "woh_owned": 40.7,
       "unit_cost": 152.85,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Sling 50_Gold Textured Saffiano",
@@ -16654,7 +16822,8 @@
       "woh_owned": 52.7,
       "unit_cost": 164.83,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Sling 50_Poppy Printed Silk",
@@ -16687,7 +16856,8 @@
       "woh_owned": 6.4,
       "unit_cost": 141.35,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Kitten Sling 50_Sand Calf",
@@ -16720,7 +16890,8 @@
       "woh_owned": 12.9,
       "unit_cost": 148.28,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Laura 30_Almond Raffia",
@@ -16753,7 +16924,8 @@
       "woh_owned": 38.6,
       "unit_cost": 194.97,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Marnie 35_Black Pebbled Calf",
@@ -16786,7 +16958,8 @@
       "woh_owned": 38.6,
       "unit_cost": 257.18,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Marnie 35_Brown Burnished Calf",
@@ -16819,7 +16992,8 @@
       "woh_owned": "-",
       "unit_cost": 281.81,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Mary Jane Platform 85_Black Patent",
@@ -16852,7 +17026,8 @@
       "woh_owned": 11,
       "unit_cost": 182.17,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Mary Jane Pump 85_Black Patent",
@@ -16885,7 +17060,8 @@
       "woh_owned": 123.8,
       "unit_cost": 169.26,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Mary Jane Pump 85_Light Sand Patent",
@@ -16918,7 +17094,8 @@
       "woh_owned": 149.5,
       "unit_cost": 169.26,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Mirjana Wedge 50_Saddle Vachetta And Raffia",
@@ -16951,7 +17128,8 @@
       "woh_owned": 28.3,
       "unit_cost": 176.74,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Mirjana Wedge 50_White Calf And Raffia",
@@ -16984,7 +17162,8 @@
       "woh_owned": 38,
       "unit_cost": 170.49,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Perfect Mirjana Wedge 80_Saddle Vachetta And Raffia",
@@ -17017,7 +17196,8 @@
       "woh_owned": 33.9,
       "unit_cost": 167.97,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Natalie Sling 50_Black Calf",
@@ -17050,7 +17230,8 @@
       "woh_owned": 12.3,
       "unit_cost": 168.5,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Natalie Sling 50_Cognac Calf",
@@ -17083,7 +17264,8 @@
       "woh_owned": 4.7,
       "unit_cost": 171.16,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Perez 85_Espresso Suede",
@@ -17116,7 +17298,8 @@
       "woh_owned": "-",
       "unit_cost": 235.02,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 100_Black Calf",
@@ -17149,7 +17332,8 @@
       "woh_owned": 14,
       "unit_cost": 161.04,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 100_Black Suede",
@@ -17182,7 +17366,8 @@
       "woh_owned": 61.1,
       "unit_cost": 157.6,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 100_Gunmetal Lame",
@@ -17215,7 +17400,8 @@
       "woh_owned": 287.1,
       "unit_cost": 143.59,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 100_Navy Suede",
@@ -17248,7 +17434,8 @@
       "woh_owned": 32,
       "unit_cost": 162.63,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 100_Sand Calf",
@@ -17281,7 +17468,8 @@
       "woh_owned": 57.5,
       "unit_cost": 153.57,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 100_Taupe Suede",
@@ -17314,7 +17502,8 @@
       "woh_owned": 86,
       "unit_cost": 143.96,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 100_White Calf",
@@ -17347,7 +17536,8 @@
       "woh_owned": 205.7,
       "unit_cost": 142.86,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Black Calf",
@@ -17380,7 +17570,8 @@
       "woh_owned": 34.7,
       "unit_cost": 154.38,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "Y"
     },
     {
       "style_color": "Perfect Pump 85_Black Patent",
@@ -17413,7 +17604,8 @@
       "woh_owned": 39.9,
       "unit_cost": 149.84,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Black Suede",
@@ -17446,7 +17638,8 @@
       "woh_owned": 83.4,
       "unit_cost": 153.85,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Perfect Pump 85_Bordeaux Patent",
@@ -17479,7 +17672,8 @@
       "woh_owned": 8.6,
       "unit_cost": 152.32,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Camel Suede",
@@ -17512,7 +17706,8 @@
       "woh_owned": 62.8,
       "unit_cost": 150.2,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Dusty Brown Patent",
@@ -17545,7 +17740,8 @@
       "woh_owned": 104.4,
       "unit_cost": 146.59,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Espresso Suede",
@@ -17578,7 +17774,8 @@
       "woh_owned": 66.2,
       "unit_cost": 148.01,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Gunmetal Lame",
@@ -17611,7 +17808,8 @@
       "woh_owned": 81,
       "unit_cost": 135.25,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Leopard Burnout Velvet",
@@ -17644,7 +17842,8 @@
       "woh_owned": 3,
       "unit_cost": 156.62,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Light Sand Patent",
@@ -17677,7 +17876,8 @@
       "woh_owned": 8.8,
       "unit_cost": 154.69,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Mulberry Suede",
@@ -17710,7 +17910,8 @@
       "woh_owned": 60.5,
       "unit_cost": 155.91,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Navy Suede",
@@ -17743,7 +17944,8 @@
       "woh_owned": 59,
       "unit_cost": 147.64,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Sand Calf",
@@ -17776,7 +17978,8 @@
       "woh_owned": 36.7,
       "unit_cost": 149.93,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "Y"
     },
     {
       "style_color": "Perfect Pump 85_Sea Blue Patent",
@@ -17809,7 +18012,8 @@
       "woh_owned": 91.6,
       "unit_cost": 146.59,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Seafoam Embroidery",
@@ -17842,7 +18046,8 @@
       "woh_owned": "-",
       "unit_cost": 199,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Taupe Suede",
@@ -17875,7 +18080,8 @@
       "woh_owned": 25.3,
       "unit_cost": 150.72,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "Y"
     },
     {
       "style_color": "Perfect Pump 85_Toasted Mauve Patent",
@@ -17908,7 +18114,8 @@
       "woh_owned": 12.9,
       "unit_cost": 154.76,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_White Calf",
@@ -17941,7 +18148,8 @@
       "woh_owned": 40.8,
       "unit_cost": 144.16,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_White Satin 2",
@@ -17974,7 +18182,8 @@
       "woh_owned": "-",
       "unit_cost": 153.12,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Ricki 70_Black Patent",
@@ -18007,7 +18216,8 @@
       "woh_owned": "-",
       "unit_cost": 159.27,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Riding Boot 30_Black Vachetta",
@@ -18040,7 +18250,8 @@
       "woh_owned": 6,
       "unit_cost": 345.42,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Riding Boot 30_Deep Espresso Crosta",
@@ -18073,7 +18284,8 @@
       "woh_owned": 19.3,
       "unit_cost": 296.56,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Riding Boot 30_Saddle Vachetta",
@@ -18106,7 +18318,8 @@
       "woh_owned": 66.4,
       "unit_cost": 322.89,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Round Toe Pump 70_Black Suede",
@@ -18139,7 +18352,8 @@
       "woh_owned": 32.7,
       "unit_cost": 151.5,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Perfect Round Toe Pump 70_Camel Suede",
@@ -18172,7 +18386,8 @@
       "woh_owned": 94.5,
       "unit_cost": 155.71,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Round Toe Pump 70_Cognac Suede",
@@ -18205,7 +18420,8 @@
       "woh_owned": 29.5,
       "unit_cost": 154.24,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Round Toe Pump 70_Gunmetal Lame",
@@ -18238,7 +18454,8 @@
       "woh_owned": 98.6,
       "unit_cost": 141.06,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sandal 100_Black Suede",
@@ -18271,7 +18488,8 @@
       "woh_owned": 9.6,
       "unit_cost": 144.5,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sandal 100_Gold Nappa",
@@ -18304,7 +18522,8 @@
       "woh_owned": 37.3,
       "unit_cost": 138.89,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "Y"
     },
     {
       "style_color": "Perfect Sandal 100_Sand Calf",
@@ -18337,7 +18556,8 @@
       "woh_owned": 84.9,
       "unit_cost": 145.76,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sandal 85_Black Suede",
@@ -18370,7 +18590,8 @@
       "woh_owned": 43,
       "unit_cost": 160.08,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sandal 85_Gold Nappa",
@@ -18403,7 +18624,8 @@
       "woh_owned": 47.5,
       "unit_cost": 148.38,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sandal 85_Gunmetal Lame",
@@ -18436,7 +18658,8 @@
       "woh_owned": 158.6,
       "unit_cost": 145.49,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sandal 85_Sand Calf",
@@ -18469,7 +18692,8 @@
       "woh_owned": 12,
       "unit_cost": 163.62,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sling 85_Black Calf",
@@ -18502,7 +18726,8 @@
       "woh_owned": 40.9,
       "unit_cost": 148.49,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sling 85_Cherry Croc Embossed Calf",
@@ -18535,7 +18760,8 @@
       "woh_owned": 12.9,
       "unit_cost": 145.48,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sling 85_Cognac Croc Embossed Calf",
@@ -18568,7 +18794,8 @@
       "woh_owned": "-",
       "unit_cost": 146.85,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sling 85_Gold Textured Saffiano",
@@ -18601,7 +18828,8 @@
       "woh_owned": 9,
       "unit_cost": 149.63,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sling 85_Ivory Nappa",
@@ -18634,7 +18862,8 @@
       "woh_owned": 4.3,
       "unit_cost": 179.27,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sling 85_Sand Calf",
@@ -18667,7 +18896,8 @@
       "woh_owned": 23.8,
       "unit_cost": 146.46,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sling 85_Sepia Floral Silk",
@@ -18700,7 +18930,8 @@
       "woh_owned": 20.6,
       "unit_cost": 166.54,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sling 85_Silver Textured Saffiano",
@@ -18733,7 +18964,8 @@
       "woh_owned": 109.3,
       "unit_cost": 159.81,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Sling 85_White Satin",
@@ -18766,7 +18998,8 @@
       "woh_owned": 90,
       "unit_cost": 277.47,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Stephanie 45_Black Suede",
@@ -18799,7 +19032,8 @@
       "woh_owned": 7.4,
       "unit_cost": 166.62,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Stephanie 45_Camel Suede",
@@ -18832,7 +19066,8 @@
       "woh_owned": 16.2,
       "unit_cost": 165.48,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Stephanie 45_Leopard Burnout Velvet",
@@ -18865,7 +19100,8 @@
       "woh_owned": 25.7,
       "unit_cost": 172.09,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Stretch Boot 30_Water-Resistant Black Suede",
@@ -18898,7 +19134,8 @@
       "woh_owned": 617.1,
       "unit_cost": 259.89,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Stretch Boot 30_Water-Resistant Navy Suede",
@@ -18931,7 +19168,8 @@
       "woh_owned": "-",
       "unit_cost": 262.4,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Stretch Boot 30_Water-Resistant Taupe Suede",
@@ -18964,7 +19202,8 @@
       "woh_owned": 154.3,
       "unit_cost": 260.22,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Zip Bootie 30_Black Calf",
@@ -18997,7 +19236,8 @@
       "woh_owned": "-",
       "unit_cost": 227.92,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Zip Bootie 30_Espresso Crosta",
@@ -19030,7 +19270,8 @@
       "woh_owned": 31.2,
       "unit_cost": 227.02,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Zip Bootie 30_Olive Crosta",
@@ -19063,7 +19304,8 @@
       "woh_owned": 19.3,
       "unit_cost": 234.65,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Zip Bootie 30_Saddle Vachetta",
@@ -19096,7 +19338,8 @@
       "woh_owned": 83.6,
       "unit_cost": 235.42,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Zip Bootie 70_Black Calf",
@@ -19129,7 +19372,8 @@
       "woh_owned": 18,
       "unit_cost": 231.74,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Zip Bootie 70_Camel Crosta",
@@ -19162,7 +19406,8 @@
       "woh_owned": 70.7,
       "unit_cost": 209.42,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Zip Bootie 70_Espresso Crosta",
@@ -19195,7 +19440,8 @@
       "woh_owned": 668.6,
       "unit_cost": 212.92,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Zip Bootie 70_Olive Crosta",
@@ -19228,7 +19474,8 @@
       "woh_owned": "-",
       "unit_cost": 238.91,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Perfect Zip Bootie 70_Saddle Vachetta",
@@ -19261,7 +19508,8 @@
       "woh_owned": 17.1,
       "unit_cost": 238.3,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Reversible Face Scarf_Black Floral Washable Silk",
@@ -19294,7 +19542,8 @@
       "woh_owned": "-",
       "unit_cost": 29,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Reversible Face Scarf_Blue Floral Washable Silk",
@@ -19327,7 +19576,8 @@
       "woh_owned": "-",
       "unit_cost": 38.35,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Reversible Mirjana Belt_Black And Cognac Calf",
@@ -19360,7 +19610,8 @@
       "woh_owned": 32.9,
       "unit_cost": 127.27,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Reversible Mirjana Belt_Cognac And Cherry Calf",
@@ -19393,7 +19644,8 @@
       "woh_owned": "-",
       "unit_cost": 127.82,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Reversible Scarf Waist Belt_Black And Cognac Calf",
@@ -19426,7 +19678,8 @@
       "woh_owned": 2.6,
       "unit_cost": 77.09,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Reversible Scarf Waist Belt_Black Calf And Deep Espresso Crosta",
@@ -19459,7 +19712,8 @@
       "woh_owned": 8.5,
       "unit_cost": 180.2,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Reversible Scarf Waist Belt_Cream & Saddle Calf",
@@ -19492,7 +19746,8 @@
       "woh_owned": 5,
       "unit_cost": 80.88,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Reversible Scarf Waist Belt_Navy And Red Calf",
@@ -19525,7 +19780,8 @@
       "woh_owned": "-",
       "unit_cost": 60.66,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Rosie_Black Suede",
@@ -19558,7 +19814,8 @@
       "woh_owned": 34,
       "unit_cost": 122.79,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Rosie_Navy Suede",
@@ -19591,7 +19848,8 @@
       "woh_owned": 57.9,
       "unit_cost": 125.82,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Rosie_Taupe Suede",
@@ -19624,7 +19882,8 @@
       "woh_owned": 48.5,
       "unit_cost": 121.36,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Runi_Almond Raffia",
@@ -19657,7 +19916,8 @@
       "woh_owned": "-",
       "unit_cost": 215.47,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Runi_Black Calf",
@@ -19690,7 +19950,8 @@
       "woh_owned": 37.6,
       "unit_cost": 136.02,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Runi_Black Velvet",
@@ -19723,7 +19984,8 @@
       "woh_owned": "-",
       "unit_cost": 434.67,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Runi_Leopard Burnout Velvet",
@@ -19756,7 +20018,8 @@
       "woh_owned": "-",
       "unit_cost": 151.99,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Runi_Poppy Printed Silk",
@@ -19789,7 +20052,8 @@
       "woh_owned": 1,
       "unit_cost": 128.78,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Sarah Flint X Crane Stationery 4X6_Garden",
@@ -19822,7 +20086,8 @@
       "woh_owned": "-",
       "unit_cost": 13.18,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Sarah Flint X Mary Orton Oxford_Black Calf",
@@ -19855,7 +20120,8 @@
       "woh_owned": 68.1,
       "unit_cost": 200.42,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Sarah Flint X Mary Orton Oxford_Bordeaux Burnished Calf",
@@ -19888,7 +20154,8 @@
       "woh_owned": 54.6,
       "unit_cost": 209.08,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Sarah Flint X Mary Orton Perfect Cap Toe Flat_Bordeaux Nappa",
@@ -19921,7 +20188,8 @@
       "woh_owned": 10.7,
       "unit_cost": 125.57,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Sarah Flint X Mary Orton Perfect Cap Toe Flat_Deep Espresso Suede",
@@ -19954,7 +20222,8 @@
       "woh_owned": 45,
       "unit_cost": 132.09,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Sarah Flint X Mary Orton Perfect Cap Toe Flat_Ivory Nappa",
@@ -19987,7 +20256,8 @@
       "woh_owned": 8.3,
       "unit_cost": 152.96,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Sarah Flint X Mary Orton Perfect Maryjane_Ivory Nappa",
@@ -20020,7 +20290,8 @@
       "woh_owned": 41.1,
       "unit_cost": 157.69,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Sarah Flint X Mary Orton Perfect Tall Riding Boot_Black Vachetta",
@@ -20053,7 +20324,8 @@
       "woh_owned": 23,
       "unit_cost": 367.39,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Sarah Flint X Mary Orton Perfect Tall Riding Boot_Deep Espresso Crosta",
@@ -20086,7 +20358,8 @@
       "woh_owned": 17.1,
       "unit_cost": 319.13,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Sarah'S Garden Scarf 45_Hydrangea Blue Silk",
@@ -20119,7 +20392,8 @@
       "woh_owned": 153,
       "unit_cost": 30.87,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Sarah'S Garden Scarf 45_Navy Flora Silk",
@@ -20152,7 +20426,8 @@
       "woh_owned": "-",
       "unit_cost": 34.98,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Scrunchie Set_Multi Floral Silk",
@@ -20185,7 +20460,8 @@
       "woh_owned": "-",
       "unit_cost": 32.14,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "Y"
     },
     {
       "style_color": "Silk Scrunchie_Sepia Floral Silk",
@@ -20218,7 +20494,8 @@
       "woh_owned": "-",
       "unit_cost": 18.18,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Silk Twilly_Black Floral Silk",
@@ -20251,7 +20528,8 @@
       "woh_owned": "-",
       "unit_cost": 36.38,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Stella_Black Patent",
@@ -20284,7 +20562,8 @@
       "woh_owned": 23,
       "unit_cost": 133.32,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Stella_Cherry Croc Embossed Calf",
@@ -20317,7 +20596,8 @@
       "woh_owned": "-",
       "unit_cost": 129.9,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Stella_Light Sand Patent",
@@ -20350,7 +20630,8 @@
       "woh_owned": 15,
       "unit_cost": 134.64,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Stella_Sepia Floral Silk",
@@ -20383,7 +20664,8 @@
       "woh_owned": 45,
       "unit_cost": 148.15,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Stella_White Satin",
@@ -20416,7 +20698,8 @@
       "woh_owned": 12.9,
       "unit_cost": 277.48,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "The Fetching Handkerchief 30_Teal And Burgundy Silk",
@@ -20449,7 +20732,8 @@
       "woh_owned": "-",
       "unit_cost": 18.48,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "The Woman In Gold Natalie_Metallic Beaded Satin",
@@ -20482,7 +20766,8 @@
       "woh_owned": "-",
       "unit_cost": 582.44,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Vienna Waist Belt_Black Calf",
@@ -20515,7 +20800,8 @@
       "woh_owned": 26,
       "unit_cost": 106.66,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Vienna Waist Belt_White Croc Embossed Calf",
@@ -20548,7 +20834,8 @@
       "woh_owned": 22,
       "unit_cost": 139.6,
       "woh_owned<16": "N",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Vip Holiday Gift 2024_Navy Suede",
@@ -20581,7 +20868,8 @@
       "woh_owned": "-",
       "unit_cost": 16.87,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "Y"
     },
     {
       "style_color": "Walk Like A Woman Water Bottle_Blue",
@@ -20614,7 +20902,8 @@
       "woh_owned": "-",
       "unit_cost": 14.41,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Wanderlust Oxford_Amaretto Crosta",
@@ -20647,7 +20936,8 @@
       "woh_owned": 50,
       "unit_cost": 176.56,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Wanderlust Oxford_Navy Crosta",
@@ -20680,7 +20970,8 @@
       "woh_owned": 49,
       "unit_cost": 175.3,
       "woh_owned<16": "N",
-      "woh>30": "Y"
+      "woh>30": "Y",
+      "oh>100": "N"
     },
     {
       "style_color": "Water Lily Natalie_Water Lilies Embellished Silk",
@@ -20713,7 +21004,8 @@
       "woh_owned": "-",
       "unit_cost": 468.44,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Whitman Belt_Black Embossed Calf",
@@ -20746,7 +21038,8 @@
       "woh_owned": "-",
       "unit_cost": 131.18,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Whitman Ruffle Belt_Black Croc Embossed Calf And Black Velvet",
@@ -20779,7 +21072,8 @@
       "woh_owned": "-",
       "unit_cost": 137.48,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     },
     {
       "style_color": "Wrapping Sheet Vip_Blue",
@@ -20812,7 +21106,8 @@
       "woh_owned": "-",
       "unit_cost": 3.8,
       "woh_owned<16": "Y",
-      "woh>30": "N"
+      "woh>30": "N",
+      "oh>100": "N"
     }
   ],
   "returns_summary": [
