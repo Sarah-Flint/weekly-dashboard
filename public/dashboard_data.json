@@ -3,7 +3,7 @@
     "week": "WEEK 17",
     "dateRange": "Apr 26-2, 2026",
     "quarter": "Q2",
-    "lastUpdated": "2026-05-04T18:13:26.286Z"
+    "lastUpdated": "2026-05-04T18:19:19.315Z"
   },
   "kpi": [
     {
@@ -648,12 +648,12 @@
       "metric_group": "website",
       "customer_group": "Paid",
       "metric_label": "Sessions",
-      "_cw": 12580,
+      "_cw": 12581,
       "_pw": 9103,
       "_cw_plan": "",
-      "_mtd": 43569,
+      "_mtd": 43570,
       "_mtd_plan": "",
-      "_qtd": 43569,
+      "_qtd": 43570,
       "_qtd_plan": ""
     },
     {
@@ -674,12 +674,12 @@
       "metric_group": "website",
       "customer_group": "Paid",
       "metric_label": "Add to Carts",
-      "_cw": 667,
+      "_cw": 668,
       "_pw": 695,
       "_cw_plan": "",
-      "_mtd": 2916,
+      "_mtd": 2917,
       "_mtd_plan": "",
-      "_qtd": 2916,
+      "_qtd": 2917,
       "_qtd_plan": ""
     },
     {
@@ -700,7 +700,7 @@
       "metric_group": "website",
       "customer_group": "Paid",
       "metric_label": "ATC %",
-      "_cw": 5.3,
+      "_cw": 5.31,
       "_pw": 7.63,
       "_cw_plan": "",
       "_mtd": 6.69,
@@ -1262,21 +1262,6 @@
       "Orders": 0
     },
     {
-      "CW & PW": "CW Total",
-      "Brand vs. Non-Brand": "",
-      "Advertising channel type": "",
-      "Campaign name": "",
-      "Spend": 9120.38,
-      "Revenue": 83431.16,
-      "ROAS": 9.15,
-      "CPM": 8.19,
-      "CPC": 0.51,
-      "CPO": 64.68,
-      "Impressions": 1113636,
-      "Clicks": 18050,
-      "Orders": 141
-    },
-    {
       "CW & PW": "PW",
       "Brand vs. Non-Brand": "Brand",
       "Advertising channel type": "Search",
@@ -1425,36 +1410,6 @@
       "Impressions": 40757,
       "Clicks": 49,
       "Orders": 0
-    },
-    {
-      "CW & PW": "PW Total",
-      "Brand vs. Non-Brand": "",
-      "Advertising channel type": "",
-      "Campaign name": "",
-      "Spend": 12013.22,
-      "Revenue": 87829.5,
-      "ROAS": 7.31,
-      "CPM": 25.11,
-      "CPC": 1.61,
-      "CPO": 71.51,
-      "Impressions": 478483,
-      "Clicks": 7463,
-      "Orders": 168
-    },
-    {
-      "CW & PW": "Grand Total",
-      "Brand vs. Non-Brand": "",
-      "Advertising channel type": "",
-      "Campaign name": "",
-      "Spend": 21133.6,
-      "Revenue": 171260.66,
-      "ROAS": 8.1,
-      "CPM": 13.27,
-      "CPC": 0.83,
-      "CPO": 68.39,
-      "Impressions": 1592119,
-      "Clicks": 25513,
-      "Orders": 309
     }
   ],
   "meta_ads": [
@@ -1776,13 +1731,13 @@
     {
       "CW PW Tag": "CW",
       "Traffic Category": "Paid Social",
-      "sum Sessions": 3013,
-      "sum Total users": 2951,
-      "sum Engaged sessions": 1850,
-      "sum New users": 2158,
-      "sum Views": 9332,
+      "sum Sessions": 3014,
+      "sum Total users": 2952,
+      "sum Engaged sessions": 1851,
+      "sum New users": 2159,
+      "sum Views": 9333,
       "sum Bounces": 1163,
-      "sum Add-to-carts": 147,
+      "sum Add-to-carts": 148,
       "sum Transactions": 18,
       "sum Revenue": 7134.76,
       "sum Duration": 93034.09
@@ -1884,20 +1839,6 @@
       "sum Transactions": "",
       "sum Revenue": "",
       "sum Duration": 420
-    },
-    {
-      "CW PW Tag": "CW",
-      "Traffic Category": "#N/A",
-      "sum Sessions": 1,
-      "sum Total users": 1,
-      "sum Engaged sessions": 1,
-      "sum New users": 1,
-      "sum Views": 1,
-      "sum Bounces": 0,
-      "sum Add-to-carts": 1,
-      "sum Transactions": "",
-      "sum Revenue": "",
-      "sum Duration": 0
     },
     {
       "CW PW Tag": "PW",
