@@ -1094,18 +1094,28 @@ const rows = [
     if(!styleMap[n]) styleMap[n]={n,d:r.m_class,skus:[]};
     const oh=Number(r.u_oh)||0;const ov=Number(r.oh_value)||0;
     const u7=Number(r.gu_7)||0;const u90=Number(r.gu_90)||0;
+    const oo=(Number(r.u_oo)||0)+(Number(r.u_po)||0);
+    const uc=Number(r.unit_cost)||0;
+    const gld=Number(r.gld7)||0;
+    const avgP=u7>0?Math.round(gld/u7):0;
+    const avgPr=avgP>0?Math.round(avgP-uc):0;
     const stPct=(oh+u90)>0?+((u90/(oh+u90))*100).toFixed(1):0;
     const rate=Math.max(u7,u90/90*7);const skuWoh=rate>0?Math.round(oh/rate):999;
-    styleMap[n].skus.push({c:r.color_name,s:r.sn,mc:r.merch_cat,oh,ov,u7,u90,st:stPct,woh:skuWoh});
+    styleMap[n].skus.push({c:r.color_name,s:r.sn,mc:r.merch_cat,oh,ov,u7,u90,st:stPct,woh:skuWoh,oo,uc,gld,avgP,avgPr});
   });
   const invData = Object.values(styleMap).map(s=>{
     const dOH=s.skus.reduce((a,k)=>a+k.oh,0);
     const dOV=s.skus.reduce((a,k)=>a+k.ov,0);
     const dU7=s.skus.reduce((a,k)=>a+k.u7,0);
     const dU90=s.skus.reduce((a,k)=>a+k.u90,0);
+    const dOO=s.skus.reduce((a,k)=>a+k.oo,0);
+    const dGld=s.skus.reduce((a,k)=>a+k.gld,0);
+    const dUC=dOH>0?Math.round(s.skus.reduce((a,k)=>a+k.uc*k.oh,0)/dOH):0;
+    const dAvgP=dU7>0?Math.round(dGld/dU7):0;
+    const dAvgPr=dAvgP>0?Math.round(dAvgP-dUC):0;
     const dST=dU90>0?+((dU90/(dOH+dU90))*100).toFixed(1):0;
     const rate=Math.max(dU7,dU90/90*7);const dWOH=rate>0?Math.round(dOH/rate):999;
-    return {...s,oh:dOH,ov:dOV,u7:dU7,u90:dU90,st:parseFloat(dST),woh:dWOH};
+    return {...s,oh:dOH,ov:dOV,u7:dU7,u90:dU90,st:parseFloat(dST),woh:dWOH,oo:dOO,uc:dUC,avgP:dAvgP,avgPr:dAvgPr};
   });
 
   // Alert filter — applied at color/SKU level
@@ -1117,9 +1127,14 @@ const rows = [
     const dOV=matchedSkus.reduce((a,k)=>a+k.ov,0);
     const dU7=matchedSkus.reduce((a,k)=>a+k.u7,0);
     const dU90=matchedSkus.reduce((a,k)=>a+k.u90,0);
+    const dOO=matchedSkus.reduce((a,k)=>a+k.oo,0);
+    const dGld=matchedSkus.reduce((a,k)=>a+k.gld,0);
+    const dUC=dOH>0?Math.round(matchedSkus.reduce((a,k)=>a+k.uc*k.oh,0)/dOH):0;
+    const dAvgP=dU7>0?Math.round(dGld/dU7):0;
+    const dAvgPr=dAvgP>0?Math.round(dAvgP-dUC):0;
     const dST=dU90>0?+((dU90/(dOH+dU90))*100).toFixed(1):0;
     const rate=Math.max(dU7,dU90/90*7);const dWOH=rate>0?Math.round(dOH/rate):999;
-    return {...s,skus:matchedSkus,oh:dOH,ov:dOV,u7:dU7,u90:dU90,st:parseFloat(dST),woh:dWOH};
+    return {...s,skus:matchedSkus,oh:dOH,ov:dOV,u7:dU7,u90:dU90,st:parseFloat(dST),woh:dWOH,oo:dOO,uc:dUC,avgP:dAvgP,avgPr:dAvgPr};
   }).filter(Boolean);
 
   // Sort
@@ -1136,7 +1151,7 @@ const rows = [
   const ttlST=ttlU90>0?((ttlU90/(ttlOH+ttlU90))*100).toFixed(1):"0";
   const btnS=(v,cur)=>({background:cur===v?C.b1:C.cd,color:cur===v?"#fff":C.sl,border:`1px solid ${cur===v?C.b1:C.bd}`,borderRadius:6,padding:"4px 8px",fontSize:10,fontWeight:600,cursor:"pointer"});
   const alertBtnS=(v,cur,color)=>({background:cur===v?color:C.cd,color:cur===v?"#fff":C.sl,border:`1px solid ${cur===v?color:C.bd}`,borderRadius:6,padding:"4px 8px",fontSize:10,fontWeight:600,cursor:"pointer"});
-  const invCols=[{h:"",k:null},{h:"Style",k:"n"},{h:"OH Units",k:"oh"},{h:"OH Value",k:"ov"},{h:"7D Units",k:"u7"},{h:"90D Units",k:"u90"},{h:"90D ST%",k:"st"},{h:"WOH",k:"woh"}];
+  const invCols=[{h:"",k:null},{h:"Style",k:"n"},{h:"OH Units",k:"oh"},{h:"On Order",k:"oo"},{h:"OH Value",k:"ov"},{h:"Unit Cost",k:"uc"},{h:"7D Units",k:"u7"},{h:"Avg Price",k:"avgP"},{h:"Avg Profit",k:"avgPr"},{h:"90D Units",k:"u90"},{h:"90D ST%",k:"st"},{h:"WOH",k:"woh"}];
   const toggleSort=(k)=>{if(!k)return;setInvSort(p=>p.col===k?{...p,dir:p.dir==="desc"?"asc":"desc"}:{col:k,dir:"desc"});};
   return <>
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
@@ -1176,22 +1191,30 @@ const rows = [
         <td style={{padding:"7px 4px",color:C.sL,width:16}}>{open?"▾":"▸"}</td>
         <td style={{padding:"7px 5px",fontWeight:600,color:C.nv}}>{s.n} <span style={{fontSize:9,color:C.sL,fontWeight:400}}>({fs.length} colors)</span></td>
         <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600}}>{s.oh.toLocaleString()}</td>
+        <td style={{padding:"7px 5px",textAlign:"right",color:s.oo>0?C.nv:C.sL}}>{s.oo>0?s.oo.toLocaleString():"–"}</td>
         <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>{ff(s.ov)}</td>
+        <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>${s.uc}</td>
         <td style={{padding:"7px 5px",textAlign:"right"}}>{s.u7}</td>
+        <td style={{padding:"7px 5px",textAlign:"right"}}>{s.avgP>0?`$${s.avgP}`:"–"}</td>
+        <td style={{padding:"7px 5px",textAlign:"right",color:s.avgPr>0?C.gn:s.avgPr<0?C.rd:C.sL}}>{s.avgPr!==0?`$${s.avgPr}`:"–"}</td>
         <td style={{padding:"7px 5px",textAlign:"right"}}>{s.u90}</td>
         <td style={{padding:"7px 5px",textAlign:"right",fontWeight:500,color:s.st>=25?C.gn:s.st>=10?C.nv:s.st>0?C.am:C.rd}}>{s.st}%</td>
-        <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600,color:s.woh>=100?C.rd:s.woh>=50?C.am:s.woh<=8?C.gn:C.nv}}>{s.woh>=999?"No sales":s.woh}</td>
+        <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600,color:s.woh>=100?C.rd:s.woh>=50?C.am:s.woh<=8?C.gn:s.woh<=16?"#ea580c":C.nv}}>{s.woh>=999?"No sales":s.woh}</td>
       </tr>
       {open&&fs.map((k,j)=>(
         <tr key={j} style={{borderBottom:`1px solid ${C.bd}`,background:"#f8fafc"}}>
           <td/>
           <td style={{padding:"5px 5px 5px 20px",color:C.nv,fontSize:10}}><span style={{fontWeight:500}}>{k.c}</span> <span style={{color:C.sL}}>({k.s}{k.mc?` · ${k.mc}`:""})</span></td>
           <td style={{padding:"5px",textAlign:"right"}}>{k.oh}</td>
+          <td style={{padding:"5px",textAlign:"right",color:k.oo>0?C.nv:C.sL}}>{k.oo>0?k.oo:"–"}</td>
           <td style={{padding:"5px",textAlign:"right",color:C.sL}}>{k.ov?ff(k.ov):"–"}</td>
+          <td style={{padding:"5px",textAlign:"right",color:C.sL}}>${k.uc}</td>
           <td style={{padding:"5px",textAlign:"right"}}>{k.u7}</td>
+          <td style={{padding:"5px",textAlign:"right"}}>{k.avgP>0?`$${k.avgP}`:"–"}</td>
+          <td style={{padding:"5px",textAlign:"right",color:k.avgPr>0?C.gn:k.avgPr<0?C.rd:C.sL}}>{k.avgPr!==0?`$${k.avgPr}`:"–"}</td>
           <td style={{padding:"5px",textAlign:"right"}}>{k.u90}</td>
           <td style={{padding:"5px",textAlign:"right",color:k.st>=25?C.gn:k.st>=10?C.nv:k.st>0?C.am:C.rd}}>{k.st}%</td>
-          <td style={{padding:"5px",textAlign:"right",fontWeight:500,color:k.woh>=100?C.rd:k.woh>=50?C.am:k.woh<=8?C.gn:C.nv}}>{k.woh>=999?"No sales":k.woh}</td>
+          <td style={{padding:"5px",textAlign:"right",fontWeight:500,color:k.woh>=100?C.rd:k.woh>=50?C.am:k.woh<=8?C.gn:k.woh<=16?"#ea580c":C.nv}}>{k.woh>=999?"No sales":k.woh}</td>
         </tr>
       ))}
       </React.Fragment>;
