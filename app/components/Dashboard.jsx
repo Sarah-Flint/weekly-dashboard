@@ -989,8 +989,8 @@ const rows = [
   // Build SKU list
   const skuData = allSkus.map(r=>({
     s:r.sku, n:r.style, c:r.color,
-    gld:Number(r[gldKey])||0, u:Number(r[unitKey])||0,
-    aur:(Number(r[unitKey])||0)>0?Math.round((Number(r[gldKey])||0)/(Number(r[unitKey])||0)):0,
+    gld:Number(r[revKey])||0, u:Number(r[unitKey])||0,
+    aur:(Number(r[unitKey])||0)>0?Math.round((Number(r[revKey])||0)/(Number(r[unitKey])||0)):0,
     oh:Number(r.u_oh)||0,
   })).filter(s=>s.gld>0).sort((a,b)=>b.gld-a.gld);
 
@@ -1110,9 +1110,9 @@ const rows = [
   // Time-frame field mapping
   const ytdWeeks = parseInt((meta.week||"").replace(/\D/g,"")) || 17;
   const tfFields = {
-    "7D":  { uKey:"nu_7",    gldKey:"net_sales_7",           weeks:1,        label:"7D" },
-    "90D": { uKey:"nu_90",   gldKey:"net_sales_90,              weeks:90/7,     label:"90D" },
-    "YTD": { uKey:"nu_ytd",  gldKey:"net_sales_ytd",   weeks:ytdWeeks, label:"YTD" },
+    "7D":  { uKey:"nu_7",    revKey:"net_sales_7",           weeks:1,        label:"7D" },
+    "90D": { uKey:"nu_90",   revKey:"net_sales_90,              weeks:90/7,     label:"90D" },
+    "YTD": { uKey:"nu_ytd",  revKey:"net_sales_ytd",   weeks:ytdWeeks, label:"YTD" },
   };
   const tf = tfFields[invTF] || tfFields["7D"];
 
@@ -1131,7 +1131,7 @@ const rows = [
     const owned=Number(r.u_owned)||(oh+oo);
     const uc=Number(r.unit_cost)||0;
     const nu=tf.uKey?Number(r[tf.uKey])||0:0;
-    const gld=tf.gldKey?Number(r[tf.gldKey])||0:0;
+    const gld=tf.revKey?Number(r[tf.revKey])||0:0;
     const st=(oh+nu)>0?+((nu/(oh+nu))*100).toFixed(1):0;
     const avgP=nu>0&&gld>0?Math.round(gld/nu):0;
     const avgPr=avgP>0&&uc>0?Math.round(avgP-uc):0;
