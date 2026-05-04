@@ -820,7 +820,7 @@ const rows = [
 })()}
 
 {/* Weekly KPIs */}
-<SH t={`${meta.week.replace("WEEK", "Week")} Performance`} icon="📈"/>
+<SH t={`${meta.week.replace("WEEK", "Week")} Performance`}/>
 
 <div style={{display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:12,marginBottom:6}}>
   {weeklyKpis.map((kpi) => {
@@ -932,7 +932,7 @@ const rows = [
     </ComposedChart></ResponsiveContainer>
   </div>
 
-  <SH t="New vs. Returning Comparison" icon="👥"/>
+  <SH t="New vs. Returning Comparison"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:8,overflowX:"auto"}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}><thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
       {["Metric","New CW","New PW","WoW","Ret CW","Ret PW","WoW"].map(h=><th key={h} style={{textAlign:h==="Metric"?"left":"right",padding:"7px 9px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>{h}</th>)}
@@ -1272,7 +1272,7 @@ const rows = [
   </div>
 
   {/* Product Class Summary Table */}
-  <SH t="Product Class Summary" icon="📊"/>
+  <SH t="Product Class Summary"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,marginBottom:14,overflowX:"auto"}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
@@ -1294,7 +1294,7 @@ const rows = [
   </div>
 
   {/* Style → Color Drill-down Table */}
-  <SH t={invMC==="All"?"All Styles":"Styles – "+invMC} icon="👠"/>
+  <SH t={invMC==="All"?"All Styles":"Styles – "+invMC}/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,overflowX:"auto"}}>
     <div style={{fontSize:11,color:C.sL,marginBottom:6}}>Click column header to sort · Click style to expand color detail · {sortedStyles.length} styles</div>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
@@ -1431,7 +1431,7 @@ const rows = [
 
   {/* Weekly Trend Chart */}
   {retTrendData.length > 0 && <>
-  <SH t="Weekly Return Value Trend" icon="📈"/>
+  <SH t="Weekly Return Value Trend"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
     <ResponsiveContainer width="100%" height={220}>
       <ComposedChart data={retTrendData} margin={{top:4,right:8,left:0,bottom:0}}>
@@ -1454,7 +1454,7 @@ const rows = [
   </>}
 
   {/* Top Returned Styles */}
-  <SH t={`Top Returned Styles – Wk ${cwTag || '?'}`} icon="👟"/>
+  <SH t={`Top Returned Styles – Wk ${cwTag || '?'}`}/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:18,marginBottom:14}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
@@ -1488,7 +1488,7 @@ const rows = [
   </div>
 
   {/* Return Reasons */}
-  <SH t="Return Reasons" icon="🔍"/>
+  <SH t="Return Reasons"/>
   {(()=>{
     // Time filter: LW = current week only, L5W = last 5 weeks (5 most recent)
     const last5Weeks = numericTags.slice(0, 5).map(String);
@@ -1607,7 +1607,7 @@ const rows = [
     <MC l="Google Revenue" v={ff(DD.googleRev)} ww={w(DD.googleRev,DD.priorGoogleRev)}/>
   </div>
 
-  <SH t="Weekly Marketing Trend" icon="📈"/>
+  <SH t="Weekly Marketing Trend"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
     <ResponsiveContainer width="100%" height={220}>
       <ComposedChart data={WEEKLY_TREND_LIVE}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:11,fill:C.sL}}/><YAxis tick={{fontSize:11,fill:C.sL}} tickFormatter={v=>`${v<0?"-":""}$${(Math.abs(v)/1000).toFixed(0)}K`}/><Tooltip content={<CT/>}/>
@@ -1742,7 +1742,7 @@ const rows = [
     );};
 
     return <>
-      <SH t="Campaign Performance" icon="📋"/>
+      <SH t="Campaign Performance"/>
       {renderDrillDown(metaGroups, "meta", "Meta", DD.metaSpend, metaWoW, DD.metaRoas+"x", DD.priorMetaRoas>0?((DD.metaRoas/DD.priorMetaRoas-1)*100).toFixed(1)+"%":"–")}
       {renderDrillDown(googGroups, "goog", "Google", DD.googleSpend, googWoW, DD.googleRoas+"x", DD.priorGoogleRoas>0?((DD.googleRoas/DD.priorGoogleRoas-1)*100).toFixed(1)+"%":"–")}
     </>;
@@ -1759,7 +1759,7 @@ const rows = [
     <MC l="Pages/Session" v={DD.pagesPerSession} ww={w(DD.pagesPerSession,DD.priorPagesPerSession)} sub={`PW: ${DD.priorPagesPerSession}`}/>
   </div>
 
-  <SH t="Device Breakdown" icon="📱"/>
+  <SH t="Device Breakdown"/>
   <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
     <MC l="Desktop" v={DD.desktopSessions.toLocaleString()} ww={w(DD.desktopSessions,DD.priorDesktopSessions)} sub={`ATC: ${DD.desktopAtcRate.toFixed(1)}% (PW: ${DD.priorDesktopAtcRate.toFixed(1)}%)`}/>
     <MC l="Mobile" v={DD.mobileSessions.toLocaleString()} ww={w(DD.mobileSessions,DD.priorMobileSessions)} sub={`ATC: ${DD.mobileAtcRate.toFixed(1)}% (PW: ${DD.priorMobileAtcRate.toFixed(1)}%)`}/>
@@ -1767,7 +1767,7 @@ const rows = [
     <MC l="Returning" v={DD.returningSessions.toLocaleString()} ww={w(DD.returningSessions,DD.priorReturningSessions)} sub={`${(DD.returningSessions/DD.sessions*100).toFixed(0)}% of total`}/>
   </div>
 
-  <SH t="Traffic by Channel (WoW)" icon="📊"/>
+  <SH t="Traffic by Channel (WoW)"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
@@ -1787,7 +1787,7 @@ const rows = [
     </table>
   </div>
 
-  <SH t="Page Views by Type" icon="📄"/>
+  <SH t="Page Views by Type"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
@@ -1806,7 +1806,7 @@ const rows = [
     </table>
   </div>
 
-  <SH t="Top Landing Pages by Channel" icon="🔗"/>
+  <SH t="Top Landing Pages by Channel"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
     <div style={{display:"flex",gap:8,marginBottom:14,flexWrap:"wrap"}}>
       {["All",...Object.keys(LP_CH_LIVE)].map(ch=>(
