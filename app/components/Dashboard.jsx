@@ -1534,11 +1534,15 @@ const rows = [
 
   <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginBottom:14}}>
     <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:18}}>
-      <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:10}}>CAC Trend</div>
+      <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:10}}>New Customers & CAC</div>
       <ResponsiveContainer width="100%" height={140}>
-        <BarChart data={WEEKLY_TREND_LIVE}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:10,fill:C.sL}}/><YAxis tick={{fontSize:10,fill:C.sL}}/><Tooltip content={<CT/>}/>
-          <Bar dataKey="cac" fill={C.b2} name="CAC" radius={[3,3,0,0]}/>
-        </BarChart>
+        <ComposedChart data={WEEKLY_TREND_LIVE}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:10,fill:C.sL}}/>
+          <YAxis yAxisId="left" tick={{fontSize:10,fill:C.sL}}/>
+          <YAxis yAxisId="right" orientation="right" tick={{fontSize:10,fill:C.b2}} width={36} tickFormatter={v=>`$${v}`}/>
+          <Tooltip content={<CT/>}/>
+          <Bar yAxisId="left" dataKey="newCust" fill={C.b3} name="New Customers" radius={[3,3,0,0]}/>
+          <Line yAxisId="right" type="monotone" dataKey="cac" stroke={C.b1} strokeWidth={2} dot={{r:3,fill:C.b1}} name="CAC ($)"/>
+        </ComposedChart>
       </ResponsiveContainer>
     </div>
     <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:18}}>
@@ -1546,7 +1550,7 @@ const rows = [
       <ResponsiveContainer width="100%" height={140}>
         <ComposedChart data={WEEKLY_TREND_LIVE}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:10,fill:C.sL}}/>
           <YAxis tick={{fontSize:10,fill:C.sL}}/><Tooltip content={<CT/>}/>
-          <Bar dataKey="roas" fill={C.gn} name="ROAS" radius={[3,3,0,0]}/>
+          <Line type="monotone" dataKey="roas" stroke={C.gn} strokeWidth={2} dot={{r:3,fill:C.gn}} name="ROAS"/>
           <ReferenceLine y={1.65} stroke={C.rd} strokeDasharray="5 5" label={{value:"Plan 1.65x",fontSize:10,fill:C.rd}}/>
         </ComposedChart>
       </ResponsiveContainer>
@@ -1589,7 +1593,16 @@ const rows = [
 
     const campHeaders = ["","Group","CW Spend","CW Rev","CW ROAS","PW Spend","PW ROAS","WoW Spend","WoW ROAS"];
 
-    const renderDrillDown = (groups, prefix, title, tSpend, tWow, tRoas, tRoasW) => (
+    const renderDrillDown = (groups, prefix, title, tSpend, tWow, tRoas, tRoasW) => {
+      const gtCS = groups.reduce((a,g)=>a+g.cS,0);
+      const gtCR = groups.reduce((a,g)=>a+g.cR,0);
+      const gtPS = groups.reduce((a,g)=>a+g.pS,0);
+      const gtCX = gtCS > 0 ? gtCR / gtCS : 0;
+      const gtPR = groups.reduce((a,g)=>a+g.camps.reduce((b,c)=>b+(c.pX>0?c.pS*c.pX:0),0),0);
+      const gtPX = gtPS > 0 ? gtPR / gtPS : 0;
+      const gtWS = gtPS > 0 ? ((gtCS - gtPS) / gtPS) * 100 : null;
+      const gtWX = gtPX > 0 ? ((gtCX - gtPX) / gtPX) * 100 : null;
+      return (
       <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:6,overflowX:"auto"}}>
         <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:10}}>{title}: {ff(tSpend)} <span style={{fontWeight:400,color:C.sL}}>({tWow} WoW)</span> · ROAS: {tRoas} <span style={{fontWeight:400,color:C.sL}}>({tRoasW} WoW)</span></div>
         <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
@@ -1627,10 +1640,21 @@ const rows = [
                 ))}
               </React.Fragment>;
             })}
+            <tr style={{borderTop:`2px solid ${C.bd}`,background:"#f1f5f9"}}>
+              <td/>
+              <td style={{padding:"8px 6px",fontWeight:700,color:C.nv}}>Total</td>
+              <td style={{...tdR,fontWeight:700}}>{ff(gtCS)}</td>
+              <td style={{...tdR,fontWeight:700}}>{ff(gtCR)}</td>
+              <td style={{...tdR,fontWeight:700,color:gtCX>=3?C.gn:gtCX>=1.5?C.nv:gtCX>0?C.am:C.sL}}>{fmtRoas(gtCX)}</td>
+              <td style={{...tdR,fontWeight:700,color:C.sL}}>{gtPS>0?ff(gtPS):"–"}</td>
+              <td style={{...tdR,fontWeight:700,color:C.sL}}>{fmtRoas(gtPX)}</td>
+              <td style={{...tdR,fontWeight:700}}>{gtWS!=null?<Pill v={gtWS} inv/>:"–"}</td>
+              <td style={{...tdR,fontWeight:700}}>{gtWX!=null?<Pill v={gtWX}/>:"–"}</td>
+            </tr>
           </tbody>
         </table>
       </div>
-    );
+    );};
 
     return <>
       <SH t="Campaign Performance" icon="📋"/>
