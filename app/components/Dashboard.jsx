@@ -969,7 +969,7 @@ const rows = [
     gld:Number(r[gldKey])||0, u:Number(r[unitKey])||0,
     aur:(Number(r[unitKey])||0)>0?Math.round((Number(r[gldKey])||0)/(Number(r[unitKey])||0)):0,
     oh:Number(r.u_oh)||0, rank:Number(r[rankKey])||999,
-  })).filter(s=>s.gld>0).sort((a,b)=>a.rank-b.rank);
+  })).filter(s=>s.gld>0).sort((a,b)=>b.gld-a.gld);
 
   const styles = styData.filter(s=>s.n.toLowerCase().includes(search.toLowerCase()));
   const shown = showAll ? styles : styles.slice(0,10);
