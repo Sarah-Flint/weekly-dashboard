@@ -43,16 +43,34 @@ const MC = ({l, v, ww, pL, inv, sub}) => (
 );
 const SH=({t,icon})=><div style={{display:"flex",alignItems:"center",gap:7,marginBottom:13,marginTop:22}}><span style={{fontSize:16}}>{icon}</span><h2 style={{fontSize:15,fontWeight:700,color:C.nv,margin:0}}>{t}</h2></div>;
 const DEFS={
+  // Revenue
   gross:"Total revenue before discounts or returns",disc:"Dollar amount discounted at checkout",gld:"Gross revenue minus discounts",ret:"Dollar value of returned items",
   net:"GLD minus returns",discPct:"Discounts / gross revenue",retPct:"Returns / GLD",aov:"GLD / orders",netAOV:"Net revenue / orders",aur:"GLD / units ordered",upt:"Units ordered / orders",
+  orders:"Total number of orders placed",items:"Total gross units ordered",
+  // Marketing
   newNetROAS:"New customer net revenue / marketing spend",gldROAS:"New customer GLD / marketing spend",blendedROAS:"Total net revenue / marketing spend",
   mer:"Marketing spend / net revenue",merNew:"Marketing spend / new customer net revenue",cac:"Marketing spend / new customers acquired",
+  mktSpend:"Total paid media spend (Meta + Google + other)",cwSpend:"Current week campaign spend",cwRev:"Current week attributed campaign revenue",
+  cwRoas:"Current week revenue / spend",pwSpend:"Prior week campaign spend",pwRoas:"Prior week revenue / spend",
+  wowSpend:"Week-over-week change in spend",wowRoas:"Week-over-week change in ROAS",
+  // Website
   sessions:"Total site visits (GA4)",conv:"Orders / sessions",engagement:"Engaged sessions / total sessions",atcRate:"Add-to-cart events / total sessions",bounce:"Bounced sessions / sessions",
+  pagesPerSession:"Average page views per session",pageViews:"Total page views across all sessions",
+  cvr:"Orders / sessions for a given page or channel",revenue:"Attributed revenue from orders",
+  // Products
+  units:"Total units sold in the period",pctTtl:"Style or category GLD as a percentage of total GLD",oh:"Current on-hand unit count",
+  // Inventory
   st7:"7D units sold / (OH units + 7D units sold)",st90:"90D units sold / (OH units + 90D units sold)",
+  u7:"Units sold in the last 7 days",u90:"Units sold in the last 90 days",
   woh:"OH units / avg weekly sell-through volume",wohOwned:"Total owned inventory / avg weekly sell-through volume",
   ohVal:"On-hand inventory valued at unit cost",ohUnits:"Current on-hand unit count",onOrder:"Units on order (open orders + purchase orders)",
   totalOwned:"OH units + on order units",unitCost:"Weighted average cost per unit",avgPrice:"Average selling price (GLD / units sold, 7D)",avgProfit:"Average selling price minus unit cost",
-  newCust:"Orders from new customers",retOrders:"Orders from returning customers",mktSpend:"Total paid media spend (Meta + Google + other)",
+  // Customers
+  newCust:"Orders from new customers",retOrders:"Orders from returning customers",
+  // Returns
+  returnsSubmitted:"Total return requests submitted (dollar value)",refunds:"Closed returns processed as refunds",exchanges:"Closed returns processed as exchanges (revenue retained)",
+  openReturns:"Returns awaiting processing",pctOfTotal:"Style return value as % of all returns",pctOfSales:"Style return value as % of that style's 7D GLD sales",
+  retNetPct:"Weekly returns value / net sales value",reasonGroup:"Top-level return reason category",parentReason:"Specific return reason (e.g. Item Was Too Small)",returnReason:"Detailed sub-reason (e.g. Too narrow, Too short)",
 };
 const Defs=({keys,show,toggle})=>(<div style={{marginTop:16}}>
   <div onClick={toggle} style={{cursor:"pointer",fontSize:11,color:C.sL,fontWeight:600,display:"flex",alignItems:"center",gap:4}}><span>{show?"▾":"▸"}</span>Metric Definitions</div>
@@ -928,7 +946,7 @@ const rows = [
       <td style={{padding:"8px 9px",textAlign:"right",borderLeft:`2px solid ${C.bd}`}}>{r.rc}</td><td style={{padding:"8px 9px",textAlign:"right",color:C.sL}}>{r.rp}</td><td style={{padding:"8px 9px",textAlign:"right"}}><Pill v={r.rw} inv={r.inv}/></td>
     </tr>)}</tbody></table>
   </div>
-  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gross","disc","gld","ret","net","discPct","retPct","aov","netAOV","aur","upt"]}/>
+  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gross","disc","gld","ret","net","orders","items","discPct","retPct","aov","netAOV","aur","upt"]}/>
 </>}
 
 
@@ -1079,7 +1097,7 @@ const rows = [
     </tbody></table>
   </div>
 
-  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gld","net","aur","aov","st90","woh"]}/>
+  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gld","units","aur","pctTtl","oh","st90","woh"]}/>
 </>})()}
 
 {/* ═══ INVENTORY ═══ */}
@@ -1242,7 +1260,7 @@ const rows = [
       </React.Fragment>;
     })}</tbody></table>
   </div>
-  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["ohUnits","onOrder","totalOwned","ohVal","st7","st90","unitCost","avgPrice","avgProfit","wohOwned"]}/>
+  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["ohUnits","onOrder","totalOwned","ohVal","u7","st7","u90","st90","unitCost","avgPrice","avgProfit","wohOwned"]}/>
   </>;
 })()}
 
@@ -1503,7 +1521,7 @@ const rows = [
   </div>;
   })()}
 
-  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gld","ret","retPct","net"]}/>
+  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["returnsSubmitted","refunds","exchanges","openReturns","retNetPct","pctOfTotal","pctOfSales","reasonGroup","parentReason","returnReason"]}/>
 </>;
 })()}
 
@@ -1662,7 +1680,7 @@ const rows = [
       {renderDrillDown(googGroups, "goog", "Google", DD.googleSpend, googWoW, DD.googleRoas+"x", DD.priorGoogleRoas>0?((DD.googleRoas/DD.priorGoogleRoas-1)*100).toFixed(1)+"%":"–")}
     </>;
   })()}
-  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["mktSpend","cac","newNetROAS","gldROAS","mer","merNew"]}/>
+  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["mktSpend","cac","newNetROAS","gldROAS","mer","merNew","cwSpend","cwRev","cwRoas","pwSpend","pwRoas","wowSpend","wowRoas"]}/>
 </>}
 
 {/* ═══ WEBSITE ═══ */}
@@ -1790,7 +1808,7 @@ const rows = [
     });
   })()}
 
-  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["sessions","conv","engagement","atcRate","bounce"]}/>
+  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["sessions","conv","engagement","atcRate","bounce","pagesPerSession","pageViews","cvr","revenue"]}/>
 </>}
 
         <div style={{marginTop:28,padding:"14px 0",borderTop:`1px solid ${C.bd}`,display:"flex",justifyContent:"space-between",fontSize:11,color:C.sL,flexWrap:"wrap",gap:8}}>
