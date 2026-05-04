@@ -1110,8 +1110,8 @@ const rows = [
   // Time-frame field mapping
   const ytdWeeks = parseInt((meta.week||"").replace(/\D/g,"")) || 17;
   const tfFields = {
-    "7D":  { uKey:"nu_7",    gldKey:"gld7",           weeks:1,        label:"7D" },
-    "90D": { uKey:"nu_90",   gldKey:null,              weeks:90/7,     label:"90D" },
+    "7D":  { uKey:"nu_7",    gldKey:"net_sales_7",           weeks:1,        label:"7D" },
+    "90D": { uKey:"nu_90",   gldKey:"net_sales_90,              weeks:90/7,     label:"90D" },
     "YTD": { uKey:"nu_ytd",  gldKey:"net_sales_ytd",   weeks:ytdWeeks, label:"YTD" },
   };
   const tf = tfFields[invTF] || tfFields["7D"];
