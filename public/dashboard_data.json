@@ -3,7 +3,7 @@
     "week": "WEEK 17",
     "dateRange": "Apr 26-2, 2026",
     "quarter": "Q2",
-    "lastUpdated": "2026-05-04T13:32:30.374Z"
+    "lastUpdated": "2026-05-04T15:27:28.285Z"
   },
   "kpi": [
     {
@@ -130,11 +130,11 @@
       "metric_label": "Discounts",
       "_cw": -25685.96,
       "_pw": -27231.92,
-      "_cw_plan": 138559.99,
+      "_cw_plan": -10789.09,
       "_mtd": -82970.13,
-      "_mtd_plan": 615822.18,
+      "_mtd_plan": -47951.5,
       "_qtd": -82970.13,
-      "_qtd_plan": 615822.18
+      "_qtd_plan": -47951.5
     },
     {
       "metric": "new_gld",
@@ -169,11 +169,11 @@
       "metric_label": "Net Revenue",
       "_cw": 82254.27,
       "_pw": 70595.37,
-      "_cw_plan": 79076.37,
+      "_cw_plan": 43492,
       "_mtd": 285204.77,
-      "_mtd_plan": 351450.54,
+      "_mtd_plan": 173968,
       "_qtd": 285204.77,
-      "_qtd_plan": 351450.54
+      "_qtd_plan": 173968
     },
     {
       "metric": "new_orders",
@@ -234,11 +234,11 @@
       "metric_label": "Discounts",
       "_cw": -23389.91,
       "_pw": -15577.43,
-      "_cw_plan": 76208,
+      "_cw_plan": -21856.37,
       "_mtd": -63693.55,
-      "_mtd_plan": 304832,
+      "_mtd_plan": -97139.42,
       "_qtd": -63693.55,
-      "_qtd_plan": 304832
+      "_qtd_plan": -97139.42
     },
     {
       "metric": "returning_gld",
@@ -273,11 +273,11 @@
       "metric_label": "Net Revenue",
       "_cw": 52499.22,
       "_pw": 67780.97,
-      "_cw_plan": 43492,
+      "_cw_plan": 76208,
       "_mtd": 241119.69,
-      "_mtd_plan": 173968,
+      "_mtd_plan": 304832,
       "_qtd": 241119.69,
-      "_qtd_plan": 173968
+      "_qtd_plan": 304832
     },
     {
       "metric": "returning_orders",
@@ -429,11 +429,11 @@
       "metric_label": "Sessions",
       "_cw": 18580,
       "_pw": 17005,
-      "_cw_plan": -21856.37,
+      "_cw_plan": 22500,
       "_mtd": 70094,
-      "_mtd_plan": -97139.42,
+      "_mtd_plan": 80400,
       "_qtd": 70094,
-      "_qtd_plan": -97139.42
+      "_qtd_plan": 80400
     },
     {
       "metric": "total_engaged_sessions",
@@ -442,11 +442,11 @@
       "metric_label": "Engaged Sessions",
       "_cw": 10510,
       "_pw": 10451,
-      "_cw_plan": -21419.24,
+      "_cw_plan": 9855,
       "_mtd": 41280,
-      "_mtd_plan": -95250.06,
+      "_mtd_plan": 30412.5,
       "_qtd": 41280,
-      "_qtd_plan": -95250.06
+      "_qtd_plan": 30412.5
     },
     {
       "metric": "total_bounces",
@@ -455,11 +455,11 @@
       "metric_label": "Bounces",
       "_cw": 8070,
       "_pw": 6554,
-      "_cw_plan": -437.13,
+      "_cw_plan": 12645,
       "_mtd": 28814,
-      "_mtd_plan": -1889.36,
+      "_mtd_plan": 49987.5,
       "_qtd": 28814,
-      "_qtd_plan": -1889.36
+      "_qtd_plan": 49987.5
     },
     {
       "metric": "total_add_to_cart",
@@ -507,11 +507,11 @@
       "metric_label": "Engagement Rate",
       "_cw": 0.57,
       "_pw": 0.61,
-      "_cw_plan": 0.98,
+      "_cw_plan": 0.44,
       "_mtd": 0.59,
-      "_mtd_plan": 0.98,
+      "_mtd_plan": 0.38,
       "_qtd": 0.59,
-      "_qtd_plan": 0.98
+      "_qtd_plan": 0.38
     },
     {
       "metric": "bounce_pct",
@@ -520,11 +520,11 @@
       "metric_label": "Bounce Rate",
       "_cw": 0.43,
       "_pw": 0.39,
-      "_cw_plan": 0.02,
+      "_cw_plan": 0.56,
       "_mtd": 0.41,
-      "_mtd_plan": 0.02,
+      "_mtd_plan": 0.62,
       "_qtd": 0.41,
-      "_qtd_plan": 0.02
+      "_qtd_plan": 0.62
     },
     {
       "metric": "total_atc_pct",
