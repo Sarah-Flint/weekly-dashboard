@@ -64,7 +64,7 @@ const DEFS={
   u7:"Units sold in the last 7 days",u90:"Units sold in the last 90 days",
   woh:"OH units / avg weekly sell-through volume",wohOwned:"Total owned inventory / avg weekly sell-through volume",
   ohVal:"On-hand inventory valued at unit cost",ohUnits:"Current on-hand unit count",onOrder:"Units on order (open orders + purchase orders)",
-  totalOwned:"OH units + on order units",unitCost:"Weighted average cost per unit",avgPrice:"Average selling price (GLD / units sold, 7D)",avgProfit:"Average selling price minus unit cost",
+  totalOwned:"OH units + on order units",unitCost:"Weighted average cost per unit",avgPrice:"Average selling price (GLD / units sold, 7D)",avgProfit:"Average selling price minus unit cost",imu:"Initial markup: avg profit / avg price",
   // Customers
   newCust:"Orders from new customers",retOrders:"Orders from returning customers",
   // Returns
@@ -1108,10 +1108,11 @@ const rows = [
   const recentSeasons = ["S26","F25","S25"];
 
   // Time-frame field mapping
+  const ytdWeeks = parseInt((meta.week||"").replace(/\D/g,"")) || 17;
   const tfFields = {
-    "7D":  { uKey:"nu_7",  gldKey:"gld7",  weeks:1,   label:"7D" },
-    "90D": { uKey:"nu_90", gldKey:null,     weeks:90/7, label:"90D" },
-    "YTD": { uKey:null,    gldKey:null,     weeks:null, label:"YTD" },
+    "7D":  { uKey:"nu_7",    gldKey:"gld7",           weeks:1,        label:"7D" },
+    "90D": { uKey:"nu_90",   gldKey:null,              weeks:90/7,     label:"90D" },
+    "YTD": { uKey:"nu_ytd",  gldKey:"net_sales_ytd",   weeks:ytdWeeks, label:"YTD" },
   };
   const tf = tfFields[invTF] || tfFields["7D"];
 
@@ -1134,9 +1135,10 @@ const rows = [
     const st=(oh+nu)>0?+((nu/(oh+nu))*100).toFixed(1):0;
     const avgP=nu>0&&gld>0?Math.round(gld/nu):0;
     const avgPr=avgP>0&&uc>0?Math.round(avgP-uc):0;
+    const imu=avgP>0&&avgPr!==0?+((avgPr/avgP)*100).toFixed(1):0;
     const weeklyRate=tf.weeks?nu/tf.weeks:0;
     const woh=weeklyRate>0?Math.round(owned/weeklyRate):999;
-    return {c:r.color,sn:r.sn,mc:r.merch_cat,style:r.style,mClass:r.m_class,oh,ov,oo,owned,uc,nu,gld,st:parseFloat(st),avgP,avgPr,woh,weeklyRate};
+    return {c:r.color,sn:r.sn,mc:r.merch_cat,style:r.style,mClass:r.m_class,oh,ov,oo,owned,uc,nu,gld,st:parseFloat(st),avgP,avgPr,imu,woh,weeklyRate};
   };
 
   const skuRows = filtered.map(buildSku);
@@ -1157,9 +1159,10 @@ const rows = [
     const st=(oh+nu)>0?+((nu/(oh+nu))*100).toFixed(1):0;
     const avgP=nu>0&&gld>0?Math.round(gld/nu):0;
     const avgPr=avgP>0&&uc>0?Math.round(avgP-uc):0;
+    const imu=avgP>0&&avgPr!==0?+((avgPr/avgP)*100).toFixed(1):0;
     const weeklyRate=rows.reduce((a,r)=>a+r.weeklyRate,0);
     const woh=weeklyRate>0?Math.round(owned/weeklyRate):999;
-    return {oh,ov,oo,owned,nu,gld,uc,st:parseFloat(st),avgP,avgPr,woh};
+    return {oh,ov,oo,owned,nu,gld,uc,st:parseFloat(st),avgP,avgPr,imu,woh};
   };
 
   // Group: Product Class → Style → Colors
@@ -1211,7 +1214,7 @@ const rows = [
   const alertBtnS=(v,cur,color)=>({background:cur===v?color:C.cd,color:cur===v?"#fff":C.sl,border:`1px solid ${cur===v?color:C.bd}`,borderRadius:6,padding:"4px 8px",fontSize:10,fontWeight:600,cursor:"pointer"});
   const tfBtnS=(v,cur)=>({background:cur===v?C.nv:C.cd,color:cur===v?"#fff":C.sl,border:`1px solid ${cur===v?C.nv:C.bd}`,borderRadius:8,padding:"6px 16px",fontSize:12,fontWeight:700,cursor:"pointer"});
 
-  const invCols=[{h:"Name",k:"name"},{h:"OH Units",k:"oh"},{h:"On Order",k:"oo"},{h:"Total Owned",k:"owned"},{h:"OH Value",k:"ov"},{h:`Net Units (${tf.label})`,k:"nu"},{h:"ST%",k:"st"},{h:"Unit Cost",k:"uc"},{h:"Avg Price",k:"avgP"},{h:"Avg Profit",k:"avgPr"},{h:"WOH",k:"woh"}];
+  const invCols=[{h:"Name",k:"name"},{h:"OH Units",k:"oh"},{h:"On Order",k:"oo"},{h:"Total Owned",k:"owned"},{h:"OH Value",k:"ov"},{h:`Net Units (${tf.label})`,k:"nu"},{h:"ST%",k:"st"},{h:"Unit Cost",k:"uc"},{h:"Avg Price",k:"avgP"},{h:"Avg Profit",k:"avgPr"},{h:"IMU%",k:"imu"},{h:"WOH",k:"woh"}];
   const styleCols=[{h:"",k:null},...invCols];
   const toggleSort=(k)=>{if(!k)return;setInvSort(p=>p.col===k?{...p,dir:p.dir==="desc"?"asc":"desc"}:{col:k,dir:"desc"});};
 
@@ -1230,6 +1233,7 @@ const rows = [
     <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>{d.uc>0?`$${d.uc}`:"–"}</td>
     <td style={{padding:"7px 5px",textAlign:"right"}}>{d.avgP>0?`$${d.avgP}`:"–"}</td>
     <td style={{padding:"7px 5px",textAlign:"right",color:profitColor(d.avgPr)}}>{d.avgPr!==0?`$${d.avgPr}`:"–"}</td>
+    <td style={{padding:"7px 5px",textAlign:"right",color:d.imu>=50?C.gn:d.imu>=30?C.nv:d.imu>0?C.am:C.sL}}>{d.imu>0?`${d.imu}%`:"–"}</td>
     <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600,color:wohColor(d.woh)}}>{fmtWoh(d.woh)}</td>
   </>;
 
@@ -1323,7 +1327,7 @@ const rows = [
       </tbody>
     </table>
   </div>
-  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["ohUnits","onOrder","totalOwned","ohVal","units","st7","unitCost","avgPrice","avgProfit","wohOwned"]}/>
+  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["ohUnits","onOrder","totalOwned","ohVal","units","st7","unitCost","avgPrice","avgProfit","imu","wohOwned"]}/>
   </>;
 })()}
 
@@ -1876,7 +1880,7 @@ const rows = [
 
         <div style={{marginTop:28,padding:"14px 0",borderTop:`1px solid ${C.bd}`,display:"flex",justifyContent:"space-between",fontSize:11,color:C.sL,flexWrap:"wrap",gap:8}}>
           <span>Sarah Flint · Weekly Dashboard · {meta.dateRange}</span>
-          <span>Sources: Weekly_Export_for_Claude (Supermetrics, GA, Meta, Google Ads)</span>
+          <span>Sources: Supermetrics, GA4, Meta Ads, Google Ads</span>
         </div>
       </div>
     </div>
