@@ -541,20 +541,27 @@ useEffect(() => {
     };
   });
 
-  const LP_ALL_LIVE = (data.landing_pages_top25 || []).map(r => {
-    const s = Number(r['sum Sessions']) || 0;
-    const atc = Number(r['sum Add-to-carts']) || 0;
-    const tx = Number(r['sum Transactions']) || 0;
-    return {
-      lp: r['Landing Page URL'],
-      s,
-      atc,
-      ar: s > 0 ? +(atc / s * 100).toFixed(1) : 0,
-      tx,
-      cr: s > 0 ? +(tx / s * 100).toFixed(2) : 0,
-      rev: Number(r['sum Revenue']) || 0,
-    };
-  });
+  const LP_ALL_LIVE = (() => {
+    const rows = data.landing_pages_channel || [];
+    const urlMap = {};
+    rows.forEach(r => {
+      const url = r['Landing Page URL'];
+      if (!urlMap[url]) urlMap[url] = { s: 0, atc: 0, tx: 0, rev: 0 };
+      urlMap[url].s += Number(r['sum Sessions']) || 0;
+      urlMap[url].atc += Number(r['sum Add-to-carts']) || 0;
+      urlMap[url].tx += Number(r['sum Transactions']) || 0;
+      urlMap[url].rev += Number(r['sum Revenue']) || 0;
+    });
+    return Object.entries(urlMap).map(([url, d]) => ({
+      lp: url,
+      s: d.s,
+      atc: d.atc,
+      ar: d.s > 0 ? +(d.atc / d.s * 100).toFixed(1) : 0,
+      tx: d.tx,
+      cr: d.s > 0 ? +(d.tx / d.s * 100).toFixed(2) : 0,
+      rev: d.rev,
+    })).sort((a, b) => b.s - a.s).slice(0, 25);
+  })();
 
   const LP_CH_LIVE = (() => {
     const rows = data.landing_pages_channel || [];
@@ -1254,8 +1261,12 @@ const rows = [
   }));
 
   // Style-level returns from returns_details
-  const retTimeTag = retTimeFilter === "LW" ? "CW" : "p5w";
-  const rdFiltered = rd.filter(r => r['Time Tag'] === retTimeTag);
+  const timeTags = [...new Set(rd.map(r=>r['Time Tag']).filter(Boolean))];
+  const hasTimeTag = timeTags.length > 0;
+  const numericTags = timeTags.filter(t=>!isNaN(Number(t))).map(Number).sort((a,b)=>b-a);
+  const cwTag = numericTags.length > 0 ? String(numericTags[0]) : timeTags.includes("CW") ? "CW" : null;
+  const retTimeTag = retTimeFilter === "LW" ? cwTag : null;
+  const rdFiltered = !hasTimeTag ? rd : retTimeTag ? rd.filter(r => r['Time Tag'] === retTimeTag) : rd.filter(r => r['Time Tag'] !== cwTag);
   const styleMap = {};
   rdFiltered.forEach(r => {
     const s = r['Product Title'];
@@ -1290,7 +1301,7 @@ const rows = [
     const group = reasonGroupMap[parent] || "Other";
     if (!reasonData[group]) reasonData[group] = { g: group, total: 0, subs: {} };
     reasonData[group].total += r['count Return ID'];
-    const subKey = sub || parent;
+    const subKey = (sub && sub !== "#N/A") ? sub : parent;
     if (!reasonData[group].subs[subKey]) reasonData[group].subs[subKey] = 0;
     reasonData[group].subs[subKey] += r['count Return ID'];
   });
@@ -1300,7 +1311,7 @@ const rows = [
   return <>
   {/* KPI Row */}
   <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
-    <MC l="Returns Submitted" v={totalSubmitted} sub={`Total value: ${ff(totalValue)}`}/>
+    <MC l="Returns Submitted" v={ff(totalValue)} inv sub={`${totalSubmitted} returns`}/>
     <MC l="Refunds (Closed)" v={ff(refundVal)} sub={`${refundCount} return orders`}/>
     <MC l="Exchanges (Closed)" v={ff(exchVal)} sub={`${exchCount} exchange orders · revenue retained`}/>
     <MC l="Open Returns" v={ff(openVal)} inv sub={`${openCount} unprocessed`}/>
@@ -1329,9 +1340,9 @@ const rows = [
 
   {/* Top Returned Styles */}
   <SH t="Top Returned Styles" icon="👟"/>
-  <div style={{display:"flex",gap:4,marginBottom:8}}>
-    {[["LW","This Week"],["L4W","Past 5 Weeks"]].map(([k,label])=><button key={k} onClick={()=>setRetTimeFilter(k)} style={{background:retTimeFilter===k?C.b1:"#fff",color:retTimeFilter===k?"#fff":C.sl,border:`1px solid ${retTimeFilter===k?C.b1:C.bd}`,borderRadius:6,padding:"6px 14px",fontSize:12,fontWeight:600,cursor:"pointer"}}>{label}</button>)}
-  </div>
+  {hasTimeTag&&<div style={{display:"flex",gap:4,marginBottom:8}}>
+    {[["LW",cwTag?`Wk ${cwTag}`:"This Week"],["L4W","Prior Weeks"]].map(([k,label])=><button key={k} onClick={()=>setRetTimeFilter(k)} style={{background:retTimeFilter===k?C.b1:"#fff",color:retTimeFilter===k?"#fff":C.sl,border:`1px solid ${retTimeFilter===k?C.b1:C.bd}`,borderRadius:6,padding:"6px 14px",fontSize:12,fontWeight:600,cursor:"pointer"}}>{label}</button>)}
+  </div>}
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:18,marginBottom:14}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
@@ -1469,6 +1480,14 @@ const rows = [
     <MC l="Pages/Session" v={DD.pagesPerSession} ww={w(DD.pagesPerSession,DD.priorPagesPerSession)} sub={`PW: ${DD.priorPagesPerSession}`}/>
   </div>
 
+  <SH t="Device Breakdown" icon="📱"/>
+  <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
+    <MC l="Desktop" v={DD.desktopSessions.toLocaleString()} ww={w(DD.desktopSessions,DD.priorDesktopSessions)} sub={`ATC: ${DD.desktopAtcRate.toFixed(1)}% (PW: ${DD.priorDesktopAtcRate.toFixed(1)}%)`}/>
+    <MC l="Mobile" v={DD.mobileSessions.toLocaleString()} ww={w(DD.mobileSessions,DD.priorMobileSessions)} sub={`ATC: ${DD.mobileAtcRate.toFixed(1)}% (PW: ${DD.priorMobileAtcRate.toFixed(1)}%)`}/>
+    <MC l="New Sessions" v={DD.newSessions.toLocaleString()} ww={w(DD.newSessions,DD.priorNewSessions)} sub={`${(DD.newSessions/DD.sessions*100).toFixed(0)}% of total`}/>
+    <MC l="Returning" v={DD.returningSessions.toLocaleString()} ww={w(DD.returningSessions,DD.priorReturningSessions)} sub={`${(DD.returningSessions/DD.sessions*100).toFixed(0)}% of total`}/>
+  </div>
+
   <SH t="Traffic by Channel (WoW)" icon="📊"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
@@ -1533,13 +1552,50 @@ const rows = [
     </table>
   </div>
 
-  <SH t="Session Breakdown" icon="👥"/>
-  <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
-    <MC l="New Sessions" v={DD.newSessions.toLocaleString()} ww={w(DD.newSessions,DD.priorNewSessions)} sub={`${(DD.newSessions/DD.sessions*100).toFixed(0)}% of total`}/>
-    <MC l="Returning" v={DD.returningSessions.toLocaleString()} ww={w(DD.returningSessions,DD.priorReturningSessions)} sub={`${(DD.returningSessions/DD.sessions*100).toFixed(0)}% of total`}/>
-    <MC l="Desktop" v={DD.desktopSessions.toLocaleString()} ww={w(DD.desktopSessions,DD.priorDesktopSessions)} sub={`ATC: ${DD.desktopAtcRate.toFixed(1)}% (PW: ${DD.priorDesktopAtcRate.toFixed(1)}%)`}/>
-    <MC l="Mobile" v={DD.mobileSessions.toLocaleString()} ww={w(DD.mobileSessions,DD.priorMobileSessions)} sub={`ATC: ${DD.mobileAtcRate.toFixed(1)}% (PW: ${DD.priorMobileAtcRate.toFixed(1)}%)`}/>
-  </div>
+  {/* Top Page Views by Type */}
+  {(()=>{
+    const pvTables = [
+      {title:"Top PDP Page Views", key:"pageview_pdp"},
+      {title:"Top Collections Page Views", key:"pageview_cp"},
+      {title:"Top Blog Page Views", key:"pageview_blog"},
+    ];
+    const pvCols=["Page","Sessions","Users","Engaged","Bounce %","ATC"];
+    return pvTables.map(({title,key})=>{
+      const rows=(data[key]||[]).map(r=>{
+        const s=Number(r['sum Sessions'])||0;
+        const eng=Number(r['sum Engaged sessions'])||0;
+        const bn=Number(r['sum Bounces'])||0;
+        return {
+          pg:r['Page path without query string'],
+          s,
+          u:Number(r['sum Total users'])||0,
+          eng,
+          br:s>0?+((bn/s)*100).toFixed(1):0,
+          atc:Number(r['sum Add-to-carts'])||0,
+        };
+      }).sort((a,b)=>b.s-a.s);
+      if(!rows.length) return null;
+      return <div key={key} style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
+        <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>{title}</div>
+        <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
+          <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
+            {pvCols.map(h=><th key={h} style={{textAlign:h==="Page"?"left":"right",padding:"6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>{h}</th>)}
+          </tr></thead>
+          <tbody>{rows.map((r,i)=>(
+            <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+              <td style={{padding:"7px 6px",color:C.nv,fontWeight:500,fontSize:11,maxWidth:300,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{r.pg}</td>
+              <td style={{padding:"7px 6px",textAlign:"right",fontWeight:600}}>{r.s.toLocaleString()}</td>
+              <td style={{padding:"7px 6px",textAlign:"right"}}>{r.u.toLocaleString()}</td>
+              <td style={{padding:"7px 6px",textAlign:"right"}}>{r.eng.toLocaleString()}</td>
+              <td style={{padding:"7px 6px",textAlign:"right",color:r.br>40?C.rd:r.br>25?C.am:C.nv}}>{r.br}%</td>
+              <td style={{padding:"7px 6px",textAlign:"right"}}>{r.atc||"–"}</td>
+            </tr>
+          ))}</tbody>
+        </table>
+      </div>;
+    });
+  })()}
+
   <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["sessions","conv","engagement","atcRate","bounce"]}/>
 </>}
 
