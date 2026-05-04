@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { BarChart, Bar, ComposedChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, ReferenceLine, PieChart, Pie, Legend } from "recharts";
 
 // ─── UTILS ───
-const fmt=n=>n>=1e6?`$${(n/1e6).toFixed(1)}M`:n>=1000?`$${(n/1000).toFixed(0)}K`:`$${n.toFixed(0)}`;
-const ff=n=>`$${n.toLocaleString("en-US",{maximumFractionDigits:0})}`;
+const fmt=n=>{if(n==null)return"—";const a=Math.abs(n),s=n<0?"-":"";return a>=1e6?`${s}$${(a/1e6).toFixed(1)}M`:a>=1000?`${s}$${(a/1000).toFixed(0)}K`:`${s}$${a.toFixed(0)}`;};
+const ff=n=>n==null?"—":n<0?`-$${Math.abs(n).toLocaleString("en-US",{maximumFractionDigits:0})}`:`$${n.toLocaleString("en-US",{maximumFractionDigits:0})}`;
 const w=(c,p)=>((c-p)/p*100);
 const C={b1:"#1e40af",b2:"#3b82f6",b3:"#93c5fd",b4:"#dbeafe",nv:"#0f172a",sl:"#334155",sL:"#94a3b8",gn:"#059669",rd:"#dc2626",am:"#d97706",cd:"#ffffff",bd:"#e2e8f0"};
 
@@ -58,7 +58,7 @@ const Defs=({keys,show,toggle})=>(<div style={{marginTop:16}}>
     {keys.map(k=><div key={k} style={{fontSize:11,padding:"3px 0"}}><span style={{fontWeight:600,color:C.nv}}>{k}: </span><span style={{color:C.sL}}>{DEFS[k]||k}</span></div>)}
   </div>}
 </div>);
-const CT=({active,payload,label})=>{if(!active||!payload?.length)return null;return (<div style={{background:"#fff",border:`1px solid ${C.bd}`,borderRadius:8,padding:"10px 14px",boxShadow:"0 4px 16px rgba(0,0,0,0.08)"}}><div style={{fontSize:12,fontWeight:600,color:C.nv,marginBottom:4}}>{label}</div>{payload.map((p,i)=><div key={i} style={{fontSize:12,color:p.color||C.sl}}>{p.name}: {typeof p.value==="number"&&p.value>100?ff(p.value):p.value}</div>)}</div>)};
+const CT=({active,payload,label})=>{if(!active||!payload?.length)return null;return (<div style={{background:"#fff",border:`1px solid ${C.bd}`,borderRadius:8,padding:"10px 14px",boxShadow:"0 4px 16px rgba(0,0,0,0.08)"}}><div style={{fontSize:12,fontWeight:600,color:C.nv,marginBottom:4}}>{label}</div>{payload.map((p,i)=><div key={i} style={{fontSize:12,color:p.color||C.sl}}>{p.name}: {typeof p.value==="number"&&Math.abs(p.value)>100?ff(p.value):p.value}</div>)}</div>)};
 
 const CampTbl=({data,title,tSpend,tWow,tRoas,tRoasW})=>(
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:6,overflowX:"auto"}}>
@@ -632,7 +632,21 @@ useEffect(() => {
     netAOV: DD.retNetAOV, priorNetAOV: DD.priorRetNetAOV,
     aur: DD.retAur, priorAur: DD.priorRetAur,
     upt: DD.retUpt, priorUpt: DD.priorRetUpt,
-  } : null;
+  } : {
+    gross: DD.grossRevenue, priorGross: DD.priorGross,
+    discounts: DD.discounts, priorDiscounts: DD.priorDiscounts,
+    gld: DD.gld, priorGld: DD.priorGld,
+    returns: DD.returns, priorReturns: DD.priorReturns,
+    net: DD.netRevenue, priorNet: DD.priorNet, netPlan: DD.netPlan,
+    orders: DD.orders, priorOrders: DD.priorOrders,
+    items: DD.items, priorItems: DD.priorItems,
+    discPct: DD.discPctGross, priorDiscPct: DD.priorDiscPctGross,
+    returnPctGLD: DD.returnPctGLD, priorReturnPctGLD: DD.priorReturnPctGLD,
+    gldAOV: DD.gldAOV, priorGldAOV: DD.priorGldAOV,
+    netAOV: DD.netAOV, priorNetAOV: DD.priorNetAOV,
+    aur: DD.aur, priorAur: DD.priorAur,
+    upt: DD.upt, priorUpt: DD.priorUpt,
+  };
 
   return (
     <div style={{fontFamily:"'DM Sans','Inter',system-ui,sans-serif",background:"#f1f5f9",minHeight:"100vh",color:C.sl}}>
@@ -821,7 +835,7 @@ const rows = [
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
     <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:14}}>Net Revenue – Weekly (New vs. Returning)</div>
     <ResponsiveContainer width="100%" height={230}>
-      <ComposedChart data={WEEKLY_TREND_LIVE}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:11,fill:C.sL}}/><YAxis tick={{fontSize:11,fill:C.sL}} tickFormatter={v=>`$${(v/1000).toFixed(0)}K`}/><Tooltip content={<CT/>}/>
+      <ComposedChart data={WEEKLY_TREND_LIVE}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:11,fill:C.sL}}/><YAxis tick={{fontSize:11,fill:C.sL}} tickFormatter={v=>`${v<0?"-":""}$${(Math.abs(v)/1000).toFixed(0)}K`}/><Tooltip content={<CT/>}/>
         <Bar dataKey="newNet" stackId="a" fill={C.b1} name="New Net Rev"/>
         <Bar dataKey="retNet" stackId="a" fill={C.b3} radius={[4,4,0,0]} name="Returning Net Rev"/>
         <Line dataKey="plan" stroke={C.sL} strokeDasharray="5 5" dot={false} name="Plan" strokeWidth={2}/>
@@ -850,51 +864,8 @@ const rows = [
       {["all","new","returning"].map(f=><button key={f} onClick={()=>setRevF(f)} style={{background:revF===f?C.b1:C.cd,color:revF===f?"#fff":C.sl,border:`1px solid ${revF===f?C.b1:C.bd}`,borderRadius:8,padding:"7px 14px",fontSize:12,fontWeight:600,cursor:"pointer"}}>{f==="all"?"All":f==="new"?"New":"Returning"}</button>)}
     </div>
 
-    {revF==="all"?<>
-    <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:6}}>
-    {weeklyKpis.map((kpi) => {
-      const vsPlan = pctVar(kpi.value, kpi.planValue);
-      const vsPw = pctVar(kpi.value, kpi.prior);
-
-      return (
-        <MC
-          key={kpi.l}
-          l={kpi.l}
-          v={fmtKpi(kpi.value, kpi.format)}
-          ww={vsPw}
-          pL={fmtKpi(kpi.prior, kpi.format)}
-          inv={kpi.inv}
-          sub={
-            kpi.subOverride != null
-              ? kpi.subOverride
-              : kpi.planValue != null ? (
-                <>
-                  Plan: {fmtKpi(kpi.planValue, kpi.format)}{" "}
-                  <span
-                    style={{
-                      marginLeft: 6,
-                      fontWeight: 700,
-                      color:
-                        vsPlan == null
-                          ? C.sL
-                          : (kpi.inv ? vsPlan < 0 : vsPlan > 0)
-                          ? C.gn
-                          : C.rd
-                    }}
-                  >
-                    {fmtVar(vsPlan)}
-                  </span>
-                </>
-              ) : null
-          }
-        />
-      );
-    })}
-  </div>
-    <Src t="SF Supermetrics → Exhibits (rows 10–21); Product Sales Report → All Styles; Plan from Finance Plan"/>
-  </>:<>
     <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:10}}>
-      <MC l="Gross Revenue" v={ff(rv.gross)} ww={w(rv.gross,rv.priorGross)}/>
+      <MC l="Gross Revenue" v={ff(rv.gross)} ww={w(rv.gross,rv.priorGross)} sub={`PW: ${ff(rv.priorGross)}`}/>
       <MC l="Discounts" v={ff(rv.discounts)} ww={w(rv.discounts,rv.priorDiscounts)} inv sub={`PW: ${ff(rv.priorDiscounts)}`}/>
       <MC l="Returns" v={ff(rv.returns)} ww={w(rv.returns,rv.priorReturns)} inv sub={`PW: ${ff(rv.priorReturns)}`}/>
       <MC l="Net Revenue" v={ff(rv.net)} ww={w(rv.net,rv.priorNet)} sub={rv.netPlan != null ? `Plan: ${ff(rv.netPlan)}` : `PW: ${ff(rv.priorNet)}`}/>
@@ -911,12 +882,11 @@ const rows = [
       <MC l="AUR" v={rv.aur!=null?`$${Math.round(rv.aur)}`:"—"} ww={w(rv.aur,rv.priorAur)} sub="GLD ÷ Units"/>
       <MC l="UPT" v={rv.upt!=null?rv.upt.toFixed(2):"—"} ww={w(rv.upt,rv.priorUpt)} sub="Units ÷ Orders"/>
     </div>
-    <Src t={`SF Supermetrics → Exhibits (rows ${revF==="new"?"36–46":"49–59"}); Product Sales Report; Plan from Finance Plan`}/>
-  </>}
+    <Src t="SF Supermetrics → Exhibits; Product Sales Report; Plan from Finance Plan"/>
 
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14,marginTop:14}}>
     <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:14}}>Daily Net Revenue – {meta.week} {revF!=="all"?`(${revF==="new"?"New":"Returning"})`:""}</div>
-    <ResponsiveContainer width="100%" height={220}><ComposedChart data={DAILY_LIVE}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="day" tick={{fontSize:11,fill:C.sL}}/><YAxis tick={{fontSize:11,fill:C.sL}} tickFormatter={v=>`$${(v/1000).toFixed(0)}K`}/><Tooltip content={<CT/>}/>
+    <ResponsiveContainer width="100%" height={220}><ComposedChart data={DAILY_LIVE}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="day" tick={{fontSize:11,fill:C.sL}}/><YAxis tick={{fontSize:11,fill:C.sL}} tickFormatter={v=>`${v<0?"-":""}$${(Math.abs(v)/1000).toFixed(0)}K`}/><Tooltip content={<CT/>}/>
       <Bar dataKey={revF==="new"?"newNet":revF==="returning"?"retNet":"newNet"} stackId={revF==="all"?"stack":undefined} fill={C.b1} radius={revF==="all"?[0,0,0,0]:[4,4,0,0]} name={revF==="all"?"New Net Rev":"Net Revenue"}/>
       {revF==="all"&&<Bar dataKey="retNet" stackId="stack" fill={C.b3} radius={[4,4,0,0]} name="Returning Net Rev"/>}
     </ComposedChart></ResponsiveContainer>
@@ -992,7 +962,8 @@ const rows = [
   const skuShown = showAll ? skuData : skuData.slice(0,10);
   const custLabel = pf==="new"?"NEW CUSTOMERS":pf==="returning"?"RETURNING CUSTOMERS":"ALL CUSTOMERS";
   const tblS = {width:"100%",borderCollapse:"collapse",fontSize:11};
-  const th = (h,i) => ({textAlign:i===0||i===1?"left":"right",padding:"6px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap"});
+  const textCols = new Set(["Style","Category","Merch Category","SKU","Color"]);
+  const th = (h) => ({textAlign:textCols.has(h)?"left":"right",padding:"6px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap"});
   const td = (a) => ({padding:"7px 6px",textAlign:a||"right"});
   const totGld = styles.reduce((a,r)=>a+r.gld,0);
   const totU = styles.reduce((a,r)=>a+r.u,0);
@@ -1011,7 +982,7 @@ const rows = [
       <span style={{fontSize:11,color:C.sL}}>{shown.length} of {styles.length} styles</span>
     </div>
     <table style={tblS}><thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-      {["#","Style","GLD $","Units","AUR","% TTL","OH","ST %","WOH"].map((h,i)=><th key={h} style={th(h,i)}>{h}</th>)}
+      {["#","Style","GLD $","Units","AUR","% TTL","OH","ST %","WOH"].map(h=><th key={h} style={th(h)}>{h}</th>)}
     </tr></thead><tbody>
       {shown.map((s,i)=>(
         <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
@@ -1041,7 +1012,7 @@ const rows = [
       <span style={{fontSize:11,color:C.sL}}>{skuShown.length} of {skuData.length} SKUs</span>
     </div>
     <table style={tblS}><thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-      {["#","SKU","Style","Color","GLD $","Units","AUR","OH"].map((h,i)=><th key={h} style={th(h,i)}>{h}</th>)}
+      {["#","SKU","Style","Color","GLD $","Units","AUR","OH"].map(h=><th key={h} style={th(h)}>{h}</th>)}
     </tr></thead><tbody>
       {skuShown.map((s,i)=>(
         <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
@@ -1062,7 +1033,7 @@ const rows = [
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,marginBottom:12,overflowX:"auto"}}>
     <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>{custLabel} – PRODUCT CATEGORY</div>
     <table style={tblS}><thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-      {["Category","GLD $","Units","AUR","% TTL","OH","ST %"].map((h,i)=><th key={h} style={th(h,i)}>{h}</th>)}
+      {["Category","GLD $","Units","AUR","% TTL","OH","ST %"].map(h=><th key={h} style={th(h)}>{h}</th>)}
     </tr></thead><tbody>
       {catData.map((s,i)=>(
         <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
@@ -1080,7 +1051,7 @@ const rows = [
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,marginBottom:12,overflowX:"auto"}}>
     <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>{custLabel} – MERCH CATEGORY</div>
     <table style={tblS}><thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-      {["Merch Category","GLD $","Units","AUR","% TTL","OH","ST %"].map((h,i)=><th key={h} style={th(h,i)}>{h}</th>)}
+      {["Merch Category","GLD $","Units","AUR","% TTL","OH","ST %"].map(h=><th key={h} style={th(h)}>{h}</th>)}
     </tr></thead><tbody>
       {mcData.map((s,i)=>(
         <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
@@ -1100,16 +1071,14 @@ const rows = [
 {/* ═══ INVENTORY ═══ */}
 {tab==="inventory"&&(()=>{
   const allSkus = data.product_sku || [];
-  const invSeasons = [...new Set(allSkus.map(r=>r.sn).filter(Boolean))].sort((a,b)=>{
-    const o=s=>{const m=s.match(/([SF])(\d+)/);return m?(m[1]==="S"?0:1)+Number(m[2])*10:999;};
-    return o(b)-o(a);
-  });
   const invMClasses = [...new Set(allSkus.map(r=>r.m_class).filter(Boolean))].sort();
   const invMCats = [...new Set(allSkus.map(r=>r.merch_cat).filter(Boolean))].sort();
+  const recentSeasons = ["S26","F25","S25"];
 
   // Filter SKUs
   const filtered = allSkus.filter(r=>{
-    if(invSeason!=="All"&&r.sn!==invSeason) return false;
+    if(invSeason==="2024 & Prior"&&recentSeasons.includes(r.sn)) return false;
+    if(invSeason!=="All"&&invSeason!=="2024 & Prior"&&r.sn!==invSeason) return false;
     if(invMC!=="All"&&r.m_class!==invMC) return false;
     if(invSC!=="All"&&r.merch_cat!==invSC) return false;
     return true;
@@ -1143,7 +1112,7 @@ const rows = [
   return <>
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
     <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Season:</span>
-    {["All",...invSeasons].map(v=><button key={v} onClick={()=>setInvSeason(v)} style={btnS(v,invSeason)}>{v}</button>)}
+    {["All","S26","F25","S25","2024 & Prior"].map(v=><button key={v} onClick={()=>setInvSeason(v)} style={btnS(v,invSeason)}>{v}</button>)}
   </div>
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
     <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Product Class:</span>
@@ -1290,7 +1259,7 @@ const rows = [
       <ComposedChart data={retTrendData} margin={{top:4,right:8,left:0,bottom:0}}>
         <CartesianGrid strokeDasharray="3 3" stroke={C.bd}/>
         <XAxis dataKey="wk" tick={{fontSize:11,fill:C.sL}}/>
-        <YAxis tick={{fontSize:10,fill:C.sL}} width={52} tickFormatter={v=>`$${(v/1000).toFixed(0)}k`}/>
+        <YAxis tick={{fontSize:10,fill:C.sL}} width={52} tickFormatter={v=>`${v<0?"-":""}$${(Math.abs(v)/1000).toFixed(0)}k`}/>
         <Tooltip content={<CT/>}/>
         <Bar dataKey="newRefund" stackId="a" fill={C.b1} radius={[0,0,0,0]} name="New Returns"/>
         <Bar dataKey="retRefund" stackId="a" fill={C.b3} radius={[3,3,0,0]} name="Returning Returns"/>
@@ -1400,7 +1369,7 @@ const rows = [
   <SH t="Weekly Marketing Trend" icon="📈"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
     <ResponsiveContainer width="100%" height={220}>
-      <ComposedChart data={WEEKLY_TREND_LIVE}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:11,fill:C.sL}}/><YAxis tick={{fontSize:11,fill:C.sL}} tickFormatter={v=>`$${(v/1000).toFixed(0)}K`}/><Tooltip content={<CT/>}/>
+      <ComposedChart data={WEEKLY_TREND_LIVE}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:11,fill:C.sL}}/><YAxis tick={{fontSize:11,fill:C.sL}} tickFormatter={v=>`${v<0?"-":""}$${(Math.abs(v)/1000).toFixed(0)}K`}/><Tooltip content={<CT/>}/>
         <Bar dataKey="spend" fill={C.b3} name="Spend" radius={[3,3,0,0]}/>
         <Line type="monotone" dataKey="newNet" stroke={C.gn} strokeWidth={2} dot={{r:3}} name="New Net Rev"/>
       </ComposedChart>
