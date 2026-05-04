@@ -108,10 +108,10 @@ useEffect(() => {
   const [invAlert,setInvAlert]=useState("All");
   const [showDefs,setShowDefs]=useState(true);
   const [lpChannel,setLpChannel]=useState("All");
-  const [retTimeFilter,setRetTimeFilter]=useState("LW");
   const [expReasons,setExpReasons]=useState({});
   const [reasonStyle,setReasonStyle]=useState("All");
   const [reasonTime,setReasonTime]=useState("L5W");
+  const [expCamp,setExpCamp]=useState({});
 
   if (!data) return <div>Loading...</div>;
   const meta = data.metadata || {};
@@ -1296,8 +1296,8 @@ const rows = [
   const hasTimeTag = timeTags.length > 0;
   const numericTags = timeTags.filter(t=>!isNaN(Number(t))).map(Number).sort((a,b)=>b-a);
   const cwTag = numericTags.length > 0 ? String(numericTags[0]) : timeTags.includes("CW") ? "CW" : null;
-  const retTimeTag = retTimeFilter === "LW" ? cwTag : null;
-  const rdFiltered = !hasTimeTag ? rd : retTimeTag ? rd.filter(r => String(r[timeField]) === retTimeTag) : rd.filter(r => String(r[timeField]) !== cwTag);
+  const retTimeTag = cwTag;
+  const rdFiltered = !hasTimeTag ? rd : cwTag ? rd.filter(r => String(r[timeField]) === cwTag) : rd;
   const styleMap = {};
   rdFiltered.forEach(r => {
     const s = r['Product Title'];
@@ -1331,10 +1331,6 @@ const rows = [
   const reasonGroupMapFallback = {};
   Object.entries(reasonGroupsFallback).forEach(([g, reasons]) => reasons.forEach(r => { reasonGroupMapFallback[r] = g; }));
   const getReasonGroup = (row) => hasReasonGroup ? (row['Reason Group'] || 'Other') : (reasonGroupMapFallback[row['Parent Return Reason']] || 'Other');
-  const getSubReason = (row) => {
-    const sub = row['Return Reason'] || row['Reason'];
-    return (sub && sub !== '#N/A') ? sub : row['Parent Return Reason'];
-  };
 
   // Unique product styles for reason filter dropdown
   const allReturnStyles = [...new Set(rd.map(r => r['Product Title']).filter(Boolean))].sort();
@@ -1373,10 +1369,7 @@ const rows = [
   </>}
 
   {/* Top Returned Styles */}
-  <SH t="Top Returned Styles" icon="👟"/>
-  {hasTimeTag&&<div style={{display:"flex",gap:4,marginBottom:8}}>
-    {[["LW",cwTag?`Wk ${cwTag}`:"This Week"],["L4W","Prior Weeks"]].map(([k,label])=><button key={k} onClick={()=>setRetTimeFilter(k)} style={{background:retTimeFilter===k?C.b1:"#fff",color:retTimeFilter===k?"#fff":C.sl,border:`1px solid ${retTimeFilter===k?C.b1:C.bd}`,borderRadius:6,padding:"6px 14px",fontSize:12,fontWeight:600,cursor:"pointer"}}>{label}</button>)}
-  </div>}
+  <SH t={`Top Returned Styles – Wk ${cwTag || '?'}`} icon="👟"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:18,marginBottom:14}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
@@ -1412,26 +1405,33 @@ const rows = [
   {/* Return Reasons */}
   <SH t="Return Reasons" icon="🔍"/>
   {(()=>{
-    // Independent time filter for reasons: LW = current week, L5W = all weeks
-    const reasonTimeTag = reasonTime === "LW" ? cwTag : null;
+    // Time filter: LW = current week only, L5W = last 5 weeks (5 most recent)
+    const last5Weeks = numericTags.slice(0, 5).map(String);
     const rdReasonFiltered = (()=>{
       let rows = rd;
       // Time filter
-      if(hasTimeTag && reasonTimeTag) rows = rows.filter(r => String(r[timeField]) === reasonTimeTag);
+      if(hasTimeTag) {
+        if(reasonTime === "LW" && cwTag) rows = rows.filter(r => String(r[timeField]) === cwTag);
+        else if(reasonTime === "L5W" && last5Weeks.length) rows = rows.filter(r => last5Weeks.includes(String(r[timeField])));
+      }
       // Style filter
       if(reasonStyle !== "All") rows = rows.filter(r => r['Product Title'] === reasonStyle);
       return rows;
     })();
 
-    // Aggregate reasons from filtered data
+    // 3-level aggregation: Reason Group → Parent Return Reason → Return Reason
     const reasonData = {};
     rdReasonFiltered.forEach(r => {
       const group = getReasonGroup(r);
-      const subKey = getSubReason(r);
-      if (!reasonData[group]) reasonData[group] = { g: group, total: 0, subs: {} };
+      const parent = r['Parent Return Reason'] || group;
+      const sub = (r['Return Reason'] || r['Reason'] || parent);
+      const subKey = (sub && sub !== '#N/A') ? sub : parent;
+      if (!reasonData[group]) reasonData[group] = { g: group, total: 0, parents: {} };
       reasonData[group].total += r['count Return ID'];
-      if (!reasonData[group].subs[subKey]) reasonData[group].subs[subKey] = 0;
-      reasonData[group].subs[subKey] += r['count Return ID'];
+      if (!reasonData[group].parents[parent]) reasonData[group].parents[parent] = { total: 0, subs: {} };
+      reasonData[group].parents[parent].total += r['count Return ID'];
+      if (!reasonData[group].parents[parent].subs[subKey]) reasonData[group].parents[parent].subs[subKey] = 0;
+      reasonData[group].parents[parent].subs[subKey] += r['count Return ID'];
     });
     const reasonRows = Object.values(reasonData).sort((a, b) => b.total - a.total);
     const reasonGrandTotal = reasonRows.reduce((a, g) => a + g.total, 0);
@@ -1440,7 +1440,7 @@ const rows = [
     {/* Filters row */}
     <div style={{display:"flex",gap:12,marginBottom:14,flexWrap:"wrap",alignItems:"center"}}>
       <div style={{display:"flex",gap:4,alignItems:"center"}}>
-        {[["LW",cwTag?`Wk ${cwTag}`:"This Week"],["L5W","All Weeks"]].map(([k,label])=><button key={k} onClick={()=>setReasonTime(k)} style={{background:reasonTime===k?C.b1:"#fff",color:reasonTime===k?"#fff":C.sl,border:`1px solid ${reasonTime===k?C.b1:C.bd}`,borderRadius:6,padding:"6px 14px",fontSize:12,fontWeight:600,cursor:"pointer"}}>{label}</button>)}
+        {[["LW",cwTag?`Wk ${cwTag}`:"This Week"],["L5W","Last 5 Weeks"]].map(([k,label])=><button key={k} onClick={()=>setReasonTime(k)} style={{background:reasonTime===k?C.b1:"#fff",color:reasonTime===k?"#fff":C.sl,border:`1px solid ${reasonTime===k?C.b1:C.bd}`,borderRadius:6,padding:"6px 14px",fontSize:12,fontWeight:600,cursor:"pointer"}}>{label}</button>)}
       </div>
       <div style={{display:"flex",gap:6,alignItems:"center",flex:1,minWidth:200}}>
         <span style={{fontSize:11,fontWeight:600,color:C.sL,whiteSpace:"nowrap"}}>Style:</span>
@@ -1459,22 +1459,37 @@ const rows = [
         <th style={{textAlign:"right",padding:"7px 8px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>% of Total</th>
       </tr></thead>
       <tbody>
-        {reasonRows.map((grp,gi)=>{
-          const open=expReasons[grp.g];
-          const subRows=Object.entries(grp.subs).sort((a,b)=>b[1]-a[1]);
+        {reasonRows.map((grp)=>{
+          const grpOpen=expReasons[`g:${grp.g}`];
+          const parentRows=Object.entries(grp.parents).sort((a,b)=>b[1].total-a[1].total);
           return <React.Fragment key={grp.g}>
-            <tr style={{borderBottom:`1px solid ${C.bd}`,cursor:"pointer",background:"#f8fafc"}} onClick={()=>setExpReasons(p=>({...p,[grp.g]:!p[grp.g]}))} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="#f8fafc"}>
-              <td style={{padding:"8px 8px",fontWeight:700,color:C.nv}}><span style={{marginRight:6,fontSize:10,color:C.sL}}>{open?"▾":"▸"}</span>{grp.g}</td>
+            {/* Level 1: Reason Group */}
+            <tr style={{borderBottom:`1px solid ${C.bd}`,cursor:"pointer",background:"#f8fafc"}} onClick={()=>setExpReasons(p=>({...p,[`g:${grp.g}`]:!p[`g:${grp.g}`]}))} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="#f8fafc"}>
+              <td style={{padding:"8px 8px",fontWeight:700,color:C.nv}}><span style={{marginRight:6,fontSize:10,color:C.sL}}>{grpOpen?"▾":"▸"}</span>{grp.g}</td>
               <td style={{padding:"8px 8px",textAlign:"right",fontWeight:700}}>{grp.total}</td>
               <td style={{padding:"8px 8px",textAlign:"right",fontWeight:700}}>{reasonGrandTotal>0?((grp.total/reasonGrandTotal)*100).toFixed(0):0}%</td>
             </tr>
-            {open&&subRows.map(([reason,count],ri)=>(
-              <tr key={ri} style={{borderBottom:`1px solid ${C.bd}`,background:"#fff"}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="#fff"}>
-                <td style={{padding:"7px 8px 7px 28px",color:C.sl}}>{reason}</td>
-                <td style={{padding:"7px 8px",textAlign:"right",color:C.sl}}>{count}</td>
-                <td style={{padding:"7px 8px",textAlign:"right",color:C.sL}}>{reasonGrandTotal>0?((count/reasonGrandTotal)*100).toFixed(1):0}%</td>
-              </tr>
-            ))}
+            {/* Level 2: Parent Return Reason */}
+            {grpOpen&&parentRows.map(([pName, pData])=>{
+              const pOpen=expReasons[`p:${grp.g}:${pName}`];
+              const subRows=Object.entries(pData.subs).sort((a,b)=>b[1]-a[1]);
+              const hasSubs=subRows.length>1||(subRows.length===1&&subRows[0][0]!==pName);
+              return <React.Fragment key={pName}>
+                <tr style={{borderBottom:`1px solid ${C.bd}`,cursor:hasSubs?"pointer":"default",background:"#fff"}} onClick={()=>hasSubs&&setExpReasons(p=>({...p,[`p:${grp.g}:${pName}`]:!p[`p:${grp.g}:${pName}`]}))} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="#fff"}>
+                  <td style={{padding:"7px 8px 7px 28px",fontWeight:600,color:C.sl}}>{hasSubs&&<span style={{marginRight:5,fontSize:9,color:C.sL}}>{pOpen?"▾":"▸"}</span>}{pName}</td>
+                  <td style={{padding:"7px 8px",textAlign:"right",fontWeight:600,color:C.sl}}>{pData.total}</td>
+                  <td style={{padding:"7px 8px",textAlign:"right",color:C.sL}}>{reasonGrandTotal>0?((pData.total/reasonGrandTotal)*100).toFixed(1):0}%</td>
+                </tr>
+                {/* Level 3: Return Reason */}
+                {pOpen&&hasSubs&&subRows.map(([reason,count],ri)=>(
+                  <tr key={ri} style={{borderBottom:`1px solid ${C.bd}`,background:"#fff"}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="#fff"}>
+                    <td style={{padding:"6px 8px 6px 48px",color:C.sL,fontSize:11}}>{reason}</td>
+                    <td style={{padding:"6px 8px",textAlign:"right",color:C.sL,fontSize:11}}>{count}</td>
+                    <td style={{padding:"6px 8px",textAlign:"right",color:C.sL,fontSize:11}}>{reasonGrandTotal>0?((count/reasonGrandTotal)*100).toFixed(1):0}%</td>
+                  </tr>
+                ))}
+              </React.Fragment>;
+            })}
           </React.Fragment>;
         })}
         {reasonGrandTotal===0&&<tr><td colSpan={3} style={{padding:16,textAlign:"center",color:C.sL,fontStyle:"italic"}}>No return data for this selection</td></tr>}
@@ -1541,10 +1556,86 @@ const rows = [
   {(()=>{
     const metaWoW=DD.priorMetaSpend>0?((DD.metaSpend/DD.priorMetaSpend-1)*100).toFixed(1)+"%":"–";
     const googWoW=DD.priorGoogleSpend>0?((DD.googleSpend/DD.priorGoogleSpend-1)*100).toFixed(1)+"%":"–";
+
+    // Group campaigns by type/brand and compute aggregates
+    const groupCamps = (camps, groupField) => {
+      const groups = {};
+      camps.forEach(c => {
+        const g = c[groupField] || 'Other';
+        if (!groups[g]) groups[g] = { name: g, camps: [], cS: 0, cR: 0, pS: 0, pR: 0 };
+        groups[g].camps.push(c);
+        groups[g].cS += c.cS;
+        groups[g].cR += c.cR;
+        groups[g].pS += c.pS;
+      });
+      return Object.values(groups).map(g => ({
+        ...g,
+        cX: g.cS > 0 ? g.cR / g.cS : 0,
+        pX: g.pS > 0 ? g.camps.reduce((a, c) => a + (c.pX > 0 ? c.pS * c.pX : 0), 0) / g.pS : 0,
+        wS: g.pS > 0 ? ((g.cS - g.pS) / g.pS) * 100 : null,
+      })).map(g => ({ ...g, wX: g.pX > 0 ? ((g.cX - g.pX) / g.pX) * 100 : null })).sort((a, b) => b.cS - a.cS);
+    };
+
+    const metaGroups = groupCamps(META_LIVE, 'type');
+    const googGroups = groupCamps(GOOG_LIVE, 'brand');
+
+    const fmtRoas = (v) => v > 0 ? (v >= 10 ? v.toFixed(1) : v.toFixed(2)) + "x" : "–";
+    const thS = {textAlign:"right",padding:"7px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap"};
+    const tdR = {padding:"8px 6px",textAlign:"right"};
+    const typeBadge = (label) => {
+      const bg = (label||"").includes("Acqui")?"#dbeafe":(label||"").includes("Retarget")||(label||"").includes("Retention")?"#fef3c7":(label||"").includes("Brand")?"#d1fae5":(label||"").includes("Non-Brand")?"#ede9fe":(label||"").includes("Top of")?"#f0fdf4":"#f1f5f9";
+      return <span style={{background:bg,padding:"2px 6px",borderRadius:4,fontSize:10,fontWeight:600}}>{label||"–"}</span>;
+    };
+
+    const campHeaders = ["","Group","CW Spend","CW Rev","CW ROAS","PW Spend","PW ROAS","WoW Spend","WoW ROAS"];
+
+    const renderDrillDown = (groups, prefix, title, tSpend, tWow, tRoas, tRoasW) => (
+      <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:6,overflowX:"auto"}}>
+        <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:10}}>{title}: {ff(tSpend)} <span style={{fontWeight:400,color:C.sL}}>({tWow} WoW)</span> · ROAS: {tRoas} <span style={{fontWeight:400,color:C.sL}}>({tRoasW} WoW)</span></div>
+        <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
+          <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
+            {campHeaders.map(h=><th key={h||"_exp"} style={{...thS,textAlign:h===""||h==="Group"?"left":"right",width:h===""?16:undefined}}>{h}</th>)}
+          </tr></thead>
+          <tbody>
+            {groups.map(g => {
+              const key = `${prefix}:${g.name}`;
+              const open = expCamp[key];
+              return <React.Fragment key={g.name}>
+                <tr style={{borderBottom:open?"none":`1px solid ${C.bd}`,cursor:"pointer",background:"#f8fafc"}} onClick={()=>setExpCamp(p=>({...p,[key]:!p[key]}))} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="#f8fafc"}>
+                  <td style={{padding:"8px 4px",color:C.sL,width:16}}>{open?"▾":"▸"}</td>
+                  <td style={{padding:"8px 6px",fontWeight:700,color:C.nv}}>{typeBadge(g.name)} <span style={{marginLeft:4,fontSize:11,color:C.sL}}>({g.camps.length})</span></td>
+                  <td style={{...tdR,fontWeight:700}}>{ff(g.cS)}</td>
+                  <td style={{...tdR,fontWeight:700}}>{ff(g.cR)}</td>
+                  <td style={{...tdR,fontWeight:700,color:g.cX>=3?C.gn:g.cX>=1.5?C.nv:g.cX>0?C.am:C.sL}}>{fmtRoas(g.cX)}</td>
+                  <td style={{...tdR,color:C.sL}}>{g.pS>0?ff(g.pS):"–"}</td>
+                  <td style={{...tdR,color:C.sL}}>{fmtRoas(g.pX)}</td>
+                  <td style={tdR}>{g.wS!=null?<Pill v={g.wS} inv/>:<span style={{color:C.sL,fontSize:11}}>New</span>}</td>
+                  <td style={tdR}>{g.wX!=null?<Pill v={g.wX}/>:<span style={{color:C.sL,fontSize:11}}>–</span>}</td>
+                </tr>
+                {open && g.camps.sort((a,b)=>b.cS-a.cS).map((c,ci) => (
+                  <tr key={ci} style={{borderBottom:`1px solid ${C.bd}`,background:"#fff"}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="#fff"}>
+                    <td/>
+                    <td style={{padding:"7px 6px 7px 20px",fontWeight:500,color:C.nv,maxWidth:190,fontSize:11}}>{c.name}</td>
+                    <td style={tdR}>{ff(c.cS)}</td>
+                    <td style={tdR}>{ff(c.cR)}</td>
+                    <td style={{...tdR,fontWeight:600,color:c.cX>=3?C.gn:c.cX>=1.5?C.nv:c.cX>0?C.am:C.sL}}>{fmtRoas(c.cX)}</td>
+                    <td style={{...tdR,color:C.sL}}>{c.pS>0?ff(c.pS):"–"}</td>
+                    <td style={{...tdR,color:C.sL}}>{fmtRoas(c.pX)}</td>
+                    <td style={tdR}>{c.wS!=null?<Pill v={c.wS} inv/>:<span style={{color:C.sL,fontSize:11}}>New</span>}</td>
+                    <td style={tdR}>{c.wX!=null?<Pill v={c.wX}/>:<span style={{color:C.sL,fontSize:11}}>–</span>}</td>
+                  </tr>
+                ))}
+              </React.Fragment>;
+            })}
+          </tbody>
+        </table>
+      </div>
+    );
+
     return <>
       <SH t="Campaign Performance" icon="📋"/>
-      <CampTbl data={META_LIVE} title="Meta" tSpend={DD.metaSpend} tWow={metaWoW} tRoas={DD.metaRoas+"x"} tRoasW={DD.priorMetaRoas>0?((DD.metaRoas/DD.priorMetaRoas-1)*100).toFixed(1)+"%":"–"}/>
-      <CampTbl data={GOOG_LIVE} title="Google" tSpend={DD.googleSpend} tWow={googWoW} tRoas={DD.googleRoas+"x"} tRoasW={DD.priorGoogleRoas>0?((DD.googleRoas/DD.priorGoogleRoas-1)*100).toFixed(1)+"%":"–"}/>
+      {renderDrillDown(metaGroups, "meta", "Meta", DD.metaSpend, metaWoW, DD.metaRoas+"x", DD.priorMetaRoas>0?((DD.metaRoas/DD.priorMetaRoas-1)*100).toFixed(1)+"%":"–")}
+      {renderDrillDown(googGroups, "goog", "Google", DD.googleSpend, googWoW, DD.googleRoas+"x", DD.priorGoogleRoas>0?((DD.googleRoas/DD.priorGoogleRoas-1)*100).toFixed(1)+"%":"–")}
     </>;
   })()}
   <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["mktSpend","cac","newNetROAS","gldROAS","mer","merNew"]}/>
@@ -1680,6 +1771,7 @@ const rows = [
 
         <div style={{marginTop:28,padding:"14px 0",borderTop:`1px solid ${C.bd}`,display:"flex",justifyContent:"space-between",fontSize:11,color:C.sL,flexWrap:"wrap",gap:8}}>
           <span>Sarah Flint · Weekly Dashboard · {meta.dateRange}</span>
+          <span>Sources: Weekly_Export_for_Claude (Supermetrics, GA, Meta, Google Ads)</span>
         </div>
       </div>
     </div>
