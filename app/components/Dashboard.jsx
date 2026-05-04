@@ -1108,11 +1108,19 @@ const rows = [
     return {...s,oh:dOH,ov:dOV,u7:dU7,u90:dU90,st:parseFloat(dST),woh:dWOH};
   });
 
-  // Alert filter
-  const alertFiltered = invAlert==="All"?invData
-    :invAlert==="Restock"?invData.filter(s=>s.woh<16&&s.woh>0)
-    :invAlert==="Slow"?invData.filter(s=>s.woh>30)
-    :invAlert==="High OH"?invData.filter(s=>s.oh>100):invData;
+  // Alert filter — applied at color/SKU level
+  const skuMatch = (k) => invAlert==="Restock"?(k.woh<16&&k.woh>0):invAlert==="Slow"?(k.woh>30):invAlert==="High OH"?(k.oh>100):true;
+  const alertFiltered = invAlert==="All"?invData:invData.map(s=>{
+    const matchedSkus=s.skus.filter(skuMatch);
+    if(!matchedSkus.length) return null;
+    const dOH=matchedSkus.reduce((a,k)=>a+k.oh,0);
+    const dOV=matchedSkus.reduce((a,k)=>a+k.ov,0);
+    const dU7=matchedSkus.reduce((a,k)=>a+k.u7,0);
+    const dU90=matchedSkus.reduce((a,k)=>a+k.u90,0);
+    const dST=dU90>0?+((dU90/(dOH+dU90))*100).toFixed(1):0;
+    const rate=Math.max(dU7,dU90/90*7);const dWOH=rate>0?Math.round(dOH/rate):999;
+    return {...s,skus:matchedSkus,oh:dOH,ov:dOV,u7:dU7,u90:dU90,st:parseFloat(dST),woh:dWOH};
+  }).filter(Boolean);
 
   // Sort
   const sortCol=invSort.col;const sortDir=invSort.dir==="asc"?1:-1;
@@ -1169,7 +1177,7 @@ const rows = [
         <td style={{padding:"7px 5px",fontWeight:600,color:C.nv}}>{s.n} <span style={{fontSize:9,color:C.sL,fontWeight:400}}>({fs.length} colors)</span></td>
         <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600}}>{s.oh.toLocaleString()}</td>
         <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>{ff(s.ov)}</td>
-        <td style={{padding:"7px 5px",textAlign:"right",color:s.u7>0?C.gn:C.sL}}>{s.u7}</td>
+        <td style={{padding:"7px 5px",textAlign:"right"}}>{s.u7}</td>
         <td style={{padding:"7px 5px",textAlign:"right"}}>{s.u90}</td>
         <td style={{padding:"7px 5px",textAlign:"right",fontWeight:500,color:s.st>=25?C.gn:s.st>=10?C.nv:s.st>0?C.am:C.rd}}>{s.st}%</td>
         <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600,color:s.woh>=100?C.rd:s.woh>=50?C.am:s.woh<=8?C.gn:C.nv}}>{s.woh>=999?"No sales":s.woh}</td>
@@ -1180,7 +1188,7 @@ const rows = [
           <td style={{padding:"5px 5px 5px 20px",color:C.nv,fontSize:10}}><span style={{fontWeight:500}}>{k.c}</span> <span style={{color:C.sL}}>({k.s}{k.mc?` · ${k.mc}`:""})</span></td>
           <td style={{padding:"5px",textAlign:"right"}}>{k.oh}</td>
           <td style={{padding:"5px",textAlign:"right",color:C.sL}}>{k.ov?ff(k.ov):"–"}</td>
-          <td style={{padding:"5px",textAlign:"right",color:k.u7>0?C.gn:C.sL}}>{k.u7}</td>
+          <td style={{padding:"5px",textAlign:"right"}}>{k.u7}</td>
           <td style={{padding:"5px",textAlign:"right"}}>{k.u90}</td>
           <td style={{padding:"5px",textAlign:"right",color:k.st>=25?C.gn:k.st>=10?C.nv:k.st>0?C.am:C.rd}}>{k.st}%</td>
           <td style={{padding:"5px",textAlign:"right",fontWeight:500,color:k.woh>=100?C.rd:k.woh>=50?C.am:k.woh<=8?C.gn:C.nv}}>{k.woh>=999?"No sales":k.woh}</td>
