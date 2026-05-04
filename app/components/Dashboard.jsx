@@ -939,7 +939,6 @@ const rows = [
   const pf = prodFilter;
   const gldKey = pf==="new"?"n_gld7":pf==="returning"?"r_gld7":"gld7";
   const unitKey = pf==="new"?"n_gu_7":pf==="returning"?"r_gu_7":"gu_7";
-  const rankKey = pf==="new"?"new_rank":pf==="returning"?"returning_rank":"total_rank";
 
   const allSkus = data.product_sku || [];
 
@@ -964,16 +963,16 @@ const rows = [
     })).sort((a,b)=>b.gld-a.gld) };
   };
 
-  const {totGld: totGldAll, data: styData} = aggregateBy(allSkus, 'style_name', gldKey, unitKey);
+  const {totGld: totGldAll, data: styData} = aggregateBy(allSkus, 'style', gldKey, unitKey);
   const {data: catData} = aggregateBy(allSkus, 'm_class', gldKey, unitKey);
   const {data: mcData} = aggregateBy(allSkus, 'merch_cat', gldKey, unitKey);
 
   // Build SKU list
   const skuData = allSkus.map(r=>({
-    s:r.sku, n:r.style_name, c:r.color_name,
+    s:r.sku, n:r.style, c:r.color,
     gld:Number(r[gldKey])||0, u:Number(r[unitKey])||0,
     aur:(Number(r[unitKey])||0)>0?Math.round((Number(r[gldKey])||0)/(Number(r[unitKey])||0)):0,
-    oh:Number(r.u_oh)||0, rank:Number(r[rankKey])||999,
+    oh:Number(r.u_oh)||0,
   })).filter(s=>s.gld>0).sort((a,b)=>b.gld-a.gld);
 
   const styles = styData.filter(s=>s.n.toLowerCase().includes(search.toLowerCase()));
@@ -1102,7 +1101,7 @@ const rows = [
   // Group by style
   const styleMap = {};
   filtered.forEach(r=>{
-    const n=r.style_name;
+    const n=r.style;
     if(!styleMap[n]) styleMap[n]={n,d:r.m_class,skus:[]};
     const oh=Number(r.u_oh)||0;const ov=Number(r.oh_value)||0;
     const u7=Number(r.gu_7)||0;const u90=Number(r.gu_90)||0;
@@ -1110,13 +1109,12 @@ const rows = [
     const owned=Number(r.u_owned)||(oh+oo);
     const uc=Number(r.unit_cost)||0;
     const gld=Number(r.gld7)||0;
-    const gld90=Number(r.gld90)||0;
-    const avgP=u7>0&&gld>0?Math.round(gld/u7):u90>0&&gld90>0?Math.round(gld90/u90):0;
+    const avgP=u7>0&&gld>0?Math.round(gld/u7):0;
     const avgPr=avgP>0&&uc>0?Math.round(avgP-uc):0;
     const stPct=(oh+u90)>0?+((u90/(oh+u90))*100).toFixed(1):0;
     const st7Pct=(oh+u7)>0?+((u7/(oh+u7))*100).toFixed(1):0;
     const rate=Math.max(u7,u90/90*7);const skuWoh=rate>0?Math.round(owned/rate):999;
-    styleMap[n].skus.push({c:r.color_name,s:r.sn,mc:r.merch_cat,oh,ov,u7,u90,st:stPct,st7:st7Pct,woh:skuWoh,oo,owned,uc,gld,avgP,avgPr});
+    styleMap[n].skus.push({c:r.color,s:r.sn,mc:r.merch_cat,oh,ov,u7,u90,st:stPct,st7:st7Pct,woh:skuWoh,oo,owned,uc,gld,avgP,avgPr});
   });
   const invData = Object.values(styleMap).map(s=>{
     const dOH=s.skus.reduce((a,k)=>a+k.oh,0);
@@ -1127,14 +1125,8 @@ const rows = [
     const dOwned=s.skus.reduce((a,k)=>a+k.owned,0);
     const dGld=s.skus.reduce((a,k)=>a+k.gld,0);
     const dUC=dOH>0?Math.round(s.skus.reduce((a,k)=>a+k.uc*k.oh,0)/dOH):0;
-    // Avg Price: use style-level GLD/units when available, otherwise weighted avg of per-SKU fallback prices
-    const dAvgP=(()=>{
-      if(dU7>0&&dGld>0) return Math.round(dGld/dU7);
-      // Fallback: weighted average of per-SKU avgP (which already fell back to gld90/gu90)
-      const wSum=s.skus.reduce((a,k)=>a+k.avgP*k.u7,0);
-      const wU=s.skus.reduce((a,k)=>a+(k.avgP>0?k.u7:0),0);
-      return wU>0?Math.round(wSum/wU):0;
-    })();
+    // Avg Price: use style-level GLD/units when available
+    const dAvgP=dU7>0&&dGld>0?Math.round(dGld/dU7):0;
     const dAvgPr=dAvgP>0&&dUC>0?Math.round(dAvgP-dUC):0;
     const dST=(dOH+dU90)>0?+((dU90/(dOH+dU90))*100).toFixed(1):0;
     const dST7=(dOH+dU7)>0?+((dU7/(dOH+dU7))*100).toFixed(1):0;
@@ -1155,12 +1147,7 @@ const rows = [
     const dOwned=matchedSkus.reduce((a,k)=>a+k.owned,0);
     const dGld=matchedSkus.reduce((a,k)=>a+k.gld,0);
     const dUC=dOH>0?Math.round(matchedSkus.reduce((a,k)=>a+k.uc*k.oh,0)/dOH):0;
-    const dAvgP=(()=>{
-      if(dU7>0&&dGld>0) return Math.round(dGld/dU7);
-      const wSum=matchedSkus.reduce((a,k)=>a+k.avgP*k.u7,0);
-      const wU=matchedSkus.reduce((a,k)=>a+(k.avgP>0?k.u7:0),0);
-      return wU>0?Math.round(wSum/wU):0;
-    })();
+    const dAvgP=dU7>0&&dGld>0?Math.round(dGld/dU7):0;
     const dAvgPr=dAvgP>0&&dUC>0?Math.round(dAvgP-dUC):0;
     const dST=(dOH+dU90)>0?+((dU90/(dOH+dU90))*100).toFixed(1):0;
     const dST7=(dOH+dU7)>0?+((dU7/(dOH+dU7))*100).toFixed(1):0;
@@ -1298,7 +1285,7 @@ const rows = [
   // Build style-level 7D GLD lookup from product_sku for "% of 7D Sales"
   const styleGldMap = {};
   (data.product_sku || []).forEach(r => {
-    const n = r.style_name;
+    const n = r.style;
     styleGldMap[n] = (styleGldMap[n] || 0) + (Number(r.gld7) || 0);
   });
   const totalGld7All = Object.values(styleGldMap).reduce((a, v) => a + v, 0);
@@ -1333,15 +1320,21 @@ const rows = [
   const otherValue = otherStyles.reduce((a, s) => a + s.value, 0);
   const otherPct = totalRefundFiltered > 0 ? +((otherValue / totalRefundFiltered) * 100).toFixed(1) : 0;
 
-  // Reason aggregation with parent/sub-reason grouping
-  const reasonGroups = {
+  // Reason grouping: prefer 'Reason Group' from data, fallback to hardcoded map
+  const hasReasonGroup = rd.length > 0 && rd[0]['Reason Group'] != null;
+  const reasonGroupsFallback = {
     "Fit": ["Item Was Too Small", "Item Was Too Large", "Item Did Not Fit"],
-    "Purchase Decision": ["Changed My Mind", "Ordered Multiples For Comparison"],
-    "Product Issue": ["Item Was Not as Expected/Pictured"],
+    "Changed mind": ["Changed My Mind", "Ordered Multiples For Comparison"],
+    "UX": ["Item Was Not as Expected/Pictured"],
     "Other": ["I Had a Bad Experience", "Item Arrived Damaged", "Received Incorrect Item"],
   };
-  const reasonGroupMap = {};
-  Object.entries(reasonGroups).forEach(([g, reasons]) => reasons.forEach(r => { reasonGroupMap[r] = g; }));
+  const reasonGroupMapFallback = {};
+  Object.entries(reasonGroupsFallback).forEach(([g, reasons]) => reasons.forEach(r => { reasonGroupMapFallback[r] = g; }));
+  const getReasonGroup = (row) => hasReasonGroup ? (row['Reason Group'] || 'Other') : (reasonGroupMapFallback[row['Parent Return Reason']] || 'Other');
+  const getSubReason = (row) => {
+    const sub = row['Return Reason'] || row['Reason'];
+    return (sub && sub !== '#N/A') ? sub : row['Parent Return Reason'];
+  };
 
   // Unique product styles for reason filter dropdown
   const allReturnStyles = [...new Set(rd.map(r => r['Product Title']).filter(Boolean))].sort();
@@ -1433,12 +1426,10 @@ const rows = [
     // Aggregate reasons from filtered data
     const reasonData = {};
     rdReasonFiltered.forEach(r => {
-      const parent = r['Parent Return Reason'];
-      const sub = r['Reason'];
-      const group = reasonGroupMap[parent] || "Other";
+      const group = getReasonGroup(r);
+      const subKey = getSubReason(r);
       if (!reasonData[group]) reasonData[group] = { g: group, total: 0, subs: {} };
       reasonData[group].total += r['count Return ID'];
-      const subKey = (sub && sub !== "#N/A") ? sub : parent;
       if (!reasonData[group].subs[subKey]) reasonData[group].subs[subKey] = 0;
       reasonData[group].subs[subKey] += r['count Return ID'];
     });
@@ -1689,7 +1680,6 @@ const rows = [
 
         <div style={{marginTop:28,padding:"14px 0",borderTop:`1px solid ${C.bd}`,display:"flex",justifyContent:"space-between",fontSize:11,color:C.sL,flexWrap:"wrap",gap:8}}>
           <span>Sarah Flint · Weekly Dashboard · {meta.dateRange}</span>
-          <span>Sources: Weekly_Export_for_Claude (Supermetrics, GA, Meta, Google Ads)</span>
         </div>
       </div>
     </div>
