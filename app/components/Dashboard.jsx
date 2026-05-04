@@ -42,7 +42,6 @@ const MC = ({l, v, ww, pL, inv, sub}) => (
   </div>
 );
 const SH=({t,icon})=><div style={{display:"flex",alignItems:"center",gap:7,marginBottom:13,marginTop:22}}><span style={{fontSize:16}}>{icon}</span><h2 style={{fontSize:15,fontWeight:700,color:C.nv,margin:0}}>{t}</h2></div>;
-const Src=({t})=><div style={{fontSize:10,color:C.sL,marginTop:8,fontStyle:"italic",borderTop:`1px dashed ${C.bd}`,paddingTop:5}}>📎 {t}</div>;
 const DEFS={
   gross:"Total revenue before discounts or returns",disc:"Dollar amount discounted at checkout",gld:"Gross Revenue minus Discounts",ret:"Dollar value of returned items",
   net:"GLD minus Returns",discPct:"Discounts / Gross Revenue",retPct:"Returns $ / GLD $",aov:"GLD / Orders",netAOV:"Net Revenue / Orders",aur:"GLD / Units Ordered",upt:"Units Ordered / Orders",
@@ -792,7 +791,7 @@ const rows = [
 {/* Weekly KPIs */}
 <SH t={`${meta.week.replace("WEEK", "Week")} Performance`} icon="📈"/>
 
-<div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:6}}>
+<div style={{display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:12,marginBottom:6}}>
   {weeklyKpis.map((kpi) => {
     const vsPlan = pctVar(kpi.value, kpi.planValue);
     const vsPw = pctVar(kpi.value, kpi.prior);
@@ -831,7 +830,6 @@ const rows = [
   })}
 </div>
 
-  <Src t="SF Supermetrics → Exhibits (rows 10–34, 62–76) + Traffic (R9: ATC Rate); Plan: Finance Plan Wkly"/>
 
  {/* Weekly Trend Chart */}
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
@@ -843,7 +841,6 @@ const rows = [
         <Line dataKey="plan" stroke={C.sL} strokeDasharray="5 5" dot={false} name="Plan" strokeWidth={2}/>
       </ComposedChart>
     </ResponsiveContainer>
-    <Src t="SF Supermetrics → DShopify (new/ret net by week) + Finance Plan Wkly (plan line)"/>
   </div>
 
   <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:14}}>
@@ -854,8 +851,19 @@ const rows = [
         <div style={{textAlign:"center"}}><div style={{fontWeight:700,color:C.b1}}>{fmt(DD.newNetRev)}</div><div style={{color:C.sL}}>New</div></div>
         <div style={{textAlign:"center"}}><div style={{fontWeight:700,color:C.b3}}>{fmt(DD.repeatNetRev)}</div><div style={{color:C.sL}}>Returning</div></div>
       </div>
-      <Src t="SF Supermetrics → Exhibits (rows 15–16)"/>
     </div>
+    {(()=>{
+      const catColors=["#1e40af","#3b82f6","#06b6d4","#10b981","#f59e0b","#ef4444","#8b5cf6"];
+      const cats=(data.product_cat||[]).filter(r=>r.m_class!=="Grand Total"&&(Number(r.gld7)||0)>0).map(r=>({name:r.m_class,value:Number(r.gld7)||0})).sort((a,b)=>b.value-a.value);
+      const total=cats.reduce((a,c)=>a+c.value,0);
+      return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20}}>
+        <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:10}}>Sales by Product Category</div>
+        <ResponsiveContainer width="100%" height={160}><PieChart><Pie data={cats} innerRadius={42} outerRadius={65} paddingAngle={2} dataKey="value">{cats.map((c,i)=><Cell key={i} fill={catColors[i%catColors.length]}/>)}</Pie><Tooltip formatter={v=>`${ff(v)} (${(v/total*100).toFixed(0)}%)`}/><Legend iconType="circle" wrapperStyle={{fontSize:11}}/></PieChart></ResponsiveContainer>
+        <div style={{display:"flex",justifyContent:"space-around",fontSize:11,marginTop:4,flexWrap:"wrap",gap:4}}>
+          {cats.slice(0,4).map((c,i)=><div key={i} style={{textAlign:"center"}}><div style={{fontWeight:700,color:catColors[i]}}>{fmt(c.value)}</div><div style={{color:C.sL}}>{c.name}</div></div>)}
+        </div>
+      </div>;
+    })()}
   </div>
   <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gross","gld","net","discPct","retPct","newCust","retOrders","mktSpend","newNetROAS","sessions","conv","engagement","atcRate"]}/>
 </>}
@@ -884,7 +892,6 @@ const rows = [
       <MC l="AUR" v={rv.aur!=null?`$${Math.round(rv.aur)}`:"—"} ww={w(rv.aur,rv.priorAur)} sub="GLD ÷ Units"/>
       <MC l="UPT" v={rv.upt!=null?rv.upt.toFixed(2):"—"} ww={w(rv.upt,rv.priorUpt)} sub="Units ÷ Orders"/>
     </div>
-    <Src t="SF Supermetrics → Exhibits; Product Sales Report; Plan from Finance Plan"/>
 
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14,marginTop:14}}>
     <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:14}}>Daily Net Revenue – {meta.week} {revF!=="all"?`(${revF==="new"?"New":"Returning"})`:""}</div>
@@ -892,7 +899,6 @@ const rows = [
       <Bar dataKey={revF==="new"?"newNet":revF==="returning"?"retNet":"newNet"} stackId={revF==="all"?"stack":undefined} fill={C.b1} radius={revF==="all"?[0,0,0,0]:[4,4,0,0]} name={revF==="all"?"New Net Rev":"Net Revenue"}/>
       {revF==="all"&&<Bar dataKey="retNet" stackId="stack" fill={C.b3} radius={[4,4,0,0]} name="Returning Net Rev"/>}
     </ComposedChart></ResponsiveContainer>
-    <Src t="SF Supermetrics → DShopify (daily net revenue)"/>
   </div>
 
   <SH t="New vs. Returning Comparison" icon="👥"/>
@@ -909,7 +915,6 @@ const rows = [
       <td style={{padding:"8px 9px",fontWeight:600,color:C.nv}}>{r.m}</td><td style={{padding:"8px 9px",textAlign:"right"}}>{r.nc}</td><td style={{padding:"8px 9px",textAlign:"right",color:C.sL}}>{r.np}</td><td style={{padding:"8px 9px",textAlign:"right"}}><Pill v={r.nw} inv={r.inv}/></td>
       <td style={{padding:"8px 9px",textAlign:"right",borderLeft:`2px solid ${C.bd}`}}>{r.rc}</td><td style={{padding:"8px 9px",textAlign:"right",color:C.sL}}>{r.rp}</td><td style={{padding:"8px 9px",textAlign:"right"}}><Pill v={r.rw} inv={r.inv}/></td>
     </tr>)}</tbody></table>
-    <Src t="SF Supermetrics → Exhibits (rows 36–59)"/>
   </div>
   <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gross","disc","gld","ret","net","discPct","retPct","aov","netAOV","aur","upt"]}/>
 </>}
@@ -1004,7 +1009,6 @@ const rows = [
         <td style={td()}>100%</td><td colSpan={3}/>
       </tr>
     </tbody></table>
-    <Src t="SF Product Sales Data → Product Pivots + OH Report"/>
   </div>
 
   {/* TOP SKUS */}
@@ -1028,7 +1032,6 @@ const rows = [
         </tr>
       ))}
     </tbody></table>
-    <Src t="SF Product Sales Data → Product Pivots (SKUs) + OH Report"/>
   </div>
 
   {/* PRODUCT CATEGORY */}
@@ -1046,7 +1049,6 @@ const rows = [
         </tr>
       ))}
     </tbody></table>
-    <Src t="SF Product Sales Data → Product Pivots (Product Category)"/>
   </div>
 
   {/* MERCH CATEGORY */}
@@ -1064,7 +1066,6 @@ const rows = [
         </tr>
       ))}
     </tbody></table>
-    <Src t="SF Product Sales Data → Product Pivots (Merch Category)"/>
   </div>
 
   <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gld","net","aur","aov","st90","woh"]}/>
@@ -1187,7 +1188,6 @@ const rows = [
       ))}
       </React.Fragment>;
     })}</tbody></table>
-    <Src t="Product Sales Data → OH Report (active inventory)"/>
   </div>
   <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["st90","woh","ohVal"]}/>
   </>;
@@ -1274,7 +1274,6 @@ const rows = [
     <MC l="Exchanges (Closed)" v={ff(exchVal)} sub={`${exchCount} exchange orders · revenue retained`}/>
     <MC l="Open Returns" v={ff(openVal)} inv sub={`${openCount} unprocessed`}/>
   </div>
-  <Src t="Loop Returns — Returns Summary"/>
 
   {/* Weekly Trend Chart */}
   {retTrendData.length > 0 && <>
@@ -1294,7 +1293,6 @@ const rows = [
       <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b1,borderRadius:2,display:"inline-block"}}/>New customer returns</span>
       <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b3,borderRadius:2,display:"inline-block"}}/>Returning customer returns</span>
     </div>
-    <Src t="Loop Returns — Weekly Trend"/>
   </div>
   </>}
 
@@ -1330,7 +1328,6 @@ const rows = [
       </tr>
       </tbody>
     </table>
-    <Src t="Loop Returns — Return Details"/>
   </div>
 
   {/* Return Reasons */}
@@ -1368,7 +1365,6 @@ const rows = [
         </tr>
       </tbody>
     </table>
-    <Src t="Loop Returns — Return Reasons"/>
   </div>
 
   <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gld","ret","retPct","net"]}/>
@@ -1382,7 +1378,6 @@ const rows = [
     <MC l="CAC" v={ff(Math.round(DD.mktSpend/DD.newCustomers))} ww={w(DD.mktSpend/DD.newCustomers,DD.priorMktSpend/DD.priorNewCustomers)} inv sub={`PW: ${ff(Math.round(DD.priorMktSpend/DD.priorNewCustomers))} · MTD: ${ff(Math.round(DD.mtdMktSpend/DD.mtdNewCust))}`}/>
     <MC l="New Net ROAS" v={nROAS+"x"} ww={w(parseFloat(nROAS),parseFloat(pROAS))} sub={`PW: ${pROAS}x · MTD: ${mtdROAS}x`}/>
   </div>
-  <Src t="Supermetrics Exhibits + Finance Plan Wkly"/>
 
   <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
     <MC l="Meta Spend" v={ff(DD.metaSpend)} ww={w(DD.metaSpend,DD.priorMetaSpend)} inv sub={`ROAS: ${DD.metaRoas}x (PW: ${DD.priorMetaRoas}x)`}/>
@@ -1399,7 +1394,6 @@ const rows = [
         <Line type="monotone" dataKey="newNet" stroke={C.gn} strokeWidth={2} dot={{r:3}} name="New Net Rev"/>
       </ComposedChart>
     </ResponsiveContainer>
-    <Src t="Weekly Trend Data (weekly aggregation)"/>
   </div>
 
   <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginBottom:14}}>
@@ -1443,7 +1437,6 @@ const rows = [
     <MC l="Bounce Rate" v={DD.bounceRate.toFixed(1)+"%"} ww={w(DD.bounceRate,DD.priorBounceRate)} inv sub={`PW: ${DD.priorBounceRate.toFixed(1)}%`}/>
     <MC l="Pages/Session" v={DD.pagesPerSession} ww={w(DD.pagesPerSession,DD.priorPagesPerSession)} sub={`PW: ${DD.priorPagesPerSession}`}/>
   </div>
-  <Src t="Supermetrics Exhibits (rows 35-63)"/>
 
   <SH t="Traffic by Channel (WoW)" icon="📊"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
@@ -1463,7 +1456,6 @@ const rows = [
         </tr>
       ))}</tbody>
     </table>
-    <Src t={`GA Traffic (${meta.dateRange} vs PW)`}/>
   </div>
 
   <SH t="Page Views by Type" icon="📄"/>
@@ -1483,7 +1475,6 @@ const rows = [
         </tr>
       ))}</tbody>
     </table>
-    <Src t={`GA Page Views (${meta.dateRange})`}/>
   </div>
 
   <SH t="Top Landing Pages by Channel" icon="🔗"/>
@@ -1509,7 +1500,6 @@ const rows = [
         </tr>
       ))}</tbody>
     </table>
-    <Src t={`GA Landing Pages (${meta.dateRange})`}/>
   </div>
 
   <SH t="Session Breakdown" icon="👥"/>
