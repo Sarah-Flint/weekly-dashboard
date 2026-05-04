@@ -102,6 +102,8 @@ useEffect(() => {
   const [invSeason,setInvSeason]=useState("All");
   const [invMC,setInvMC]=useState("All");
   const [invSC,setInvSC]=useState("All");
+  const [invSort,setInvSort]=useState({col:"oh",dir:"desc"});
+  const [invAlert,setInvAlert]=useState("All");
   const [showDefs,setShowDefs]=useState(true);
   const [lpChannel,setLpChannel]=useState("All");
   const [retTimeFilter,setRetTimeFilter]=useState("LW");
@@ -1100,15 +1102,33 @@ const rows = [
     const dOV=s.skus.reduce((a,k)=>a+k.ov,0);
     const dU7=s.skus.reduce((a,k)=>a+k.u7,0);
     const dU90=s.skus.reduce((a,k)=>a+k.u90,0);
-    return {...s,oh:dOH,ov:dOV,u7:dU7,u90:dU90};
-  }).sort((a,b)=>b.oh-a.oh);
+    const dST=dU90>0?+((dU90/(dOH+dU90))*100).toFixed(1):0;
+    const rate=Math.max(dU7,dU90/90*7);const dWOH=rate>0?Math.round(dOH/rate):999;
+    return {...s,oh:dOH,ov:dOV,u7:dU7,u90:dU90,st:parseFloat(dST),woh:dWOH};
+  });
 
-  const ttlOH=invData.reduce((a,s)=>a+s.oh,0);
-  const ttlOV=invData.reduce((a,s)=>a+s.ov,0);
-  const ttlU7=invData.reduce((a,s)=>a+s.u7,0);
-  const ttlU90=invData.reduce((a,s)=>a+s.u90,0);
+  // Alert filter
+  const alertFiltered = invAlert==="All"?invData
+    :invAlert==="Restock"?invData.filter(s=>s.woh<16&&s.woh>0)
+    :invAlert==="Slow"?invData.filter(s=>s.woh>30)
+    :invAlert==="High OH"?invData.filter(s=>s.oh>100):invData;
+
+  // Sort
+  const sortCol=invSort.col;const sortDir=invSort.dir==="asc"?1:-1;
+  const sorted=[...alertFiltered].sort((a,b)=>{
+    if(sortCol==="n") return a.n.localeCompare(b.n)*sortDir;
+    return ((a[sortCol]??0)-(b[sortCol]??0))*sortDir;
+  });
+
+  const ttlOH=sorted.reduce((a,s)=>a+s.oh,0);
+  const ttlOV=sorted.reduce((a,s)=>a+s.ov,0);
+  const ttlU7=sorted.reduce((a,s)=>a+s.u7,0);
+  const ttlU90=sorted.reduce((a,s)=>a+s.u90,0);
   const ttlST=ttlU90>0?((ttlU90/(ttlOH+ttlU90))*100).toFixed(1):"0";
   const btnS=(v,cur)=>({background:cur===v?C.b1:C.cd,color:cur===v?"#fff":C.sl,border:`1px solid ${cur===v?C.b1:C.bd}`,borderRadius:6,padding:"4px 8px",fontSize:10,fontWeight:600,cursor:"pointer"});
+  const alertBtnS=(v,cur,color)=>({background:cur===v?color:C.cd,color:cur===v?"#fff":C.sl,border:`1px solid ${cur===v?color:C.bd}`,borderRadius:6,padding:"4px 8px",fontSize:10,fontWeight:600,cursor:"pointer"});
+  const invCols=[{h:"",k:null},{h:"Style",k:"n"},{h:"OH Units",k:"oh"},{h:"OH Value",k:"ov"},{h:"7D Units",k:"u7"},{h:"90D Units",k:"u90"},{h:"90D ST%",k:"st"},{h:"WOH",k:"woh"}];
+  const toggleSort=(k)=>{if(!k)return;setInvSort(p=>p.col===k?{...p,dir:p.dir==="desc"?"asc":"desc"}:{col:k,dir:"desc"});};
   return <>
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
     <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Season:</span>
@@ -1118,35 +1138,40 @@ const rows = [
     <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Product Class:</span>
     {["All",...invMClasses].map(v=><button key={v} onClick={()=>setInvMC(v)} style={btnS(v,invMC)}>{v}</button>)}
   </div>
-  <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:10,alignItems:"center"}}>
+  <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
     <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Merch Category:</span>
     {["All",...invMCats].map(v=><button key={v} onClick={()=>setInvSC(v)} style={btnS(v,invSC)}>{v}</button>)}
   </div>
+  <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:10,alignItems:"center"}}>
+    <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Alerts:</span>
+    <button onClick={()=>setInvAlert("All")} style={btnS("All",invAlert)}>All</button>
+    <button onClick={()=>setInvAlert("Restock")} style={alertBtnS("Restock",invAlert,C.rd)}>Restock Alert (WOH &lt; 16)</button>
+    <button onClick={()=>setInvAlert("Slow")} style={alertBtnS("Slow",invAlert,C.am)}>Slow Moving (WOH &gt; 30)</button>
+    <button onClick={()=>setInvAlert("High OH")} style={alertBtnS("High OH",invAlert,"#7c3aed")}>High Inventory (Qty &gt; 100)</button>
+  </div>
   <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:12}}>
-    <MC l="Total OH Units" v={ttlOH.toLocaleString()} sub={`${invData.length} styles`}/>
-    <MC l="OH Value" v={`$${(ttlOV/1000).toFixed(0)}K`} sub="At cost"/>
+    <MC l="Total OH Units" v={ttlOH.toLocaleString()} sub={`${sorted.length} styles`}/>
+    <MC l="OH Value" v={fmt(ttlOV)} sub="At cost"/>
     <MC l="7D Units Sold" v={ttlU7.toLocaleString()} sub="Last 7 days"/>
     <MC l="90D Units Sold" v={ttlU90.toLocaleString()} sub="Last 90 days"/>
     <MC l="90D ST%" v={`${ttlST}%`} sub="90D / (OH + 90D)"/>
   </div>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,overflowX:"auto"}}>
-    <div style={{fontSize:11,color:C.sL,marginBottom:6}}>Click style to expand color-level detail · Sorted by OH units descending</div>
+    <div style={{fontSize:11,color:C.sL,marginBottom:6}}>Click column header to sort · Click style to expand color-level detail</div>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}><thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-      {["","Style","OH Units","OH Value","7D Units","90D Units","90D ST%","WOH"].map((h,i)=><th key={h} style={{textAlign:h===""||h==="Style"?"left":"right",padding:"6px 5px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap"}}>{h}</th>)}
-    </tr></thead><tbody>{invData.map((s,i)=>{
-      const open=expInv[s.n]; const fs=s.skus;
-      const dST=s.u90>0?((s.u90/(s.oh+s.u90))*100).toFixed(1):"0.0";
-      const rate=Math.max(s.u7,s.u90/90*7);const dWOH=rate>0?Math.round(s.oh/rate):999;
+      {invCols.map(col=><th key={col.h||"_exp"} onClick={()=>toggleSort(col.k)} style={{textAlign:col.h===""||col.h==="Style"?"left":"right",padding:"6px 5px",color:invSort.col===col.k?C.nv:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap",cursor:col.k?"pointer":"default",userSelect:"none"}}>{col.h}{invSort.col===col.k?<span style={{marginLeft:3,fontSize:8}}>{invSort.dir==="desc"?"▼":"▲"}</span>:""}</th>)}
+    </tr></thead><tbody>{sorted.map((s,i)=>{
+      const open=expInv[s.n]; const fs=s.skus.sort((a,b)=>b.oh-a.oh);
       return <React.Fragment key={i}>
-      <tr style={{borderBottom:open?"none":`1px solid ${C.bd}`,cursor:"pointer",background:dWOH>=100?"#fef2f2":dWOH<=8?"#f0fdf4":"transparent"}} onClick={()=>setExpInv(p=>({...p,[s.n]:!p[s.n]}))} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>{e.currentTarget.style.background=dWOH>=100?"#fef2f2":dWOH<=8?"#f0fdf4":"transparent"}}>
+      <tr style={{borderBottom:open?"none":`1px solid ${C.bd}`,cursor:"pointer",background:s.woh>=100?"#fef2f2":s.woh<=8&&s.woh>0?"#f0fdf4":"transparent"}} onClick={()=>setExpInv(p=>({...p,[s.n]:!p[s.n]}))} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>{e.currentTarget.style.background=s.woh>=100?"#fef2f2":s.woh<=8&&s.woh>0?"#f0fdf4":"transparent"}}>
         <td style={{padding:"7px 4px",color:C.sL,width:16}}>{open?"▾":"▸"}</td>
         <td style={{padding:"7px 5px",fontWeight:600,color:C.nv}}>{s.n} <span style={{fontSize:9,color:C.sL,fontWeight:400}}>({fs.length} colors)</span></td>
         <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600}}>{s.oh.toLocaleString()}</td>
         <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>{ff(s.ov)}</td>
         <td style={{padding:"7px 5px",textAlign:"right",color:s.u7>0?C.gn:C.sL}}>{s.u7}</td>
         <td style={{padding:"7px 5px",textAlign:"right"}}>{s.u90}</td>
-        <td style={{padding:"7px 5px",textAlign:"right",fontWeight:500,color:parseFloat(dST)>=25?C.gn:parseFloat(dST)>=10?C.nv:parseFloat(dST)>0?C.am:C.rd}}>{dST}%</td>
-        <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600,color:dWOH>=100?C.rd:dWOH>=50?C.am:dWOH<=8?C.gn:C.nv}}>{dWOH>=999?"No sales":dWOH}</td>
+        <td style={{padding:"7px 5px",textAlign:"right",fontWeight:500,color:s.st>=25?C.gn:s.st>=10?C.nv:s.st>0?C.am:C.rd}}>{s.st}%</td>
+        <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600,color:s.woh>=100?C.rd:s.woh>=50?C.am:s.woh<=8?C.gn:C.nv}}>{s.woh>=999?"No sales":s.woh}</td>
       </tr>
       {open&&fs.map((k,j)=>(
         <tr key={j} style={{borderBottom:`1px solid ${C.bd}`,background:"#f8fafc"}}>
