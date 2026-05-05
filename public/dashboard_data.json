@@ -3,7 +3,7 @@
     "week": "WEEK 17",
     "dateRange": "Apr 26-2, 2026",
     "quarter": "Q2",
-    "lastUpdated": "2026-05-05T23:39:00.928Z"
+    "lastUpdated": "2026-05-05T23:52:31.006Z"
   },
   "kpi": [
     {
@@ -17,7 +17,9 @@
       "_mtd": 998763.15,
       "_mtd_plan": 967272,
       "_qtd": 998763.15,
-      "_qtd_plan": 967272
+      "_qtd_plan": 967272,
+      "_ytd": 4282329.77,
+      "_ytd_plan": 4653080
     },
     {
       "metric": "total_gross_rev",
@@ -30,7 +32,9 @@
       "_mtd": 937150.7,
       "_mtd_plan": 967272,
       "_qtd": 937150.7,
-      "_qtd_plan": 967272
+      "_qtd_plan": 967272,
+      "_ytd": 4035808.41,
+      "_ytd_plan": 4653080
     },
     {
       "metric": "total_discounts",
@@ -43,7 +47,9 @@
       "_mtd": -82424.74,
       "_mtd_plan": -145090,
       "_qtd": -82424.74,
-      "_qtd_plan": -145090
+      "_qtd_plan": -145090,
+      "_ytd": -566294.04,
+      "_ytd_plan": -882254
     },
     {
       "metric": "total_gld",
@@ -56,7 +62,9 @@
       "_mtd": 854725.96,
       "_mtd_plan": 822182,
       "_qtd": 854725.96,
-      "_qtd_plan": 822182
+      "_qtd_plan": 822182,
+      "_ytd": 3469514.37,
+      "_ytd_plan": 3770826
     },
     {
       "metric": "total_returns",
@@ -69,7 +77,9 @@
       "_mtd": -326720.69,
       "_mtd_plan": -343382,
       "_qtd": -326720.69,
-      "_qtd_plan": -343382
+      "_qtd_plan": -343382,
+      "_ytd": -1129194.08,
+      "_ytd_plan": -1817704
     },
     {
       "metric": "total_net_rev",
@@ -82,7 +92,9 @@
       "_mtd": 528005.27,
       "_mtd_plan": 478800,
       "_qtd": 528005.27,
-      "_qtd_plan": 478800
+      "_qtd_plan": 478800,
+      "_ytd": 2340320.29,
+      "_ytd_plan": 1953122
     },
     {
       "metric": "total_orders",
@@ -95,7 +107,9 @@
       "_mtd": 1617,
       "_mtd_plan": 1652,
       "_qtd": 1617,
-      "_qtd_plan": 1652
+      "_qtd_plan": 1652,
+      "_ytd": 7226,
+      "_ytd_plan": 9135
     },
     {
       "metric": "total_gross_units",
@@ -108,7 +122,9 @@
       "_mtd": 2223,
       "_mtd_plan": 2306,
       "_qtd": 2223,
-      "_qtd_plan": 2306
+      "_qtd_plan": 2306,
+      "_ytd": 9472,
+      "_ytd_plan": 11288
     },
     {
       "metric": "total_net_units",
@@ -121,7 +137,9 @@
       "_mtd": 1305,
       "_mtd_plan": "",
       "_qtd": 1305,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 6222,
+      "_ytd_plan": ""
     },
     {
       "metric": "new_gross_rev",
@@ -134,7 +152,9 @@
       "_mtd": 539179.18,
       "_mtd_plan": "",
       "_qtd": 539179.18,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 2047397.76,
+      "_ytd_plan": ""
     },
     {
       "metric": "new_discounts",
@@ -147,7 +167,9 @@
       "_mtd": -63167.25,
       "_mtd_plan": -47951.5,
       "_qtd": -63167.25,
-      "_qtd_plan": -47951.5
+      "_qtd_plan": -47951.5,
+      "_ytd": -303040.84,
+      "_ytd_plan": -229065.97
     },
     {
       "metric": "new_gld",
@@ -160,7 +182,9 @@
       "_mtd": 476011.93,
       "_mtd_plan": "",
       "_qtd": 476011.93,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 1744356.92,
+      "_ytd_plan": ""
     },
     {
       "metric": "new_returns",
@@ -173,7 +197,9 @@
       "_mtd": -190807.16,
       "_mtd_plan": "",
       "_qtd": -190807.16,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": -633723.44,
+      "_ytd_plan": ""
     },
     {
       "metric": "new_net_rev",
@@ -186,7 +212,9 @@
       "_mtd": 285204.77,
       "_mtd_plan": 173968,
       "_qtd": 285204.77,
-      "_qtd_plan": 173968
+      "_qtd_plan": 173968,
+      "_ytd": 1110633.48,
+      "_ytd_plan": 536132.8
     },
     {
       "metric": "new_orders",
@@ -199,7 +227,9 @@
       "_mtd": 920,
       "_mtd_plan": 600,
       "_qtd": 920,
-      "_qtd_plan": 600
+      "_qtd_plan": 600,
+      "_ytd": 3732,
+      "_ytd_plan": 2438
     },
     {
       "metric": "new_gross_units",
@@ -212,7 +242,9 @@
       "_mtd": 1237,
       "_mtd_plan": "",
       "_qtd": 1237,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 4632,
+      "_ytd_plan": ""
     },
     {
       "metric": "new_net_units",
@@ -225,7 +257,9 @@
       "_mtd": 685,
       "_mtd_plan": "",
       "_qtd": 685,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 2765,
+      "_ytd_plan": ""
     },
     {
       "metric": "returning_gross_rev",
@@ -238,7 +272,9 @@
       "_mtd": 397971.52,
       "_mtd_plan": "",
       "_qtd": 397971.52,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 1988410.65,
+      "_ytd_plan": ""
     },
     {
       "metric": "returning_discounts",
@@ -251,7 +287,9 @@
       "_mtd": -63167.25,
       "_mtd_plan": -97139.42,
       "_qtd": -63167.25,
-      "_qtd_plan": -97139.42
+      "_qtd_plan": -97139.42,
+      "_ytd": -312975.4,
+      "_ytd_plan": -653185.95
     },
     {
       "metric": "returning_gld",
@@ -264,7 +302,9 @@
       "_mtd": 334804.27,
       "_mtd_plan": "",
       "_qtd": 334804.27,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 1675435.25,
+      "_ytd_plan": ""
     },
     {
       "metric": "returning_returns",
@@ -277,7 +317,9 @@
       "_mtd": -135913.53,
       "_mtd_plan": "",
       "_qtd": -135913.53,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": -495470.64,
+      "_ytd_plan": ""
     },
     {
       "metric": "returning_net_rev",
@@ -290,7 +332,9 @@
       "_mtd": 242800.5,
       "_mtd_plan": 304832,
       "_qtd": 242800.5,
-      "_qtd_plan": 304832
+      "_qtd_plan": 304832,
+      "_ytd": 1229686.81,
+      "_ytd_plan": 1416989.2
     },
     {
       "metric": "returning_orders",
@@ -303,7 +347,9 @@
       "_mtd": 697,
       "_mtd_plan": 1052,
       "_qtd": 697,
-      "_qtd_plan": 1052
+      "_qtd_plan": 1052,
+      "_ytd": 3494,
+      "_ytd_plan": 6697
     },
     {
       "metric": "returning_gross_units",
@@ -316,7 +362,9 @@
       "_mtd": 986,
       "_mtd_plan": "",
       "_qtd": 986,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 4840,
+      "_ytd_plan": ""
     },
     {
       "metric": "returning_net_units",
@@ -329,7 +377,9 @@
       "_mtd": 620,
       "_mtd_plan": "",
       "_qtd": 620,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 3457,
+      "_ytd_plan": ""
     },
     {
       "metric": "ordercount_disc",
@@ -342,7 +392,9 @@
       "_mtd": 768,
       "_mtd_plan": "",
       "_qtd": 768,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 4393,
+      "_ytd_plan": ""
     },
     {
       "metric": "order_disc_pct",
@@ -355,7 +407,9 @@
       "_mtd": 47.5,
       "_mtd_plan": "",
       "_qtd": 47.5,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 60.79,
+      "_ytd_plan": ""
     },
     {
       "metric": "meta_marketing",
@@ -368,7 +422,9 @@
       "_mtd": 50051.85,
       "_mtd_plan": "",
       "_qtd": 50051.85,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 219793.68,
+      "_ytd_plan": ""
     },
     {
       "metric": "google_marketing",
@@ -381,7 +437,9 @@
       "_mtd": 38719.53,
       "_mtd_plan": "",
       "_qtd": 38719.53,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 129466.82,
+      "_ytd_plan": ""
     },
     {
       "metric": "other_marketing",
@@ -394,7 +452,9 @@
       "_mtd": 0,
       "_mtd_plan": "",
       "_qtd": 0,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "total_marketing",
@@ -407,7 +467,9 @@
       "_mtd": 88771.38,
       "_mtd_plan": "",
       "_qtd": 88771.38,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 349260.5,
+      "_ytd_plan": ""
     },
     {
       "metric": "meta_revenue",
@@ -420,7 +482,9 @@
       "_mtd": 112027.36,
       "_mtd_plan": "",
       "_qtd": 112027.36,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 548219.28,
+      "_ytd_plan": ""
     },
     {
       "metric": "google_revenue",
@@ -433,7 +497,9 @@
       "_mtd": 345045.85,
       "_mtd_plan": "",
       "_qtd": 345045.85,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 1165388.48,
+      "_ytd_plan": ""
     },
     {
       "metric": "meta_roas",
@@ -446,7 +512,9 @@
       "_mtd": 2.24,
       "_mtd_plan": "",
       "_qtd": 2.24,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 2.49,
+      "_ytd_plan": ""
     },
     {
       "metric": "google_roas",
@@ -459,7 +527,9 @@
       "_mtd": 8.91,
       "_mtd_plan": "",
       "_qtd": 8.91,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 9,
+      "_ytd_plan": ""
     },
     {
       "metric": "total_sessions",
@@ -472,7 +542,9 @@
       "_mtd": 70094,
       "_mtd_plan": 80400,
       "_qtd": 70094,
-      "_qtd_plan": 80400
+      "_qtd_plan": 80400,
+      "_ytd": 0,
+      "_ytd_plan": 337300
     },
     {
       "metric": "total_engaged_sessions",
@@ -485,7 +557,9 @@
       "_mtd": 41280,
       "_mtd_plan": 30412.5,
       "_qtd": 41280,
-      "_qtd_plan": 30412.5
+      "_qtd_plan": 30412.5,
+      "_ytd": 0,
+      "_ytd_plan": 114374.3
     },
     {
       "metric": "total_bounces",
@@ -498,7 +572,9 @@
       "_mtd": 28814,
       "_mtd_plan": 49987.5,
       "_qtd": 28814,
-      "_qtd_plan": 49987.5
+      "_qtd_plan": 49987.5,
+      "_ytd": 0,
+      "_ytd_plan": 222925.7
     },
     {
       "metric": "total_add_to_cart",
@@ -511,7 +587,9 @@
       "_mtd": 5390,
       "_mtd_plan": "",
       "_qtd": 5390,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "total_page_views",
@@ -524,7 +602,9 @@
       "_mtd": 252692,
       "_mtd_plan": "",
       "_qtd": 252692,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "total_duration",
@@ -537,7 +617,9 @@
       "_mtd": 3211798.02,
       "_mtd_plan": "",
       "_qtd": 3211798.02,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "engagement_pct",
@@ -550,7 +632,9 @@
       "_mtd": 0.59,
       "_mtd_plan": 0.38,
       "_qtd": 0.59,
-      "_qtd_plan": 0.38
+      "_qtd_plan": 0.38,
+      "_ytd": "#DIV/0!",
+      "_ytd_plan": 0.34
     },
     {
       "metric": "bounce_pct",
@@ -563,7 +647,9 @@
       "_mtd": 0.41,
       "_mtd_plan": 0.62,
       "_qtd": 0.41,
-      "_qtd_plan": 0.62
+      "_qtd_plan": 0.62,
+      "_ytd": "#DIV/0!",
+      "_ytd_plan": 0.66
     },
     {
       "metric": "total_atc_pct",
@@ -576,7 +662,9 @@
       "_mtd": 7.69,
       "_mtd_plan": "",
       "_qtd": 7.69,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": "#DIV/0!",
+      "_ytd_plan": ""
     },
     {
       "metric": "pages_per_section",
@@ -589,7 +677,9 @@
       "_mtd": 3.61,
       "_mtd_plan": "",
       "_qtd": 3.61,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": "#DIV/0!",
+      "_ytd_plan": ""
     },
     {
       "metric": "avg_duration",
@@ -602,7 +692,9 @@
       "_mtd": 45.82,
       "_mtd_plan": "",
       "_qtd": 45.82,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": "#DIV/0!",
+      "_ytd_plan": ""
     },
     {
       "metric": "new_sessions",
@@ -615,7 +707,9 @@
       "_mtd": 44985,
       "_mtd_plan": "",
       "_qtd": 44985,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "returning_sessions",
@@ -628,7 +722,9 @@
       "_mtd": 25109,
       "_mtd_plan": "",
       "_qtd": 25109,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "new_add_to_cart",
@@ -641,7 +737,9 @@
       "_mtd": 3033,
       "_mtd_plan": "",
       "_qtd": 3033,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "returning_add_to_cart",
@@ -654,7 +752,9 @@
       "_mtd": 2357,
       "_mtd_plan": "",
       "_qtd": 2357,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "new_atc_pct",
@@ -667,7 +767,9 @@
       "_mtd": 6.74,
       "_mtd_plan": "",
       "_qtd": 6.74,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": "#DIV/0!",
+      "_ytd_plan": ""
     },
     {
       "metric": "returning_atc_pct",
@@ -680,7 +782,9 @@
       "_mtd": 9.39,
       "_mtd_plan": "",
       "_qtd": 9.39,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": "#DIV/0!",
+      "_ytd_plan": ""
     },
     {
       "metric": "paid_sessions",
@@ -693,7 +797,9 @@
       "_mtd": 43570,
       "_mtd_plan": "",
       "_qtd": 43570,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "organic_sessions",
@@ -706,7 +812,9 @@
       "_mtd": 26524,
       "_mtd_plan": "",
       "_qtd": 26524,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "paid_add_to_cart",
@@ -719,7 +827,9 @@
       "_mtd": 2917,
       "_mtd_plan": "",
       "_qtd": 2917,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "organic_add_to_cart",
@@ -732,7 +842,9 @@
       "_mtd": 2473,
       "_mtd_plan": "",
       "_qtd": 2473,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "paid_atc_pct",
@@ -745,7 +857,9 @@
       "_mtd": 6.69,
       "_mtd_plan": "",
       "_qtd": 6.69,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": "#DIV/0!",
+      "_ytd_plan": ""
     },
     {
       "metric": "organic_atc_pct",
@@ -758,7 +872,9 @@
       "_mtd": 9.32,
       "_mtd_plan": "",
       "_qtd": 9.32,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": "#DIV/0!",
+      "_ytd_plan": ""
     },
     {
       "metric": "desktop_sessions",
@@ -771,7 +887,9 @@
       "_mtd": 14892,
       "_mtd_plan": "",
       "_qtd": 14892,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "mobile_sessions",
@@ -784,7 +902,9 @@
       "_mtd": 53797,
       "_mtd_plan": "",
       "_qtd": 53797,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "desktop_add_to_cart",
@@ -797,7 +917,9 @@
       "_mtd": 1785,
       "_mtd_plan": "",
       "_qtd": 1785,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "mobile_add_to_cart",
@@ -810,7 +932,9 @@
       "_mtd": 3489,
       "_mtd_plan": "",
       "_qtd": 3489,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": 0,
+      "_ytd_plan": ""
     },
     {
       "metric": "desktop_atc_pct",
@@ -823,7 +947,9 @@
       "_mtd": 11.99,
       "_mtd_plan": "",
       "_qtd": 11.99,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": "#DIV/0!",
+      "_ytd_plan": ""
     },
     {
       "metric": "mobile_atc_pct",
@@ -836,7 +962,9 @@
       "_mtd": 6.49,
       "_mtd_plan": "",
       "_qtd": 6.49,
-      "_qtd_plan": ""
+      "_qtd_plan": "",
+      "_ytd": "#DIV/0!",
+      "_ytd_plan": ""
     }
   ],
   "daily": [
