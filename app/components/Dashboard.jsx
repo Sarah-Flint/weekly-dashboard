@@ -363,6 +363,12 @@ useEffect(() => {
   priorDesktopAtcRate: _rPct(getMetric("desktop_add_to_cart")._pw, getMetric("desktop_sessions")._pw),
   mobileAtcRate: _rPct(getMetric("mobile_add_to_cart")._cw, getMetric("mobile_sessions")._cw),
   priorMobileAtcRate: _rPct(getMetric("mobile_add_to_cart")._pw, getMetric("mobile_sessions")._pw),
+
+  // ── Discount Order Counts ──
+  ordersWithDisc: _v(getMetric("ordercount_disc")._cw),
+  priorOrdersWithDisc: _v(getMetric("ordercount_disc")._pw),
+  orderDiscPct: _v(getMetric("order_disc_pct")._cw),
+  priorOrderDiscPct: _v(getMetric("order_disc_pct")._pw),
 };
 
   const nROAS = DD.mktSpend ? (DD.newNetRev / DD.mktSpend).toFixed(2) : null;
@@ -485,19 +491,28 @@ useEffect(() => {
   const getTrend = (metric) =>
   (data.weekly_trend || []).find((row) => row.metric === metric) || {};
 
-  const WEEKLY_TREND_LIVE = Object.keys(getTrend("total_net_rev"))
-  .filter((key) => !isNaN(Number(key)))
-  .map((week) => ({
-    week: `Wk ${week}`,
-    net: getTrend("total_net_rev")[week] || 0,
-    newNet: getTrend("new_net_rev")[week] || 0,
-    retNet: getTrend("returning_net_rev")[week] || 0,
-    plan: getTrend("total_net_rev_plan")[week] || 0,
-    spend: getTrend("total_marketing")[week] || 0,
-    newCust: getTrend("new_orders")[week] || 0,
-    cac: getTrend("total_cac")[week] || 0,
-    roas: getTrend("new_net_roas")[week] || 0,
-  }));  
+  const WEEKLY_TREND_LIVE = (() => {
+    const actualRow = getTrend("total_net_rev");
+    const planRow = getTrend("total_net_rev_plan");
+    const allWeeks = new Set([
+      ...Object.keys(actualRow).filter(k => !isNaN(Number(k))),
+      ...Object.keys(planRow).filter(k => !isNaN(Number(k)))
+    ]);
+    return [...allWeeks].sort((a,b) => Number(a) - Number(b)).map(week => {
+      const hasActual = typeof actualRow[week] === "number";
+      return {
+        week: `Wk ${week}`,
+        net: hasActual ? actualRow[week] : null,
+        newNet: hasActual ? (typeof getTrend("new_net_rev")[week] === "number" ? getTrend("new_net_rev")[week] : 0) : null,
+        retNet: hasActual ? (typeof getTrend("returning_net_rev")[week] === "number" ? getTrend("returning_net_rev")[week] : 0) : null,
+        plan: typeof planRow[week] === "number" ? planRow[week] : (planRow[week] !== "" && planRow[week] != null ? Number(planRow[week]) || null : null),
+        spend: getTrend("total_marketing")[week] || 0,
+        newCust: getTrend("new_orders")[week] || 0,
+        cac: getTrend("total_cac")[week] || 0,
+        roas: getTrend("new_net_roas")[week] || 0,
+      };
+    });
+  })();  
 
   // Daily Data 
   const getDaily = (metric) =>
@@ -869,12 +884,12 @@ const rows = [
       <ComposedChart data={WEEKLY_TREND_LIVE}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:11,fill:C.sL}}/><YAxis tick={{fontSize:11,fill:C.sL}} tickFormatter={v=>`${v<0?"-":""}$${(Math.abs(v)/1000).toFixed(0)}K`}/><Tooltip content={<CT/>}/>
         <Bar dataKey="newNet" stackId="a" fill={C.b1} name="New Net Rev"/>
         <Bar dataKey="retNet" stackId="a" fill={C.b3} radius={[4,4,0,0]} name="Returning Net Rev"/>
-        <Line dataKey="plan" stroke={C.sL} strokeDasharray="5 5" dot={false} name="Plan" strokeWidth={2}/>
+        <Line dataKey="plan" stroke={C.sL} strokeDasharray="5 5" dot={false} name="Plan" strokeWidth={2} connectNulls/>
       </ComposedChart>
     </ResponsiveContainer>
   </div>
 
-  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:14}}>
+  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12,marginBottom:14}}>
     <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20}}>
       <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:10}}>Revenue by Customer Type</div>
       <ResponsiveContainer width="100%" height={160}><PieChart><Pie data={[{name:"New",value:Math.round(DD.newNetRev/(DD.newNetRev+DD.repeatNetRev)*100)},{name:"Returning",value:Math.round(DD.repeatNetRev/(DD.newNetRev+DD.repeatNetRev)*100)}]} innerRadius={42} outerRadius={65} paddingAngle={3} dataKey="value"><Cell fill={C.b1}/><Cell fill={C.b3}/></Pie><Tooltip formatter={v=>`${v}%`}/><Legend iconType="circle" wrapperStyle={{fontSize:11}}/></PieChart></ResponsiveContainer>
@@ -883,6 +898,20 @@ const rows = [
         <div style={{textAlign:"center"}}><div style={{fontWeight:700,color:C.b3}}>{fmt(DD.repeatNetRev)}</div><div style={{color:C.sL}}>Returning</div></div>
       </div>
     </div>
+    {(()=>{
+      const discOrders = DD.ordersWithDisc || 0;
+      const noDiscOrders = (DD.orders || 0) - discOrders;
+      const discPct = DD.orderDiscPct != null ? DD.orderDiscPct : (DD.orders ? +((discOrders / DD.orders) * 100).toFixed(1) : 0);
+      const noDiscPct = +(100 - discPct).toFixed(1);
+      return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20}}>
+        <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:10}}>Orders: Discount vs. Full Price</div>
+        <ResponsiveContainer width="100%" height={160}><PieChart><Pie data={[{name:"With Discount",value:discOrders},{name:"No Discount",value:noDiscOrders}]} innerRadius={42} outerRadius={65} paddingAngle={3} dataKey="value"><Cell fill={C.am}/><Cell fill={C.gn}/></Pie><Tooltip formatter={(v,name)=>`${v} orders (${name==="With Discount"?discPct:noDiscPct}%)`}/><Legend iconType="circle" wrapperStyle={{fontSize:11}}/></PieChart></ResponsiveContainer>
+        <div style={{display:"flex",justifyContent:"space-around",fontSize:12,marginTop:4}}>
+          <div style={{textAlign:"center"}}><div style={{fontWeight:700,color:C.am}}>{discOrders}</div><div style={{color:C.sL}}>Discount ({discPct}%)</div></div>
+          <div style={{textAlign:"center"}}><div style={{fontWeight:700,color:C.gn}}>{noDiscOrders}</div><div style={{color:C.sL}}>Full Price ({noDiscPct}%)</div></div>
+        </div>
+      </div>;
+    })()}
     {(()=>{
       const catColors=["#1e40af","#3b82f6","#06b6d4","#10b981","#f59e0b","#ef4444","#8b5cf6"];
       const cats=(data.product_cat||[]).filter(r=>r.m_class!=="Grand Total"&&(Number(r.gld7)||0)>0).map(r=>({name:r.m_class,value:Number(r.gld7)||0})).sort((a,b)=>b.value-a.value);
@@ -913,15 +942,15 @@ const rows = [
     </div>
     <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:10}}>
       <MC l="Orders" v={rv.orders} ww={w(rv.orders,rv.priorOrders)} sub={`PW: ${rv.priorOrders}`}/>
-      <MC l="Items" v={rv.items} ww={w(rv.items,rv.priorItems)} sub={`PW: ${rv.priorItems}`}/>
+      <MC l="Units Ordered" v={rv.items} ww={w(rv.items,rv.priorItems)} sub={`PW: ${rv.priorItems}`}/>
       <MC l="Discount %" v={rv.discPct!=null?`${rv.discPct.toFixed(1)}%`:"—"} ww={w(rv.discPct,rv.priorDiscPct)} inv sub={rv.priorDiscPct!=null?`PW: ${rv.priorDiscPct.toFixed(1)}%`:""}/>
       <MC l="Returns % GLD" v={rv.returnPctGLD!=null?`${rv.returnPctGLD.toFixed(1)}%`:"—"} ww={w(rv.returnPctGLD,rv.priorReturnPctGLD)} inv sub={rv.priorReturnPctGLD!=null?`PW: ${rv.priorReturnPctGLD.toFixed(1)}%`:""}/>
     </div>
     <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:6}}>
       <MC l="GLD AOV" v={rv.gldAOV!=null?`$${Math.round(rv.gldAOV)}`:"—"} ww={w(rv.gldAOV,rv.priorGldAOV)} sub={rv.priorGldAOV!=null?`PW: $${Math.round(rv.priorGldAOV)}`:""}/>
       <MC l="Net AOV" v={rv.netAOV!=null?`$${Math.round(rv.netAOV)}`:"—"} ww={w(rv.netAOV,rv.priorNetAOV)} sub={rv.priorNetAOV!=null?`PW: $${Math.round(rv.priorNetAOV)}`:""}/>
-      <MC l="AUR" v={rv.aur!=null?`$${Math.round(rv.aur)}`:"—"} ww={w(rv.aur,rv.priorAur)} sub="GLD ÷ Units"/>
-      <MC l="UPT" v={rv.upt!=null?rv.upt.toFixed(2):"—"} ww={w(rv.upt,rv.priorUpt)} sub="Units ÷ Orders"/>
+      <MC l="GLD AUR" v={rv.aur!=null?`$${Math.round(rv.aur)}`:"—"} ww={w(rv.aur,rv.priorAur)} sub="GLD ÷ Units"/>
+      <MC l="UPT" v={rv.upt!=null?rv.upt.toFixed(2):"—"} ww={w(rv.upt,rv.priorUpt)} sub="Units Ordered / Orders"/>
     </div>
 
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14,marginTop:14}}>
@@ -947,6 +976,64 @@ const rows = [
       <td style={{padding:"8px 9px",textAlign:"right",borderLeft:`2px solid ${C.bd}`}}>{r.rc}</td><td style={{padding:"8px 9px",textAlign:"right",color:C.sL}}>{r.rp}</td><td style={{padding:"8px 9px",textAlign:"right"}}><Pill v={r.rw} inv={r.inv}/></td>
     </tr>)}</tbody></table>
   </div>
+
+  {/* Discount Code Breakdown */}
+  {(()=>{
+    const dcRows = data.disc_code || [];
+    if (!dcRows.length) return null;
+    // Expect rows with: discount_code, customer_group (All/New/Returning), gross_sales, discount, order_count, disc_pct
+    const groups = ["All","New","Returning"];
+    const codeMap = {};
+    dcRows.forEach(r => {
+      const code = r.discount_code || r.Discount_Code || r.code || "Unknown";
+      const cg = r.customer_group || r.Customer_Group || "All";
+      if (!codeMap[code]) codeMap[code] = {};
+      codeMap[code][cg] = {
+        gross: Number(r.gross_sales ?? r.Gross_Sales ?? r.gross ?? 0),
+        disc: Number(r.discount ?? r.Discount ?? 0),
+        orders: Number(r.order_count ?? r.Order_Count ?? r.orders ?? 0),
+        discPct: Number(r.disc_pct ?? r.Disc_Pct ?? r.discount_pct ?? 0),
+      };
+    });
+    const codes = Object.keys(codeMap).sort((a,b) => {
+      const aGross = codeMap[a]["All"]?.gross || codeMap[a]["Total"]?.gross || 0;
+      const bGross = codeMap[b]["All"]?.gross || codeMap[b]["Total"]?.gross || 0;
+      return bGross - aGross;
+    });
+    if (!codes.length) return null;
+    const cgLabels = groups.filter(g => codes.some(c => codeMap[c][g]));
+    return <>
+      <SH t="Discount Code Breakdown"/>
+      <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:8,overflowX:"auto"}}>
+        <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
+          <thead>
+            <tr style={{borderBottom:`2px solid ${C.bd}`}}>
+              <th style={{textAlign:"left",padding:"7px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap"}} rowSpan={2}>Discount Code</th>
+              {cgLabels.map(g => <th key={g} colSpan={4} style={{textAlign:"center",padding:"4px 6px",color:C.nv,fontWeight:700,fontSize:10,textTransform:"uppercase",borderLeft:`2px solid ${C.bd}`}}>{g}</th>)}
+            </tr>
+            <tr style={{borderBottom:`2px solid ${C.bd}`}}>
+              {cgLabels.map(g => ["Gross Sales","Discount","Orders","Disc %"].map(h => <th key={`${g}-${h}`} style={{textAlign:"right",padding:"5px 6px",color:C.sL,fontWeight:600,fontSize:9,textTransform:"uppercase",whiteSpace:"nowrap",borderLeft:h==="Gross Sales"?`2px solid ${C.bd}`:"none"}}>{h}</th>))}
+            </tr>
+          </thead>
+          <tbody>
+            {codes.map((code,i) => <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+              <td style={{padding:"8px 6px",fontWeight:600,color:C.nv,whiteSpace:"nowrap"}}>{code}</td>
+              {cgLabels.map(g => {
+                const d = codeMap[code][g] || {};
+                return <React.Fragment key={g}>
+                  <td style={{padding:"8px 6px",textAlign:"right",borderLeft:`2px solid ${C.bd}`}}>{d.gross ? ff(d.gross) : "—"}</td>
+                  <td style={{padding:"8px 6px",textAlign:"right",color:C.rd}}>{d.disc ? ff(d.disc) : "—"}</td>
+                  <td style={{padding:"8px 6px",textAlign:"right"}}>{d.orders || "—"}</td>
+                  <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600}}>{d.discPct ? `${d.discPct.toFixed(1)}%` : "—"}</td>
+                </React.Fragment>;
+              })}
+            </tr>)}
+          </tbody>
+        </table>
+      </div>
+    </>;
+  })()}
+
   <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gross","disc","gld","ret","net","orders","items","discPct","retPct","aov","netAOV","aur","upt"]}/>
 </>}
 
