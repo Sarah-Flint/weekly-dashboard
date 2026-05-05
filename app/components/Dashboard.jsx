@@ -146,6 +146,7 @@ useEffect(() => {
   const DD = {
   // ── MTD ──
   mtdGross: _v(getMetric("total_gross_rev")._mtd),
+  mtdGrossExch: _v(getMetric("total_gross_rev_exch")._mtd),
   mtdNet: _v(getMetric("total_net_rev")._mtd),
   mtdNewCust: _v(getMetric("new_orders")._mtd),
   mtdNewNet: _v(getMetric("new_net_rev")._mtd),
@@ -153,6 +154,7 @@ useEffect(() => {
   mtdMktSpend: _v(getMetric("total_marketing")._mtd),
 
   mtdGrossPlan: _v(getMetric("total_gross_rev")._mtd_plan),
+  mtdGrossExchPlan: _v(getMetric("total_gross_rev_exch")._mtd_plan),
   mtdNetPlan: _v(getMetric("total_net_rev")._mtd_plan),
   mtdNewCustPlan: _v(getMetric("new_orders")._mtd_plan),
   mtdNewNetPlan: _v(getMetric("new_net_rev")._mtd_plan),
@@ -160,16 +162,32 @@ useEffect(() => {
 
   // ── QTD ──
   qtdGross: _v(getMetric("total_gross_rev")._qtd),
+  qtdGrossExch: _v(getMetric("total_gross_rev_exch")._qtd),
   qtdNet: _v(getMetric("total_net_rev")._qtd),
   qtdNewCust: _v(getMetric("new_orders")._qtd),
   qtdSessions: _v(getMetric("total_sessions")._qtd),
 
   qtdGrossPlan: _v(getMetric("total_gross_rev")._qtd_plan),
+  qtdGrossExchPlan: _v(getMetric("total_gross_rev_exch")._qtd_plan),
   qtdNetPlan: _v(getMetric("total_net_rev")._qtd_plan),
   qtdNewCustPlan: _v(getMetric("new_orders")._qtd_plan),
   qtdSessionsPlan: _v(getMetric("total_sessions")._qtd_plan),
 
+  // ── YTD ──
+  ytdGross: _v(getMetric("total_gross_rev")._ytd),
+  ytdGrossExch: _v(getMetric("total_gross_rev_exch")._ytd),
+  ytdNet: _v(getMetric("total_net_rev")._ytd),
+  ytdNewCust: _v(getMetric("new_orders")._ytd),
+
+  ytdGrossPlan: _v(getMetric("total_gross_rev")._ytd_plan),
+  ytdGrossExchPlan: _v(getMetric("total_gross_rev_exch")._ytd_plan),
+  ytdNetPlan: _v(getMetric("total_net_rev")._ytd_plan),
+  ytdNewCustPlan: _v(getMetric("new_orders")._ytd_plan),
+
   // ── Revenue (weekly) ──
+  grossRevExch: _v(getMetric("total_gross_rev_exch")._cw),
+  priorGrossExch: _v(getMetric("total_gross_rev_exch")._pw),
+  grossExchPlan: _v(getMetric("total_gross_rev_exch")._cw_plan),
   grossRevenue: _v(getMetric("total_gross_rev")._cw),
   priorGross: _v(getMetric("total_gross_rev")._pw),
   grossPlan: _v(getMetric("total_gross_rev")._cw_plan),
@@ -739,6 +757,18 @@ useEffect(() => {
 
 const rows = [
   {
+    l: "GROSS REV W/ EXCH ($000s)",
+    wa: DD.grossRevExch != null ? Math.round(DD.grossRevExch / 1000) : null,
+    wp: DD.grossExchPlan != null ? Math.round(DD.grossExchPlan / 1000) : null,
+    ma: DD.mtdGrossExch != null ? Math.round(DD.mtdGrossExch / 1000) : null,
+    mp: DD.mtdGrossExchPlan != null ? Math.round(DD.mtdGrossExchPlan / 1000) : null,
+    qa: DD.qtdGrossExch != null ? Math.round(DD.qtdGrossExch / 1000) : null,
+    qp: DD.qtdGrossExchPlan != null ? Math.round(DD.qtdGrossExchPlan / 1000) : null,
+    ya: DD.ytdGrossExch != null ? Math.round(DD.ytdGrossExch / 1000) : null,
+    yp: DD.ytdGrossExchPlan != null ? Math.round(DD.ytdGrossExchPlan / 1000) : null,
+    dl: true
+  },
+  {
     l: "GROSS REV ($000s)",
     wa: Math.round(DD.grossRevenue / 1000),
     wp: Math.round(DD.grossPlan / 1000),
@@ -746,6 +776,8 @@ const rows = [
     mp: Math.round(DD.mtdGrossPlan / 1000),
     qa: Math.round(DD.qtdGross / 1000),
     qp: Math.round(DD.qtdGrossPlan / 1000),
+    ya: DD.ytdGross != null ? Math.round(DD.ytdGross / 1000) : null,
+    yp: DD.ytdGrossPlan != null ? Math.round(DD.ytdGrossPlan / 1000) : null,
     dl: true
   },
   {
@@ -756,6 +788,8 @@ const rows = [
     mp: Math.round(DD.mtdNetPlan / 1000),
     qa: Math.round(DD.qtdNet / 1000),
     qp: Math.round(DD.qtdNetPlan / 1000),
+    ya: DD.ytdNet != null ? Math.round(DD.ytdNet / 1000) : null,
+    yp: DD.ytdNetPlan != null ? Math.round(DD.ytdNetPlan / 1000) : null,
     dl: true
   },
   {
@@ -766,6 +800,8 @@ const rows = [
     mp: DD.mtdNewCustPlan,
     qa: DD.qtdNewCust,
     qp: DD.qtdNewCustPlan,
+    ya: DD.ytdNewCust,
+    yp: DD.ytdNewCustPlan,
     dl: false
   }
 ];
@@ -776,7 +812,7 @@ const rows = [
         <thead>
           <tr>
             <td style={{ padding: "8px 8px", fontWeight: 700, color: C.nv, fontSize: 13 }}>PLAN COMPARISON</td>
-            {[meta.week || "WEEK", "MTD", "QTD"].map(p => (
+            {[meta.week || "WEEK", "MTD", "QTD", "YTD"].map(p => (
               <td key={p} colSpan={4} style={{ textAlign: "center", padding: "0 1px" }}>
                 <div style={{ background: C.b1, color: "#fff", padding: "5px 0", fontWeight: 700, fontSize: 11, letterSpacing: 0.4, borderRadius: "4px 4px 0 0" }}>
                   {p}
@@ -789,6 +825,7 @@ const rows = [
             {["Actual", "Plan", "Var", "Var %"].map(h => <td key={"w" + h} style={pTh}>{h}</td>)}
             {["Actual", "Plan", "Var", "Var %"].map(h => <td key={"m" + h} style={pTh}>{h}</td>)}
             {["Actual", "Plan", "Var", "Var %"].map(h => <td key={"q" + h} style={pTh}>{h}</td>)}
+            {["Actual", "Plan", "Var", "Var %"].map(h => <td key={"y" + h} style={pTh}>{h}</td>)}
           </tr>
         </thead>
 
@@ -804,6 +841,9 @@ const rows = [
 
             const qVar = varAbs(r.qa, r.qp);
             const qPct = varPct(r.qa, r.qp);
+
+            const yVar = varAbs(r.ya, r.yp);
+            const yPct = varPct(r.ya, r.yp);
 
             const cellColor = (v) => v == null ? C.nv : v >= 0 ? C.gn : C.rd;
 
@@ -825,6 +865,11 @@ const rows = [
                 <td style={{ ...pTd(0, 1), color: C.sL }}>{fmt(r.qp, pre)}</td>
                 <td style={{ ...pTd(0, 1), color: cellColor(qVar), fontWeight: 600 }}>{qVar >= 0 ? "+" : ""}{fmt(qVar, pre)}</td>
                 <td style={{ ...pTd(0, 1), color: cellColor(qPct), fontWeight: 600 }}>{fmtPct(qPct)}</td>
+
+                <td style={{ ...pTd(0, 1), fontWeight: 600 }}>{fmt(r.ya, pre)}</td>
+                <td style={{ ...pTd(0, 1), color: C.sL }}>{fmt(r.yp, pre)}</td>
+                <td style={{ ...pTd(0, 1), color: cellColor(yVar), fontWeight: 600 }}>{yVar >= 0 ? "+" : ""}{fmt(yVar, pre)}</td>
+                <td style={{ ...pTd(0, 1), color: cellColor(yPct), fontWeight: 600 }}>{fmtPct(yPct)}</td>
               </tr>
             );
           })}
@@ -889,7 +934,7 @@ const rows = [
     </ResponsiveContainer>
   </div>
 
-  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12,marginBottom:14}}>
+  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:14}}>
     <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20}}>
       <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:10}}>Revenue by Customer Type</div>
       <ResponsiveContainer width="100%" height={160}><PieChart><Pie data={[{name:"New",value:Math.round(DD.newNetRev/(DD.newNetRev+DD.repeatNetRev)*100)},{name:"Returning",value:Math.round(DD.repeatNetRev/(DD.newNetRev+DD.repeatNetRev)*100)}]} innerRadius={42} outerRadius={65} paddingAngle={3} dataKey="value"><Cell fill={C.b1}/><Cell fill={C.b3}/></Pie><Tooltip formatter={v=>`${v}%`}/><Legend iconType="circle" wrapperStyle={{fontSize:11}}/></PieChart></ResponsiveContainer>
@@ -924,8 +969,60 @@ const rows = [
         </div>
       </div>;
     })()}
+    {(()=>{
+      const mcColors=["#7c3aed","#2563eb","#0891b2","#059669","#d97706","#dc2626","#6366f1"];
+      const allSkus = data.product_sku || [];
+      const mcMap = {};
+      allSkus.forEach(r => {
+        const mc = r.merch_cat || "Other";
+        mcMap[mc] = (mcMap[mc] || 0) + (Number(r.gld7) || 0);
+      });
+      const mcs = Object.entries(mcMap).filter(([,v]) => v > 0).map(([name,value]) => ({name,value})).sort((a,b) => b.value - a.value);
+      const mcTotal = mcs.reduce((a,c) => a + c.value, 0);
+      if (!mcs.length) return null;
+      return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20}}>
+        <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:10}}>Net Sales by Merch Class</div>
+        <ResponsiveContainer width="100%" height={160}><PieChart><Pie data={mcs} innerRadius={42} outerRadius={65} paddingAngle={2} dataKey="value">{mcs.map((c,i)=><Cell key={i} fill={mcColors[i%mcColors.length]}/>)}</Pie><Tooltip formatter={v=>`${ff(v)} (${(v/mcTotal*100).toFixed(0)}%)`}/><Legend iconType="circle" wrapperStyle={{fontSize:11}}/></PieChart></ResponsiveContainer>
+        <div style={{display:"flex",justifyContent:"space-around",fontSize:11,marginTop:4,flexWrap:"wrap",gap:4}}>
+          {mcs.slice(0,4).map((c,i)=><div key={i} style={{textAlign:"center"}}><div style={{fontWeight:700,color:mcColors[i]}}>{fmt(c.value)}</div><div style={{color:C.sL}}>{c.name}</div></div>)}
+        </div>
+      </div>;
+    })()}
   </div>
+
+  {/* Traffic by Channel – Horizontal Bar */}
+  {(()=>{
+    const tc = data.traffic_channel || [];
+    const cw = tc.filter(r => r['CW PW Tag'] === 'CW');
+    const pw = tc.filter(r => r['CW PW Tag'] === 'PW');
+    const chData = cw.map(c => {
+      const ch = c['Traffic Category'] || 'Other';
+      const sessions = Number(c['sum Sessions']) || 0;
+      const pRow = pw.find(r => r['Traffic Category'] === ch);
+      const pSessions = pRow ? (Number(pRow['sum Sessions']) || 0) : 0;
+      const rev = Number(c['sum Revenue']) || 0;
+      return { ch, sessions, pSessions, rev };
+    }).filter(c => c.sessions > 0).sort((a,b) => b.sessions - a.sessions);
+    if (!chData.length) return null;
+    const chColors = ["#1e40af","#3b82f6","#06b6d4","#10b981","#f59e0b","#ef4444","#8b5cf6","#ec4899","#14b8a6","#a855f7"];
+    return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
+      <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:14}}>Traffic by Channel</div>
+      <ResponsiveContainer width="100%" height={Math.max(chData.length * 36, 180)}>
+        <BarChart data={chData} layout="vertical" margin={{top:0,right:20,left:0,bottom:0}}>
+          <CartesianGrid strokeDasharray="3 3" stroke={C.bd} horizontal={false}/>
+          <XAxis type="number" tick={{fontSize:10,fill:C.sL}} tickFormatter={v=>v>=1000?`${(v/1000).toFixed(0)}K`:v}/>
+          <YAxis type="category" dataKey="ch" tick={{fontSize:11,fill:C.nv,fontWeight:500}} width={110}/>
+          <Tooltip content={({active,payload,label})=>{if(!active||!payload?.length)return null;const d=chData.find(c=>c.ch===label);return <div style={{background:"#fff",border:`1px solid ${C.bd}`,borderRadius:8,padding:"10px 14px",boxShadow:"0 4px 16px rgba(0,0,0,0.08)"}}><div style={{fontSize:12,fontWeight:600,color:C.nv,marginBottom:4}}>{label}</div><div style={{fontSize:12,color:C.b1}}>Sessions: {payload[0].value.toLocaleString()}</div>{d&&d.pSessions>0&&<div style={{fontSize:11,color:C.sL}}>PW: {d.pSessions.toLocaleString()} ({w(d.sessions,d.pSessions)>=0?"+":""}{w(d.sessions,d.pSessions).toFixed(1)}%)</div>}{d&&d.rev>0&&<div style={{fontSize:11,color:C.gn}}>Revenue: {ff(d.rev)}</div>}</div>}}/>
+          <Bar dataKey="sessions" name="Sessions" radius={[0,4,4,0]}>
+            {chData.map((c,i)=><Cell key={i} fill={chColors[i%chColors.length]}/>)}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
+    </div>;
+  })()}
+
   <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gross","gld","net","discPct","retPct","newCust","retOrders","mktSpend","newNetROAS","sessions","conv","engagement","atcRate"]}/>
+  <div style={{marginTop:4,fontSize:10,color:C.sL,fontStyle:"italic"}}>Note: Gross Revenue excludes exchange orders. Website traffic data is from Google Analytics filtered for United States only.</div>
 </>}
 
 {/* ═══ REVENUE TAB ═══ */}
@@ -1035,6 +1132,7 @@ const rows = [
   })()}
 
   <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gross","disc","gld","ret","net","orders","items","discPct","retPct","aov","netAOV","aur","upt"]}/>
+  <div style={{marginTop:4,fontSize:10,color:C.sL,fontStyle:"italic"}}>Note: Gross Revenue excludes exchange orders.</div>
 </>}
 
 
@@ -1963,6 +2061,7 @@ const rows = [
   })()}
 
   <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["sessions","conv","engagement","atcRate","bounce","pagesPerSession","pageViews","cvr","revenue"]}/>
+  <div style={{marginTop:4,fontSize:10,color:C.sL,fontStyle:"italic"}}>Note: Website traffic data is from Google Analytics filtered for United States only.</div>
 </>}
 
         <div style={{marginTop:28,padding:"14px 0",borderTop:`1px solid ${C.bd}`,display:"flex",justifyContent:"space-between",fontSize:11,color:C.sL,flexWrap:"wrap",gap:8}}>
