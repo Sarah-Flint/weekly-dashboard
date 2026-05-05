@@ -3,9 +3,22 @@
     "week": "WEEK 17",
     "dateRange": "Apr 26-2, 2026",
     "quarter": "Q2",
-    "lastUpdated": "2026-05-05T23:29:17.355Z"
+    "lastUpdated": "2026-05-05T23:39:00.928Z"
   },
   "kpi": [
+    {
+      "metric": "total_gross_rev_exch",
+      "metric_group": "revenue",
+      "customer_group": "All",
+      "metric_label": "Gross Revenue Incl Exchanges",
+      "_cw": 253098.2,
+      "_pw": 261370.14,
+      "_cw_plan": 217636,
+      "_mtd": 998763.15,
+      "_mtd_plan": 967272,
+      "_qtd": 998763.15,
+      "_qtd_plan": 967272
+    },
     {
       "metric": "total_gross_rev",
       "metric_group": "revenue",
