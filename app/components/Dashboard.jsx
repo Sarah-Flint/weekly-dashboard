@@ -311,8 +311,10 @@ useEffect(() => {
   priorMktSpend: _v(getMetric("total_marketing")._pw),
   metaSpend: _v(getMetric("meta_marketing")._cw),
   priorMetaSpend: _v(getMetric("meta_marketing")._pw),
+  mtdMetaSpend: _v(getMetric("meta_marketing")._mtd),
   googleSpend: _v(getMetric("google_marketing")._cw),
   priorGoogleSpend: _v(getMetric("google_marketing")._pw),
+  mtdGoogleSpend: _v(getMetric("google_marketing")._mtd),
 
   metaRev: _v(getMetric("meta_revenue")._cw),
   priorMetaRev: _v(getMetric("meta_revenue")._pw),
@@ -321,8 +323,10 @@ useEffect(() => {
 
   metaRoas: _v(getMetric("meta_roas")._cw),
   priorMetaRoas: _v(getMetric("meta_roas")._pw),
+  mtdMetaRoas: _v(getMetric("meta_roas")._mtd),
   googleRoas: _v(getMetric("google_roas")._cw),
   priorGoogleRoas: _v(getMetric("google_roas")._pw),
+  mtdGoogleRoas: _v(getMetric("google_roas")._mtd),
 
   cac: _ratio(getMetric("total_marketing")._cw, getMetric("new_orders")._cw),
   priorCac: _ratio(getMetric("total_marketing")._pw, getMetric("new_orders")._pw),
@@ -691,7 +695,7 @@ useEffect(() => {
   const GOOG_LIVE = buildCampData(data.google_ads || [], 'brand');
 
   const mtdROAS=DD.mtdMktSpend?(DD.mtdNewNet/DD.mtdMktSpend).toFixed(2):"—";
-  const tabs=[{id:"overview",l:"Overview",i:"📊"},{id:"revenue",l:"Revenue",i:"💰"},{id:"products",l:"Products",i:"👠"},{id:"inventory",l:"Inventory",i:"📦"},{id:"returns",l:"Returns",i:"📦"},{id:"marketing",l:"Marketing",i:"📣"},{id:"website",l:"Website",i:"🌐"}];
+  const tabs=[{id:"overview",l:"Overview",i:"📊"},{id:"revenue",l:"Revenue",i:"💰"},{id:"products",l:"Products",i:"👠"},{id:"inventory",l:"Inventory",i:"📦"},{id:"returns",l:"Returns",i:"↩️"},{id:"marketing",l:"Marketing",i:"📣"},{id:"website",l:"Website",i:"🌐"}];
   const rv = revF === "new" ? {
     gross: DD.newGross, priorGross: DD.priorNewGross, grossPlan: null,
     discounts: DD.newDiscounts, priorDiscounts: DD.priorNewDiscounts,
@@ -741,7 +745,7 @@ useEffect(() => {
       <div style={{background:"linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#1e40af 100%)",color:"#fff",padding:"20px 24px 14px"}}>
         <div><div style={{fontSize:11,letterSpacing:2,textTransform:"uppercase",opacity:0.6,marginBottom:4}}>Sarah Flint</div>
         <h1 style={{fontSize:22,fontWeight:700,margin:0}}>Weekly Performance Dashboard</h1>
-        <div style={{fontSize:13,opacity:0.7,marginTop:4}}>{meta.quarter} · {meta.week} · {meta.dateRange}</div></div>
+        <div style={{fontSize:13,opacity:0.7,marginTop:4}}>{meta.quarter} · {meta.week} · {meta.dateRange}{meta.lastUpdatedEST ? <span style={{marginLeft:12,fontSize:11,opacity:0.6}}>Updated: {meta.lastUpdatedEST} EST</span> : null}</div></div>
         <div style={{display:"flex",gap:2,marginTop:16,overflowX:"auto"}}>
           {tabs.map(t=><button key={t.id} onClick={()=>setTab(t.id)} style={{background:tab===t.id?"rgba(255,255,255,0.15)":"transparent",border:"none",borderBottom:tab===t.id?"2px solid #93c5fd":"2px solid transparent",color:tab===t.id?"#fff":"rgba(255,255,255,0.55)",padding:"8px 12px",fontSize:13,fontWeight:600,cursor:"pointer",borderRadius:"8px 8px 0 0",whiteSpace:"nowrap"}}><span style={{marginRight:4}}>{t.i}</span>{t.l}</button>)}
         </div>
@@ -995,48 +999,65 @@ const rows = [
     {(()=>{
       const mcColors=["#7c3aed","#2563eb","#0891b2","#059669","#d97706","#dc2626","#6366f1"];
       const allSkus = data.product_sku || [];
-      const mcMap = {};
+      const rawMap = {};
       allSkus.forEach(r => {
         const mc = r.merch_cat || "Other";
-        mcMap[mc] = (mcMap[mc] || 0) + (Number(r.gld7) || 0);
+        rawMap[mc] = (rawMap[mc] || 0) + (Number(r.gld7) || 0);
       });
-      const mcs = Object.entries(mcMap).filter(([,v]) => v > 0).map(([name,value]) => ({name,value})).sort((a,b) => b.value - a.value);
+      // Group: Carryover, Carryover Aged, Fashion (anything with "Fashion"), Carryover Other (rest)
+      const grouped = {};
+      Object.entries(rawMap).forEach(([k,v]) => {
+        let grp;
+        if (k === "Carryover") grp = "Carryover";
+        else if (k === "Carryover Aged") grp = "Carryover Aged";
+        else if (k.toLowerCase().includes("fashion")) grp = "Fashion";
+        else grp = "Carryover Other";
+        grouped[grp] = (grouped[grp] || 0) + v;
+      });
+      const mcs = Object.entries(grouped).filter(([,v]) => v > 0).map(([name,value]) => ({name,value})).sort((a,b) => b.value - a.value);
       const mcTotal = mcs.reduce((a,c) => a + c.value, 0);
       if (!mcs.length) return null;
       return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20}}>
         <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:10}}>Sales by Merch Class</div>
         <ResponsiveContainer width="100%" height={160}><PieChart><Pie data={mcs} innerRadius={42} outerRadius={65} paddingAngle={2} dataKey="value">{mcs.map((c,i)=><Cell key={i} fill={mcColors[i%mcColors.length]}/>)}</Pie><Tooltip formatter={v=>`${ff(v)} (${(v/mcTotal*100).toFixed(0)}%)`}/><Legend iconType="circle" wrapperStyle={{fontSize:11}}/></PieChart></ResponsiveContainer>
         <div style={{display:"flex",justifyContent:"space-around",fontSize:11,marginTop:4,flexWrap:"wrap",gap:4}}>
-          {mcs.slice(0,4).map((c,i)=><div key={i} style={{textAlign:"center"}}><div style={{fontWeight:700,color:mcColors[i]}}>{fmt(c.value)}</div><div style={{color:C.sL}}>{c.name}</div></div>)}
+          {mcs.map((c,i)=><div key={i} style={{textAlign:"center"}}><div style={{fontWeight:700,color:mcColors[i]}}>{fmt(c.value)}</div><div style={{color:C.sL}}>{c.name}</div></div>)}
         </div>
       </div>;
     })()}
   </div>
 
-  {/* Traffic by Channel – Stacked Horizontal Bar (CW vs PW) */}
+  {/* Traffic by Channel – Channels stacked within CW / PW bars */}
   {(()=>{
     const tc = data.traffic_channel || [];
     const cw = tc.filter(r => r['CW PW Tag'] === 'CW');
     const pw = tc.filter(r => r['CW PW Tag'] === 'PW');
-    const chData = cw.map(c => {
-      const ch = c['Traffic Category'] || 'Other';
-      const sessions = Number(c['sum Sessions']) || 0;
-      const pRow = pw.find(r => r['Traffic Category'] === ch);
-      const pSessions = pRow ? (Number(pRow['sum Sessions']) || 0) : 0;
-      return { ch, sessions, pSessions };
-    }).filter(c => c.sessions > 0 || c.pSessions > 0).sort((a,b) => b.sessions - a.sessions);
-    if (!chData.length) return null;
+    const channels = cw.map(c => c['Traffic Category'] || 'Other').filter(Boolean).sort((a,b) => {
+      const aS = Number(cw.find(r=>r['Traffic Category']===a)?.['sum Sessions']) || 0;
+      const bS = Number(cw.find(r=>r['Traffic Category']===b)?.['sum Sessions']) || 0;
+      return bS - aS;
+    });
+    if (!channels.length) return null;
+    const cwRow = { period: "CW" };
+    const pwRow = { period: "PW" };
+    channels.forEach(ch => {
+      const cr = cw.find(r => r['Traffic Category'] === ch);
+      const pr = pw.find(r => r['Traffic Category'] === ch);
+      cwRow[ch] = Number(cr?.['sum Sessions']) || 0;
+      pwRow[ch] = Number(pr?.['sum Sessions']) || 0;
+    });
+    const stackData = [cwRow, pwRow];
+    const chColors = ["#1e40af","#3b82f6","#06b6d4","#10b981","#f59e0b","#ef4444","#8b5cf6","#ec4899","#14b8a6","#a855f7"];
     return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
       <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:14}}>Traffic by Channel (CW vs PW)</div>
-      <ResponsiveContainer width="100%" height={Math.max(chData.length * 36, 180)}>
-        <BarChart data={chData} layout="vertical" margin={{top:0,right:20,left:0,bottom:0}}>
+      <ResponsiveContainer width="100%" height={120}>
+        <BarChart data={stackData} layout="vertical" margin={{top:0,right:20,left:0,bottom:0}}>
           <CartesianGrid strokeDasharray="3 3" stroke={C.bd} horizontal={false}/>
           <XAxis type="number" tick={{fontSize:10,fill:C.sL}} tickFormatter={v=>v>=1000?`${(v/1000).toFixed(0)}K`:v}/>
-          <YAxis type="category" dataKey="ch" tick={{fontSize:11,fill:C.nv,fontWeight:500}} width={110}/>
-          <Tooltip content={({active,payload,label})=>{if(!active||!payload?.length)return null;const d=chData.find(c=>c.ch===label);return <div style={{background:"#fff",border:`1px solid ${C.bd}`,borderRadius:8,padding:"10px 14px",boxShadow:"0 4px 16px rgba(0,0,0,0.08)"}}><div style={{fontSize:12,fontWeight:600,color:C.nv,marginBottom:4}}>{label}</div>{payload.map((p,i)=><div key={i} style={{fontSize:12,color:p.color}}>{p.name}: {p.value.toLocaleString()}</div>)}{d&&d.pSessions>0&&<div style={{fontSize:11,color:C.sL,marginTop:2}}>WoW: {w(d.sessions,d.pSessions)>=0?"+":""}{w(d.sessions,d.pSessions).toFixed(1)}%</div>}</div>}}/>
-          <Bar dataKey="sessions" stackId="ch" fill={C.b1} name="CW Sessions" radius={[0,0,0,0]}/>
-          <Bar dataKey="pSessions" stackId="ch" fill={C.b4} name="PW Sessions" radius={[0,4,4,0]}/>
-          <Legend iconType="circle" wrapperStyle={{fontSize:11}}/>
+          <YAxis type="category" dataKey="period" tick={{fontSize:12,fill:C.nv,fontWeight:700}} width={40}/>
+          <Tooltip content={({active,payload,label})=>{if(!active||!payload?.length)return null;return <div style={{background:"#fff",border:`1px solid ${C.bd}`,borderRadius:8,padding:"10px 14px",boxShadow:"0 4px 16px rgba(0,0,0,0.08)",maxWidth:220}}><div style={{fontSize:12,fontWeight:700,color:C.nv,marginBottom:4}}>{label}</div>{payload.filter(p=>p.value>0).map((p,i)=><div key={i} style={{fontSize:11,display:"flex",justifyContent:"space-between",gap:12}}><span style={{color:p.color}}>{p.name}</span><span style={{fontWeight:600}}>{p.value.toLocaleString()}</span></div>)}</div>}}/>
+          {channels.map((ch,i) => <Bar key={ch} dataKey={ch} stackId="a" fill={chColors[i%chColors.length]} name={ch}/>)}
+          <Legend iconType="circle" wrapperStyle={{fontSize:10}}/>
         </BarChart>
       </ResponsiveContainer>
     </div>;
@@ -1112,53 +1133,68 @@ const rows = [
   {(()=>{
     const dcRows = data.disc_code || [];
     if (!dcRows.length) return null;
-    // Expect rows with: discount_code, customer_group (All/New/Returning), gross_sales, discount, order_count, disc_pct
-    const groups = ["All","New","Returning"];
+    // Pivot by discount code, aggregate New + Returning → All
     const codeMap = {};
     dcRows.forEach(r => {
-      const code = r.discount_code || r.Discount_Code || r.code || "Unknown";
-      const cg = r.customer_group || r.Customer_Group || "All";
-      if (!codeMap[code]) codeMap[code] = {};
-      codeMap[code][cg] = {
-        gross: Number(r.gross_sales ?? r.Gross_Sales ?? r.gross ?? 0),
-        disc: Number(r.discount ?? r.Discount ?? 0),
-        orders: Number(r.order_count ?? r.Order_Count ?? r.orders ?? 0),
-        discPct: Number(r.disc_pct ?? r.Disc_Pct ?? r.discount_pct ?? 0),
+      const code = r['Discount Code'] || "Unknown";
+      const seg = (r['New vs. Returning'] || "").trim();
+      if (!codeMap[code]) codeMap[code] = { New: {g:0,d:0,o:0}, Returning: {g:0,d:0,o:0} };
+      const bucket = seg === "New" ? "New" : "Returning";
+      codeMap[code][bucket].g += Number(r['sum Gross sales']) || 0;
+      codeMap[code][bucket].d += Number(r['sum Discounts']) || 0;
+      codeMap[code][bucket].o += Number(r['sum Orders']) || 0;
+    });
+    // Build flat list with All computed
+    const codes = Object.entries(codeMap).map(([code, segs]) => {
+      const allG = segs.New.g + segs.Returning.g;
+      const allD = segs.New.d + segs.Returning.d;
+      const allO = segs.New.o + segs.Returning.o;
+      return {
+        code,
+        all: { g: allG, d: allD, o: allO, pct: allG > 0 ? +((allD / allG) * 100).toFixed(1) : 0 },
+        new: { g: segs.New.g, d: segs.New.d, o: segs.New.o, pct: segs.New.g > 0 ? +((segs.New.d / segs.New.g) * 100).toFixed(1) : 0 },
+        ret: { g: segs.Returning.g, d: segs.Returning.d, o: segs.Returning.o, pct: segs.Returning.g > 0 ? +((segs.Returning.d / segs.Returning.g) * 100).toFixed(1) : 0 },
       };
     });
-    const codes = Object.keys(codeMap).sort((a,b) => {
-      const aGross = codeMap[a]["All"]?.gross || codeMap[a]["Total"]?.gross || 0;
-      const bGross = codeMap[b]["All"]?.gross || codeMap[b]["Total"]?.gross || 0;
-      return bGross - aGross;
-    });
-    if (!codes.length) return null;
-    const cgLabels = groups.filter(g => codes.some(c => codeMap[c][g]));
+    // Filter by revenue tab toggle
+    const segKey = revF === "new" ? "new" : revF === "returning" ? "ret" : "all";
+    const filtered = codes.filter(c => c[segKey].g > 0 || c[segKey].o > 0).sort((a,b) => b[segKey].g - a[segKey].g);
+    if (!filtered.length) return null;
+    // Totals
+    const totG = filtered.reduce((a,c) => a + c[segKey].g, 0);
+    const totD = filtered.reduce((a,c) => a + c[segKey].d, 0);
+    const totO = filtered.reduce((a,c) => a + c[segKey].o, 0);
+    const totPct = totG > 0 ? +((totD / totG) * 100).toFixed(1) : 0;
+    const segLabel = revF === "new" ? "New" : revF === "returning" ? "Returning" : "All";
     return <>
-      <SH t="Discount Code Breakdown"/>
+      <SH t={`Discount Code Breakdown – ${segLabel}`}/>
       <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:8,overflowX:"auto"}}>
         <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
-          <thead>
-            <tr style={{borderBottom:`2px solid ${C.bd}`}}>
-              <th style={{textAlign:"left",padding:"7px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap"}} rowSpan={2}>Discount Code</th>
-              {cgLabels.map(g => <th key={g} colSpan={4} style={{textAlign:"center",padding:"4px 6px",color:C.nv,fontWeight:700,fontSize:10,textTransform:"uppercase",borderLeft:`2px solid ${C.bd}`}}>{g}</th>)}
-            </tr>
-            <tr style={{borderBottom:`2px solid ${C.bd}`}}>
-              {cgLabels.map(g => ["Gross Sales","Discount","Orders","Disc %"].map(h => <th key={`${g}-${h}`} style={{textAlign:"right",padding:"5px 6px",color:C.sL,fontWeight:600,fontSize:9,textTransform:"uppercase",whiteSpace:"nowrap",borderLeft:h==="Gross Sales"?`2px solid ${C.bd}`:"none"}}>{h}</th>))}
-            </tr>
-          </thead>
+          <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
+            {["Discount Code","Gross Sales","Discounts","Orders","Disc %","% of Total"].map(h =>
+              <th key={h} style={{textAlign:h==="Discount Code"?"left":"right",padding:"7px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap"}}>{h}</th>
+            )}
+          </tr></thead>
           <tbody>
-            {codes.map((code,i) => <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
-              <td style={{padding:"8px 6px",fontWeight:600,color:C.nv,whiteSpace:"nowrap"}}>{code}</td>
-              {cgLabels.map(g => {
-                const d = codeMap[code][g] || {};
-                return <React.Fragment key={g}>
-                  <td style={{padding:"8px 6px",textAlign:"right",borderLeft:`2px solid ${C.bd}`}}>{d.gross ? ff(d.gross) : "—"}</td>
-                  <td style={{padding:"8px 6px",textAlign:"right",color:C.rd}}>{d.disc ? ff(d.disc) : "—"}</td>
-                  <td style={{padding:"8px 6px",textAlign:"right"}}>{d.orders || "—"}</td>
-                  <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600}}>{d.discPct ? `${d.discPct.toFixed(1)}%` : "—"}</td>
-                </React.Fragment>;
-              })}
-            </tr>)}
+            {filtered.map((c,i) => {
+              const s = c[segKey];
+              return <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+                <td style={{padding:"8px 6px",fontWeight:600,color:C.nv,whiteSpace:"nowrap"}}>{c.code}</td>
+                <td style={{padding:"8px 6px",textAlign:"right"}}>{ff(s.g)}</td>
+                <td style={{padding:"8px 6px",textAlign:"right",color:C.rd}}>{s.d > 0 ? ff(-s.d) : "—"}</td>
+                <td style={{padding:"8px 6px",textAlign:"right"}}>{s.o}</td>
+                <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600}}>{s.pct > 0 ? `${s.pct}%` : "—"}</td>
+                <td style={{padding:"8px 6px",textAlign:"right",color:C.sL}}>{totG > 0 ? `${((s.g / totG) * 100).toFixed(1)}%` : "—"}</td>
+              </tr>;
+            })}
+            <tr style={{borderTop:`2px solid ${C.bd}`,background:"#f1f5f9"}}>
+              <td style={{padding:"8px 6px",fontWeight:700,color:C.nv}}>Total</td>
+              <td style={{padding:"8px 6px",textAlign:"right",fontWeight:700}}>{ff(totG)}</td>
+              <td style={{padding:"8px 6px",textAlign:"right",fontWeight:700,color:C.rd}}>{totD > 0 ? ff(-totD) : "—"}</td>
+              <td style={{padding:"8px 6px",textAlign:"right",fontWeight:700}}>{totO}</td>
+              <td style={{padding:"8px 6px",textAlign:"right",fontWeight:700}}>{totPct > 0 ? `${totPct}%` : "—"}</td>
+              <td style={{padding:"8px 6px",textAlign:"right",fontWeight:700}}>100%</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -1203,7 +1239,25 @@ const rows = [
 
   const {totGld: totGldAll, data: styData} = aggregateBy(allSkus, 'style', gldKey, unitKey);
   const {data: catData} = aggregateBy(allSkus, 'm_class', gldKey, unitKey);
-  const {data: mcData} = aggregateBy(allSkus, 'merch_cat', gldKey, unitKey);
+  const {data: mcData} = (() => {
+    const map = {};
+    const totGld = allSkus.reduce((a,r)=>a+(Number(r[gldKey])||0),0);
+    allSkus.forEach(r=>{
+      const n=r.merch_cat||"Other";
+      if(!map[n]) map[n]={n,gld:0,u:0,oh:0,gu90:0};
+      map[n].gld+=Number(r[gldKey])||0;
+      map[n].u+=Number(r[unitKey])||0;
+      map[n].oh+=Number(r.u_oh)||0;
+      map[n].gu90+=Number(r.gu_90)||0;
+    });
+    return { totGld, data: Object.values(map).map(s=>({
+      ...s,
+      aur:s.u>0?Math.round(s.gld/s.u):0,
+      p:totGld>0?+((s.gld/totGld)*100).toFixed(1):0,
+      st:(s.oh+s.gu90)>0?+((s.gu90/(s.oh+s.gu90))*100).toFixed(1):0,
+      woh:s.u>0?Math.round(s.oh/Math.max(s.u,s.gu90/90*7)):0,
+    })).sort((a,b)=>b.gld-a.gld) };
+  })();
 
   // Build SKU list
   const skuData = allSkus.map(r=>({
@@ -1823,10 +1877,10 @@ const rows = [
   </div>
 
   <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
-    <MC l="Meta Spend" v={ff(DD.metaSpend)} ww={w(DD.metaSpend,DD.priorMetaSpend)} pL={ff(DD.priorMetaSpend)} inv sub={`ROAS: ${DD.metaRoas}x (PW: ${DD.priorMetaRoas}x)`}/>
-    <MC l="Google Spend" v={ff(DD.googleSpend)} ww={w(DD.googleSpend,DD.priorGoogleSpend)} pL={ff(DD.priorGoogleSpend)} inv sub={`ROAS: ${DD.googleRoas}x (PW: ${DD.priorGoogleRoas}x)`}/>
-    <MC l="Meta Revenue" v={ff(DD.metaRev)} ww={w(DD.metaRev,DD.priorMetaRev)} pL={ff(DD.priorMetaRev)}/>
-    <MC l="Google Revenue" v={ff(DD.googleRev)} ww={w(DD.googleRev,DD.priorGoogleRev)} pL={ff(DD.priorGoogleRev)}/>
+    <MC l="Meta Spend" v={ff(DD.metaSpend)} ww={w(DD.metaSpend,DD.priorMetaSpend)} pL={ff(DD.priorMetaSpend)} inv sub={`MTD: ${ff(DD.mtdMetaSpend)}`}/>
+    <MC l="Google Spend" v={ff(DD.googleSpend)} ww={w(DD.googleSpend,DD.priorGoogleSpend)} pL={ff(DD.priorGoogleSpend)} inv sub={`MTD: ${ff(DD.mtdGoogleSpend)}`}/>
+    <MC l="Meta ROAS" v={DD.metaRoas+"x"} ww={w(DD.metaRoas,DD.priorMetaRoas)} pL={DD.priorMetaRoas+"x"} sub={DD.mtdMetaRoas!=null?`MTD: ${DD.mtdMetaRoas}x`:""}/>
+    <MC l="Google ROAS" v={DD.googleRoas+"x"} ww={w(DD.googleRoas,DD.priorGoogleRoas)} pL={DD.priorGoogleRoas+"x"} sub={DD.mtdGoogleRoas!=null?`MTD: ${DD.mtdGoogleRoas}x`:""}/>
   </div>
 
   {(()=>{
