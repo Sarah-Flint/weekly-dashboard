@@ -343,12 +343,18 @@ useEffect(() => {
   // Recomputed from raw counts for precision (JSON decimals round to 2 places)
   engagementRate: _rPct(getMetric("total_engaged_sessions")._cw, getMetric("total_sessions")._cw),
   priorEngagementRate: _rPct(getMetric("total_engaged_sessions")._pw, getMetric("total_sessions")._pw),
+  engagementPlan: _v(getMetric("engagement_pct")._cw_plan) != null ? _v(getMetric("engagement_pct")._cw_plan) * 100 : null,
 
   bounceRate: _rPct(getMetric("total_bounces")._cw, getMetric("total_sessions")._cw),
   priorBounceRate: _rPct(getMetric("total_bounces")._pw, getMetric("total_sessions")._pw),
 
   atcRate: _rPct(getMetric("total_add_to_cart")._cw, getMetric("total_sessions")._cw),
   priorAtcRate: _rPct(getMetric("total_add_to_cart")._pw, getMetric("total_sessions")._pw),
+
+  // MTD website metrics
+  mtdAtcRate: _v(getMetric("total_atc_pct")._mtd),
+  mtdBounceRate: _v(getMetric("bounce_pct")._mtd) != null ? _v(getMetric("bounce_pct")._mtd) * 100 : null,
+  mtdPagesPerSession: _v(getMetric("pages_per_section")._mtd),
 
   totalAtc: _v(getMetric("total_add_to_cart")._cw),
   priorTotalAtc: _v(getMetric("total_add_to_cart")._pw),
@@ -367,10 +373,27 @@ useEffect(() => {
   returningSessions: _v(getMetric("returning_sessions")._cw),
   priorReturningSessions: _v(getMetric("returning_sessions")._pw),
 
+  // Conversion rates by segment
+  newConvRate: _rPct(getMetric("new_orders")._cw, getMetric("new_sessions")._cw),
+  priorNewConvRate: _rPct(getMetric("new_orders")._pw, getMetric("new_sessions")._pw),
+  retConvRate: _rPct(getMetric("returning_orders")._cw, getMetric("returning_sessions")._cw),
+  priorRetConvRate: _rPct(getMetric("returning_orders")._pw, getMetric("returning_sessions")._pw),
+
+  // ATC rates by segment
+  newAtcRate: _v(getMetric("new_atc_pct")._cw),
+  priorNewAtcRate: _v(getMetric("new_atc_pct")._pw),
+  retAtcRate: _v(getMetric("returning_atc_pct")._cw),
+  priorRetAtcRate: _v(getMetric("returning_atc_pct")._pw),
+
   paidSessions: _v(getMetric("paid_sessions")._cw),
   priorPaidSessions: _v(getMetric("paid_sessions")._pw),
   orgSessions: _v(getMetric("organic_sessions")._cw),
   priorOrgSessions: _v(getMetric("organic_sessions")._pw),
+
+  paidAtcRate: _v(getMetric("paid_atc_pct")._cw),
+  priorPaidAtcRate: _v(getMetric("paid_atc_pct")._pw),
+  orgAtcRate: _v(getMetric("organic_atc_pct")._cw),
+  priorOrgAtcRate: _v(getMetric("organic_atc_pct")._pw),
 
   desktopSessions: _v(getMetric("desktop_sessions")._cw),
   priorDesktopSessions: _v(getMetric("desktop_sessions")._pw),
@@ -492,7 +515,7 @@ useEffect(() => {
     l: "Engagement Rate",
     value: DD.engagementRate,
     prior: DD.priorEngagementRate,
-    planValue: null,
+    planValue: DD.engagementPlan,
     format: "percent"
   },
   {
@@ -670,12 +693,12 @@ useEffect(() => {
   const mtdROAS=DD.mtdMktSpend?(DD.mtdNewNet/DD.mtdMktSpend).toFixed(2):"—";
   const tabs=[{id:"overview",l:"Overview",i:"📊"},{id:"revenue",l:"Revenue",i:"💰"},{id:"products",l:"Products",i:"👠"},{id:"inventory",l:"Inventory",i:"📦"},{id:"returns",l:"Returns",i:"📦"},{id:"marketing",l:"Marketing",i:"📣"},{id:"website",l:"Website",i:"🌐"}];
   const rv = revF === "new" ? {
-    gross: DD.newGross, priorGross: DD.priorNewGross,
+    gross: DD.newGross, priorGross: DD.priorNewGross, grossPlan: null,
     discounts: DD.newDiscounts, priorDiscounts: DD.priorNewDiscounts,
     gld: DD.newGld, priorGld: DD.priorNewGld,
     returns: DD.newReturns, priorReturns: DD.priorNewReturns,
     net: DD.newNetRev, priorNet: DD.priorNewNetRev, netPlan: DD.newNetRevPlan,
-    orders: DD.newCustomers, priorOrders: DD.priorNewCustomers,
+    orders: DD.newCustomers, priorOrders: DD.priorNewCustomers, ordersPlan: DD.newCustomersPlan,
     items: DD.newItems, priorItems: DD.priorNewItems,
     discPct: DD.newDiscPctGross, priorDiscPct: DD.priorNewDiscPctGross,
     returnPctGLD: DD.newReturnPctGLD, priorReturnPctGLD: DD.priorNewReturnPctGLD,
@@ -684,12 +707,12 @@ useEffect(() => {
     aur: DD.newAur, priorAur: DD.priorNewAur,
     upt: DD.newUpt, priorUpt: DD.priorNewUpt,
   } : revF === "returning" ? {
-    gross: DD.retGross, priorGross: DD.priorRetGross,
+    gross: DD.retGross, priorGross: DD.priorRetGross, grossPlan: null,
     discounts: DD.retDiscounts, priorDiscounts: DD.priorRetDiscounts,
     gld: DD.retGld, priorGld: DD.priorRetGld,
     returns: DD.retReturns, priorReturns: DD.priorRetReturns,
     net: DD.repeatNetRev, priorNet: DD.priorRepeatNetRev, netPlan: DD.repeatNetRevPlan,
-    orders: DD.retOrders, priorOrders: DD.priorRetOrders,
+    orders: DD.retOrders, priorOrders: DD.priorRetOrders, ordersPlan: DD.retOrdersPlan,
     items: DD.retItems, priorItems: DD.priorRetItems,
     discPct: DD.retDiscPctGross, priorDiscPct: DD.priorRetDiscPctGross,
     returnPctGLD: DD.retReturnPctGLD, priorReturnPctGLD: DD.priorRetReturnPctGLD,
@@ -698,15 +721,15 @@ useEffect(() => {
     aur: DD.retAur, priorAur: DD.priorRetAur,
     upt: DD.retUpt, priorUpt: DD.priorRetUpt,
   } : {
-    gross: DD.grossRevenue, priorGross: DD.priorGross,
-    discounts: DD.discounts, priorDiscounts: DD.priorDiscounts,
+    gross: DD.grossRevenue, priorGross: DD.priorGross, grossPlan: DD.grossPlan,
+    discounts: DD.discounts, priorDiscounts: DD.priorDiscounts, discountsPlan: DD.discountsPlan,
     gld: DD.gld, priorGld: DD.priorGld,
-    returns: DD.returns, priorReturns: DD.priorReturns,
+    returns: DD.returns, priorReturns: DD.priorReturns, returnsPlan: DD.returnsPlan,
     net: DD.netRevenue, priorNet: DD.priorNet, netPlan: DD.netPlan,
-    orders: DD.orders, priorOrders: DD.priorOrders,
+    orders: DD.orders, priorOrders: DD.priorOrders, ordersPlan: DD.ordersPlan,
     items: DD.items, priorItems: DD.priorItems,
-    discPct: DD.discPctGross, priorDiscPct: DD.priorDiscPctGross,
-    returnPctGLD: DD.returnPctGLD, priorReturnPctGLD: DD.priorReturnPctGLD,
+    discPct: DD.discPctGross, priorDiscPct: DD.priorDiscPctGross, discPctPlan: DD.discPctPlan,
+    returnPctGLD: DD.returnPctGLD, priorReturnPctGLD: DD.priorReturnPctGLD, returnPctPlan: DD.returnPctPlan,
     gldAOV: DD.gldAOV, priorGldAOV: DD.priorGldAOV,
     netAOV: DD.netAOV, priorNetAOV: DD.priorNetAOV,
     aur: DD.aur, priorAur: DD.priorAur,
@@ -981,7 +1004,7 @@ const rows = [
       const mcTotal = mcs.reduce((a,c) => a + c.value, 0);
       if (!mcs.length) return null;
       return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20}}>
-        <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:10}}>Net Sales by Merch Class</div>
+        <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:10}}>Sales by Merch Class</div>
         <ResponsiveContainer width="100%" height={160}><PieChart><Pie data={mcs} innerRadius={42} outerRadius={65} paddingAngle={2} dataKey="value">{mcs.map((c,i)=><Cell key={i} fill={mcColors[i%mcColors.length]}/>)}</Pie><Tooltip formatter={v=>`${ff(v)} (${(v/mcTotal*100).toFixed(0)}%)`}/><Legend iconType="circle" wrapperStyle={{fontSize:11}}/></PieChart></ResponsiveContainer>
         <div style={{display:"flex",justifyContent:"space-around",fontSize:11,marginTop:4,flexWrap:"wrap",gap:4}}>
           {mcs.slice(0,4).map((c,i)=><div key={i} style={{textAlign:"center"}}><div style={{fontWeight:700,color:mcColors[i]}}>{fmt(c.value)}</div><div style={{color:C.sL}}>{c.name}</div></div>)}
@@ -990,7 +1013,7 @@ const rows = [
     })()}
   </div>
 
-  {/* Traffic by Channel – Horizontal Bar */}
+  {/* Traffic by Channel – Stacked Horizontal Bar (CW vs PW) */}
   {(()=>{
     const tc = data.traffic_channel || [];
     const cw = tc.filter(r => r['CW PW Tag'] === 'CW');
@@ -1000,22 +1023,20 @@ const rows = [
       const sessions = Number(c['sum Sessions']) || 0;
       const pRow = pw.find(r => r['Traffic Category'] === ch);
       const pSessions = pRow ? (Number(pRow['sum Sessions']) || 0) : 0;
-      const rev = Number(c['sum Revenue']) || 0;
-      return { ch, sessions, pSessions, rev };
-    }).filter(c => c.sessions > 0).sort((a,b) => b.sessions - a.sessions);
+      return { ch, sessions, pSessions };
+    }).filter(c => c.sessions > 0 || c.pSessions > 0).sort((a,b) => b.sessions - a.sessions);
     if (!chData.length) return null;
-    const chColors = ["#1e40af","#3b82f6","#06b6d4","#10b981","#f59e0b","#ef4444","#8b5cf6","#ec4899","#14b8a6","#a855f7"];
     return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
-      <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:14}}>Traffic by Channel</div>
+      <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:14}}>Traffic by Channel (CW vs PW)</div>
       <ResponsiveContainer width="100%" height={Math.max(chData.length * 36, 180)}>
         <BarChart data={chData} layout="vertical" margin={{top:0,right:20,left:0,bottom:0}}>
           <CartesianGrid strokeDasharray="3 3" stroke={C.bd} horizontal={false}/>
           <XAxis type="number" tick={{fontSize:10,fill:C.sL}} tickFormatter={v=>v>=1000?`${(v/1000).toFixed(0)}K`:v}/>
           <YAxis type="category" dataKey="ch" tick={{fontSize:11,fill:C.nv,fontWeight:500}} width={110}/>
-          <Tooltip content={({active,payload,label})=>{if(!active||!payload?.length)return null;const d=chData.find(c=>c.ch===label);return <div style={{background:"#fff",border:`1px solid ${C.bd}`,borderRadius:8,padding:"10px 14px",boxShadow:"0 4px 16px rgba(0,0,0,0.08)"}}><div style={{fontSize:12,fontWeight:600,color:C.nv,marginBottom:4}}>{label}</div><div style={{fontSize:12,color:C.b1}}>Sessions: {payload[0].value.toLocaleString()}</div>{d&&d.pSessions>0&&<div style={{fontSize:11,color:C.sL}}>PW: {d.pSessions.toLocaleString()} ({w(d.sessions,d.pSessions)>=0?"+":""}{w(d.sessions,d.pSessions).toFixed(1)}%)</div>}{d&&d.rev>0&&<div style={{fontSize:11,color:C.gn}}>Revenue: {ff(d.rev)}</div>}</div>}}/>
-          <Bar dataKey="sessions" name="Sessions" radius={[0,4,4,0]}>
-            {chData.map((c,i)=><Cell key={i} fill={chColors[i%chColors.length]}/>)}
-          </Bar>
+          <Tooltip content={({active,payload,label})=>{if(!active||!payload?.length)return null;const d=chData.find(c=>c.ch===label);return <div style={{background:"#fff",border:`1px solid ${C.bd}`,borderRadius:8,padding:"10px 14px",boxShadow:"0 4px 16px rgba(0,0,0,0.08)"}}><div style={{fontSize:12,fontWeight:600,color:C.nv,marginBottom:4}}>{label}</div>{payload.map((p,i)=><div key={i} style={{fontSize:12,color:p.color}}>{p.name}: {p.value.toLocaleString()}</div>)}{d&&d.pSessions>0&&<div style={{fontSize:11,color:C.sL,marginTop:2}}>WoW: {w(d.sessions,d.pSessions)>=0?"+":""}{w(d.sessions,d.pSessions).toFixed(1)}%</div>}</div>}}/>
+          <Bar dataKey="sessions" stackId="ch" fill={C.b1} name="CW Sessions" radius={[0,0,0,0]}/>
+          <Bar dataKey="pSessions" stackId="ch" fill={C.b4} name="PW Sessions" radius={[0,4,4,0]}/>
+          <Legend iconType="circle" wrapperStyle={{fontSize:11}}/>
         </BarChart>
       </ResponsiveContainer>
     </div>;
@@ -1031,24 +1052,37 @@ const rows = [
       {["all","new","returning"].map(f=><button key={f} onClick={()=>setRevF(f)} style={{background:revF===f?C.b1:C.cd,color:revF===f?"#fff":C.sl,border:`1px solid ${revF===f?C.b1:C.bd}`,borderRadius:8,padding:"7px 14px",fontSize:12,fontWeight:600,cursor:"pointer"}}>{f==="all"?"All":f==="new"?"New":"Returning"}</button>)}
     </div>
 
+    {/* Revenue helper: plan sub with var%, WoW pill + PW */}
+    {(()=>{
+      const rvSub = (plan, planLabel, prior, priorLabel, actual, inv) => {
+        if (plan != null) {
+          const vp = actual != null && plan ? ((actual - plan) / Math.abs(plan)) * 100 : null;
+          return <>{planLabel}{" "}<span style={{fontWeight:700,color:vp==null?C.sL:(inv?vp<0:vp>0)?C.gn:C.rd}}>{vp!=null?`${vp>=0?"+":""}${vp.toFixed(0)}%`:"—"}</span></>;
+        }
+        return priorLabel;
+      };
+      const rvPL = (prior, fmt) => prior != null ? fmt : null;
+      return <>
     <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:10}}>
-      <MC l="Gross Revenue" v={ff(rv.gross)} ww={w(rv.gross,rv.priorGross)} sub={`PW: ${ff(rv.priorGross)}`}/>
-      <MC l="Discounts" v={ff(rv.discounts)} ww={w(rv.discounts,rv.priorDiscounts)} inv sub={`PW: ${ff(rv.priorDiscounts)}`}/>
-      <MC l="Returns" v={ff(rv.returns)} ww={w(rv.returns,rv.priorReturns)} inv sub={`PW: ${ff(rv.priorReturns)}`}/>
-      <MC l="Net Revenue" v={ff(rv.net)} ww={w(rv.net,rv.priorNet)} sub={rv.netPlan != null ? `Plan: ${ff(rv.netPlan)}` : `PW: ${ff(rv.priorNet)}`}/>
+      <MC l="Gross Revenue" v={ff(rv.gross)} ww={w(rv.gross,rv.priorGross)} pL={ff(rv.priorGross)} sub={rv.grossPlan!=null?rvSub(rv.grossPlan,`Plan: ${ff(rv.grossPlan)}`,rv.priorGross,`PW: ${ff(rv.priorGross)}`,rv.gross):`PW: ${ff(rv.priorGross)}`}/>
+      <MC l="Discounts" v={ff(rv.discounts)} ww={w(rv.discounts,rv.priorDiscounts)} pL={ff(rv.priorDiscounts)} inv sub={rv.discountsPlan!=null?rvSub(rv.discountsPlan,`Plan: ${ff(rv.discountsPlan)}`,rv.priorDiscounts,`PW: ${ff(rv.priorDiscounts)}`,rv.discounts,true):`PW: ${ff(rv.priorDiscounts)}`}/>
+      <MC l="Returns" v={ff(rv.returns)} ww={w(rv.returns,rv.priorReturns)} pL={ff(rv.priorReturns)} inv sub={rv.returnsPlan!=null?rvSub(rv.returnsPlan,`Plan: ${ff(rv.returnsPlan)}`,rv.priorReturns,`PW: ${ff(rv.priorReturns)}`,rv.returns,true):`PW: ${ff(rv.priorReturns)}`}/>
+      <MC l="Net Revenue" v={ff(rv.net)} ww={w(rv.net,rv.priorNet)} pL={ff(rv.priorNet)} sub={rv.netPlan!=null?rvSub(rv.netPlan,`Plan: ${ff(rv.netPlan)}`,rv.priorNet,`PW: ${ff(rv.priorNet)}`,rv.net):`PW: ${ff(rv.priorNet)}`}/>
     </div>
     <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:10}}>
-      <MC l="Orders" v={rv.orders} ww={w(rv.orders,rv.priorOrders)} sub={`PW: ${rv.priorOrders}`}/>
-      <MC l="Units Ordered" v={rv.items} ww={w(rv.items,rv.priorItems)} sub={`PW: ${rv.priorItems}`}/>
-      <MC l="Discount %" v={rv.discPct!=null?`${rv.discPct.toFixed(1)}%`:"—"} ww={w(rv.discPct,rv.priorDiscPct)} inv sub={rv.priorDiscPct!=null?`PW: ${rv.priorDiscPct.toFixed(1)}%`:""}/>
-      <MC l="Returns % GLD" v={rv.returnPctGLD!=null?`${rv.returnPctGLD.toFixed(1)}%`:"—"} ww={w(rv.returnPctGLD,rv.priorReturnPctGLD)} inv sub={rv.priorReturnPctGLD!=null?`PW: ${rv.priorReturnPctGLD.toFixed(1)}%`:""}/>
+      <MC l="Orders" v={rv.orders} ww={w(rv.orders,rv.priorOrders)} pL={rv.priorOrders} sub={rv.ordersPlan!=null?rvSub(rv.ordersPlan,`Plan: ${rv.ordersPlan}`,rv.priorOrders,`PW: ${rv.priorOrders}`,rv.orders):`PW: ${rv.priorOrders}`}/>
+      <MC l="Units Ordered" v={rv.items} ww={w(rv.items,rv.priorItems)} pL={rv.priorItems} sub={`PW: ${rv.priorItems}`}/>
+      <MC l="Discount %" v={rv.discPct!=null?`${rv.discPct.toFixed(1)}%`:"—"} ww={w(rv.discPct,rv.priorDiscPct)} pL={rv.priorDiscPct!=null?`${rv.priorDiscPct.toFixed(1)}%`:null} inv sub={rv.discPctPlan!=null?rvSub(rv.discPctPlan,`Plan: ${rv.discPctPlan.toFixed(1)}%`,rv.priorDiscPct,rv.priorDiscPct!=null?`PW: ${rv.priorDiscPct.toFixed(1)}%`:"",rv.discPct,true):(rv.priorDiscPct!=null?`PW: ${rv.priorDiscPct.toFixed(1)}%`:"")}/>
+      <MC l="Returns % GLD" v={rv.returnPctGLD!=null?`${rv.returnPctGLD.toFixed(1)}%`:"—"} ww={w(rv.returnPctGLD,rv.priorReturnPctGLD)} pL={rv.priorReturnPctGLD!=null?`${rv.priorReturnPctGLD.toFixed(1)}%`:null} inv sub={rv.returnPctPlan!=null?rvSub(rv.returnPctPlan,`Plan: ${rv.returnPctPlan.toFixed(1)}%`,rv.priorReturnPctGLD,rv.priorReturnPctGLD!=null?`PW: ${rv.priorReturnPctGLD.toFixed(1)}%`:"",rv.returnPctGLD,true):(rv.priorReturnPctGLD!=null?`PW: ${rv.priorReturnPctGLD.toFixed(1)}%`:"")}/>
     </div>
     <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:6}}>
-      <MC l="GLD AOV" v={rv.gldAOV!=null?`$${Math.round(rv.gldAOV)}`:"—"} ww={w(rv.gldAOV,rv.priorGldAOV)} sub={rv.priorGldAOV!=null?`PW: $${Math.round(rv.priorGldAOV)}`:""}/>
-      <MC l="Net AOV" v={rv.netAOV!=null?`$${Math.round(rv.netAOV)}`:"—"} ww={w(rv.netAOV,rv.priorNetAOV)} sub={rv.priorNetAOV!=null?`PW: $${Math.round(rv.priorNetAOV)}`:""}/>
-      <MC l="GLD AUR" v={rv.aur!=null?`$${Math.round(rv.aur)}`:"—"} ww={w(rv.aur,rv.priorAur)} sub="GLD ÷ Units"/>
-      <MC l="UPT" v={rv.upt!=null?rv.upt.toFixed(2):"—"} ww={w(rv.upt,rv.priorUpt)} sub="Units Ordered / Orders"/>
+      <MC l="GLD AOV" v={rv.gldAOV!=null?`$${Math.round(rv.gldAOV)}`:"—"} ww={w(rv.gldAOV,rv.priorGldAOV)} pL={rv.priorGldAOV!=null?`$${Math.round(rv.priorGldAOV)}`:null} sub={rv.priorGldAOV!=null?`PW: $${Math.round(rv.priorGldAOV)}`:""}/>
+      <MC l="Net AOV" v={rv.netAOV!=null?`$${Math.round(rv.netAOV)}`:"—"} ww={w(rv.netAOV,rv.priorNetAOV)} pL={rv.priorNetAOV!=null?`$${Math.round(rv.priorNetAOV)}`:null} sub={rv.priorNetAOV!=null?`PW: $${Math.round(rv.priorNetAOV)}`:""}/>
+      <MC l="GLD AUR" v={rv.aur!=null?`$${Math.round(rv.aur)}`:"—"} ww={w(rv.aur,rv.priorAur)} pL={rv.priorAur!=null?`$${Math.round(rv.priorAur)}`:null} sub="GLD ÷ Units"/>
+      <MC l="UPT" v={rv.upt!=null?rv.upt.toFixed(2):"—"} ww={w(rv.upt,rv.priorUpt)} pL={rv.priorUpt!=null?rv.priorUpt.toFixed(2):null} sub="Units Ordered / Orders"/>
     </div>
+      </>;
+    })()}
 
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14,marginTop:14}}>
     <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:14}}>Daily Net Revenue – {meta.week} {revF!=="all"?`(${revF==="new"?"New":"Returning"})`:""}</div>
@@ -1542,15 +1576,18 @@ const rows = [
   const totalNetTrend = getRetTrend("total_net_rev");
   const trendWeeks = Object.keys(newRetTrend).filter(k => !isNaN(Number(k))).sort((a,b)=>Number(a)-Number(b));
   const retTrendData = trendWeeks.map(wk => {
+    const nv = Number(newRetTrend[wk]);
+    const rv = Number(retRetTrend[wk]);
+    if ((isNaN(nv) || nv === 0) && (isNaN(rv) || rv === 0)) return null;
     const totalRet = Math.abs(Number(totalRetTrend[wk]) || 0);
     const netRev = Number(totalNetTrend[wk]) || 0;
     return {
       wk: `Wk ${wk}`,
-      newRefund: Math.abs(Number(newRetTrend[wk]) || 0),
-      retRefund: Math.abs(Number(retRetTrend[wk]) || 0),
+      newRefund: Math.abs(nv || 0),
+      retRefund: Math.abs(rv || 0),
       retPct: netRev > 0 ? +((totalRet / netRev) * 100).toFixed(1) : 0,
     };
-  });
+  }).filter(Boolean);
 
   // Build style-level 7D GLD lookup from product_sku for "% of 7D Sales"
   const styleGldMap = {};
@@ -1779,23 +1816,26 @@ const rows = [
 
 {tab==="marketing"&&<>
   <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
-    <MC l="Total Spend" v={ff(DD.mktSpend)} ww={w(DD.mktSpend,DD.priorMktSpend)} inv sub={`PW: ${ff(DD.priorMktSpend)} · MTD: ${ff(DD.mtdMktSpend)}`}/>
-    <MC l="New Customers" v={DD.newCustomers} ww={w(DD.newCustomers,DD.priorNewCustomers)} sub={`PW: ${DD.priorNewCustomers} · MTD: ${DD.mtdNewCust}`}/>
-    <MC l="CAC" v={ff(Math.round(DD.mktSpend/DD.newCustomers))} ww={w(DD.mktSpend/DD.newCustomers,DD.priorMktSpend/DD.priorNewCustomers)} inv sub={`PW: ${ff(Math.round(DD.priorMktSpend/DD.priorNewCustomers))} · MTD: ${ff(Math.round(DD.mtdMktSpend/DD.mtdNewCust))}`}/>
-    <MC l="New Net ROAS" v={nROAS+"x"} ww={w(parseFloat(nROAS),parseFloat(pROAS))} sub={`PW: ${pROAS}x · MTD: ${mtdROAS}x`}/>
+    <MC l="Total Spend" v={ff(DD.mktSpend)} ww={w(DD.mktSpend,DD.priorMktSpend)} pL={ff(DD.priorMktSpend)} inv sub={`MTD: ${ff(DD.mtdMktSpend)}`}/>
+    <MC l="New Customers" v={DD.newCustomers} ww={w(DD.newCustomers,DD.priorNewCustomers)} pL={DD.priorNewCustomers} sub={`MTD: ${DD.mtdNewCust}`}/>
+    <MC l="CAC" v={ff(Math.round(DD.mktSpend/DD.newCustomers))} ww={w(DD.mktSpend/DD.newCustomers,DD.priorMktSpend/DD.priorNewCustomers)} pL={ff(Math.round(DD.priorMktSpend/DD.priorNewCustomers))} inv sub={`MTD: ${ff(Math.round(DD.mtdMktSpend/DD.mtdNewCust))}`}/>
+    <MC l="New Net ROAS" v={nROAS+"x"} ww={w(parseFloat(nROAS),parseFloat(pROAS))} pL={pROAS+"x"} sub={`MTD: ${mtdROAS}x`}/>
   </div>
 
   <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
-    <MC l="Meta Spend" v={ff(DD.metaSpend)} ww={w(DD.metaSpend,DD.priorMetaSpend)} inv sub={`ROAS: ${DD.metaRoas}x (PW: ${DD.priorMetaRoas}x)`}/>
-    <MC l="Google Spend" v={ff(DD.googleSpend)} ww={w(DD.googleSpend,DD.priorGoogleSpend)} inv sub={`ROAS: ${DD.googleRoas}x (PW: ${DD.priorGoogleRoas}x)`}/>
-    <MC l="Meta Revenue" v={ff(DD.metaRev)} ww={w(DD.metaRev,DD.priorMetaRev)}/>
-    <MC l="Google Revenue" v={ff(DD.googleRev)} ww={w(DD.googleRev,DD.priorGoogleRev)}/>
+    <MC l="Meta Spend" v={ff(DD.metaSpend)} ww={w(DD.metaSpend,DD.priorMetaSpend)} pL={ff(DD.priorMetaSpend)} inv sub={`ROAS: ${DD.metaRoas}x (PW: ${DD.priorMetaRoas}x)`}/>
+    <MC l="Google Spend" v={ff(DD.googleSpend)} ww={w(DD.googleSpend,DD.priorGoogleSpend)} pL={ff(DD.priorGoogleSpend)} inv sub={`ROAS: ${DD.googleRoas}x (PW: ${DD.priorGoogleRoas}x)`}/>
+    <MC l="Meta Revenue" v={ff(DD.metaRev)} ww={w(DD.metaRev,DD.priorMetaRev)} pL={ff(DD.priorMetaRev)}/>
+    <MC l="Google Revenue" v={ff(DD.googleRev)} ww={w(DD.googleRev,DD.priorGoogleRev)} pL={ff(DD.priorGoogleRev)}/>
   </div>
 
+  {(()=>{
+    const mktTrend = WEEKLY_TREND_LIVE.filter(d => d.net != null);
+    return <>
   <SH t="Weekly Marketing Trend"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
     <ResponsiveContainer width="100%" height={220}>
-      <ComposedChart data={WEEKLY_TREND_LIVE}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:11,fill:C.sL}}/><YAxis tick={{fontSize:11,fill:C.sL}} tickFormatter={v=>`${v<0?"-":""}$${(Math.abs(v)/1000).toFixed(0)}K`}/><Tooltip content={<CT/>}/>
+      <ComposedChart data={mktTrend}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:11,fill:C.sL}}/><YAxis tick={{fontSize:11,fill:C.sL}} tickFormatter={v=>`${v<0?"-":""}$${(Math.abs(v)/1000).toFixed(0)}K`}/><Tooltip content={<CT/>}/>
         <Bar dataKey="spend" fill={C.b3} name="Spend" radius={[3,3,0,0]}/>
         <Line type="monotone" dataKey="newNet" stroke={C.gn} strokeWidth={2} dot={{r:3}} name="New Net Rev"/>
       </ComposedChart>
@@ -1806,7 +1846,7 @@ const rows = [
     <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:18}}>
       <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:10}}>New Customers & CAC</div>
       <ResponsiveContainer width="100%" height={140}>
-        <ComposedChart data={WEEKLY_TREND_LIVE}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:10,fill:C.sL}}/>
+        <ComposedChart data={mktTrend}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:10,fill:C.sL}}/>
           <YAxis yAxisId="left" tick={{fontSize:10,fill:C.sL}}/>
           <YAxis yAxisId="right" orientation="right" tick={{fontSize:10,fill:C.b2}} width={36} tickFormatter={v=>`$${v}`}/>
           <Tooltip content={<CT/>}/>
@@ -1818,7 +1858,7 @@ const rows = [
     <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:18}}>
       <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:10}}>New Net ROAS Trend</div>
       <ResponsiveContainer width="100%" height={140}>
-        <ComposedChart data={WEEKLY_TREND_LIVE}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:10,fill:C.sL}}/>
+        <ComposedChart data={mktTrend}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/><XAxis dataKey="week" tick={{fontSize:10,fill:C.sL}}/>
           <YAxis tick={{fontSize:10,fill:C.sL}}/><Tooltip content={<CT/>}/>
           <Line type="monotone" dataKey="roas" stroke={C.gn} strokeWidth={2} dot={{r:3,fill:C.gn}} name="ROAS"/>
           <ReferenceLine y={1.65} stroke={C.rd} strokeDasharray="5 5" label={{value:"Plan 1.65x",fontSize:10,fill:C.rd}}/>
@@ -1826,6 +1866,8 @@ const rows = [
       </ResponsiveContainer>
     </div>
   </div>
+    </>;
+  })()}
 
   {(()=>{
     const metaWoW=DD.priorMetaSpend>0?((DD.metaSpend/DD.priorMetaSpend-1)*100).toFixed(1)+"%":"–";
@@ -1938,18 +1980,34 @@ const rows = [
 {/* ═══ WEBSITE ═══ */}
 {tab==="website"&&<>
   <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
-    <MC l="Sessions" v={DD.sessions.toLocaleString()} ww={w(DD.sessions,DD.priorSessions)} sub={`PW: ${DD.priorSessions.toLocaleString()} · MTD: ${DD.mtdSessions.toLocaleString()}`}/>
-    <MC l="ATC Rate" v={DD.atcRate.toFixed(1)+"%"} ww={w(DD.atcRate,DD.priorAtcRate)} sub={`PW: ${DD.priorAtcRate.toFixed(1)}%`}/>
-    <MC l="Bounce Rate" v={DD.bounceRate.toFixed(1)+"%"} ww={w(DD.bounceRate,DD.priorBounceRate)} inv sub={`PW: ${DD.priorBounceRate.toFixed(1)}%`}/>
-    <MC l="Pages/Session" v={DD.pagesPerSession} ww={w(DD.pagesPerSession,DD.priorPagesPerSession)} sub={`PW: ${DD.priorPagesPerSession}`}/>
+    <MC l="Sessions" v={DD.sessions.toLocaleString()} ww={w(DD.sessions,DD.priorSessions)} pL={DD.priorSessions.toLocaleString()} sub={`MTD: ${DD.mtdSessions.toLocaleString()}`}/>
+    <MC l="ATC Rate" v={DD.atcRate.toFixed(1)+"%"} ww={w(DD.atcRate,DD.priorAtcRate)} pL={DD.priorAtcRate.toFixed(1)+"%"} sub={DD.mtdAtcRate!=null?`MTD: ${DD.mtdAtcRate.toFixed(1)}%`:""}/>
+    <MC l="Bounce Rate" v={DD.bounceRate.toFixed(1)+"%"} ww={w(DD.bounceRate,DD.priorBounceRate)} pL={DD.priorBounceRate.toFixed(1)+"%"} inv sub={DD.mtdBounceRate!=null?`MTD: ${DD.mtdBounceRate.toFixed(1)}%`:""}/>
+    <MC l="Pages/Session" v={DD.pagesPerSession} ww={w(DD.pagesPerSession,DD.priorPagesPerSession)} pL={DD.priorPagesPerSession} sub={DD.mtdPagesPerSession!=null?`MTD: ${DD.mtdPagesPerSession}`:""}/>
   </div>
 
   <SH t="Device Breakdown"/>
   <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
-    <MC l="Desktop" v={DD.desktopSessions.toLocaleString()} ww={w(DD.desktopSessions,DD.priorDesktopSessions)} sub={`ATC: ${DD.desktopAtcRate.toFixed(1)}% (PW: ${DD.priorDesktopAtcRate.toFixed(1)}%)`}/>
-    <MC l="Mobile" v={DD.mobileSessions.toLocaleString()} ww={w(DD.mobileSessions,DD.priorMobileSessions)} sub={`ATC: ${DD.mobileAtcRate.toFixed(1)}% (PW: ${DD.priorMobileAtcRate.toFixed(1)}%)`}/>
-    <MC l="New Sessions" v={DD.newSessions.toLocaleString()} ww={w(DD.newSessions,DD.priorNewSessions)} sub={`${(DD.newSessions/DD.sessions*100).toFixed(0)}% of total`}/>
-    <MC l="Returning" v={DD.returningSessions.toLocaleString()} ww={w(DD.returningSessions,DD.priorReturningSessions)} sub={`${(DD.returningSessions/DD.sessions*100).toFixed(0)}% of total`}/>
+    <MC l="Desktop Sessions" v={DD.desktopSessions.toLocaleString()} ww={w(DD.desktopSessions,DD.priorDesktopSessions)} pL={DD.priorDesktopSessions.toLocaleString()} sub={`${(DD.desktopSessions/DD.sessions*100).toFixed(0)}% of total`}/>
+    <MC l="Desktop ATC %" v={DD.desktopAtcRate.toFixed(1)+"%"} ww={w(DD.desktopAtcRate,DD.priorDesktopAtcRate)} pL={DD.priorDesktopAtcRate.toFixed(1)+"%"}/>
+    <MC l="Mobile Sessions" v={DD.mobileSessions.toLocaleString()} ww={w(DD.mobileSessions,DD.priorMobileSessions)} pL={DD.priorMobileSessions.toLocaleString()} sub={`${(DD.mobileSessions/DD.sessions*100).toFixed(0)}% of total`}/>
+    <MC l="Mobile ATC %" v={DD.mobileAtcRate.toFixed(1)+"%"} ww={w(DD.mobileAtcRate,DD.priorMobileAtcRate)} pL={DD.priorMobileAtcRate.toFixed(1)+"%"}/>
+  </div>
+
+  <SH t="Audience Breakdown"/>
+  <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
+    <MC l="New Sessions" v={DD.newSessions.toLocaleString()} ww={w(DD.newSessions,DD.priorNewSessions)} pL={DD.priorNewSessions.toLocaleString()} sub={`${(DD.newSessions/DD.sessions*100).toFixed(0)}% of total`}/>
+    <MC l="New Conv Rate" v={DD.newConvRate!=null?DD.newConvRate.toFixed(2)+"%":"—"} ww={DD.priorNewConvRate?w(DD.newConvRate,DD.priorNewConvRate):undefined} pL={DD.priorNewConvRate!=null?DD.priorNewConvRate.toFixed(2)+"%":null}/>
+    <MC l="Returning Sessions" v={DD.returningSessions.toLocaleString()} ww={w(DD.returningSessions,DD.priorReturningSessions)} pL={DD.priorReturningSessions.toLocaleString()} sub={`${(DD.returningSessions/DD.sessions*100).toFixed(0)}% of total`}/>
+    <MC l="Returning Conv Rate" v={DD.retConvRate!=null?DD.retConvRate.toFixed(2)+"%":"—"} ww={DD.priorRetConvRate?w(DD.retConvRate,DD.priorRetConvRate):undefined} pL={DD.priorRetConvRate!=null?DD.priorRetConvRate.toFixed(2)+"%":null}/>
+  </div>
+
+  <SH t="Paid vs. Organic Breakdown"/>
+  <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
+    <MC l="Paid Sessions" v={DD.paidSessions.toLocaleString()} ww={w(DD.paidSessions,DD.priorPaidSessions)} pL={DD.priorPaidSessions.toLocaleString()} sub={`${(DD.paidSessions/DD.sessions*100).toFixed(0)}% of total`}/>
+    <MC l="Paid ATC %" v={DD.paidAtcRate!=null?DD.paidAtcRate.toFixed(1)+"%":"—"} ww={DD.priorPaidAtcRate?w(DD.paidAtcRate,DD.priorPaidAtcRate):undefined} pL={DD.priorPaidAtcRate!=null?DD.priorPaidAtcRate.toFixed(1)+"%":null}/>
+    <MC l="Organic Sessions" v={DD.orgSessions.toLocaleString()} ww={w(DD.orgSessions,DD.priorOrgSessions)} pL={DD.priorOrgSessions.toLocaleString()} sub={`${(DD.orgSessions/DD.sessions*100).toFixed(0)}% of total`}/>
+    <MC l="Organic ATC %" v={DD.orgAtcRate!=null?DD.orgAtcRate.toFixed(1)+"%":"—"} ww={DD.priorOrgAtcRate?w(DD.orgAtcRate,DD.priorOrgAtcRate):undefined} pL={DD.priorOrgAtcRate!=null?DD.priorOrgAtcRate.toFixed(1)+"%":null}/>
   </div>
 
   <SH t="Traffic by Channel (WoW)"/>
@@ -1967,25 +2025,6 @@ const rows = [
           <td style={{padding:"8px 6px",textAlign:"right"}}>{t.cAtc}</td>
           <td style={{padding:"8px 6px",textAlign:"right"}}>{t.cTx}</td>
           <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600}}>{t.cRev>0?ff(t.cRev):"–"}</td>
-        </tr>
-      ))}</tbody>
-    </table>
-  </div>
-
-  <SH t="Page Views by Type"/>
-  <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
-    <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
-      <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-        {["Type","Sessions","Pages","Bounce %","ATC","ATC %"].map(h=><th key={h} style={{textAlign:h==="Type"?"left":"right",padding:"8px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>{h}</th>)}
-      </tr></thead>
-      <tbody>{PV_TYPES_LIVE.map((t,i)=>(
-        <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}}>
-          <td style={{padding:"8px 6px",fontWeight:600,color:C.nv}}>{t.type}</td>
-          <td style={{padding:"8px 6px",textAlign:"right"}}>{t.sessions.toLocaleString()}</td>
-          <td style={{padding:"8px 6px",textAlign:"right",color:C.sL}}>{t.pages}</td>
-          <td style={{padding:"8px 6px",textAlign:"right",color:t.br>40?C.rd:t.br>25?C.am:C.nv}}>{t.br}%</td>
-          <td style={{padding:"8px 6px",textAlign:"right"}}>{t.atc}</td>
-          <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600,color:t.ar>=5?C.gn:t.ar>=2?C.nv:C.rd}}>{t.ar}%</td>
         </tr>
       ))}</tbody>
     </table>
