@@ -1007,12 +1007,11 @@ const rows = [
         const mc = r.merch_cat || "Other";
         rawMap[mc] = (rawMap[mc] || 0) + (Number(r.gld7) || 0);
       });
-      // Group: Carryover, Carryover Aged, Fashion (anything with "Fashion"), Carryover Other (rest)
+      // Group: Carryover, Fashion (anything with "Fashion"), Carryover Other (rest)
       const grouped = {};
       Object.entries(rawMap).forEach(([k,v]) => {
         let grp;
         if (k === "Carryover") grp = "Carryover";
-        else if (k === "Carryover Aged") grp = "Carryover Aged";
         else if (k.toLowerCase().includes("fashion")) grp = "Fashion";
         else grp = "Carryover Other";
         grouped[grp] = (grouped[grp] || 0) + v;
