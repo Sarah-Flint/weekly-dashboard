@@ -1007,11 +1007,12 @@ const rows = [
         const mc = r.merch_cat || "Other";
         rawMap[mc] = (rawMap[mc] || 0) + (Number(r.gld7) || 0);
       });
-      // Group: Carryover, Fashion (anything with "Fashion"), Carryover Other (rest)
+      // Group: Carryover, Carryover Aged, Fashion (anything with "Fashion"), Carryover Other (rest)
       const grouped = {};
       Object.entries(rawMap).forEach(([k,v]) => {
         let grp;
         if (k === "Carryover") grp = "Carryover";
+        else if (k === "Carryover Aged") grp = "Carryover Aged";
         else if (k.toLowerCase().includes("fashion")) grp = "Fashion";
         else grp = "Carryover Other";
         grouped[grp] = (grouped[grp] || 0) + v;
@@ -1470,6 +1471,19 @@ const rows = [
   // Grand totals
   const gt = agg(alertSkus);
 
+  // Merch Class summary (grouped by merch_cat)
+  const merchMap = {};
+  alertSkus.forEach(sk => {
+    const mc = sk.mc || 'Other';
+    if (!merchMap[mc]) merchMap[mc] = [];
+    merchMap[mc].push(sk);
+  });
+  const merchClassData = Object.entries(merchMap).map(([name, skus]) => ({
+    name,
+    count: skus.length,
+    ...agg(skus),
+  })).sort((a,b) => b.oh - a.oh);
+
   // Style-level: filter by selected product class, then sort
   const styleSkus = invMC==="All"?alertSkus:alertSkus.filter(sk=>sk.mClass===invMC);
   const styleMap = {};
@@ -1558,6 +1572,28 @@ const rows = [
           <tr key={cls.name} style={{borderBottom:`1px solid ${C.bd}`,background:invMC===cls.name?"#eff6ff":"transparent",cursor:"pointer"}} onClick={()=>setInvMC(invMC===cls.name?"All":cls.name)} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>{e.currentTarget.style.background=invMC===cls.name?"#eff6ff":"transparent"}}>
             <td style={{padding:"8px 5px",fontWeight:600,color:C.nv}}>{cls.name} <span style={{fontSize:9,color:C.sL,fontWeight:400}}>({cls.styles.length})</span></td>
             {renderCells(cls,false)}
+          </tr>
+        ))}
+        <tr style={{borderTop:`2px solid ${C.bd}`,background:"#f1f5f9"}}>
+          <td style={{padding:"8px 5px",fontWeight:700,color:C.nv}}>Total</td>
+          {renderCells(gt,true)}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  {/* Merch Class Summary Table */}
+  <SH t="Merch Class Summary"/>
+  <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,marginBottom:14,overflowX:"auto"}}>
+    <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
+      <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
+        {invCols.map(col=><th key={col.h} style={{textAlign:col.h==="Name"?"left":"right",padding:"6px 5px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap"}}>{col.h}</th>)}
+      </tr></thead>
+      <tbody>
+        {merchClassData.map(mc=>(
+          <tr key={mc.name} style={{borderBottom:`1px solid ${C.bd}`,cursor:"pointer",background:invSC===mc.name?"#eff6ff":"transparent"}} onClick={()=>setInvSC(invSC===mc.name?"All":mc.name)} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>{e.currentTarget.style.background=invSC===mc.name?"#eff6ff":"transparent"}}>
+            <td style={{padding:"8px 5px",fontWeight:600,color:C.nv}}>{mc.name} <span style={{fontSize:9,color:C.sL,fontWeight:400}}>({mc.count})</span></td>
+            {renderCells(mc,false)}
           </tr>
         ))}
         <tr style={{borderTop:`2px solid ${C.bd}`,background:"#f1f5f9"}}>
