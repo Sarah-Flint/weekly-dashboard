@@ -1,9 +1,9 @@
 {
   "metadata": {
     "week": "WEEK 17",
-    "dateRange": "Apr 26-2, 2026",
+    "dateRange": "4/26/26 to 5/2/26",
     "quarter": "Q2",
-    "lastUpdated": "2026-05-05T23:52:31.006Z"
+    "lastUpdated": "2026-05-06T00:14:05.693Z"
   },
   "kpi": [
     {
@@ -11,14 +11,14 @@
       "metric_group": "revenue",
       "customer_group": "All",
       "metric_label": "Gross Revenue Incl Exchanges",
-      "_cw": 253098.2,
-      "_pw": 261370.14,
+      "_cw": 253550.51,
+      "_pw": 261865.14,
       "_cw_plan": 217636,
-      "_mtd": 998763.15,
+      "_mtd": 1000704.96,
       "_mtd_plan": 967272,
-      "_qtd": 998763.15,
+      "_qtd": 1000704.96,
       "_qtd_plan": 967272,
-      "_ytd": 4282329.77,
+      "_ytd": 4306242.1,
       "_ytd_plan": 4653080
     },
     {
