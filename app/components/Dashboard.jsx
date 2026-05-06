@@ -414,6 +414,8 @@ useEffect(() => {
   priorOrdersWithDisc: _v(getMetric("ordercount_disc")._pw),
   orderDiscPct: _v(getMetric("order_disc_pct")._cw),
   priorOrderDiscPct: _v(getMetric("order_disc_pct")._pw),
+  gldWithDisc: _v(getMetric("gld_with_disc")._cw),
+  priorGldWithDisc: _v(getMetric("gld_with_disc")._pw),
 };
 
   const nROAS = DD.mktSpend ? (DD.newNetRev / DD.mktSpend).toFixed(2) : null;
@@ -971,16 +973,17 @@ const rows = [
       </div>
     </div>
     {(()=>{
-      const discOrders = DD.ordersWithDisc || 0;
-      const noDiscOrders = (DD.orders || 0) - discOrders;
-      const discPct = DD.orderDiscPct != null ? DD.orderDiscPct : (DD.orders ? +((discOrders / DD.orders) * 100).toFixed(1) : 0);
-      const noDiscPct = +(100 - discPct).toFixed(1);
+      const discGld = DD.gldWithDisc || 0;
+      const fullGld = (DD.gld || 0) - discGld;
+      const total = discGld + fullGld;
+      const discPct = total > 0 ? +((discGld / total) * 100).toFixed(1) : 0;
+      const fullPct = +(100 - discPct).toFixed(1);
       return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20}}>
-        <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:10}}>Orders: Discount vs. Full Price</div>
-        <ResponsiveContainer width="100%" height={160}><PieChart><Pie data={[{name:"With Discount",value:discOrders},{name:"No Discount",value:noDiscOrders}]} innerRadius={42} outerRadius={65} paddingAngle={3} dataKey="value"><Cell fill={C.am}/><Cell fill={C.gn}/></Pie><Tooltip formatter={(v,name)=>`${v} orders (${name==="With Discount"?discPct:noDiscPct}%)`}/><Legend iconType="circle" wrapperStyle={{fontSize:11}}/></PieChart></ResponsiveContainer>
+        <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:10}}>Sales: Discount vs. Full Price</div>
+        <ResponsiveContainer width="100%" height={160}><PieChart><Pie data={[{name:"With Discount",value:discGld},{name:"Full Price",value:fullGld}]} innerRadius={42} outerRadius={65} paddingAngle={3} dataKey="value"><Cell fill={C.am}/><Cell fill={C.gn}/></Pie><Tooltip formatter={(v,name)=>`${ff(v)} (${name==="With Discount"?discPct:fullPct}%)`}/><Legend iconType="circle" wrapperStyle={{fontSize:11}}/></PieChart></ResponsiveContainer>
         <div style={{display:"flex",justifyContent:"space-around",fontSize:12,marginTop:4}}>
-          <div style={{textAlign:"center"}}><div style={{fontWeight:700,color:C.am}}>{discOrders}</div><div style={{color:C.sL}}>Discount ({discPct}%)</div></div>
-          <div style={{textAlign:"center"}}><div style={{fontWeight:700,color:C.gn}}>{noDiscOrders}</div><div style={{color:C.sL}}>Full Price ({noDiscPct}%)</div></div>
+          <div style={{textAlign:"center"}}><div style={{fontWeight:700,color:C.am}}>{fmt(discGld)}</div><div style={{color:C.sL}}>Discount ({discPct}%)</div></div>
+          <div style={{textAlign:"center"}}><div style={{fontWeight:700,color:C.gn}}>{fmt(fullGld)}</div><div style={{color:C.sL}}>Full Price ({fullPct}%)</div></div>
         </div>
       </div>;
     })()}
