@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "lastUpdatedISO": "2026-05-06T21:31:38.929Z",
-    "lastUpdatedEST": "May 06, 2026 17:31:38"
+    "lastUpdatedISO": "2026-05-06T22:06:33.117Z",
+    "lastUpdatedEST": "May 06, 2026 18:06:33"
   },
   "product": [
     {
@@ -21,7 +21,7 @@
       "qty_ordered": 0,
       "qty_returned": 1,
       "qty_net": -1,
-      "MSRP": ""
+      "MSRP": 395
     },
     {
       "Year & week": "2025|01",
@@ -50073,25 +50073,6 @@
       "Year & week": "2025|11",
       "Order Type": "Customer",
       "New vs. Returning": "New",
-      "Parent SKU": "PGCST1000",
-      "Product title (clean)": "Physical Gift Card",
-      "Color": "",
-      "Product Class": "#N/A",
-      "Merch Category": "#N/A",
-      "gross_sales": 3000,
-      "discounts": 0,
-      "gld": 3000,
-      "returns": 0,
-      "net_sales": 3000,
-      "qty_ordered": 3,
-      "qty_returned": 0,
-      "qty_net": 3,
-      "MSRP": "#N/A"
-    },
-    {
-      "Year & week": "2025|11",
-      "Order Type": "Customer",
-      "New vs. Returning": "New",
       "Parent SKU": "SF1111-SBK",
       "Product title (clean)": "Mirjana Ballerina",
       "Color": "Black Suede",
@@ -85185,25 +85166,6 @@
       "Year & week": "2025|18",
       "Order Type": "Customer",
       "New vs. Returning": "Returning",
-      "Parent SKU": "PGCST500",
-      "Product title (clean)": "Physical Gift Card",
-      "Color": "",
-      "Product Class": "#N/A",
-      "Merch Category": "#N/A",
-      "gross_sales": 500,
-      "discounts": 0,
-      "gld": 500,
-      "returns": 0,
-      "net_sales": 500,
-      "qty_ordered": 1,
-      "qty_returned": 0,
-      "qty_net": 1,
-      "MSRP": "#N/A"
-    },
-    {
-      "Year & week": "2025|18",
-      "Order Type": "Customer",
-      "New vs. Returning": "Returning",
       "Parent SKU": "SF1111-NPTP",
       "Product title (clean)": "Mirjana Ballerina",
       "Color": "Petal Nappa And Patent",
@@ -106427,25 +106389,6 @@
       "Year & week": "2025|23",
       "Order Type": "Customer",
       "New vs. Returning": "New",
-      "Parent SKU": "PGCST350",
-      "Product title (clean)": "Physical Gift Card",
-      "Color": "",
-      "Product Class": "#N/A",
-      "Merch Category": "#N/A",
-      "gross_sales": 350,
-      "discounts": 0,
-      "gld": 350,
-      "returns": 0,
-      "net_sales": 350,
-      "qty_ordered": 1,
-      "qty_returned": 0,
-      "qty_net": 1,
-      "MSRP": "#N/A"
-    },
-    {
-      "Year & week": "2025|23",
-      "Order Type": "Customer",
-      "New vs. Returning": "New",
       "Parent SKU": "SF1111-NPTP",
       "Product title (clean)": "Mirjana Ballerina",
       "Color": "Petal Nappa And Patent",
@@ -122666,7 +122609,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 1595
     },
     {
       "Year & week": "2025|26",
@@ -125326,7 +125269,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 1595
     },
     {
       "Year & week": "2025|27",
@@ -128043,7 +127986,7 @@
       "qty_ordered": 3,
       "qty_returned": 0,
       "qty_net": 3,
-      "MSRP": "#N/A"
+      "MSRP": 1595
     },
     {
       "Year & week": "2025|27",
@@ -130722,7 +130665,7 @@
       "qty_ordered": 2,
       "qty_returned": 0,
       "qty_net": 2,
-      "MSRP": "#N/A"
+      "MSRP": 1595
     },
     {
       "Year & week": "2025|28",
@@ -133021,7 +132964,7 @@
       "qty_ordered": 2,
       "qty_returned": 0,
       "qty_net": 2,
-      "MSRP": "#N/A"
+      "MSRP": 1595
     },
     {
       "Year & week": "2025|28",
@@ -134864,7 +134807,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 1595
     },
     {
       "Year & week": "2025|28",
@@ -147157,7 +147100,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2025|31",
@@ -149361,7 +149304,7 @@
       "qty_ordered": 3,
       "qty_returned": 0,
       "qty_net": 3,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|31",
@@ -149494,7 +149437,7 @@
       "qty_ordered": 2,
       "qty_returned": 0,
       "qty_net": 2,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2025|31",
@@ -149742,25 +149685,6 @@
       "qty_returned": 1,
       "qty_net": -1,
       "MSRP": 95
-    },
-    {
-      "Year & week": "2025|32",
-      "Order Type": "Customer",
-      "New vs. Returning": "New",
-      "Parent SKU": "PGCST350",
-      "Product title (clean)": "Physical Gift Card",
-      "Color": "",
-      "Product Class": "#N/A",
-      "Merch Category": "#N/A",
-      "gross_sales": 350,
-      "discounts": 0,
-      "gld": 350,
-      "returns": 0,
-      "net_sales": 350,
-      "qty_ordered": 1,
-      "qty_returned": 0,
-      "qty_net": 1,
-      "MSRP": "#N/A"
     },
     {
       "Year & week": "2025|32",
@@ -151926,7 +151850,7 @@
       "qty_ordered": 2,
       "qty_returned": 0,
       "qty_net": 2,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|32",
@@ -152040,7 +151964,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2025|32",
@@ -154168,7 +154092,7 @@
       "qty_ordered": 3,
       "qty_returned": 0,
       "qty_net": 3,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|32",
@@ -154282,7 +154206,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2025|32",
@@ -156334,7 +156258,7 @@
       "qty_ordered": 2,
       "qty_returned": 0,
       "qty_net": 2,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|33",
@@ -159032,7 +158956,7 @@
       "qty_ordered": 8,
       "qty_returned": 0,
       "qty_net": 8,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|33",
@@ -164485,7 +164409,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|34",
@@ -173358,7 +173282,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|36",
@@ -176170,7 +176094,7 @@
       "qty_ordered": 2,
       "qty_returned": 1,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|36",
@@ -176322,7 +176246,7 @@
       "qty_ordered": 3,
       "qty_returned": 0,
       "qty_net": 3,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2025|36",
@@ -178830,7 +178754,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|37",
@@ -186183,7 +186107,7 @@
       "qty_ordered": 2,
       "qty_returned": 0,
       "qty_net": 2,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|38",
@@ -188938,7 +188862,7 @@
       "qty_ordered": 2,
       "qty_returned": 0,
       "qty_net": 2,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|39",
@@ -189033,7 +188957,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2025|39",
@@ -191636,7 +191560,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|39",
@@ -191712,7 +191636,7 @@
       "qty_ordered": 2,
       "qty_returned": 0,
       "qty_net": 2,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2025|39",
@@ -196937,7 +196861,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2025|40",
@@ -198932,7 +198856,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|41",
@@ -206608,7 +206532,7 @@
       "qty_ordered": 0,
       "qty_returned": 1,
       "qty_net": -1,
-      "MSRP": "#N/A"
+      "MSRP": 1595
     },
     {
       "Year & week": "2025|43",
@@ -211035,7 +210959,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|43",
@@ -215975,7 +215899,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|44",
@@ -221960,7 +221884,7 @@
       "qty_ordered": 5,
       "qty_returned": 3,
       "qty_net": 2,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2025|45",
@@ -224753,7 +224677,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|46",
@@ -228268,7 +228192,7 @@
       "qty_ordered": 9,
       "qty_returned": 0,
       "qty_net": 9,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|46",
@@ -231517,7 +231441,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|47",
@@ -231688,7 +231612,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2025|47",
@@ -234899,7 +234823,7 @@
       "qty_ordered": 6,
       "qty_returned": 0,
       "qty_net": 6,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|47",
@@ -234918,7 +234842,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|47",
@@ -235127,7 +235051,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2025|47",
@@ -238072,7 +237996,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|48",
@@ -241321,7 +241245,7 @@
       "qty_ordered": 18,
       "qty_returned": 0,
       "qty_net": 18,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|48",
@@ -241587,7 +241511,7 @@
       "qty_ordered": 3,
       "qty_returned": 0,
       "qty_net": 3,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2025|48",
@@ -244380,7 +244304,7 @@
       "qty_ordered": 2,
       "qty_returned": 0,
       "qty_net": 2,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|49",
@@ -244589,7 +244513,7 @@
       "qty_ordered": 2,
       "qty_returned": 0,
       "qty_net": 2,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2025|49",
@@ -247800,7 +247724,7 @@
       "qty_ordered": 2,
       "qty_returned": 1,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|49",
@@ -248028,7 +247952,7 @@
       "qty_ordered": 3,
       "qty_returned": 0,
       "qty_net": 3,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2025|49",
@@ -254431,7 +254355,7 @@
       "qty_ordered": 1,
       "qty_returned": 1,
       "qty_net": 0,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|51",
@@ -255457,7 +255381,7 @@
       "qty_ordered": 2,
       "qty_returned": 0,
       "qty_net": 2,
-      "MSRP": "#N/A"
+      "MSRP": 1595
     },
     {
       "Year & week": "2025|51",
@@ -257053,7 +256977,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|51",
@@ -259181,7 +259105,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2025|52",
@@ -260245,7 +260169,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 1595
     },
     {
       "Year & week": "2025|52",
@@ -266420,7 +266344,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2026|01",
@@ -271645,7 +271569,7 @@
       "qty_ordered": 2,
       "qty_returned": 0,
       "qty_net": 2,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2026|02",
@@ -274286,7 +274210,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2026|03",
@@ -275312,7 +275236,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 1595
     },
     {
       "Year & week": "2026|03",
@@ -278181,7 +278105,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 1595
     },
     {
       "Year & week": "2026|04",
@@ -280480,7 +280404,7 @@
       "qty_ordered": 3,
       "qty_returned": 0,
       "qty_net": 3,
-      "MSRP": "#N/A"
+      "MSRP": 1595
     },
     {
       "Year & week": "2026|04",
@@ -282133,7 +282057,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2026|04",
@@ -288498,7 +288422,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2026|06",
@@ -295281,7 +295205,7 @@
       "qty_ordered": 0,
       "qty_returned": 1,
       "qty_net": -1,
-      "MSRP": "#N/A"
+      "MSRP": 1595
     },
     {
       "Year & week": "2026|07",
@@ -296839,7 +296763,7 @@
       "qty_ordered": 3,
       "qty_returned": 0,
       "qty_net": 3,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2026|07",
@@ -297257,7 +297181,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2026|08",
@@ -301988,7 +301912,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2026|08",
@@ -321672,7 +321596,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2026|12",
@@ -324921,7 +324845,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2026|13",
@@ -332578,7 +332502,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 150
     },
     {
       "Year & week": "2026|14",
@@ -332749,7 +332673,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2026|14",
@@ -335238,7 +335162,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2026|15",
@@ -337556,7 +337480,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2026|15",
@@ -345156,7 +345080,7 @@
       "qty_ordered": 1,
       "qty_returned": 0,
       "qty_net": 1,
-      "MSRP": "#N/A"
+      "MSRP": 45
     },
     {
       "Year & week": "2026|17",
