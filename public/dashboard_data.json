@@ -3,7 +3,7 @@
     "week": "WEEK 17",
     "dateRange": "4/26/26 to 5/2/26",
     "quarter": "Q2",
-    "lastUpdated": "2026-05-06T00:14:05.693Z"
+    "lastUpdated": "2026-05-06T00:27:57.772Z"
   },
   "kpi": [
     {
@@ -1365,6 +1365,176 @@
       "22": "",
       "metric": "google_roas",
       "metric_group": "marketing"
+    }
+  ],
+  "disc_code": [
+    {
+      "New vs. Returning": "New",
+      "Discount Code": "W20SJ25",
+      "sum Gross sales": 67490,
+      "sum Discounts": 13498,
+      "sum Orders": 111
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "SMS20",
+      "sum Gross sales": 5760,
+      "sum Discounts": 1152,
+      "sum Orders": 10
+    },
+    {
+      "New vs. Returning": "New",
+      "Discount Code": "PERFECTPUMP100",
+      "sum Gross sales": 3445,
+      "sum Discounts": 700,
+      "sum Orders": 7
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "YP25",
+      "sum Gross sales": 3420,
+      "sum Discounts": 150,
+      "sum Orders": 6
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "SARAHFLINT-STYCHRISTINE",
+      "sum Gross sales": 3403.94,
+      "sum Discounts": 0,
+      "sum Orders": 6
+    },
+    {
+      "New vs. Returning": "New",
+      "Discount Code": "WELCOME20",
+      "sum Gross sales": 3175,
+      "sum Discounts": 635,
+      "sum Orders": 6
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "YP50",
+      "sum Gross sales": 2990.96,
+      "sum Discounts": 350,
+      "sum Orders": 7
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "SARAHFLINT-STYDARLENE",
+      "sum Gross sales": 2637.98,
+      "sum Discounts": 0,
+      "sum Orders": 2
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "YP10",
+      "sum Gross sales": 1608.94,
+      "sum Discounts": 400,
+      "sum Orders": 4
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "PERFECTPUMP100",
+      "sum Gross sales": 1465,
+      "sum Discounts": 300,
+      "sum Orders": 3
+    },
+    {
+      "New vs. Returning": "New",
+      "Discount Code": "SMS20",
+      "sum Gross sales": 1120,
+      "sum Discounts": 224,
+      "sum Orders": 3
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "YP75",
+      "sum Gross sales": 860,
+      "sum Discounts": 150,
+      "sum Orders": 2
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "YP15",
+      "sum Gross sales": 850,
+      "sum Discounts": 300,
+      "sum Orders": 2
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "SARAHFLINT-STYSANDRA",
+      "sum Gross sales": 675.96,
+      "sum Discounts": 0,
+      "sum Orders": 2
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "MARGOT40",
+      "sum Gross sales": 550,
+      "sum Discounts": 220,
+      "sum Orders": 1
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "YP20",
+      "sum Gross sales": 502.98,
+      "sum Discounts": 200,
+      "sum Orders": 1
+    },
+    {
+      "New vs. Returning": "New",
+      "Discount Code": "SF-MIHAELA20",
+      "sum Gross sales": 495,
+      "sum Discounts": 99,
+      "sum Orders": 1
+    },
+    {
+      "New vs. Returning": "New",
+      "Discount Code": "PERFECTSANDAL",
+      "sum Gross sales": 475,
+      "sum Discounts": 100,
+      "sum Orders": 1
+    },
+    {
+      "New vs. Returning": "New",
+      "Discount Code": "WMY25B",
+      "sum Gross sales": 475,
+      "sum Discounts": 100,
+      "sum Orders": 1
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "RPL15",
+      "sum Gross sales": 475,
+      "sum Discounts": 71.25,
+      "sum Orders": 1
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "SFCX-30",
+      "sum Gross sales": 425,
+      "sum Discounts": 127.5,
+      "sum Orders": 1
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Discount Code": "BS75J1-MF5OHLMM",
+      "sum Gross sales": 280,
+      "sum Discounts": 75,
+      "sum Orders": 1
+    },
+    {
+      "New vs. Returning": "New",
+      "Discount Code": "SF-MERRITT",
+      "sum Gross sales": 225,
+      "sum Discounts": 50,
+      "sum Orders": 1
+    },
+    {
+      "New vs. Returning": "New",
+      "Discount Code": "",
+      "sum Gross sales": "",
+      "sum Discounts": "",
+      "sum Orders": ""
     }
   ],
   "google_ads": [
