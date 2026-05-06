@@ -3,8 +3,8 @@
     "week": "WEEK 17",
     "dateRange": "4/26/26 to 5/2/26",
     "quarter": "Q2",
-    "lastUpdatedISO": "2026-05-06T00:57:39.734Z",
-    "lastUpdatedEST": "May 05, 2026 20:57:39"
+    "lastUpdatedISO": "2026-05-06T01:37:30.546Z",
+    "lastUpdatedEST": "May 05, 2026 21:37:30"
   },
   "kpi": [
     {
@@ -1398,13 +1398,6 @@
       "sum Orders": 6
     },
     {
-      "New vs. Returning": "Returning",
-      "Discount Code": "SARAHFLINT-STYCHRISTINE",
-      "sum Gross sales": 3403.94,
-      "sum Discounts": 0,
-      "sum Orders": 6
-    },
-    {
       "New vs. Returning": "New",
       "Discount Code": "WELCOME20",
       "sum Gross sales": 3175,
@@ -1417,13 +1410,6 @@
       "sum Gross sales": 2990.96,
       "sum Discounts": 350,
       "sum Orders": 7
-    },
-    {
-      "New vs. Returning": "Returning",
-      "Discount Code": "SARAHFLINT-STYDARLENE",
-      "sum Gross sales": 2637.98,
-      "sum Discounts": 0,
-      "sum Orders": 2
     },
     {
       "New vs. Returning": "Returning",
@@ -1458,13 +1444,6 @@
       "Discount Code": "YP15",
       "sum Gross sales": 850,
       "sum Discounts": 300,
-      "sum Orders": 2
-    },
-    {
-      "New vs. Returning": "Returning",
-      "Discount Code": "SARAHFLINT-STYSANDRA",
-      "sum Gross sales": 675.96,
-      "sum Discounts": 0,
       "sum Orders": 2
     },
     {
