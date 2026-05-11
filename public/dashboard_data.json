@@ -3,8 +3,8 @@
     "week": "WEEK 18",
     "dateRange": "5/3/26 to 5/9/26",
     "quarter": "Q2",
-    "lastUpdatedISO": "2026-05-11T01:56:13.104Z",
-    "lastUpdatedEST": "May 10, 2026 21:56:13"
+    "lastUpdatedISO": "2026-05-11T02:44:38.594Z",
+    "lastUpdatedEST": "May 10, 2026 22:44:38"
   },
   "kpi": [
     {
@@ -1887,9 +1887,9 @@
       "CPC": "-",
       "CPO": "-",
       "Impressions": 0,
+      "Clicks": 0,
       "Orders": 0,
-      "Cost per ATC": "-",
-      "Add to cart": 0
+      "Cost per ATC": "-"
     },
     {
       "CW & PW": "CW",
@@ -1902,9 +1902,9 @@
       "CPC": "-",
       "CPO": "-",
       "Impressions": 0,
+      "Clicks": 0,
       "Orders": 0,
-      "Cost per ATC": "-",
-      "Add to cart": 0
+      "Cost per ATC": "-"
     },
     {
       "CW & PW": "CW",
@@ -1917,9 +1917,9 @@
       "CPC": 2.88,
       "CPO": 389.78,
       "Impressions": 87707,
+      "Clicks": 2575,
       "Orders": 19,
-      "Cost per ATC": 74.06,
-      "Add to cart": 100
+      "Cost per ATC": 74.06
     },
     {
       "CW & PW": "CW",
@@ -1932,9 +1932,9 @@
       "CPC": 3.5,
       "CPO": 148.67,
       "Impressions": 3011,
+      "Clicks": 85,
       "Orders": 2,
-      "Cost per ATC": 42.48,
-      "Add to cart": 7
+      "Cost per ATC": 42.48
     },
     {
       "CW & PW": "CW",
@@ -1947,9 +1947,9 @@
       "CPC": 4,
       "CPO": 166.07,
       "Impressions": 3703,
+      "Clicks": 83,
       "Orders": 2,
-      "Cost per ATC": 30.19,
-      "Add to cart": 11
+      "Cost per ATC": 30.19
     },
     {
       "CW & PW": "CW",
@@ -1962,9 +1962,9 @@
       "CPC": 2.62,
       "CPO": 289.09,
       "Impressions": 37928,
+      "Clicks": 993,
       "Orders": 9,
-      "Cost per ATC": 89.72,
-      "Add to cart": 29
+      "Cost per ATC": 89.72
     },
     {
       "CW & PW": "CW",
@@ -1977,9 +1977,9 @@
       "CPC": 1.66,
       "CPO": 104.81,
       "Impressions": 37552,
+      "Clicks": 1265,
       "Orders": 20,
-      "Cost per ATC": 21.17,
-      "Add to cart": 99
+      "Cost per ATC": 21.17
     },
     {
       "CW & PW": "CW",
@@ -1992,9 +1992,9 @@
       "CPC": 0.58,
       "CPO": 349.25,
       "Impressions": 9687,
+      "Clicks": 603,
       "Orders": 1,
-      "Cost per ATC": 9.19,
-      "Add to cart": 38
+      "Cost per ATC": 9.19
     },
     {
       "CW & PW": "CW",
@@ -2007,9 +2007,9 @@
       "CPC": 0.1,
       "CPO": "-",
       "Impressions": 16844,
+      "Clicks": 1315,
       "Orders": 0,
-      "Cost per ATC": 67.22,
-      "Add to cart": 2
+      "Cost per ATC": 67.22
     },
     {
       "CW & PW": "PW",
@@ -2022,9 +2022,9 @@
       "CPC": 2.67,
       "CPO": 207.21,
       "Impressions": 4309,
+      "Clicks": 155,
       "Orders": 2,
-      "Cost per ATC": 29.6,
-      "Add to cart": 14
+      "Cost per ATC": 29.6
     },
     {
       "CW & PW": "PW",
@@ -2037,9 +2037,9 @@
       "CPC": 2.4,
       "CPO": "-",
       "Impressions": 810,
+      "Clicks": 31,
       "Orders": 0,
-      "Cost per ATC": "-",
-      "Add to cart": 0
+      "Cost per ATC": "-"
     },
     {
       "CW & PW": "PW",
@@ -2052,9 +2052,9 @@
       "CPC": 2.69,
       "CPO": "-",
       "Impressions": 9488,
+      "Clicks": 255,
       "Orders": 0,
-      "Cost per ATC": 171.33,
-      "Add to cart": 4
+      "Cost per ATC": 171.33
     },
     {
       "CW & PW": "PW",
@@ -2067,9 +2067,9 @@
       "CPC": 2.37,
       "CPO": 276.16,
       "Impressions": 73949,
+      "Clicks": 1983,
       "Orders": 17,
-      "Cost per ATC": 53.96,
-      "Add to cart": 87
+      "Cost per ATC": 53.96
     },
     {
       "CW & PW": "PW",
@@ -2082,9 +2082,9 @@
       "CPC": 3.55,
       "CPO": 163.33,
       "Impressions": 4777,
+      "Clicks": 138,
       "Orders": 3,
-      "Cost per ATC": 27.22,
-      "Add to cart": 18
+      "Cost per ATC": 27.22
     },
     {
       "CW & PW": "PW",
@@ -2097,9 +2097,9 @@
       "CPC": 2.6,
       "CPO": 211.4,
       "Impressions": 27759,
+      "Clicks": 570,
       "Orders": 7,
-      "Cost per ATC": 54.81,
-      "Add to cart": 27
+      "Cost per ATC": 54.81
     },
     {
       "CW & PW": "PW",
@@ -2112,9 +2112,9 @@
       "CPC": 1.93,
       "CPO": 139.99,
       "Impressions": 37033,
+      "Clicks": 1086,
       "Orders": 15,
-      "Cost per ATC": 24.7,
-      "Add to cart": 85
+      "Cost per ATC": 24.7
     },
     {
       "CW & PW": "PW",
@@ -2127,9 +2127,9 @@
       "CPC": 0.73,
       "CPO": "-",
       "Impressions": 7714,
+      "Clicks": 478,
       "Orders": 0,
-      "Cost per ATC": 13.86,
-      "Add to cart": 25
+      "Cost per ATC": 13.86
     },
     {
       "CW & PW": "PW",
@@ -2142,9 +2142,9 @@
       "CPC": 0.22,
       "CPO": "-",
       "Impressions": 11361,
+      "Clicks": 649,
       "Orders": 0,
-      "Cost per ATC": 27.91,
-      "Add to cart": 5
+      "Cost per ATC": 27.91
     }
   ],
   "traffic_channel": [
@@ -26379,6 +26379,13 @@
     {
       "Return Status": "open",
       "Customer Frequency Type": "First Time Customer",
+      "Outcome": "Exchange",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Return Status": "open",
+      "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -3724.79,
       "count Return ID": 10
@@ -38001,8 +38008,8 @@
       "Reason Group": "Fit",
       "Return Reason": "Too short",
       "Parent Return Reason": "Item Was Too Small",
-      "sum Line Item Net": -396,
-      "count Return ID": 1
+      "sum Line Item Net": -792,
+      "count Return ID": 2
     },
     {
       "Week No": 18,
