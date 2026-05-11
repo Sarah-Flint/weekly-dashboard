@@ -3,8 +3,8 @@
     "week": "WEEK 18",
     "dateRange": "5/3/26 to 5/9/26",
     "quarter": "Q2",
-    "lastUpdatedISO": "2026-05-11T01:51:30.499Z",
-    "lastUpdatedEST": "May 10, 2026 21:51:30"
+    "lastUpdatedISO": "2026-05-11T01:56:13.104Z",
+    "lastUpdatedEST": "May 10, 2026 21:56:13"
   },
   "kpi": [
     {
@@ -1939,6 +1939,21 @@
     {
       "CW & PW": "CW",
       "Campaign Type": "Acquisition",
+      "Campaign name": "ACQ | ASC | 7D Click | Conversion - Scarf Belt Website Only - NEW",
+      "Spend": 332.13,
+      "Revenue": 471.78,
+      "ROAS": 1.42,
+      "CPM": 89.69,
+      "CPC": 4,
+      "CPO": 166.07,
+      "Impressions": 3703,
+      "Orders": 2,
+      "Cost per ATC": 30.19,
+      "Add to cart": 11
+    },
+    {
+      "CW & PW": "CW",
+      "Campaign Type": "Acquisition",
       "Campaign name": "ACQ | ASC | 7D Click | Conversion - Whitelisting - All",
       "Spend": 2601.82,
       "Revenue": 4041.57,
@@ -1995,21 +2010,6 @@
       "Orders": 0,
       "Cost per ATC": 67.22,
       "Add to cart": 2
-    },
-    {
-      "CW & PW": "CW",
-      "Campaign Type": "#N/A",
-      "Campaign name": "ACQ | ASC | 7D Click | Conversion - Scarf Belt Website Only - NEW",
-      "Spend": 332.13,
-      "Revenue": 471.78,
-      "ROAS": 1.42,
-      "CPM": 89.69,
-      "CPC": 4,
-      "CPO": 166.07,
-      "Impressions": 3703,
-      "Orders": 2,
-      "Cost per ATC": 30.19,
-      "Add to cart": 11
     },
     {
       "CW & PW": "PW",
