@@ -3,8 +3,8 @@
     "week": "WEEK 19",
     "dateRange": "5/10/26 to 5/16/26",
     "quarter": "Q2",
-    "lastUpdatedISO": "2026-05-18T15:00:49.088Z",
-    "lastUpdatedEST": "May 18, 2026 11:00:49"
+    "lastUpdatedISO": "2026-05-18T15:14:17.820Z",
+    "lastUpdatedEST": "May 18, 2026 11:14:17"
   },
   "kpi": [
     {
@@ -27192,19 +27192,19 @@
       "Product Title": "Perfect Pump 85",
       "Color": "Black Calf",
       "Customer Frequency Type": "First Time Customer",
-      "Return Reason": "Too long",
-      "Parent Return Reason": "Item Was Too Large",
-      "sum Line Item Net": -395,
+      "Return Reason": "to compare for size",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "sum Line Item Net": -445,
       "count Return ID": 1
     },
     {
       "Week No": 14,
       "Product Title": "Perfect Pump 85",
       "Color": "Black Calf",
-      "Customer Frequency Type": "First Time Customer",
-      "Return Reason": "to compare for size",
-      "Parent Return Reason": "Ordered Multiples For Comparison",
-      "sum Line Item Net": -445,
+      "Customer Frequency Type": "Repeat Customer",
+      "Return Reason": "Too long",
+      "Parent Return Reason": "Item Was Too Large",
+      "sum Line Item Net": -395,
       "count Return ID": 1
     },
     {
@@ -29374,8 +29374,8 @@
       "Customer Frequency Type": "First Time Customer",
       "Return Reason": "Too long",
       "Parent Return Reason": "Item Was Too Large",
-      "sum Line Item Net": -790,
-      "count Return ID": 2
+      "sum Line Item Net": -395,
+      "count Return ID": 1
     },
     {
       "Week No": 15,
@@ -29395,6 +29395,16 @@
       "Return Reason": "Changed My Mind",
       "Parent Return Reason": "Changed My Mind",
       "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No": 15,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Black Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Return Reason": "Too long",
+      "Parent Return Reason": "Item Was Too Large",
+      "sum Line Item Net": -395,
       "count Return ID": 1
     },
     {
