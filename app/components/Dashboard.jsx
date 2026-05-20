@@ -119,9 +119,9 @@ useEffect(() => {
   const [showAll,setShowAll]=useState(false);
   const [search,setSearch]=useState("");
   const [expInv,setExpInv]=useState({});
-  const [invSeason,setInvSeason]=useState("All");
-  const [invMC,setInvMC]=useState("All");
-  const [invSC,setInvSC]=useState("All");
+  const [invSeason,setInvSeason]=useState([]);
+  const [invMC,setInvMC]=useState([]);
+  const [invSC,setInvSC]=useState([]);
   const [invSort,setInvSort]=useState({col:"oh",dir:"desc"});
   const [invAlert,setInvAlert]=useState("All");
   const [invTF,setInvTF]=useState("7D");
@@ -1412,9 +1412,14 @@ const rows = [
 
   // Filter SKUs
   const filtered = allSkus.filter(r=>{
-    if(invSeason==="2024 & Prior"&&recentSeasons.includes(r.sn)) return false;
-    if(invSeason!=="All"&&invSeason!=="2024 & Prior"&&r.sn!==invSeason) return false;
-    if(invSC!=="All"&&r.merch_cat!==invSC) return false;
+    if(invSeason.length){
+      const has2024=invSeason.includes("2024 & Prior");
+      const named=invSeason.filter(s=>s!=="2024 & Prior");
+      const match2024=has2024&&!recentSeasons.includes(r.sn);
+      const matchNamed=named.length&&named.includes(r.sn);
+      if(!match2024&&!matchNamed) return false;
+    }
+    if(invSC.length&&!invSC.includes(r.merch_cat)) return false;
     return true;
   });
 
@@ -1507,7 +1512,7 @@ const rows = [
   })).sort((a,b) => b.oh - a.oh);
 
   // Style-level: filter by selected product class, then sort
-  const styleSkus = invMC==="All"?alertSkus:alertSkus.filter(sk=>sk.mClass===invMC);
+  const styleSkus = invMC.length===0?alertSkus:alertSkus.filter(sk=>invMC.includes(sk.mClass));
   const styleMap = {};
   styleSkus.forEach(sk=>{
     const sty=sk.style||'Unknown';
@@ -1521,7 +1526,8 @@ const rows = [
     return ((a[sortCol]??0)-(b[sortCol]??0))*sortDir;
   });
 
-  const btnS=(v,cur)=>({background:cur===v?C.b1:C.cd,color:cur===v?"#fff":C.sl,border:`1px solid ${cur===v?C.b1:C.bd}`,borderRadius:6,padding:"4px 8px",fontSize:10,fontWeight:600,cursor:"pointer"});
+  const btnS=(v,cur)=>{const on=Array.isArray(cur)?(v==="All"?cur.length===0:cur.includes(v)):cur===v;return{background:on?C.b1:C.cd,color:on?"#fff":C.sl,border:`1px solid ${on?C.b1:C.bd}`,borderRadius:6,padding:"4px 8px",fontSize:10,fontWeight:600,cursor:"pointer"};};
+  const toggleInv=(setter,cur,v)=>{if(v==="All"){setter([]);return;}const next=cur.includes(v)?cur.filter(x=>x!==v):[...cur,v];setter(next);};
   const alertBtnS=(v,cur,color)=>({background:cur===v?color:C.cd,color:cur===v?"#fff":C.sl,border:`1px solid ${cur===v?color:C.bd}`,borderRadius:6,padding:"4px 8px",fontSize:10,fontWeight:600,cursor:"pointer"});
   const tfBtnS=(v,cur)=>({background:cur===v?C.nv:C.cd,color:cur===v?"#fff":C.sl,border:`1px solid ${cur===v?C.nv:C.bd}`,borderRadius:8,padding:"6px 16px",fontSize:12,fontWeight:700,cursor:"pointer"});
 
@@ -1556,15 +1562,15 @@ const rows = [
 
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
     <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Product Class:</span>
-    {["All",...classOrder].map(v=><button key={v} onClick={()=>setInvMC(v)} style={btnS(v,invMC)}>{v}</button>)}
+    {["All",...classOrder].map(v=><button key={v} onClick={()=>toggleInv(setInvMC,invMC,v)} style={btnS(v,invMC)}>{v}</button>)}
   </div>
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
     <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Season:</span>
-    {["All","S26","F25","S25","2024 & Prior"].map(v=><button key={v} onClick={()=>setInvSeason(v)} style={btnS(v,invSeason)}>{v}</button>)}
+    {["All","S26","F25","S25","2024 & Prior"].map(v=><button key={v} onClick={()=>toggleInv(setInvSeason,invSeason,v)} style={btnS(v,invSeason)}>{v}</button>)}
   </div>
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
     <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Merch Category:</span>
-    {["All",...invMCats].map(v=><button key={v} onClick={()=>setInvSC(v)} style={btnS(v,invSC)}>{v}</button>)}
+    {["All",...invMCats].map(v=><button key={v} onClick={()=>toggleInv(setInvSC,invSC,v)} style={btnS(v,invSC)}>{v}</button>)}
   </div>
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:10,alignItems:"center"}}>
     <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Alerts:</span>
@@ -1591,7 +1597,7 @@ const rows = [
       </tr></thead>
       <tbody>
         {sorted.map(cls=>(
-          <tr key={cls.name} style={{borderBottom:`1px solid ${C.bd}`,background:invMC===cls.name?"#eff6ff":"transparent",cursor:"pointer"}} onClick={()=>setInvMC(invMC===cls.name?"All":cls.name)} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>{e.currentTarget.style.background=invMC===cls.name?"#eff6ff":"transparent"}}>
+          <tr key={cls.name} style={{borderBottom:`1px solid ${C.bd}`,background:invMC.includes(cls.name)?"#eff6ff":"transparent",cursor:"pointer"}} onClick={()=>toggleInv(setInvMC,invMC,cls.name)} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>{e.currentTarget.style.background=invMC.includes(cls.name)?"#eff6ff":"transparent"}}>
             <td style={{padding:"8px 5px",fontWeight:600,color:C.nv}}>{cls.name} <span style={{fontSize:9,color:C.sL,fontWeight:400}}>({cls.styles.length})</span></td>
             {renderCells(cls,false)}
           </tr>
@@ -1613,7 +1619,7 @@ const rows = [
       </tr></thead>
       <tbody>
         {merchClassData.map(mc=>(
-          <tr key={mc.name} style={{borderBottom:`1px solid ${C.bd}`,cursor:"pointer",background:invSC===mc.name?"#eff6ff":"transparent"}} onClick={()=>setInvSC(invSC===mc.name?"All":mc.name)} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>{e.currentTarget.style.background=invSC===mc.name?"#eff6ff":"transparent"}}>
+          <tr key={mc.name} style={{borderBottom:`1px solid ${C.bd}`,cursor:"pointer",background:invSC.includes(mc.name)?"#eff6ff":"transparent"}} onClick={()=>toggleInv(setInvSC,invSC,mc.name)} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>{e.currentTarget.style.background=invSC.includes(mc.name)?"#eff6ff":"transparent"}}>
             <td style={{padding:"8px 5px",fontWeight:600,color:C.nv}}>{mc.name} <span style={{fontSize:9,color:C.sL,fontWeight:400}}>({mc.count})</span></td>
             {renderCells(mc,false)}
           </tr>
@@ -1627,7 +1633,7 @@ const rows = [
   </div>
 
   {/* Style → Color Drill-down Table */}
-  <SH t={invMC==="All"?"All Styles":"Styles – "+invMC}/>
+  <SH t={invMC.length===0?"All Styles":"Styles – "+invMC.join(", ")}/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,overflowX:"auto"}}>
     <div style={{fontSize:11,color:C.sL,marginBottom:6}}>Click column header to sort · Click style to expand color detail · {sortedStyles.length} styles</div>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
@@ -2227,7 +2233,7 @@ const rows = [
 {tab==="on_order"&&(()=>{
  
   // ── Raw data ──────────────────────────────────────────────────────────────
-  const raw = data.po || [];
+  const raw = (data.po||[]).filter(r=>r.status!=="Cancelled");
  
   // ── Build unique filter options from data ─────────────────────────────────
   const uniq = (key) => [...new Set(raw.map(r=>r[key]).filter(Boolean))].sort();
@@ -2244,6 +2250,7 @@ const rows = [
   const ooSsn = ooSeason.length  ? ooSeason  : allSeasons;
   const ooMth = ooMonth.length   ? ooMonth   : allMonths;
   const ooLnc = ooLaunch.length  ? ooLaunch  : allLaunches;
+  const ooLM  = ooLaunchMonth.length ? ooLaunchMonth : allLaunchMonths;
  
   const toggleFilter = (setter, current, all, val) => {
     const active = current.length ? current : all;
@@ -2274,9 +2281,9 @@ const rows = [
   // ── Apply filters ─────────────────────────────────────────────────────────
   const filtered = allGroups.filter(g => {
     const status = groupStatus(g.rows);
-    if (!ooSt.includes(status))           return false;
-    if (!ooQtr.includes(g.quarter))       return false;
-    if (!ooSsn.includes(g.po_season))     return false;
+    if (!ooSt.includes(status))                                        return false;
+    if (ooQtr.length && g.quarter   && !ooQtr.includes(g.quarter))   return false;
+    if (ooSsn.length && g.po_season && !ooSsn.includes(g.po_season)) return false;
     if(ooMth.length && g.delivery_month && !ooMth.includes(g.delivery_month)) return false;
     if(ooLM.length && g.launch_month && !ooLM.includes(g.launch_month)) return false;
     if (!ooLnc.includes(g.launch_category)) return false;
