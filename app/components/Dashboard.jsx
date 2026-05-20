@@ -917,7 +917,7 @@ const rows = [
 })()}
 
 {/* Weekly KPIs */}
-<SH t={`${meta.week.replace("WEEK", "Week")} Performance`}/>
+<SH t={`${(meta.week||"").replace("WEEK", "Week")||"Weekly"} Performance`}/>
 
 <div style={{display:"grid",gridTemplateColumns:"repeat(4, 1fr)",gap:12,marginBottom:6}}>
   {weeklyKpis.map((kpi) => {
