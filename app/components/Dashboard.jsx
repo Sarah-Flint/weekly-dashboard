@@ -2479,18 +2479,15 @@ const rows = [
             <TH/>
             <TH>Status</TH>
             <TH>Style Name</TH>
+            <TH>Color</TH>
             <TH>Style #</TH>
-            <TH>Color / Material</TH>
-            <TH>Vendor</TH>
-            <TH>PO #</TH>
+            <TH>Launch Cat.</TH>
             <TH>Freight</TH>
             <TH right>Ordered</TH>
             <TH right>Received</TH>
-            <TH right>Outstanding</TH>
-            <TH>Est. In-Warehouse</TH>
-            <TH>Target On-Site</TH>
-            <TH>Launch Cat.</TH>
-            <TH>Launch Check</TH>
+            <TH right>Bal</TH>
+            <TH>Est. In-WH</TH>
+            <TH>Target Launch</TH>
           </tr>
         </thead>
         <tbody>
@@ -2529,19 +2526,23 @@ const rows = [
                     {hasSplit && <span style={{fontSize:14,color:C.sL,display:"inline-block",
                       transition:"transform .15s",transform:isExp?"rotate(90deg)":"none"}}>›</span>}
                   </td>
-                  <td style={{padding:"8px 8px",background:rowBg}}><SBadge s={status}/></td>
+                  <td style={{padding:"8px 8px",background:rowBg}}>
+                    <div style={{display:"flex",alignItems:"center",gap:5}}>
+                      <SBadge s={status}/>
+                      {g.launch_conflict==="Launch Conflict"&&<span title="Launch Conflict" style={{color:"#dc2626",fontSize:13}}>⚠</span>}
+                    </div>
+                  </td>
                   <td style={{padding:"8px 8px",fontWeight:700,color:C.nv,whiteSpace:"nowrap",
                     overflow:"hidden",textOverflow:"ellipsis",maxWidth:160,background:rowBg}}>
                     {g.style_name}
                   </td>
+                  <td style={{padding:"8px 8px",color:C.sl,fontSize:11,background:rowBg}}>{g.color}</td>
                   <td style={{padding:"8px 8px",fontFamily:"monospace",fontSize:11,color:"#64748b",background:rowBg}}>{g.style_number}</td>
-                  <td style={{padding:"8px 8px",color:C.sl,background:rowBg}}>{g.color}</td>
-                  <td style={{padding:"8px 8px",color:C.sL,fontSize:11,background:rowBg}}>{g.vendor}</td>
-                  <td style={{padding:"8px 8px",color:"#64748b",fontSize:11,background:rowBg}}>{g.po_number||"—"}</td>
+                  <td style={{padding:"8px 8px",fontSize:11,color:"#64748b",background:rowBg}}>{g.launch_category}</td>
                   <td style={{padding:"8px 8px",background:rowBg}}><FreightCell/></td>
                   <MetricCell val={totOrd.toLocaleString()} sub="ordered"/>
                   <MetricCell val={totRcvd>0?totRcvd.toLocaleString():null} color={totRcvd>0?C.gn:C.sL} sub="received"/>
-                  <MetricCell val={totOut>0?totOut.toLocaleString():null} color={outColor} sub="outstanding"/>
+                  <MetricCell val={totOut>0?totOut.toLocaleString():null} color={outColor} sub="bal"/>
                   <td style={{padding:"8px 8px",fontSize:11,background:rowBg,
                     color:earliestEta?C.nv:C.am,fontWeight:earliestEta?400:600}}>
                     {earliestEta||"No ETA"}
@@ -2549,8 +2550,6 @@ const rows = [
                   <td style={{padding:"8px 8px",fontSize:11,color:"#64748b",background:rowBg}}>
                     {rows[0]?.target_launch_date||"—"}
                   </td>
-                  <td style={{padding:"8px 8px",fontSize:11,color:"#64748b",background:rowBg}}>{g.launch_category}</td>
-                  <td style={{padding:"8px 8px",background:rowBg}}><LcBadge v={g.launch_conflict}/></td>
                 </tr>
  
                 {/* Expanded shipment rows */}
@@ -2562,7 +2561,7 @@ const rows = [
                       └ Shipment {si+1}
                       {r.shipment_id&&<span style={{marginLeft:6,fontSize:10,color:C.sL}}>{r.shipment_id}</span>}
                     </td>
-                    <td/><td/><td/><td/>
+                    <td/><td/><td/>
                     <td style={{padding:"6px 8px"}}><FreightBadge f={r.freight_method}/></td>
                     <td style={{padding:"6px 8px",textAlign:"right"}}>
                       <div style={{fontSize:13,fontWeight:700,color:C.nv}}>{Number(r.units_ordered)||0}</div>
@@ -2575,14 +2574,13 @@ const rows = [
                     </td>
                     <td style={{padding:"6px 8px",textAlign:"right"}}>
                       {(Number(r.units_outstanding)||0)>0
-                        ? <><div style={{fontSize:13,fontWeight:700,color:C.b1}}>{Number(r.units_outstanding).toLocaleString()}</div><div style={{fontSize:10,color:C.sL}}>outstanding</div></>
+                        ? <><div style={{fontSize:13,fontWeight:700,color:C.b1}}>{Number(r.units_outstanding).toLocaleString()}</div><div style={{fontSize:10,color:C.sL}}>bal</div></>
                         : <span style={{color:C.sL}}>—</span>}
                     </td>
                     <td style={{padding:"6px 8px",fontSize:11,color:r.expected_delivery?C.nv:C.am,fontWeight:r.expected_delivery?400:600}}>
                       {r.expected_delivery||"No ETA"}
                     </td>
                     <td style={{padding:"6px 8px",fontSize:11,color:"#64748b"}}>{r.target_launch_date||"—"}</td>
-                    <td/><td/>
                   </tr>
                 ))}
               </React.Fragment>
@@ -2590,7 +2588,7 @@ const rows = [
           })}
  
           {sortedGroups.length===0&&(
-            <tr><td colSpan={15} style={{padding:"32px",textAlign:"center",color:C.sL,fontSize:13}}>
+            <tr><td colSpan={12} style={{padding:"32px",textAlign:"center",color:C.sL,fontSize:13}}>
               No styles match the current filters.
             </td></tr>
           )}
