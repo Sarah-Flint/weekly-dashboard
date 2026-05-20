@@ -131,6 +131,7 @@ useEffect(() => {
   const [reasonStyle,setReasonStyle]=useState("All");
   const [reasonTime,setReasonTime]=useState("L5W");
   const [expCamp,setExpCamp]=useState({});
+  const [openFilter,setOpenFilter]=useState(null);
   const [retF,setRetF]=useState("all");
   const [expRetStyle,setExpRetStyle]=useState({});
   const [ooExpanded,   setOoExpanded]   = useState({});
@@ -2300,50 +2301,56 @@ const rows = [
     {/* ── Filters ───────────────────────────────────────────────────────── */}
     <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,padding:"11px 14px",marginBottom:12,display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
  
-      {/* Status */}
-      {[{label:"Filter: Status", all:allStatuses,    active:ooStatus,       setter:setOoStatus},
-        {label:"Quarter",        all:allQuarters,    active:ooQuarter,      setter:setOoQuarter},
-        {label:"PO Season",      all:allSeasons,     active:ooSeason,       setter:setOoSeason},
-        {label:"Delivery Month", all:allMonths,      active:ooMonth,        setter:setOoMonth},
-        {label:"Launch Month",   all:allLaunchMonths,active:ooLaunchMonth,  setter:setOoLaunchMonth},
-        {label:"Launch Category",all:allLaunches,    active:ooLaunch,       setter:setOoLaunch},
-      ].map(({label, all, active, setter}) => {
-        // active=[] means "Select All"; active.length>0 means specific items chosen
-        const isFiltered = active.length > 0 && active.length < all.length;
+      {[{label:"Status",         all:allStatuses,    active:ooStatus,      setter:setOoStatus},
+        {label:"Quarter",        all:allQuarters,    active:ooQuarter,     setter:setOoQuarter},
+        {label:"PO Season",      all:allSeasons,     active:ooSeason,      setter:setOoSeason},
+        {label:"Delivery Month", all:allMonths,      active:ooMonth,       setter:setOoMonth},
+        {label:"Launch Month",   all:allLaunchMonths,active:ooLaunchMonth, setter:setOoLaunchMonth},
+        {label:"Launch Category",all:allLaunches,    active:ooLaunch,      setter:setOoLaunch},
+      ].map(({label,all,active,setter})=>{
+        const isOpen    = openFilter===label;
+        const isFiltered = active.length>0;
         return (
           <div key={label} style={{position:"relative",display:"inline-block"}}>
-            <details style={{position:"relative"}}>
-              <summary style={{...fBtnS(isFiltered), listStyle:"none", display:"flex", alignItems:"center", gap:4, userSelect:"none"}}>
-                {label}
-                {isFiltered && <span style={{background:C.b1,color:"#fff",borderRadius:10,padding:"1px 5px",fontSize:10,marginLeft:2}}>{active.length}/{all.length}</span>}
-                <span style={{fontSize:11}}>▾</span>
-              </summary>
-              <div style={{position:"absolute",top:"calc(100% + 4px)",left:0,background:C.cd,border:`1px solid ${C.bd}`,borderRadius:8,padding:5,minWidth:160,zIndex:100,boxShadow:"0 4px 16px rgba(0,0,0,.08)"}}>
-                <label style={{display:"flex",alignItems:"center",gap:7,padding:"5px 7px",borderRadius:5,cursor:"pointer",fontSize:11,fontWeight:600,color:C.b1,borderBottom:`1px solid ${C.bd}`,marginBottom:2}}>
-                  <input type="checkbox" checked={active.length===0} style={{accentColor:C.b1}}
-                    onChange={()=>setter([])}/>
-                  Select All
-                </label>
-                {all.map(opt=>{
-                  const checked = active.length>0 && active.includes(opt);
-                  return (
-                    <label key={opt} style={{display:"flex",alignItems:"center",gap:7,padding:"5px 7px",borderRadius:5,cursor:"pointer",fontSize:12,color:C.sl}}>
-                      <input type="checkbox" checked={checked} style={{accentColor:C.b1}}
-                        onChange={()=>{
-                          const next = active.includes(opt)?active.filter(x=>x!==opt):[...active,opt];
-                          setter(next);
-                        }}/>
-                      {opt}
-                    </label>
-                  );
-                })}
+            <button onClick={()=>setOpenFilter(isOpen?null:label)}
+              style={{...fBtnS(isFiltered),display:"flex",alignItems:"center",gap:4}}>
+              {label}
+              {isFiltered&&<span style={{background:C.b1,color:"#fff",borderRadius:10,padding:"1px 5px",fontSize:10}}>{active.length}</span>}
+              <span style={{fontSize:10,opacity:0.5}}>▾</span>
+            </button>
+            {isOpen&&<div style={{position:"absolute",top:"calc(100% + 4px)",left:0,background:C.cd,
+              border:`1px solid ${C.bd}`,borderRadius:8,padding:5,minWidth:170,
+              zIndex:200,boxShadow:"0 4px 16px rgba(0,0,0,.12)"}}>
+              <div onClick={()=>{setter([]);setOpenFilter(null);}}
+                style={{display:"flex",alignItems:"center",gap:7,padding:"6px 8px",
+                  borderRadius:4,cursor:"pointer",marginBottom:3,
+                  borderBottom:`1px solid ${C.bd}`,
+                  background:active.length===0?C.b4:"transparent"}}>
+                <div style={{width:14,height:14,borderRadius:3,flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",
+                  border:`2px solid ${active.length===0?C.b1:"#cbd5e1"}`,background:active.length===0?C.b1:"#fff"}}>
+                  {active.length===0&&<span style={{color:"#fff",fontSize:9,fontWeight:900}}>✓</span>}
+                </div>
+                <span style={{fontSize:11,fontWeight:700,color:active.length===0?C.b1:C.sl}}>Select All</span>
               </div>
-            </details>
+              {all.map(opt=>{
+                const on=active.includes(opt);
+                return <div key={opt}
+                  onClick={()=>setter(on?active.filter(x=>x!==opt):[...active,opt])}
+                  style={{display:"flex",alignItems:"center",gap:7,padding:"6px 8px",
+                    borderRadius:4,cursor:"pointer",background:on?C.b4:"transparent"}}>
+                  <div style={{width:14,height:14,borderRadius:3,flexShrink:0,display:"flex",alignItems:"center",justifyContent:"center",
+                    border:`2px solid ${on?C.b1:"#cbd5e1"}`,background:on?C.b1:"#fff"}}>
+                    {on&&<span style={{color:"#fff",fontSize:9,fontWeight:900}}>✓</span>}
+                  </div>
+                  <span style={{fontSize:12,color:C.sl}}>{opt}</span>
+                </div>;
+              })}
+            </div>}
           </div>
         );
       })}
- 
-      {/* Launch Conflict toggle */}
+
+      {/* Launch Conflict      {/* Launch Conflict toggle */}
       <button onClick={()=>setOoConflict(!ooConflict)}
         style={{background:ooConflict?"#fee2e2":C.cd, border:`1px solid ${ooConflict?"#dc2626":C.bd}`,
           color:ooConflict?"#991b1b":C.sl, borderRadius:6, padding:"4px 9px", fontSize:11,
