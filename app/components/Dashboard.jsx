@@ -1394,9 +1394,9 @@ const rows = [
   // Time-frame field mapping
   const ytdWeeks = parseInt((meta.week||"").replace(/\D/g,"")) || 17;
   const tfFields = {
-    "7D":  { uKey:"nu_7",   guKey:"gu_7",  revKey:"gld7",          weeks:1,        label:"7D" },
-    "90D": { uKey:"nu_90",  guKey:"gu_90", revKey:"net_sales_90",   weeks:90/7,     label:"90D" },
-    "YTD": { uKey:"nu_ytd", guKey:null,    revKey:"net_sales_ytd",  weeks:ytdWeeks, label:"YTD" },
+    "7D":  { uKey:"nu_7",   guKey:"gu_7",  revKey:"gld7",         netKey:"net_sales_7",   weeks:1,        label:"7D" },
+    "90D": { uKey:"nu_90",  guKey:"gu_90", revKey:"net_sales_90", netKey:"net_sales_90",  weeks:90/7,     label:"90D" },
+    "YTD": { uKey:"nu_ytd", guKey:null,    revKey:"net_sales_ytd",netKey:"net_sales_ytd", weeks:ytdWeeks, label:"YTD" },
   };
   const tf = tfFields[invTF] || tfFields["7D"];
 
@@ -1417,7 +1417,7 @@ const rows = [
     const nu=tf.uKey?Number(r[tf.uKey])||0:0;
     const gu=tf.guKey?Number(r[tf.guKey])||0:0; // gross units sold; 0 if unavailable for this period
     const gld=tf.revKey?Number(r[tf.revKey])||0:0;
-    const netSales=Number(r['net_sales_7'])||Number(r['net_sales_90'])||Number(r['net_sales_ytd'])||0;
+    const netSales=tf.netKey?Number(r[tf.netKey])||0:0;
     const st=(oh+nu)>0?+((nu/(oh+nu))*100).toFixed(1):0;
     // Avg price: GLD / gross units if available; else net sales / net units
     const avgP=gu>0&&gld>0?Math.round(gld/gu):nu>0&&netSales>0?Math.round(netSales/nu):0;
