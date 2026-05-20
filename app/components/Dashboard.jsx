@@ -58,13 +58,13 @@ const DEFS={
   pagesPerSession:"Average page views per session",pageViews:"Total page views across all sessions",
   cvr:"Orders / sessions for a given page or channel",revenue:"Attributed revenue from orders",
   // Products
-  units:"Total units sold in the period",pctTtl:"Style or category GLD as a percentage of total GLD",oh:"Current on-hand unit count",
+  units:"Gross units ordered in the period (before returns)",pctTtl:"Style or category GLD as a percentage of total GLD",oh:"Current on-hand unit count",
   // Inventory
   st7:"7D units sold / (OH units + 7D units sold)",st90:"90D units sold / (OH units + 90D units sold)",
   u7:"Units sold in the last 7 days",u90:"Units sold in the last 90 days",
   woh:"OH units / avg weekly sell-through volume",wohOwned:"Total owned inventory / avg weekly sell-through volume",
   ohVal:"On-hand inventory valued at unit cost",ohUnits:"Current on-hand unit count",onOrder:"Units on order (open orders + purchase orders)",
-  totalOwned:"OH units + on order units",unitCost:"Weighted average cost per unit",avgPrice:"Average selling price (GLD / units sold, 7D)",avgProfit:"Average selling price minus unit cost",imu:"Initial markup: avg profit / avg price",
+  totalOwned:"OH units + on order units",unitCost:"Weighted average cost per unit",avgPrice:"Average selling price: GLD ÷ gross units sold. If gross units unavailable for the period, falls back to net sales ÷ net units sold",avgProfit:"Average selling price minus unit cost",imu:"Initial markup: avg profit / avg price",
   // Customers
   newCust:"Orders from new customers",retOrders:"Orders from returning customers",
   // Returns
@@ -131,6 +131,14 @@ useEffect(() => {
   const [reasonStyle,setReasonStyle]=useState("All");
   const [reasonTime,setReasonTime]=useState("L5W");
   const [expCamp,setExpCamp]=useState({});
+  const [ooExpanded,   setOoExpanded]   = useState({});
+  const [ooStatus,     setOoStatus]     = useState([]);
+  const [ooQuarter,    setOoQuarter]    = useState([]);
+  const [ooSeason,     setOoSeason]     = useState([]);
+  const [ooMonth,      setOoMonth]      = useState([]);
+  const [ooLaunch,     setOoLaunch]     = useState([]);
+  const [ooConflict,   setOoConflict]   = useState(false);
+  const [ooSearch,     setOoSearch]     = useState("");
 
   if (!data) return <div>Loading...</div>;
   const meta = data.metadata || {};
@@ -697,7 +705,7 @@ useEffect(() => {
   const GOOG_LIVE = buildCampData(data.google_ads || [], 'brand');
 
   const mtdROAS=DD.mtdMktSpend?(DD.mtdNewNet/DD.mtdMktSpend).toFixed(2):"—";
-  const tabs=[{id:"overview",l:"Overview",i:"📊"},{id:"revenue",l:"Revenue",i:"💰"},{id:"products",l:"Products",i:"👠"},{id:"inventory",l:"Inventory",i:"📦"},{id:"returns",l:"Returns",i:"↩️"},{id:"marketing",l:"Marketing",i:"📣"},{id:"website",l:"Website",i:"🌐"}];
+  const tabs=[{id:"overview",l:"Overview",i:"📊"},{id:"revenue",l:"Revenue",i:"💰"},{id:"products",l:"Products",i:"👠"},{id:"inventory",l:"Inventory",i:"📦"},{id:"on_order",l:"On Order",i:"🚢"},{id:"returns",l:"Returns",i:"↩️"},{id:"marketing",l:"Marketing",i:"📣"},{id:"website",l:"Website",i:"🌐"}];
   const rv = revF === "new" ? {
     gross: DD.newGross, priorGross: DD.priorNewGross, grossPlan: null,
     discounts: DD.newDiscounts, priorDiscounts: DD.priorNewDiscounts,
@@ -1386,9 +1394,9 @@ const rows = [
   // Time-frame field mapping
   const ytdWeeks = parseInt((meta.week||"").replace(/\D/g,"")) || 17;
   const tfFields = {
-    "7D":  { uKey:"nu_7",    revKey:"gld7",           weeks:1,        label:"7D" },
-    "90D": { uKey:"nu_90",   revKey:"net_sales_90",    weeks:90/7,     label:"90D" },
-    "YTD": { uKey:"nu_ytd",  revKey:"net_sales_ytd",   weeks:ytdWeeks, label:"YTD" },
+    "7D":  { uKey:"nu_7",   guKey:"gu_7",  revKey:"gld7",          weeks:1,        label:"7D" },
+    "90D": { uKey:"nu_90",  guKey:"gu_90", revKey:"net_sales_90",   weeks:90/7,     label:"90D" },
+    "YTD": { uKey:"nu_ytd", guKey:null,    revKey:"net_sales_ytd",  weeks:ytdWeeks, label:"YTD" },
   };
   const tf = tfFields[invTF] || tfFields["7D"];
 
@@ -1405,16 +1413,19 @@ const rows = [
     const oh=Number(r.u_oh)||0; const ov=Number(r.oh_value)||0;
     const oo=(Number(r.u_oo)||0)+(Number(r.u_po)||0);
     const owned=Number(r.u_owned)||(oh+oo);
-    const uc=Number(r.unit_cost)||0;
+    const uc=Math.round(Number(r.unit_cost)||0);
     const nu=tf.uKey?Number(r[tf.uKey])||0:0;
+    const gu=tf.guKey?Number(r[tf.guKey])||0:0; // gross units sold; 0 if unavailable for this period
     const gld=tf.revKey?Number(r[tf.revKey])||0:0;
+    const netSales=Number(r['net_sales_7'])||Number(r['net_sales_90'])||Number(r['net_sales_ytd'])||0;
     const st=(oh+nu)>0?+((nu/(oh+nu))*100).toFixed(1):0;
-    const avgP=nu>0&&gld>0?Math.round(gld/nu):0;
+    // Avg price: GLD / gross units if available; else net sales / net units
+    const avgP=gu>0&&gld>0?Math.round(gld/gu):nu>0&&netSales>0?Math.round(netSales/nu):0;
     const avgPr=avgP>0&&uc>0?Math.round(avgP-uc):0;
     const imu=avgP>0&&avgPr!==0?+((avgPr/avgP)*100).toFixed(1):0;
     const weeklyRate=tf.weeks?nu/tf.weeks:0;
     const woh=weeklyRate>0?Math.round(owned/weeklyRate):999;
-    return {c:r.color,sn:r.sn,mc:r.merch_cat,style:r.style,mClass:r.m_class,oh,ov,oo,owned,uc,nu,gld,st:parseFloat(st),avgP,avgPr,imu,woh,weeklyRate};
+    return {c:r.color,sn:r.sn,mc:r.merch_cat,style:r.style,mClass:r.m_class,oh,ov,oo,owned,uc,nu,gu,gld,netSales,st:parseFloat(st),avgP,avgPr,imu,woh,weeklyRate};
   };
 
   const skuRows = filtered.map(buildSku);
@@ -1430,15 +1441,18 @@ const rows = [
     const oo=rows.reduce((a,r)=>a+r.oo,0);
     const owned=rows.reduce((a,r)=>a+r.owned,0);
     const nu=rows.reduce((a,r)=>a+r.nu,0);
+    const gu=rows.reduce((a,r)=>a+r.gu,0); // sum gross units across SKUs
     const gld=rows.reduce((a,r)=>a+r.gld,0);
+    const netSales=rows.reduce((a,r)=>a+r.netSales,0);
     const uc=oh>0?Math.round(rows.reduce((a,r)=>a+r.uc*r.oh,0)/oh):0;
     const st=(oh+nu)>0?+((nu/(oh+nu))*100).toFixed(1):0;
-    const avgP=nu>0&&gld>0?Math.round(gld/nu):0;
+    // Avg price: GLD / gross units if available; else net sales / net units
+    const avgP=gu>0&&gld>0?Math.round(gld/gu):nu>0&&netSales>0?Math.round(netSales/nu):0;
     const avgPr=avgP>0&&uc>0?Math.round(avgP-uc):0;
     const imu=avgP>0&&avgPr!==0?+((avgPr/avgP)*100).toFixed(1):0;
     const weeklyRate=rows.reduce((a,r)=>a+r.weeklyRate,0);
     const woh=weeklyRate>0?Math.round(owned/weeklyRate):999;
-    return {oh,ov,oo,owned,nu,gld,uc,st:parseFloat(st),avgP,avgPr,imu,woh};
+    return {oh,ov,oo,owned,nu,gu,gld,netSales,uc,st:parseFloat(st),avgP,avgPr,imu,woh};
   };
 
   // Group: Product Class → Style → Colors
@@ -1519,7 +1533,7 @@ const rows = [
     <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>{ff(d.ov)}</td>
     <td style={{padding:"7px 5px",textAlign:"right"}}>{d.nu}</td>
     <td style={{padding:"7px 5px",textAlign:"right",color:stColor(d.st)}}>{d.st}%</td>
-    <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>{d.uc>0?`$${d.uc}`:"–"}</td>
+    <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>{d.uc>0?`$${Math.round(d.uc)}`:"–"}</td>
     <td style={{padding:"7px 5px",textAlign:"right"}}>{d.avgP>0?`$${d.avgP}`:"–"}</td>
     <td style={{padding:"7px 5px",textAlign:"right",color:profitColor(d.avgPr)}}>{d.avgPr!==0?`$${d.avgPr}`:"–"}</td>
     <td style={{padding:"7px 5px",textAlign:"right",color:d.imu>=50?C.gn:d.imu>=30?C.nv:d.imu>0?C.am:C.sL}}>{d.imu>0?`${d.imu}%`:"–"}</td>
@@ -2194,6 +2208,317 @@ const rows = [
   <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["sessions","conv","engagement","atcRate","bounce","pagesPerSession","pageViews","cvr","revenue"]}/>
   <div style={{marginTop:4,fontSize:10,color:C.sL,fontStyle:"italic"}}>Note: Website traffic data is from Google Analytics filtered for United States only.</div>
 </>}
+
+
+{/* ═══ ON ORDER ═══ */}
+{tab==="on_order"&&(()=>{
+
+  const raw = (data.po||[]).filter(r=>r.status!=="Cancelled");
+
+  const uniq = (key) => [...new Set(raw.map(r=>r[key]).filter(Boolean))].sort();
+  const allStatuses = ["Not Shipped","In Transit","Partial Receipt","Full Receipt","PO Not Placed"];
+  const allQuarters = uniq("quarter");
+  const allSeasons  = uniq("po_season");
+  const allMonths   = ["January","February","March","April","May","June","July","August","September","October","November","December"].filter(m=>uniq("delivery_month").includes(m));
+  const allLaunches = uniq("launch_category");
+
+  const ooSt  = ooStatus.length  ? ooStatus  : allStatuses;
+  const ooQtr = ooQuarter.length ? ooQuarter : allQuarters;
+  const ooSsn = ooSeason.length  ? ooSeason  : allSeasons;
+  const ooMth = ooMonth.length   ? ooMonth   : allMonths;
+  const ooLnc = ooLaunch.length  ? ooLaunch  : allLaunches;
+
+  const toggleFilter = (setter, current, all, val) => {
+    const active = current.length ? current : all;
+    const next = active.includes(val) ? active.filter(x=>x!==val) : [...active,val];
+    setter(next.length===all.length ? [] : next);
+  };
+
+  const groupMap = {};
+  raw.forEach(r=>{
+    const key = r.po_style || `${r.po_number||"NOPO"}__${r.style_number}`;
+    if(!groupMap[key]) groupMap[key]={key,rows:[],...r};
+    groupMap[key].rows.push(r);
+  });
+  const allGroups = Object.values(groupMap);
+
+  const groupStatus = (rows) => {
+    const ss = rows.map(r=>r.status).filter(Boolean);
+    if(!ss.length) return "Not Shipped";
+    if(ss.every(s=>s==="Full Receipt"))    return "Full Receipt";
+    if(ss.some(s=>s==="Partial Receipt"))  return "Partial Receipt";
+    if(ss.some(s=>s==="In Transit"))       return "In Transit";
+    if(ss.every(s=>s==="PO Not Placed"))   return "PO Not Placed";
+    return "Not Shipped";
+  };
+
+  const filtered = allGroups.filter(g=>{
+    const status = groupStatus(g.rows);
+    if(!ooSt.includes(status)) return false;
+    if(g.quarter && !ooQtr.includes(g.quarter)) return false;
+    if(g.po_season && !ooSsn.includes(g.po_season)) return false;
+    if(g.delivery_month && !ooMth.includes(g.delivery_month)) return false;
+    if(g.launch_category && !ooLnc.includes(g.launch_category)) return false;
+    if(ooConflict && g.launch_conflict!=="Launch Conflict") return false;
+    if(ooSearch && !g.style_name?.toLowerCase().includes(ooSearch.toLowerCase())) return false;
+    return true;
+  });
+
+  const sortedGroups = [...filtered].sort((a,b)=>{
+    const ea=a.expected_delivery||"9999", eb=b.expected_delivery||"9999";
+    return ea.localeCompare(eb);
+  });
+
+  const activeRaw  = raw.filter(r=>!["Full Receipt"].includes(r.status));
+  const kpiStyles  = allGroups.length;
+  const kpiPOs     = [...new Set(raw.map(r=>r.po_number).filter(Boolean))].length;
+  const kpiOutst   = raw.reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
+  const kpiAir     = activeRaw.filter(r=>r.freight_method==="Air").reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
+  const kpiOcean   = activeRaw.filter(r=>r.freight_method==="Ocean").reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
+
+  const stageUnits = (st) => raw.filter(r=>r.status===st).reduce((a,r)=>a+(Number(r.units_outstanding)||0)+(Number(r.units_received)||0),0);
+  const stages = [
+    {label:"PO Not Placed",  color:"#7c3aed",bg:"#f3e8ff",units:stageUnits("PO Not Placed")},
+    {label:"Not Shipped",    color:"#475569",bg:"#f1f5f9",units:stageUnits("Not Shipped")},
+    {label:"In Transit",     color:"#1e40af",bg:"#dbeafe",units:stageUnits("In Transit")},
+    {label:"Partial Receipt",color:"#d97706",bg:"#fef3c7",units:stageUnits("Partial Receipt")},
+    {label:"Full Receipt",   color:"#059669",bg:"#d1fae5",units:stageUnits("Full Receipt")},
+  ];
+  const stageTot = stages.reduce((a,s)=>a+s.units,0)||1;
+
+  const sBg = {
+    "Not Shipped":    {bg:"#f1f5f9",cl:"#475569"},
+    "In Transit":     {bg:"#dbeafe",cl:"#1e40af"},
+    "Partial Receipt":{bg:"#fef3c7",cl:"#92400e"},
+    "Full Receipt":   {bg:"#d1fae5",cl:"#065f46"},
+    "PO Not Placed":  {bg:"#f3e8ff",cl:"#6b21a8"},
+  };
+  const SBadge = ({s})=>{
+    const {bg="#f1f5f9",cl="#475569"}=sBg[s]||{};
+    return <span style={{display:"inline-flex",alignItems:"center",padding:"2px 8px",borderRadius:20,fontSize:10,fontWeight:700,background:bg,color:cl,whiteSpace:"nowrap"}}>{s}</span>;
+  };
+  const FreightBadge = ({f})=>{
+    if(f==="Air")   return <span style={{display:"inline-flex",alignItems:"center",padding:"2px 7px",borderRadius:20,fontSize:10,fontWeight:700,background:"#e0f2fe",color:"#0369a1",whiteSpace:"nowrap"}}>✈ Air</span>;
+    if(f==="Ocean") return <span style={{display:"inline-flex",alignItems:"center",padding:"2px 7px",borderRadius:20,fontSize:10,fontWeight:700,background:"#d1fae5",color:"#065f46",whiteSpace:"nowrap"}}>〜 Ocean</span>;
+    return <span style={{color:C.sL}}>—</span>;
+  };
+  const LcBadge = ({v})=>v==="Launch Conflict"
+    ? <span style={{display:"inline-flex",alignItems:"center",padding:"2px 7px",borderRadius:20,fontSize:10,fontWeight:700,background:"#fee2e2",color:"#991b1b"}}>⚠ Conflict</span>
+    : <span style={{display:"inline-flex",alignItems:"center",padding:"2px 7px",borderRadius:20,fontSize:10,fontWeight:700,background:"#d1fae5",color:"#065f46"}}>✓ OK</span>;
+
+  const TH = ({children,right})=>(
+    <th style={{padding:"8px 8px",textAlign:right?"right":"left",fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",letterSpacing:.4,whiteSpace:"nowrap",background:"#f8fafc"}}>{children}</th>
+  );
+
+  const fBtnS = (active)=>({background:active?C.b4:C.cd,border:`1px solid ${active?C.b2:C.bd}`,color:active?C.b1:C.sl,borderRadius:6,padding:"4px 9px",fontSize:11,fontWeight:600,cursor:"pointer"});
+
+  return <>
+
+    {/* KPI cards */}
+    <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:10,marginBottom:12}}>
+      {[
+        {l:"Styles on Order",   v:kpiStyles.toLocaleString(), sub:`across ${kpiPOs} POs`},
+        {l:"Units Outstanding", v:kpiOutst.toLocaleString(),  sub:"open + partial + transit"},
+        {l:"Air Inbound",       v:kpiAir.toLocaleString(),    sub:`${Math.round(kpiAir/((kpiAir+kpiOcean)||1)*100)}% of outstanding`},
+        {l:"Ocean Inbound",     v:kpiOcean.toLocaleString(),  sub:`${Math.round(kpiOcean/((kpiAir+kpiOcean)||1)*100)}% of outstanding`},
+      ].map(k=>(
+        <div key={k.l} style={{background:C.cd,borderRadius:10,border:`1px solid ${C.bd}`,padding:"13px 15px"}}>
+          <div style={{fontSize:10,color:C.sL,textTransform:"uppercase",letterSpacing:.7,fontWeight:600,marginBottom:4}}>{k.l}</div>
+          <div style={{fontSize:22,fontWeight:700,color:C.nv,lineHeight:1.1}}>{k.v}</div>
+          <div style={{fontSize:11,color:C.sL,marginTop:3}}>{k.sub}</div>
+        </div>
+      ))}
+    </div>
+
+    {/* Pipeline bar */}
+    <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,padding:"16px 18px",marginBottom:12}}>
+      <div style={{fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",letterSpacing:.7,marginBottom:11}}>Units by pipeline stage</div>
+      <div style={{display:"flex",borderRadius:7,overflow:"hidden",height:30,gap:2}}>
+        {stages.map(s=>{
+          const pct=s.units/stageTot*100, w=Math.max(pct,2);
+          return <div key={s.label} title={`${s.label}: ${s.units.toLocaleString()} units (${pct.toFixed(1)}%)`}
+            style={{background:s.color,width:`${w}%`,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
+            {w>6&&<span style={{fontSize:10,fontWeight:700,color:s.bg,padding:"0 5px",whiteSpace:"nowrap"}}>{pct.toFixed(1)}%</span>}
+          </div>;
+        })}
+      </div>
+      <div style={{display:"flex",marginTop:13,borderTop:`1px solid #f1f5f9`,paddingTop:12}}>
+        {stages.map((s,i)=>(
+          <div key={s.label} style={{flex:1,padding:"0 10px",borderRight:i<stages.length-1?`1px solid #f1f5f9`:"none",paddingLeft:i===0?0:undefined}}>
+            <div style={{display:"flex",alignItems:"center",gap:5,marginBottom:4}}>
+              <span style={{width:9,height:9,borderRadius:2,background:s.color,display:"inline-block",flexShrink:0}}/>
+              <span style={{fontSize:10,fontWeight:600,color:C.sl}}>{s.label}</span>
+            </div>
+            <div style={{fontSize:18,fontWeight:700,color:C.nv,lineHeight:1.1}}>{s.units.toLocaleString()}</div>
+            <div style={{fontSize:10,fontWeight:700,color:s.color,marginTop:2}}>{(s.units/stageTot*100).toFixed(1)}%</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Filters */}
+    <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,padding:"11px 14px",marginBottom:12,display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
+      {[
+        {label:"Status",         all:allStatuses, active:ooSt,  setter:setOoStatus},
+        {label:"Quarter",        all:allQuarters, active:ooQtr, setter:setOoQuarter},
+        {label:"PO Season",      all:allSeasons,  active:ooSsn, setter:setOoSeason},
+        {label:"Delivery Month", all:allMonths,   active:ooMth, setter:setOoMonth},
+        {label:"Launch Category",all:allLaunches, active:ooLnc, setter:setOoLaunch},
+      ].map(({label,all,active,setter})=>{
+        const isFiltered = active.length>0 && active.length<all.length;
+        return (
+          <div key={label} style={{position:"relative",display:"inline-block"}}>
+            <details>
+              <summary style={{...fBtnS(isFiltered),listStyle:"none",display:"flex",alignItems:"center",gap:4,userSelect:"none"}}>
+                {label}
+                {isFiltered&&<span style={{background:C.b1,color:"#fff",borderRadius:10,padding:"1px 5px",fontSize:10,marginLeft:2}}>{active.length}</span>}
+                <span style={{fontSize:11}}>▾</span>
+              </summary>
+              <div style={{position:"absolute",top:"calc(100% + 4px)",left:0,background:C.cd,border:`1px solid ${C.bd}`,borderRadius:8,padding:5,minWidth:160,zIndex:100,boxShadow:"0 4px 16px rgba(0,0,0,.08)"}}>
+                {all.map(opt=>{
+                  const checked=active.length===0||active.includes(opt);
+                  return <label key={opt} style={{display:"flex",alignItems:"center",gap:7,padding:"5px 7px",borderRadius:5,cursor:"pointer",fontSize:12,color:C.sl}}>
+                    <input type="checkbox" checked={checked} style={{accentColor:C.b1}} onChange={()=>toggleFilter(setter,active,all,opt)}/>
+                    {opt}
+                  </label>;
+                })}
+              </div>
+            </details>
+          </div>
+        );
+      })}
+
+      <button onClick={()=>setOoConflict(!ooConflict)}
+        style={{background:ooConflict?"#fee2e2":C.cd,border:`1px solid ${ooConflict?"#dc2626":C.bd}`,color:ooConflict?"#991b1b":C.sl,borderRadius:6,padding:"4px 9px",fontSize:11,fontWeight:600,cursor:"pointer",display:"flex",alignItems:"center",gap:4}}>
+        <span style={{color:"#dc2626",fontSize:12}}>⚠</span> Launch Conflicts only
+      </button>
+
+      <div style={{width:1,height:22,background:C.bd,flexShrink:0}}/>
+
+      <input value={ooSearch} onChange={e=>setOoSearch(e.target.value)} placeholder="Search style…"
+        style={{border:`1px solid ${C.bd}`,borderRadius:6,padding:"5px 9px",fontSize:12,color:C.nv,outline:"none",width:160,background:"#f8fafc"}}/>
+
+      <button onClick={()=>{setOoStatus([]);setOoQuarter([]);setOoSeason([]);setOoMonth([]);setOoLaunch([]);setOoConflict(false);setOoSearch("");}}
+        style={{background:"none",border:"none",color:C.sL,fontSize:11,cursor:"pointer",fontWeight:600,padding:"3px 5px"}}>
+        Clear all
+      </button>
+    </div>
+
+    <div style={{fontSize:11,color:C.sL,marginBottom:8}}>Showing {sortedGroups.length} of {allGroups.length} styles</div>
+
+    {/* Table */}
+    <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,overflow:"hidden",overflowX:"auto"}}>
+      <table style={{width:"100%",borderCollapse:"collapse",fontSize:12,minWidth:960}}>
+        <thead>
+          <tr>
+            <TH/>
+            <TH>Status</TH>
+            <TH>Style Name</TH>
+            <TH>Style #</TH>
+            <TH>Color / Material</TH>
+            <TH>Vendor</TH>
+            <TH>PO #</TH>
+            <TH>Freight</TH>
+            <TH right>Ordered</TH>
+            <TH right>Received</TH>
+            <TH right>Outstanding</TH>
+            <TH>Est. In-Warehouse</TH>
+            <TH>Target On-Site</TH>
+            <TH>Launch Cat.</TH>
+            <TH>Launch Check</TH>
+          </tr>
+        </thead>
+        <tbody>
+          {sortedGroups.map(g=>{
+            const rows=g.rows, hasSplit=rows.length>1;
+            const status=groupStatus(rows);
+            const isExp=ooExpanded[g.key];
+            const totOrd=rows.reduce((a,r)=>a+(Number(r.units_ordered)||0),0);
+            const totRcvd=rows.reduce((a,r)=>a+(Number(r.units_received)||0),0);
+            const totOut=rows.reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
+            const earliestEta=rows.map(r=>r.expected_delivery).filter(Boolean).sort()[0]||"";
+            const freights=[...new Set(rows.map(r=>r.freight_method).filter(Boolean))];
+            const rowBg=g.launch_conflict==="Launch Conflict"?"#fff8f8":C.cd;
+            const outColor=totOut>0?(status==="In Transit"?C.b1:status==="Partial Receipt"?C.am:C.nv):C.sL;
+
+            const FreightCell=()=>{
+              if(hasSplit&&freights.length>1) return <span style={{display:"inline-flex",alignItems:"center",padding:"2px 7px",borderRadius:20,fontSize:9,fontWeight:700,background:"#fef9c3",color:"#854d0e"}}>✈+〜 Split</span>;
+              return <FreightBadge f={rows[0]?.freight_method}/>;
+            };
+            const MetricCell=({val,color,sub})=>(
+              <td style={{textAlign:"right",padding:"8px 8px",background:rowBg}}>
+                <div style={{fontSize:13,fontWeight:700,color:color||C.nv,lineHeight:1.1}}>{val||"—"}</div>
+                <div style={{fontSize:10,color:C.sL,marginTop:1}}>{sub}</div>
+              </td>
+            );
+
+            return <React.Fragment key={g.key}>
+              <tr style={{borderBottom:`1px solid #f1f5f9`,cursor:hasSplit?"pointer":"default"}}
+                onClick={()=>hasSplit&&setOoExpanded(p=>({...p,[g.key]:!p[g.key]}))}>
+                <td style={{padding:"0 0 0 10px",background:rowBg,width:22}}>
+                  {hasSplit&&<span style={{fontSize:14,color:C.sL,display:"inline-block",transition:"transform .15s",transform:isExp?"rotate(90deg)":"none"}}>›</span>}
+                </td>
+                <td style={{padding:"8px 8px",background:rowBg}}><SBadge s={status}/></td>
+                <td style={{padding:"8px 8px",fontWeight:700,color:C.nv,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",maxWidth:160,background:rowBg}}>{g.style_name}</td>
+                <td style={{padding:"8px 8px",fontFamily:"monospace",fontSize:11,color:"#64748b",background:rowBg}}>{g.style_number}</td>
+                <td style={{padding:"8px 8px",color:C.sl,background:rowBg}}>{g.color}</td>
+                <td style={{padding:"8px 8px",color:C.sL,fontSize:11,background:rowBg}}>{g.vendor}</td>
+                <td style={{padding:"8px 8px",color:"#64748b",fontSize:11,background:rowBg}}>{g.po_number||"—"}</td>
+                <td style={{padding:"8px 8px",background:rowBg}}><FreightCell/></td>
+                <MetricCell val={totOrd.toLocaleString()} sub="ordered"/>
+                <MetricCell val={totRcvd>0?totRcvd.toLocaleString():null} color={totRcvd>0?C.gn:C.sL} sub="received"/>
+                <MetricCell val={totOut>0?totOut.toLocaleString():null} color={outColor} sub="outstanding"/>
+                <td style={{padding:"8px 8px",fontSize:11,background:rowBg,color:earliestEta?C.nv:C.am,fontWeight:earliestEta?400:600}}>
+                  {earliestEta||"No ETA"}
+                </td>
+                <td style={{padding:"8px 8px",fontSize:11,color:"#64748b",background:rowBg}}>{rows[0]?.target_launch_date||"—"}</td>
+                <td style={{padding:"8px 8px",fontSize:11,color:"#64748b",background:rowBg}}>{g.launch_category}</td>
+                <td style={{padding:"8px 8px",background:rowBg}}><LcBadge v={g.launch_conflict}/></td>
+              </tr>
+              {isExp&&hasSplit&&rows.map((r,si)=>(
+                <tr key={si} style={{borderBottom:`1px solid #f1f5f9`,background:"#fafbff"}}>
+                  <td style={{padding:"0 0 0 10px"}}/>
+                  <td style={{padding:"6px 8px"}}><SBadge s={r.status||"Not Shipped"}/></td>
+                  <td style={{padding:"6px 8px 6px 18px",fontSize:11,color:"#64748b"}}>
+                    └ Shipment {si+1}
+                    {r.shipment_id&&<span style={{marginLeft:6,fontSize:10,color:C.sL}}>{r.shipment_id}</span>}
+                  </td>
+                  <td/><td/><td/><td/>
+                  <td style={{padding:"6px 8px"}}><FreightBadge f={r.freight_method}/></td>
+                  <td style={{padding:"6px 8px",textAlign:"right"}}>
+                    <div style={{fontSize:13,fontWeight:700,color:C.nv}}>{Number(r.units_ordered)||0}</div>
+                    <div style={{fontSize:10,color:C.sL}}>ordered</div>
+                  </td>
+                  <td style={{padding:"6px 8px",textAlign:"right"}}>
+                    {(Number(r.units_received)||0)>0
+                      ?<><div style={{fontSize:13,fontWeight:700,color:C.gn}}>{Number(r.units_received).toLocaleString()}</div><div style={{fontSize:10,color:C.sL}}>received</div></>
+                      :<span style={{color:C.sL}}>—</span>}
+                  </td>
+                  <td style={{padding:"6px 8px",textAlign:"right"}}>
+                    {(Number(r.units_outstanding)||0)>0
+                      ?<><div style={{fontSize:13,fontWeight:700,color:C.b1}}>{Number(r.units_outstanding).toLocaleString()}</div><div style={{fontSize:10,color:C.sL}}>outstanding</div></>
+                      :<span style={{color:C.sL}}>—</span>}
+                  </td>
+                  <td style={{padding:"6px 8px",fontSize:11,color:r.expected_delivery?C.nv:C.am,fontWeight:r.expected_delivery?400:600}}>{r.expected_delivery||"No ETA"}</td>
+                  <td style={{padding:"6px 8px",fontSize:11,color:"#64748b"}}>{r.target_launch_date||"—"}</td>
+                  <td/><td/>
+                </tr>
+              ))}
+            </React.Fragment>;
+          })}
+          {sortedGroups.length===0&&(
+            <tr><td colSpan={15} style={{padding:"32px",textAlign:"center",color:C.sL,fontSize:13}}>No styles match the current filters.</td></tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+
+    <div style={{marginTop:8,fontSize:10,color:C.sL,fontStyle:"italic"}}>
+      {data.metadata?.poLastUpdatedEST ? `On Order data last synced: ${data.metadata.poLastUpdatedEST}` : "On Order data managed by Sam · Push to sync via Google Sheet"}
+    </div>
+
+  </>;
+})()}
 
         <div style={{marginTop:28,padding:"14px 0",borderTop:`1px solid ${C.bd}`,display:"flex",justifyContent:"space-between",fontSize:11,color:C.sL,flexWrap:"wrap",gap:8}}>
           <span>Sarah Flint · Weekly Dashboard · {meta.dateRange}</span>
