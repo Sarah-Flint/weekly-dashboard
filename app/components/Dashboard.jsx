@@ -763,9 +763,16 @@ useEffect(() => {
   return (
     <div style={{fontFamily:"'DM Sans','Inter',system-ui,sans-serif",background:"#f1f5f9",minHeight:"100vh",color:C.sl}}>
       <div style={{background:"linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#1e40af 100%)",color:"#fff",padding:"20px 24px 14px"}}>
-        <div><div style={{fontSize:11,letterSpacing:2,textTransform:"uppercase",opacity:0.6,marginBottom:4}}>Sarah Flint</div>
-        <h1 style={{fontSize:22,fontWeight:700,margin:0}}>Weekly Performance Dashboard</h1>
-        <div style={{fontSize:13,opacity:0.7,marginTop:4}}>{meta.quarter} · {meta.week} · {meta.dateRange}{meta.lastUpdatedEST ? <span style={{marginLeft:12,fontSize:11,opacity:0.6}}>Updated: {meta.lastUpdatedEST} EST</span> : null}</div></div>
+        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",flexWrap:"wrap",gap:8}}>
+          <div>
+            <div style={{fontSize:11,letterSpacing:2,textTransform:"uppercase",opacity:0.6,marginBottom:2}}>Sarah Flint</div>
+            <h1 style={{fontSize:22,fontWeight:700,margin:0}}>Weekly Performance Dashboard</h1>
+          </div>
+          <div style={{textAlign:"right",fontSize:12,opacity:0.75,lineHeight:1.6}}>
+            <div>{meta.quarter} · {(meta.week||"").replace("WEEK","Week")} · {meta.dateRange}</div>
+            {meta.lastUpdatedEST && <div style={{fontSize:11,opacity:0.7}}>Updated {meta.lastUpdatedEST} EST</div>}
+          </div>
+        </div>
         <div style={{display:"flex",gap:2,marginTop:16,overflowX:"auto"}}>
           {tabs.map(t=><button key={t.id} onClick={()=>setTab(t.id)} style={{background:tab===t.id?"rgba(255,255,255,0.15)":"transparent",border:"none",borderBottom:tab===t.id?"2px solid #93c5fd":"2px solid transparent",color:tab===t.id?"#fff":"rgba(255,255,255,0.55)",padding:"8px 12px",fontSize:13,fontWeight:600,cursor:"pointer",borderRadius:"8px 8px 0 0",whiteSpace:"nowrap"}}><span style={{marginRight:4}}>{t.i}</span>{t.l}</button>)}
         </div>
@@ -2223,10 +2230,7 @@ const rows = [
   <div style={{marginTop:4,fontSize:10,color:C.sL,fontStyle:"italic"}}>Note: Website traffic data is from Google Analytics filtered for United States only.</div>
 </>}
 
-        <div style={{marginTop:28,padding:"14px 0",borderTop:`1px solid ${C.bd}`,display:"flex",justifyContent:"space-between",fontSize:11,color:C.sL,flexWrap:"wrap",gap:8}}>
-          <span>Sarah Flint · Weekly Dashboard · {meta.dateRange}</span>
-          <span>Sources: Supermetrics, GA4, Meta Ads, Google Ads</span>
-        </div>
+
 
         `
 {/* ═══ ON ORDER ═══ */}
@@ -2237,7 +2241,7 @@ const rows = [
  
   // ── Build unique filter options from data ─────────────────────────────────
   const uniq = (key) => [...new Set(raw.map(r=>r[key]).filter(Boolean))].sort();
-  const allStatuses  = ["Not Shipped","In Transit","Partial Receipt","Full Receipt","PO Not Placed"];
+  const allStatuses  = ["Full Receipt","Partial Receipt","In Transit","Not Shipped","PO Not Placed"];
   const allQuarters  = uniq("quarter");
   const allSeasons   = uniq("po_season");
   const allMonths = uniq("delivery_month");
@@ -2298,15 +2302,17 @@ const rows = [
     return ea.localeCompare(eb);
   });
  
-  // ── KPI aggregates (from all unfiltered data) ─────────────────────────────
-  const activeRaw = raw.filter(r => !["Full Receipt","Cancelled"].includes(r.status));
-  const kpiStyles    = allGroups.length;
-  const kpiOutst     = raw.reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
-  const kpiAir       = activeRaw.filter(r=>r.freight_method==="Air").reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
-  const kpiOcean     = activeRaw.filter(r=>r.freight_method==="Ocean").reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
- 
-  // ── Pipeline stage counts (units, all raw) ────────────────────────────────
-  const stageUnits = (status) => raw.filter(r=>r.status===status).reduce((a,r)=>a+(Number(r.units_outstanding)||0)+(Number(r.units_received)||0),0);
+  // ── KPI aggregates (from filtered data) ──────────────────────────────────
+  const filteredRaw = sortedGroups.flatMap(g => g.rows);
+  const activeFilt  = filteredRaw.filter(r => !["Full Receipt","Cancelled"].includes(r.status));
+  const kpiStyles   = sortedGroups.length;
+  const kpiPOs      = [...new Set(filteredRaw.map(r=>r.po_number).filter(Boolean))].length;
+  const kpiOutst    = filteredRaw.reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
+  const kpiAir      = activeFilt.filter(r=>r.freight_method==="Air").reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
+  const kpiOcean    = activeFilt.filter(r=>r.freight_method==="Ocean").reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
+
+  // ── Pipeline stage counts (from filtered data) ────────────────────────────
+  const stageUnits = (status) => filteredRaw.filter(r=>r.status===status).reduce((a,r)=>a+(Number(r.units_outstanding)||0)+(Number(r.units_received)||0),0);
   const stages = [
     {label:"PO Not Placed",  color:"#7c3aed", bg:"#f3e8ff", units: stageUnits("PO Not Placed")},
     {label:"Not Shipped",    color:"#475569", bg:"#f1f5f9", units: stageUnits("Not Shipped")},
@@ -2356,56 +2362,20 @@ const rows = [
   );
  
   return <>
- 
-    {/* ── KPI cards ─────────────────────────────────────────────────────── */}
-    <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:10,marginBottom:12}}>
-      {[
-        {l:"Styles on Order",   v:kpiStyles.toLocaleString(),        sub:`across ${[...new Set(raw.map(r=>r.po_number).filter(Boolean))].length} POs`},
-        {l:"Units Outstanding", v:kpiOutst.toLocaleString(),         sub:"open + partial + transit"},
-        {l:"Air Inbound",       v:kpiAir.toLocaleString(),           sub:`${stageTot>0?Math.round(kpiAir/(kpiAir+kpiOcean||1)*100):0}% of outstanding`},
-        {l:"Ocean Inbound",     v:kpiOcean.toLocaleString(),         sub:`${stageTot>0?Math.round(kpiOcean/(kpiAir+kpiOcean||1)*100):0}% of outstanding`},
-      ].map(k=>(
-        <div key={k.l} style={{background:C.cd,borderRadius:10,border:`1px solid ${C.bd}`,padding:"13px 15px"}}>
-          <div style={{fontSize:10,color:C.sL,textTransform:"uppercase",letterSpacing:.7,fontWeight:600,marginBottom:4}}>{k.l}</div>
-          <div style={{fontSize:22,fontWeight:700,color:C.nv,lineHeight:1.1}}>{k.v}</div>
-          <div style={{fontSize:11,color:C.sL,marginTop:3}}>{k.sub}</div>
-        </div>
-      ))}
-    </div>
- 
-    {/* ── Pipeline bar ──────────────────────────────────────────────────── */}
-    <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,padding:"16px 18px",marginBottom:12}}>
-      <div style={{fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",letterSpacing:.7,marginBottom:11}}>Units by pipeline stage</div>
-      <div style={{display:"flex",borderRadius:7,overflow:"hidden",height:30,gap:2}}>
-        {stages.map(s=>{
-          const pct = s.units/stageTot*100;
-          const w = Math.max(pct,2);
-          return (
-            <div key={s.label} title={`${s.label}: ${s.units.toLocaleString()} units (${pct.toFixed(1)}%)`}
-              style={{background:s.color,width:`${w}%`,display:"flex",alignItems:"center",
-                justifyContent:"center",flexShrink:0}}>
-              {w>6&&<span style={{fontSize:10,fontWeight:700,color:s.bg,padding:"0 5px",whiteSpace:"nowrap"}}>
-                {pct.toFixed(1)}%
-              </span>}
-            </div>
-          );
-        })}
+
+    {/* ── On Order Header ─────────────────────────────────────────────── */}
+    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:13}}>
+      <div>
+        <div style={{fontSize:10,color:C.sL,fontWeight:700,textTransform:"uppercase",letterSpacing:.7}}>Inventory Pipeline</div>
+        <div style={{fontSize:19,fontWeight:700,color:C.nv,marginTop:1}}>On Order</div>
       </div>
-      <div style={{display:"flex",marginTop:13,borderTop:`1px solid #f1f5f9`,paddingTop:12}}>
-        {stages.map((s,i)=>(
-          <div key={s.label} style={{flex:1,padding:"0 10px",borderRight:i<stages.length-1?`1px solid #f1f5f9`:"none",
-            paddingLeft:i===0?0:undefined}}>
-            <div style={{display:"flex",alignItems:"center",gap:5,marginBottom:4}}>
-              <span style={{width:9,height:9,borderRadius:2,background:s.color,display:"inline-block",flexShrink:0}}/>
-              <span style={{fontSize:10,fontWeight:600,color:C.sl}}>{s.label}</span>
-            </div>
-            <div style={{fontSize:18,fontWeight:700,color:C.nv,lineHeight:1.1}}>{s.units.toLocaleString()}</div>
-            <div style={{fontSize:10,fontWeight:700,color:s.color,marginTop:2}}>{(s.units/stageTot*100).toFixed(1)}%</div>
-          </div>
-        ))}
+      <div style={{fontSize:11,color:C.sL}}>
+        {data.metadata?.poLastUpdatedEST
+          ? `PO data last updated: ${data.metadata.poLastUpdatedEST}`
+          : <span style={{color:C.am,fontWeight:600}}>PO data not yet synced</span>}
       </div>
     </div>
- 
+
     {/* ── Filters ───────────────────────────────────────────────────────── */}
     <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,padding:"11px 14px",marginBottom:12,display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
  
@@ -2423,16 +2393,21 @@ const rows = [
             <details style={{position:"relative"}}>
               <summary style={{...fBtnS(isFiltered), listStyle:"none", display:"flex", alignItems:"center", gap:4, userSelect:"none"}}>
                 {label}
-                {isFiltered && <span style={{background:C.b1,color:"#fff",borderRadius:10,padding:"1px 5px",fontSize:10,marginLeft:2}}>{active.length}</span>}
+                {isFiltered && <span style={{background:C.b1,color:"#fff",borderRadius:10,padding:"1px 5px",fontSize:10,marginLeft:2}}>{active.length}/{all.length}</span>}
                 <span style={{fontSize:11}}>▾</span>
               </summary>
               <div style={{position:"absolute",top:"calc(100% + 4px)",left:0,background:C.cd,border:`1px solid ${C.bd}`,borderRadius:8,padding:5,minWidth:160,zIndex:100,boxShadow:"0 4px 16px rgba(0,0,0,.08)"}}>
+                <label style={{display:"flex",alignItems:"center",gap:7,padding:"5px 7px",borderRadius:5,cursor:"pointer",fontSize:11,fontWeight:600,color:C.b1,borderBottom:`1px solid ${C.bd}`,marginBottom:2}}>
+                  <input type="checkbox" checked={active.length===all.length} style={{accentColor:C.b1}}
+                    onChange={()=>setter(active.length===all.length?[]:[...all])}/>
+                  {active.length===all.length?"Deselect All":"Select All"}
+                </label>
                 {all.map(opt=>{
-                  const checked = active.length===0||active.includes(opt);
+                  const checked = active.includes(opt);
                   return (
                     <label key={opt} style={{display:"flex",alignItems:"center",gap:7,padding:"5px 7px",borderRadius:5,cursor:"pointer",fontSize:12,color:C.sl}}>
                       <input type="checkbox" checked={checked} style={{accentColor:C.b1}}
-                        onChange={()=>toggleFilter(setter, active, all, opt)}/>
+                        onChange={()=>setter(checked?active.filter(x=>x!==opt):[...active,opt])}/>
                       {opt}
                     </label>
                   );
@@ -2465,7 +2440,56 @@ const rows = [
         Clear all
       </button>
     </div>
- 
+
+    {/* ── KPI cards ─────────────────────────────────────────────────────── */}
+    <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:10,marginBottom:12}}>
+      {[
+        {l:"Styles on Order",   v:kpiStyles.toLocaleString(),        sub:`across ${kpiPOs} POs`},
+        {l:"Units Outstanding", v:kpiOutst.toLocaleString(),         sub:"open + partial + transit"},
+        {l:"Air Inbound",       v:kpiAir.toLocaleString(),           sub:`${stageTot>0?Math.round(kpiAir/(kpiAir+kpiOcean||1)*100):0}% of outstanding`},
+        {l:"Ocean Inbound",     v:kpiOcean.toLocaleString(),         sub:`${stageTot>0?Math.round(kpiOcean/(kpiAir+kpiOcean||1)*100):0}% of outstanding`},
+      ].map(k=>(
+        <div key={k.l} style={{background:C.cd,borderRadius:10,border:`1px solid ${C.bd}`,padding:"13px 15px"}}>
+          <div style={{fontSize:10,color:C.sL,textTransform:"uppercase",letterSpacing:.7,fontWeight:600,marginBottom:4}}>{k.l}</div>
+          <div style={{fontSize:22,fontWeight:700,color:C.nv,lineHeight:1.1}}>{k.v}</div>
+          <div style={{fontSize:11,color:C.sL,marginTop:3}}>{k.sub}</div>
+        </div>
+      ))}
+    </div>
+
+    {/* ── Pipeline bar ──────────────────────────────────────────────────── */}
+    <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,padding:"16px 18px",marginBottom:12}}>
+      <div style={{fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",letterSpacing:.7,marginBottom:11}}>Units by pipeline stage</div>
+      <div style={{display:"flex",borderRadius:7,overflow:"hidden",height:30,gap:2}}>
+        {stages.map(s=>{
+          const pct = s.units/stageTot*100;
+          const w = Math.max(pct,2);
+          return (
+            <div key={s.label} title={`${s.label}: ${s.units.toLocaleString()} units (${pct.toFixed(1)}%)`}
+              style={{background:s.color,width:`${w}%`,display:"flex",alignItems:"center",
+                justifyContent:"center",flexShrink:0}}>
+              {w>6&&<span style={{fontSize:10,fontWeight:700,color:s.bg,padding:"0 5px",whiteSpace:"nowrap"}}>
+                {pct.toFixed(1)}%
+              </span>}
+            </div>
+          );
+        })}
+      </div>
+      <div style={{display:"flex",marginTop:13,borderTop:`1px solid #f1f5f9`,paddingTop:12}}>
+        {stages.map((s,i)=>(
+          <div key={s.label} style={{flex:1,padding:"0 10px",borderRight:i<stages.length-1?`1px solid #f1f5f9`:"none",
+            paddingLeft:i===0?0:undefined}}>
+            <div style={{display:"flex",alignItems:"center",gap:5,marginBottom:4}}>
+              <span style={{width:9,height:9,borderRadius:2,background:s.color,display:"inline-block",flexShrink:0}}/>
+              <span style={{fontSize:10,fontWeight:600,color:C.sl}}>{s.label}</span>
+            </div>
+            <div style={{fontSize:18,fontWeight:700,color:C.nv,lineHeight:1.1}}>{s.units.toLocaleString()}</div>
+            <div style={{fontSize:10,fontWeight:700,color:s.color,marginTop:2}}>{(s.units/stageTot*100).toFixed(1)}%</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
     {/* ── Result count ──────────────────────────────────────────────────── */}
     <div style={{fontSize:11,color:C.sL,marginBottom:8}}>
       Showing {sortedGroups.length} of {allGroups.length} styles
@@ -2479,7 +2503,6 @@ const rows = [
             <TH/>
             <TH>Status</TH>
             <TH>Style Name</TH>
-            <TH>Color</TH>
             <TH>Style #</TH>
             <TH>Launch Cat.</TH>
             <TH>Freight</TH>
@@ -2510,10 +2533,9 @@ const rows = [
               return <FreightBadge f={rows[0]?.freight_method}/>;
             };
  
-            const MetricCell = ({val, color, sub}) => (
+            const MetricCell = ({val, color}) => (
               <td style={{textAlign:"right",padding:"8px 8px",background:rowBg}}>
                 <div style={{fontSize:13,fontWeight:700,color:color||C.nv,lineHeight:1.1}}>{val||"—"}</div>
-                <div style={{fontSize:10,color:C.sL,marginTop:1}}>{sub}</div>
               </td>
             );
  
@@ -2532,17 +2554,16 @@ const rows = [
                       {g.launch_conflict==="Launch Conflict"&&<span title="Launch Conflict" style={{color:"#dc2626",fontSize:13}}>⚠</span>}
                     </div>
                   </td>
-                  <td style={{padding:"8px 8px",fontWeight:700,color:C.nv,whiteSpace:"nowrap",
-                    overflow:"hidden",textOverflow:"ellipsis",maxWidth:160,background:rowBg}}>
-                    {g.style_name}
+                  <td style={{padding:"8px 8px",background:rowBg,maxWidth:180}}>
+                    <div style={{fontWeight:700,color:C.nv,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{g.style_name}</div>
+                    {g.color&&<div style={{fontSize:10,color:C.sL,marginTop:1,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{g.color}</div>}
                   </td>
-                  <td style={{padding:"8px 8px",color:C.sl,fontSize:11,background:rowBg}}>{g.color}</td>
                   <td style={{padding:"8px 8px",fontFamily:"monospace",fontSize:11,color:"#64748b",background:rowBg}}>{g.style_number}</td>
                   <td style={{padding:"8px 8px",fontSize:11,color:"#64748b",background:rowBg}}>{g.launch_category}</td>
                   <td style={{padding:"8px 8px",background:rowBg}}><FreightCell/></td>
-                  <MetricCell val={totOrd.toLocaleString()} sub="ordered"/>
-                  <MetricCell val={totRcvd>0?totRcvd.toLocaleString():null} color={totRcvd>0?C.gn:C.sL} sub="received"/>
-                  <MetricCell val={totOut>0?totOut.toLocaleString():null} color={outColor} sub="bal"/>
+                  <MetricCell val={totOrd.toLocaleString()}/>
+                  <MetricCell val={totRcvd>0?totRcvd.toLocaleString():null} color={totRcvd>0?C.gn:C.sL}/>
+                  <MetricCell val={totOut>0?totOut.toLocaleString():null} color={outColor}/>
                   <td style={{padding:"8px 8px",fontSize:11,background:rowBg,
                     color:earliestEta?C.nv:C.am,fontWeight:earliestEta?400:600}}>
                     {earliestEta||"No ETA"}
@@ -2561,20 +2582,19 @@ const rows = [
                       └ Shipment {si+1}
                       {r.shipment_id&&<span style={{marginLeft:6,fontSize:10,color:C.sL}}>{r.shipment_id}</span>}
                     </td>
-                    <td/><td/><td/>
+                    <td/><td/>
                     <td style={{padding:"6px 8px"}}><FreightBadge f={r.freight_method}/></td>
                     <td style={{padding:"6px 8px",textAlign:"right"}}>
                       <div style={{fontSize:13,fontWeight:700,color:C.nv}}>{Number(r.units_ordered)||0}</div>
-                      <div style={{fontSize:10,color:C.sL}}>ordered</div>
                     </td>
                     <td style={{padding:"6px 8px",textAlign:"right"}}>
                       {(Number(r.units_received)||0)>0
-                        ? <><div style={{fontSize:13,fontWeight:700,color:C.gn}}>{Number(r.units_received).toLocaleString()}</div><div style={{fontSize:10,color:C.sL}}>received</div></>
+                        ? <div style={{fontSize:13,fontWeight:700,color:C.gn}}>{Number(r.units_received).toLocaleString()}</div>
                         : <span style={{color:C.sL}}>—</span>}
                     </td>
                     <td style={{padding:"6px 8px",textAlign:"right"}}>
                       {(Number(r.units_outstanding)||0)>0
-                        ? <><div style={{fontSize:13,fontWeight:700,color:C.b1}}>{Number(r.units_outstanding).toLocaleString()}</div><div style={{fontSize:10,color:C.sL}}>bal</div></>
+                        ? <div style={{fontSize:13,fontWeight:700,color:C.b1}}>{Number(r.units_outstanding).toLocaleString()}</div>
                         : <span style={{color:C.sL}}>—</span>}
                     </td>
                     <td style={{padding:"6px 8px",fontSize:11,color:r.expected_delivery?C.nv:C.am,fontWeight:r.expected_delivery?400:600}}>
@@ -2588,7 +2608,7 @@ const rows = [
           })}
  
           {sortedGroups.length===0&&(
-            <tr><td colSpan={12} style={{padding:"32px",textAlign:"center",color:C.sL,fontSize:13}}>
+            <tr><td colSpan={11} style={{padding:"32px",textAlign:"center",color:C.sL,fontSize:13}}>
               No styles match the current filters.
             </td></tr>
           )}
@@ -2596,9 +2616,7 @@ const rows = [
       </table>
     </div>
  
-    <div style={{marginTop:8,fontSize:10,color:C.sL,fontStyle:"italic"}}>
-      Data sourced from Sam's on-order tracker. Last updated shown above.
-    </div>
+
  
   </>;
 })()}
