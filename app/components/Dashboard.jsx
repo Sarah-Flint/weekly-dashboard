@@ -132,6 +132,7 @@ useEffect(() => {
   const [reasonTime,setReasonTime]=useState("L5W");
   const [expCamp,setExpCamp]=useState({});
   const [openFilter,setOpenFilter]=useState(null);
+  const [ooSort,setOoSort]=useState({col:"expected_delivery",dir:"asc"});
   const [retF,setRetF]=useState("all");
   const [expRetStyle,setExpRetStyle]=useState({});
   const [ooExpanded,   setOoExpanded]   = useState({});
@@ -1708,10 +1709,11 @@ const rows = [
     const retNet=Number(getT("returning_net_rev")[wk])||0;
     const totNet=Number(getT("total_net_rev")[wk])||0;
     return {
-      wk:`Wk ${wk}`, nr, rr,
-      newPct: newNet>0?+((nr/newNet)*100).toFixed(1):0,
-      retPct: retNet>0?+((rr/retNet)*100).toFixed(1):0,
-      totPct: totNet>0?+((tr/totNet)*100).toFixed(1):0,
+      wk:`Wk ${wk}`, nr, rr, tr,
+      netSales: retF==="new"?newNet:retF==="returning"?retNet:totNet,
+      retPct: retF==="new"?(newNet>0?+((nr/newNet)*100).toFixed(1):0):
+              retF==="returning"?(retNet>0?+((rr/retNet)*100).toFixed(1):0):
+              (totNet>0?+((tr/totNet)*100).toFixed(1):0),
     };
   }).filter(Boolean);
 
@@ -1771,32 +1773,36 @@ const rows = [
 
   {/* Weekly Trend */}
   {retTrendData.length>0&&<>
-  <SH t="Weekly Return Value Trend"/>
+  <SH t="Weekly Return Trend (Excluding Exchanges)"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
     <ResponsiveContainer width="100%" height={220}>
       <ComposedChart data={retTrendData} margin={{top:4,right:8,left:0,bottom:0}}>
         <CartesianGrid strokeDasharray="3 3" stroke={C.bd}/>
         <XAxis dataKey="wk" tick={{fontSize:11,fill:C.sL}}/>
-        <YAxis yAxisId="left" tick={{fontSize:10,fill:C.sL}} width={52} tickFormatter={v=>`$${(Math.abs(v)/1000).toFixed(0)}k`}/>
+        <YAxis yAxisId="left" tick={{fontSize:10,fill:C.sL}} width={56} tickFormatter={v=>`$${(Math.abs(v)/1000).toFixed(0)}k`}/>
         <YAxis yAxisId="right" orientation="right" tick={{fontSize:10,fill:C.am}} width={40} tickFormatter={v=>`${v}%`}/>
         <Tooltip content={<CT/>}/>
-        {retF!=="returning"&&<Bar yAxisId="left" dataKey="nr" stackId="a" fill={C.b1} radius={retF==="new"?[3,3,0,0]:[0,0,0,0]} name="New Returns"/>}
-        {retF!=="new"&&<Bar yAxisId="left" dataKey="rr" stackId="a" fill={C.b3} radius={[3,3,0,0]} name="Returning Returns"/>}
-        {retF==="all"&&<Line yAxisId="right" type="monotone" dataKey="totPct" stroke={C.am} strokeWidth={2} dot={{r:3,fill:C.am}} name="Returns / Net Sales %" connectNulls/>}
-        {retF==="new"&&<Line yAxisId="right" type="monotone" dataKey="newPct" stroke={C.am} strokeWidth={2} dot={{r:3,fill:C.am}} name="New Returns / New Net Rev %" connectNulls/>}
-        {retF==="returning"&&<Line yAxisId="right" type="monotone" dataKey="retPct" stroke={C.am} strokeWidth={2} dot={{r:3,fill:C.am}} name="Ret Returns / Ret Net Rev %" connectNulls/>}
+        <Bar yAxisId="left" dataKey="netSales" fill="#e2e8f0" radius={[3,3,0,0]} name={retF==="new"?"New Net Sales":retF==="returning"?"Ret Net Sales":"Total Net Sales"} barSize={20}/>
+        {retF!=="returning"&&<Bar yAxisId="left" dataKey="nr" fill={C.b1} radius={[3,3,0,0]} name="New Returns" barSize={20}/>}
+        {retF!=="new"&&<Bar yAxisId="left" dataKey="rr" fill={C.b3} radius={[3,3,0,0]} name="Returning Returns" barSize={20}/>}
+        {retF==="all"&&<Bar yAxisId="left" dataKey="tr" fill={C.rd} radius={[3,3,0,0]} name="Total Returns" barSize={20} opacity={0.7}/>}
+        <Line yAxisId="right" type="monotone" dataKey="retPct" stroke={C.am} strokeWidth={2} dot={{r:3,fill:C.am}} name={retF==="new"?"Returns / New Net Rev %":retF==="returning"?"Returns / Ret Net Rev %":"Returns / Net Sales %"} connectNulls/>
       </ComposedChart>
     </ResponsiveContainer>
-    <div style={{display:"flex",gap:16,marginTop:8,fontSize:11,color:C.sL}}>
-      {retF!=="returning"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b1,borderRadius:2,display:"inline-block"}}/>New returns</span>}
-      {retF!=="new"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b3,borderRadius:2,display:"inline-block"}}/>Returning returns</span>}
-      <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:3,background:C.am,borderRadius:1,display:"inline-block"}}/>{retF==="new"?"New returns / new net rev %":retF==="returning"?"Ret returns / ret net rev %":"Returns / net sales %"}</span>
+    <div style={{display:"flex",gap:16,marginTop:8,fontSize:11,color:C.sL,flexWrap:"wrap"}}>
+      <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:"#e2e8f0",border:"1px solid #cbd5e1",borderRadius:2,display:"inline-block"}}/>{retF==="new"?"New Net Sales":retF==="returning"?"Ret Net Sales":"Total Net Sales"}</span>
+      {retF==="all"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.rd,borderRadius:2,display:"inline-block",opacity:0.7}}/>Total Returns</span>}
+      {retF!=="returning"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b1,borderRadius:2,display:"inline-block"}}/>New Returns</span>}
+      {retF!=="new"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b3,borderRadius:2,display:"inline-block"}}/>Returning Returns</span>}
+      <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:3,background:C.am,borderRadius:1,display:"inline-block"}}/>{retF==="new"?"Returns / New Net Rev %":retF==="returning"?"Returns / Ret Net Rev %":"Returns / Net Sales %"}</span>
     </div>
+    <div style={{fontSize:10,color:C.sL,fontStyle:"italic",marginTop:6}}>Source: Shopify</div>
   </div>
   </>}
 
   {/* Top Returned Styles */}
   <SH t={`Top Returned Styles${cwTag?` – Wk ${cwTag}`:""}`}/>
+  <div style={{fontSize:10,color:C.sL,fontStyle:"italic",marginBottom:6}}>Source: Loop</div>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:18,marginBottom:14}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
@@ -2218,10 +2224,23 @@ const rows = [
     return true;
   });
  
-  // Sort: default by expected_delivery ascending (nulls last)
-  const sortedGroups = [...filtered].sort((a,b) => {
-    const ea = a.expected_delivery||"9999", eb = b.expected_delivery||"9999";
-    return ea.localeCompare(eb);
+  const sortedGroups = [...filtered].sort((a,b)=>{
+    const dir=ooSort.dir==="asc"?1:-1, col=ooSort.col;
+    const v=(g)=>{
+      if(col==="status")            return groupStatus(g.rows);
+      if(col==="style_name")        return (g.style_name||"").toLowerCase();
+      if(col==="style_number")      return (g.style_number||"").toLowerCase();
+      if(col==="launch_category")   return (g.launch_category||"").toLowerCase();
+      if(col==="expected_delivery") return g.expected_delivery||"9999";
+      if(col==="target_launch_date")return g.target_launch_date||"9999";
+      if(col==="ordered")    return g.rows.reduce((a,r)=>a+(Number(r.units_ordered)||0),0);
+      if(col==="in_transit") return g.rows.reduce((a,r)=>a+(Number(r.units_in_transit)||0),0);
+      if(col==="received")   return g.rows.reduce((a,r)=>a+(Number(r.units_received)||0),0);
+      if(col==="bal")        return g.rows.reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
+      return g[col]||"";
+    };
+    const av=v(a),bv=v(b);
+    return typeof av==="number"?(av-bv)*dir:String(av).localeCompare(String(bv))*dir;
   });
  
   // ── KPI aggregates (from filtered data) ──────────────────────────────────
@@ -2276,12 +2295,15 @@ const rows = [
   });
  
   // ── Table column header cell ──────────────────────────────────────────────
-  const TH = ({children, right}) => (
-    <th style={{padding:"8px 8px",textAlign:right?"right":"left",fontSize:10,fontWeight:700,
-      color:C.sL,textTransform:"uppercase",letterSpacing:.4,whiteSpace:"nowrap",background:"#f8fafc"}}>
-      {children}
-    </th>
-  );
+  const TH = ({children,right,col})=>{
+    const active=col&&ooSort.col===col;
+    return <th onClick={col?()=>setOoSort(p=>({col,dir:p.col===col?(p.dir==="asc"?"desc":"asc"):"asc"})):undefined}
+      style={{padding:"8px 8px",textAlign:right?"right":"left",fontSize:10,fontWeight:700,
+        color:active?C.nv:C.sL,textTransform:"uppercase",letterSpacing:.4,whiteSpace:"nowrap",
+        background:active?"#eff6ff":"#f8fafc",cursor:col?"pointer":"default",userSelect:"none"}}>
+      {children}{col&&<span style={{marginLeft:3,fontSize:9,opacity:active?1:0.35}}>{ooSort.dir==="asc"?"▲":"▼"}</span>}
+    </th>;
+  };
  
   return <>
 
@@ -2433,16 +2455,18 @@ const rows = [
         <thead>
           <tr>
             <TH/>
-            <TH>Status</TH>
-            <TH>Style Name</TH>
-            <TH>Style #</TH>
-            <TH>Launch Cat.</TH>
+            <TH col="status">Status</TH>
+            <TH col="style_name">Style Name</TH>
+            <TH col="style_number">Style #</TH>
+            <TH col="launch_category">Launch Cat.</TH>
             <TH>Freight</TH>
-            <TH right>Ordered</TH>
-            <TH right>Received</TH>
-            <TH right>Bal</TH>
-            <TH>Est. In-WH</TH>
-            <TH>Target Launch</TH>
+            <TH right col="ordered">Ordered</TH>
+            <TH right col="in_transit">In Transit</TH>
+            <TH right col="received">Received</TH>
+            <TH right col="bal">Bal</TH>
+            <TH col="expected_delivery">Est. In-WH</TH>
+            <TH col="target_launch_date">Target Launch</TH>
+            <TH>Delay Flag</TH>
           </tr>
         </thead>
         <tbody>
@@ -2485,6 +2509,7 @@ const rows = [
                       <SBadge s={status}/>
                       {g.launch_conflict==="Launch Conflict"&&<span title="Launch Conflict" style={{color:"#dc2626",fontSize:13}}>⚠</span>}
                     </div>
+                    {g.po_number&&<div style={{fontSize:10,color:C.sL,marginTop:2}}>{g.po_number}</div>}
                   </td>
                   <td style={{padding:"8px 8px",background:rowBg,maxWidth:180}}>
                     <div style={{fontWeight:700,color:C.nv,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{g.style_name}</div>
@@ -2494,14 +2519,20 @@ const rows = [
                   <td style={{padding:"8px 8px",fontSize:11,color:"#64748b",background:rowBg}}>{g.launch_category}</td>
                   <td style={{padding:"8px 8px",background:rowBg}}><FreightCell/></td>
                   <MetricCell val={totOrd.toLocaleString()}/>
-                  <MetricCell val={totRcvd>0?totRcvd.toLocaleString():null} color={totRcvd>0?C.gn:C.sL}/>
-                  <MetricCell val={totOut>0?totOut.toLocaleString():null} color={outColor}/>
+                  <MetricCell val={(()=>{const t=rows.reduce((a,r)=>a+(Number(r.units_in_transit)||0),0);return t>0?t.toLocaleString():null;})()}/>
+                  <MetricCell val={totRcvd>0?totRcvd.toLocaleString():null}/>
+                  <MetricCell val={totOut>0?totOut.toLocaleString():null}/>
                   <td style={{padding:"8px 8px",fontSize:11,background:rowBg,
                     color:earliestEta?C.nv:C.am,fontWeight:earliestEta?400:600}}>
                     {earliestEta||"No ETA"}
                   </td>
                   <td style={{padding:"8px 8px",fontSize:11,color:"#64748b",background:rowBg}}>
                     {rows[0]?.target_launch_date||"—"}
+                  </td>
+                  <td style={{padding:"8px 8px",fontSize:11,
+                    background:g.flag_delay?"#fee2e2":rowBg,
+                    color:g.flag_delay?"#991b1b":C.sL,fontWeight:g.flag_delay?600:400}}>
+                    {g.flag_delay||"—"}
                   </td>
                 </tr>
  
@@ -2516,23 +2547,13 @@ const rows = [
                     </td>
                     <td/><td/>
                     <td style={{padding:"6px 8px"}}><FreightBadge f={r.freight_method}/></td>
-                    <td style={{padding:"6px 8px",textAlign:"right"}}>
-                      <div style={{fontSize:13,fontWeight:700,color:C.nv}}>{Number(r.units_ordered)||0}</div>
-                    </td>
-                    <td style={{padding:"6px 8px",textAlign:"right"}}>
-                      {(Number(r.units_received)||0)>0
-                        ? <div style={{fontSize:13,fontWeight:700,color:C.gn}}>{Number(r.units_received).toLocaleString()}</div>
-                        : <span style={{color:C.sL}}>—</span>}
-                    </td>
-                    <td style={{padding:"6px 8px",textAlign:"right"}}>
-                      {(Number(r.units_outstanding)||0)>0
-                        ? <div style={{fontSize:13,fontWeight:700,color:C.b1}}>{Number(r.units_outstanding).toLocaleString()}</div>
-                        : <span style={{color:C.sL}}>—</span>}
-                    </td>
-                    <td style={{padding:"6px 8px",fontSize:11,color:r.expected_delivery?C.nv:C.am,fontWeight:r.expected_delivery?400:600}}>
-                      {r.expected_delivery||"No ETA"}
-                    </td>
+                    <td style={{padding:"6px 8px",textAlign:"right",fontSize:12,color:C.sl}}>{Number(r.units_ordered)||"—"}</td>
+                    <td style={{padding:"6px 8px",textAlign:"right",fontSize:12,color:C.sl}}>{(Number(r.units_in_transit)||0)>0?Number(r.units_in_transit).toLocaleString():"—"}</td>
+                    <td style={{padding:"6px 8px",textAlign:"right",fontSize:12,color:C.sl}}>{(Number(r.units_received)||0)>0?Number(r.units_received).toLocaleString():"—"}</td>
+                    <td style={{padding:"6px 8px",textAlign:"right",fontSize:12,color:C.sl}}>{(Number(r.units_outstanding)||0)>0?Number(r.units_outstanding).toLocaleString():"—"}</td>
+                    <td style={{padding:"6px 8px",fontSize:11,color:r.expected_delivery?C.nv:C.am}}>{r.expected_delivery||"No ETA"}</td>
                     <td style={{padding:"6px 8px",fontSize:11,color:"#64748b"}}>{r.target_launch_date||"—"}</td>
+                    <td/>
                   </tr>
                 ))}
               </React.Fragment>
@@ -2540,7 +2561,7 @@ const rows = [
           })}
  
           {sortedGroups.length===0&&(
-            <tr><td colSpan={11} style={{padding:"32px",textAlign:"center",color:C.sL,fontSize:13}}>
+            <tr><td colSpan={13} style={{padding:"32px",textAlign:"center",color:C.sL,fontSize:13}}>
               No styles match the current filters.
             </td></tr>
           )}
