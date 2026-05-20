@@ -2301,13 +2301,14 @@ const rows = [
     <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,padding:"11px 14px",marginBottom:12,display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
  
       {/* Status */}
-      {[{label:"Filter: Status", all:allStatuses, active:ooSt, setter:setOoStatus},
-        {label:"Quarter",        all:allQuarters,  active:ooQtr, setter:setOoQuarter},
-        {label:"PO Season",      all:allSeasons,   active:ooSsn, setter:setOoSeason},
-        {label:"Delivery Month", all:allMonths,    active:ooMth, setter:setOoMonth},
-        {label:"Launch Month", all:allLaunchMonths, active:ooLM, setter:setOoLaunchMonth},
-        {label:"Launch Category",all:allLaunches,  active:ooLnc, setter:setOoLaunch},
+      {[{label:"Filter: Status", all:allStatuses,    active:ooStatus,       setter:setOoStatus},
+        {label:"Quarter",        all:allQuarters,    active:ooQuarter,      setter:setOoQuarter},
+        {label:"PO Season",      all:allSeasons,     active:ooSeason,       setter:setOoSeason},
+        {label:"Delivery Month", all:allMonths,      active:ooMonth,        setter:setOoMonth},
+        {label:"Launch Month",   all:allLaunchMonths,active:ooLaunchMonth,  setter:setOoLaunchMonth},
+        {label:"Launch Category",all:allLaunches,    active:ooLaunch,       setter:setOoLaunch},
       ].map(({label, all, active, setter}) => {
+        // active=[] means "Select All"; active.length>0 means specific items chosen
         const isFiltered = active.length > 0 && active.length < all.length;
         return (
           <div key={label} style={{position:"relative",display:"inline-block"}}>
