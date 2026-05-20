@@ -135,6 +135,7 @@ useEffect(() => {
   const [ooStatus,     setOoStatus]     = useState([]);
   const [ooQuarter,    setOoQuarter]    = useState([]);
   const [ooSeason,     setOoSeason]     = useState([]);
+  const [ooLaunchMonth, setOoLaunchMonth] = useState([]);
   const [ooMonth,      setOoMonth]      = useState([]);
   const [ooLaunch,     setOoLaunch]     = useState([]);
   const [ooConflict,   setOoConflict]   = useState(false);
@@ -2233,8 +2234,8 @@ const rows = [
   const allStatuses  = ["Not Shipped","In Transit","Partial Receipt","Full Receipt","PO Not Placed"];
   const allQuarters  = uniq("quarter");
   const allSeasons   = uniq("po_season");
-  const allMonths    = ["January","February","March","April","May","June","July","August","September","October","November","December"]
-                        .filter(m => uniq("delivery_month").includes(m));
+  const allMonths = uniq("delivery_month");
+  const allLaunchMonths = uniq("launch_month");
   const allLaunches  = uniq("launch_category");
  
   // Initialise filter state arrays on first render (empty = all selected)
@@ -2276,7 +2277,8 @@ const rows = [
     if (!ooSt.includes(status))           return false;
     if (!ooQtr.includes(g.quarter))       return false;
     if (!ooSsn.includes(g.po_season))     return false;
-    if (!ooMth.includes(g.delivery_month))return false;
+    if(ooMth.length && g.delivery_month && !ooMth.includes(g.delivery_month)) return false;
+    if(ooLM.length && g.launch_month && !ooLM.includes(g.launch_month)) return false;
     if (!ooLnc.includes(g.launch_category)) return false;
     if (ooConflict && g.launch_conflict !== "Launch Conflict") return false;
     if (ooSearch && !g.style_name?.toLowerCase().includes(ooSearch.toLowerCase())) return false;
@@ -2405,6 +2407,7 @@ const rows = [
         {label:"Quarter",        all:allQuarters,  active:ooQtr, setter:setOoQuarter},
         {label:"PO Season",      all:allSeasons,   active:ooSsn, setter:setOoSeason},
         {label:"Delivery Month", all:allMonths,    active:ooMth, setter:setOoMonth},
+        {label:"Launch Month", all:allLaunchMonths, active:ooLM, setter:setOoLaunchMonth},
         {label:"Launch Category",all:allLaunches,  active:ooLnc, setter:setOoLaunch},
       ].map(({label, all, active, setter}) => {
         const isFiltered = active.length > 0 && active.length < all.length;
@@ -2450,7 +2453,7 @@ const rows = [
           color:C.nv,outline:"none",width:160,background:"#f8fafc"}}/>
  
       {/* Clear */}
-      <button onClick={()=>{setOoStatus([]);setOoQuarter([]);setOoSeason([]);setOoMonth([]);setOoLaunch([]);setOoConflict(false);setOoSearch("");}}
+      <button onClick={()=>{setOoStatus([]);setOoQuarter([]);setOoSeason([]);setOoMonth([]);setOoLaunch([]);setOoLaunchMonth([]);setOoConflict(false);setOoSearch("");}}
         style={{background:"none",border:"none",color:C.sL,fontSize:11,cursor:"pointer",fontWeight:600,padding:"3px 5px"}}>
         Clear all
       </button>
