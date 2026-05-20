@@ -64,7 +64,7 @@ const DEFS={
   u7:"Units sold in the last 7 days",u90:"Units sold in the last 90 days",
   woh:"OH units / avg weekly sell-through volume",wohOwned:"Total owned inventory / avg weekly sell-through volume",
   ohVal:"On-hand inventory valued at unit cost",ohUnits:"Current on-hand unit count",onOrder:"Units on order (open orders + purchase orders)",
-  totalOwned:"OH units + on order units",unitCost:"Weighted average cost per unit",avgPrice:"Average selling price: GLD ÷ gross units sold. If gross units unavailable for the period, falls back to net sales ÷ net units sold",avgProfit:"Average selling price minus unit cost",imu:"Initial markup: avg profit / avg price",
+  totalOwned:"OH units + on order units",unitCost:"Weighted average cost per unit",avgPrice:"Average selling price: GLD ÷ gross units sold. If gross units unavailable, falls back to net sales ÷ net units sold",avgProfit:"Average selling price minus unit cost",imu:"Initial markup: avg profit / avg price",
   // Customers
   newCust:"Orders from new customers",retOrders:"Orders from returning customers",
   // Returns
@@ -139,11 +139,10 @@ useEffect(() => {
   const [ooLaunch,     setOoLaunch]     = useState([]);
   const [ooConflict,   setOoConflict]   = useState(false);
   const [ooSearch,     setOoSearch]     = useState("");
-
   if (!data) return <div>Loading...</div>;
   const meta = data.metadata || {};
   const getMetric = (metric) =>
-    data.kpi.find((k) => k.metric === metric) || {};
+    (data.kpi||[]).find((k) => k.metric === metric) || {};
   // ── Safe value helpers (handle null, "", NaN from JSON) ──
   const _v = (x) => (x != null && x !== "" && !Number.isNaN(Number(x))) ? Number(x) : null;
   const _abs = (x) => { const n = _v(x); return n != null ? Math.abs(n) : null; };
@@ -705,7 +704,17 @@ useEffect(() => {
   const GOOG_LIVE = buildCampData(data.google_ads || [], 'brand');
 
   const mtdROAS=DD.mtdMktSpend?(DD.mtdNewNet/DD.mtdMktSpend).toFixed(2):"—";
-  const tabs=[{id:"overview",l:"Overview",i:"📊"},{id:"revenue",l:"Revenue",i:"💰"},{id:"products",l:"Products",i:"👠"},{id:"inventory",l:"Inventory",i:"📦"},{id:"on_order",l:"On Order",i:"🚢"},{id:"returns",l:"Returns",i:"↩️"},{id:"marketing",l:"Marketing",i:"📣"},{id:"website",l:"Website",i:"🌐"}];
+  const tabs=[
+  {id:"overview",  l:"Overview",   i:"📊"},
+  {id:"revenue",   l:"Revenue",    i:"💰"},
+  {id:"products",  l:"Products",   i:"👠"},
+  {id:"inventory", l:"Inventory",  i:"📦"},
+  {id:"on_order",  l:"On Order",   i:"🚢"},
+  {id:"returns",   l:"Returns",    i:"↩️"},
+  {id:"marketing", l:"Marketing",  i:"📣"},
+  {id:"website",   l:"Website",    i:"🌐"},
+];
+  
   const rv = revF === "new" ? {
     gross: DD.newGross, priorGross: DD.priorNewGross, grossPlan: null,
     discounts: DD.newDiscounts, priorDiscounts: DD.priorNewDiscounts,
@@ -1127,7 +1136,7 @@ const rows = [
   <SH t="New vs. Returning Comparison"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:8,overflowX:"auto"}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}><thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-      {["Metric","New CW","New PW","WoW","Ret CW","Ret PW","WoW"].map(h=><th key={h} style={{textAlign:h==="Metric"?"left":"right",padding:"7px 9px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>{h}</th>)}
+      {["Metric","New CW","New PW","New WoW","Ret CW","Ret PW","Ret WoW"].map(h=><th key={h} style={{textAlign:h==="Metric"?"left":"right",padding:"7px 9px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>{h}</th>)}
     </tr></thead><tbody>{[
       {m:"Net Revenue",nc:ff(DD.newNetRev),np:ff(DD.priorNewNetRev),nw:w(DD.newNetRev,DD.priorNewNetRev),rc:ff(DD.repeatNetRev),rp:ff(DD.priorRepeatNetRev),rw:w(DD.repeatNetRev,DD.priorRepeatNetRev)},
       {m:"Orders",nc:DD.newCustomers,np:DD.priorNewCustomers,nw:w(DD.newCustomers,DD.priorNewCustomers),rc:DD.retOrders,rp:DD.priorRetOrders,rw:w(DD.retOrders,DD.priorRetOrders)},
@@ -1415,11 +1424,10 @@ const rows = [
     const owned=Number(r.u_owned)||(oh+oo);
     const uc=Math.round(Number(r.unit_cost)||0);
     const nu=tf.uKey?Number(r[tf.uKey])||0:0;
-    const gu=tf.guKey?Number(r[tf.guKey])||0:0; // gross units sold; 0 if unavailable for this period
+    const gu=tf.guKey?Number(r[tf.guKey])||0:0;
     const gld=tf.revKey?Number(r[tf.revKey])||0:0;
     const netSales=tf.netKey?Number(r[tf.netKey])||0:0;
     const st=(oh+nu)>0?+((nu/(oh+nu))*100).toFixed(1):0;
-    // Avg price: GLD / gross units if available; else net sales / net units
     const avgP=gu>0&&gld>0?Math.round(gld/gu):nu>0&&netSales>0?Math.round(netSales/nu):0;
     const avgPr=avgP>0&&uc>0?Math.round(avgP-uc):0;
     const imu=avgP>0&&avgPr!==0?+((avgPr/avgP)*100).toFixed(1):0;
@@ -1441,12 +1449,11 @@ const rows = [
     const oo=rows.reduce((a,r)=>a+r.oo,0);
     const owned=rows.reduce((a,r)=>a+r.owned,0);
     const nu=rows.reduce((a,r)=>a+r.nu,0);
-    const gu=rows.reduce((a,r)=>a+r.gu,0); // sum gross units across SKUs
+    const gu=rows.reduce((a,r)=>a+r.gu,0);
     const gld=rows.reduce((a,r)=>a+r.gld,0);
     const netSales=rows.reduce((a,r)=>a+r.netSales,0);
     const uc=oh>0?Math.round(rows.reduce((a,r)=>a+r.uc*r.oh,0)/oh):0;
     const st=(oh+nu)>0?+((nu/(oh+nu))*100).toFixed(1):0;
-    // Avg price: GLD / gross units if available; else net sales / net units
     const avgP=gu>0&&gld>0?Math.round(gld/gu):nu>0&&netSales>0?Math.round(netSales/nu):0;
     const avgPr=avgP>0&&uc>0?Math.round(avgP-uc):0;
     const imu=avgP>0&&avgPr!==0?+((avgPr/avgP)*100).toFixed(1):0;
@@ -2086,10 +2093,10 @@ const rows = [
 {/* ═══ WEBSITE ═══ */}
 {tab==="website"&&<>
   <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
-    <MC l="Sessions" v={DD.sessions.toLocaleString()} ww={w(DD.sessions,DD.priorSessions)} pL={DD.priorSessions.toLocaleString()} sub={`MTD: ${DD.mtdSessions.toLocaleString()}`}/>
-    <MC l="ATC Rate" v={DD.atcRate.toFixed(1)+"%"} ww={w(DD.atcRate,DD.priorAtcRate)} pL={DD.priorAtcRate.toFixed(1)+"%"} sub={DD.mtdAtcRate!=null?`MTD: ${DD.mtdAtcRate.toFixed(1)}%`:""}/>
-    <MC l="Bounce Rate" v={DD.bounceRate.toFixed(1)+"%"} ww={w(DD.bounceRate,DD.priorBounceRate)} pL={DD.priorBounceRate.toFixed(1)+"%"} inv sub={DD.mtdBounceRate!=null?`MTD: ${DD.mtdBounceRate.toFixed(1)}%`:""}/>
-    <MC l="Pages/Session" v={DD.pagesPerSession} ww={w(DD.pagesPerSession,DD.priorPagesPerSession)} pL={DD.priorPagesPerSession} sub={DD.mtdPagesPerSession!=null?`MTD: ${DD.mtdPagesPerSession}`:""}/>
+    <MC l="Sessions" v={(DD.sessions||0).toLocaleString()} ww={w(DD.sessions,DD.priorSessions)} pL={(DD.priorSessions||0).toLocaleString()} sub={`MTD: ${(DD.mtdSessions||0).toLocaleString()}`}/>
+    <MC l="ATC Rate" v={DD.atcRate!=null?DD.atcRate.toFixed(1)+"%":"—"} ww={w(DD.atcRate,DD.priorAtcRate)} pL={DD.priorAtcRate!=null?DD.priorAtcRate.toFixed(1)+"%":null} sub={DD.mtdAtcRate!=null?`MTD: ${DD.mtdAtcRate.toFixed(1)}%`:""}/>
+    <MC l="Bounce Rate" v={DD.bounceRate!=null?DD.bounceRate.toFixed(1)+"%":"—"} ww={w(DD.bounceRate,DD.priorBounceRate)} pL={DD.priorBounceRate!=null?DD.priorBounceRate.toFixed(1)+"%":null} inv sub={DD.mtdBounceRate!=null?`MTD: ${DD.mtdBounceRate.toFixed(1)}%`:""}/>
+    <MC l="Pages/Session" v={DD.pagesPerSession??"—"} ww={w(DD.pagesPerSession,DD.priorPagesPerSession)} pL={DD.priorPagesPerSession??null} sub={DD.mtdPagesPerSession!=null?`MTD: ${DD.mtdPagesPerSession}`:""}/>
   </div>
 
   <SH t="Device Breakdown"/>
@@ -2209,118 +2216,145 @@ const rows = [
   <div style={{marginTop:4,fontSize:10,color:C.sL,fontStyle:"italic"}}>Note: Website traffic data is from Google Analytics filtered for United States only.</div>
 </>}
 
+        <div style={{marginTop:28,padding:"14px 0",borderTop:`1px solid ${C.bd}`,display:"flex",justifyContent:"space-between",fontSize:11,color:C.sL,flexWrap:"wrap",gap:8}}>
+          <span>Sarah Flint · Weekly Dashboard · {meta.dateRange}</span>
+          <span>Sources: Supermetrics, GA4, Meta Ads, Google Ads</span>
+        </div>
 
+        `
 {/* ═══ ON ORDER ═══ */}
 {tab==="on_order"&&(()=>{
-
-  const raw = (data.po||[]).filter(r=>r.status!=="Cancelled");
-
+ 
+  // ── Raw data ──────────────────────────────────────────────────────────────
+  const raw = data.on_order || [];
+ 
+  // ── Build unique filter options from data ─────────────────────────────────
   const uniq = (key) => [...new Set(raw.map(r=>r[key]).filter(Boolean))].sort();
-  const allStatuses = ["Not Shipped","In Transit","Partial Receipt","Full Receipt","PO Not Placed"];
-  const allQuarters = uniq("quarter");
-  const allSeasons  = uniq("po_season");
-  const allMonths   = ["January","February","March","April","May","June","July","August","September","October","November","December"].filter(m=>uniq("delivery_month").includes(m));
-  const allLaunches = uniq("launch_category");
-
+  const allStatuses  = ["Not Shipped","In Transit","Partial Receipt","Full Receipt","PO Not Placed"];
+  const allQuarters  = uniq("quarter");
+  const allSeasons   = uniq("po_season");
+  const allMonths    = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+                        .filter(m => uniq("delivery_month").includes(m));
+  const allLaunches  = uniq("launch_category");
+ 
+  // Initialise filter state arrays on first render (empty = all selected)
   const ooSt  = ooStatus.length  ? ooStatus  : allStatuses;
   const ooQtr = ooQuarter.length ? ooQuarter : allQuarters;
   const ooSsn = ooSeason.length  ? ooSeason  : allSeasons;
   const ooMth = ooMonth.length   ? ooMonth   : allMonths;
   const ooLnc = ooLaunch.length  ? ooLaunch  : allLaunches;
-
+ 
   const toggleFilter = (setter, current, all, val) => {
     const active = current.length ? current : all;
-    const next = active.includes(val) ? active.filter(x=>x!==val) : [...active,val];
-    setter(next.length===all.length ? [] : next);
+    const next = active.includes(val) ? active.filter(x=>x!==val) : [...active, val];
+    setter(next.length === all.length ? [] : next);
   };
-
+ 
+  // ── Group raw rows → style groups (po_number + style_number + color) ──────
   const groupMap = {};
-  raw.forEach(r=>{
+  raw.forEach(r => {
     const key = r.po_style || `${r.po_number||"NOPO"}__${r.style_number}`;
-    if(!groupMap[key]) groupMap[key]={key,rows:[],...r};
+    if (!groupMap[key]) groupMap[key] = { key, rows:[], ...r };
     groupMap[key].rows.push(r);
   });
   const allGroups = Object.values(groupMap);
-
+ 
+  // ── Row-level status (worst-case across shipments) ──────────────────────
   const groupStatus = (rows) => {
     const ss = rows.map(r=>r.status).filter(Boolean);
-    if(!ss.length) return "Not Shipped";
-    if(ss.every(s=>s==="Full Receipt"))    return "Full Receipt";
-    if(ss.some(s=>s==="Partial Receipt"))  return "Partial Receipt";
-    if(ss.some(s=>s==="In Transit"))       return "In Transit";
-    if(ss.every(s=>s==="PO Not Placed"))   return "PO Not Placed";
+    if (ss.length === 0) return "Not Shipped";
+    if (ss.every(s=>s==="Full Receipt"))   return "Full Receipt";
+    if (ss.some(s=>s==="Partial Receipt")) return "Partial Receipt";
+    if (ss.some(s=>s==="In Transit"))      return "In Transit";
+    if (ss.every(s=>s==="PO Not Placed"))  return "PO Not Placed";
     return "Not Shipped";
   };
-
-  const filtered = allGroups.filter(g=>{
+ 
+  // ── Apply filters ─────────────────────────────────────────────────────────
+  const filtered = allGroups.filter(g => {
     const status = groupStatus(g.rows);
-    if(!ooSt.includes(status)) return false;
-    if(g.quarter && !ooQtr.includes(g.quarter)) return false;
-    if(g.po_season && !ooSsn.includes(g.po_season)) return false;
-    if(g.delivery_month && !ooMth.includes(g.delivery_month)) return false;
-    if(g.launch_category && !ooLnc.includes(g.launch_category)) return false;
-    if(ooConflict && g.launch_conflict!=="Launch Conflict") return false;
-    if(ooSearch && !g.style_name?.toLowerCase().includes(ooSearch.toLowerCase())) return false;
+    if (!ooSt.includes(status))           return false;
+    if (!ooQtr.includes(g.quarter))       return false;
+    if (!ooSsn.includes(g.po_season))     return false;
+    if (!ooMth.includes(g.delivery_month))return false;
+    if (!ooLnc.includes(g.launch_category)) return false;
+    if (ooConflict && g.launch_conflict !== "Launch Conflict") return false;
+    if (ooSearch && !g.style_name?.toLowerCase().includes(ooSearch.toLowerCase())) return false;
     return true;
   });
-
-  const sortedGroups = [...filtered].sort((a,b)=>{
-    const ea=a.expected_delivery||"9999", eb=b.expected_delivery||"9999";
+ 
+  // Sort: default by expected_delivery ascending (nulls last)
+  const sortedGroups = [...filtered].sort((a,b) => {
+    const ea = a.expected_delivery||"9999", eb = b.expected_delivery||"9999";
     return ea.localeCompare(eb);
   });
-
-  const activeRaw  = raw.filter(r=>!["Full Receipt"].includes(r.status));
-  const kpiStyles  = allGroups.length;
-  const kpiPOs     = [...new Set(raw.map(r=>r.po_number).filter(Boolean))].length;
-  const kpiOutst   = raw.reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
-  const kpiAir     = activeRaw.filter(r=>r.freight_method==="Air").reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
-  const kpiOcean   = activeRaw.filter(r=>r.freight_method==="Ocean").reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
-
-  const stageUnits = (st) => raw.filter(r=>r.status===st).reduce((a,r)=>a+(Number(r.units_outstanding)||0)+(Number(r.units_received)||0),0);
+ 
+  // ── KPI aggregates (from all unfiltered data) ─────────────────────────────
+  const activeRaw = raw.filter(r => !["Full Receipt","Cancelled"].includes(r.status));
+  const kpiStyles    = allGroups.length;
+  const kpiOutst     = raw.reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
+  const kpiAir       = activeRaw.filter(r=>r.freight_method==="Air").reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
+  const kpiOcean     = activeRaw.filter(r=>r.freight_method==="Ocean").reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
+ 
+  // ── Pipeline stage counts (units, all raw) ────────────────────────────────
+  const stageUnits = (status) => raw.filter(r=>r.status===status).reduce((a,r)=>a+(Number(r.units_outstanding)||0)+(Number(r.units_received)||0),0);
   const stages = [
-    {label:"PO Not Placed",  color:"#7c3aed",bg:"#f3e8ff",units:stageUnits("PO Not Placed")},
-    {label:"Not Shipped",    color:"#475569",bg:"#f1f5f9",units:stageUnits("Not Shipped")},
-    {label:"In Transit",     color:"#1e40af",bg:"#dbeafe",units:stageUnits("In Transit")},
-    {label:"Partial Receipt",color:"#d97706",bg:"#fef3c7",units:stageUnits("Partial Receipt")},
-    {label:"Full Receipt",   color:"#059669",bg:"#d1fae5",units:stageUnits("Full Receipt")},
+    {label:"PO Not Placed",  color:"#7c3aed", bg:"#f3e8ff", units: stageUnits("PO Not Placed")},
+    {label:"Not Shipped",    color:"#475569", bg:"#f1f5f9", units: stageUnits("Not Shipped")},
+    {label:"In Transit",     color:"#1e40af", bg:"#dbeafe", units: stageUnits("In Transit")},
+    {label:"Partial Receipt",color:"#d97706", bg:"#fef3c7", units: stageUnits("Partial Receipt")},
+    {label:"Full Receipt",   color:"#059669", bg:"#d1fae5", units: stageUnits("Full Receipt")},
   ];
   const stageTot = stages.reduce((a,s)=>a+s.units,0)||1;
-
+ 
+  // ── Helper: render status badge ───────────────────────────────────────────
   const sBg = {
-    "Not Shipped":    {bg:"#f1f5f9",cl:"#475569"},
-    "In Transit":     {bg:"#dbeafe",cl:"#1e40af"},
-    "Partial Receipt":{bg:"#fef3c7",cl:"#92400e"},
-    "Full Receipt":   {bg:"#d1fae5",cl:"#065f46"},
-    "PO Not Placed":  {bg:"#f3e8ff",cl:"#6b21a8"},
+    "Not Shipped":     {bg:"#f1f5f9",cl:"#475569"},
+    "In Transit":      {bg:"#dbeafe",cl:"#1e40af"},
+    "Partial Receipt": {bg:"#fef3c7",cl:"#92400e"},
+    "Full Receipt":    {bg:"#d1fae5",cl:"#065f46"},
+    "PO Not Placed":   {bg:"#f3e8ff",cl:"#6b21a8"},
   };
-  const SBadge = ({s})=>{
-    const {bg="#f1f5f9",cl="#475569"}=sBg[s]||{};
+  const SBadge = ({s}) => {
+    const {bg="#f1f5f9",cl="#475569"} = sBg[s]||{};
     return <span style={{display:"inline-flex",alignItems:"center",padding:"2px 8px",borderRadius:20,fontSize:10,fontWeight:700,background:bg,color:cl,whiteSpace:"nowrap"}}>{s}</span>;
   };
-  const FreightBadge = ({f})=>{
-    if(f==="Air")   return <span style={{display:"inline-flex",alignItems:"center",padding:"2px 7px",borderRadius:20,fontSize:10,fontWeight:700,background:"#e0f2fe",color:"#0369a1",whiteSpace:"nowrap"}}>✈ Air</span>;
-    if(f==="Ocean") return <span style={{display:"inline-flex",alignItems:"center",padding:"2px 7px",borderRadius:20,fontSize:10,fontWeight:700,background:"#d1fae5",color:"#065f46",whiteSpace:"nowrap"}}>〜 Ocean</span>;
+ 
+  const FreightBadge = ({f}) => {
+    if (f==="Air")   return <span style={{display:"inline-flex",alignItems:"center",padding:"2px 7px",borderRadius:20,fontSize:10,fontWeight:700,background:"#e0f2fe",color:"#0369a1",whiteSpace:"nowrap"}}>✈ Air</span>;
+    if (f==="Ocean") return <span style={{display:"inline-flex",alignItems:"center",padding:"2px 7px",borderRadius:20,fontSize:10,fontWeight:700,background:"#d1fae5",color:"#065f46",whiteSpace:"nowrap"}}>〜 Ocean</span>;
     return <span style={{color:C.sL}}>—</span>;
   };
-  const LcBadge = ({v})=>v==="Launch Conflict"
+ 
+  const LcBadge = ({v}) => v==="Launch Conflict"
     ? <span style={{display:"inline-flex",alignItems:"center",padding:"2px 7px",borderRadius:20,fontSize:10,fontWeight:700,background:"#fee2e2",color:"#991b1b"}}>⚠ Conflict</span>
     : <span style={{display:"inline-flex",alignItems:"center",padding:"2px 7px",borderRadius:20,fontSize:10,fontWeight:700,background:"#d1fae5",color:"#065f46"}}>✓ OK</span>;
-
-  const TH = ({children,right})=>(
-    <th style={{padding:"8px 8px",textAlign:right?"right":"left",fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",letterSpacing:.4,whiteSpace:"nowrap",background:"#f8fafc"}}>{children}</th>
+ 
+  // ── Shared button styles ──────────────────────────────────────────────────
+  const fBtnS = (active) => ({
+    background: active ? C.b4 : C.cd,
+    border: `1px solid ${active ? C.b2 : C.bd}`,
+    color: active ? C.b1 : C.sl,
+    borderRadius: 6, padding:"4px 9px", fontSize:11, fontWeight:600, cursor:"pointer",
+  });
+ 
+  // ── Table column header cell ──────────────────────────────────────────────
+  const TH = ({children, right}) => (
+    <th style={{padding:"8px 8px",textAlign:right?"right":"left",fontSize:10,fontWeight:700,
+      color:C.sL,textTransform:"uppercase",letterSpacing:.4,whiteSpace:"nowrap",background:"#f8fafc"}}>
+      {children}
+    </th>
   );
-
-  const fBtnS = (active)=>({background:active?C.b4:C.cd,border:`1px solid ${active?C.b2:C.bd}`,color:active?C.b1:C.sl,borderRadius:6,padding:"4px 9px",fontSize:11,fontWeight:600,cursor:"pointer"});
-
+ 
   return <>
-
-    {/* KPI cards */}
+ 
+    {/* ── KPI cards ─────────────────────────────────────────────────────── */}
     <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:10,marginBottom:12}}>
       {[
-        {l:"Styles on Order",   v:kpiStyles.toLocaleString(), sub:`across ${kpiPOs} POs`},
-        {l:"Units Outstanding", v:kpiOutst.toLocaleString(),  sub:"open + partial + transit"},
-        {l:"Air Inbound",       v:kpiAir.toLocaleString(),    sub:`${Math.round(kpiAir/((kpiAir+kpiOcean)||1)*100)}% of outstanding`},
-        {l:"Ocean Inbound",     v:kpiOcean.toLocaleString(),  sub:`${Math.round(kpiOcean/((kpiAir+kpiOcean)||1)*100)}% of outstanding`},
+        {l:"Styles on Order",   v:kpiStyles.toLocaleString(),        sub:`across ${[...new Set(raw.map(r=>r.po_number).filter(Boolean))].length} POs`},
+        {l:"Units Outstanding", v:kpiOutst.toLocaleString(),         sub:"open + partial + transit"},
+        {l:"Air Inbound",       v:kpiAir.toLocaleString(),           sub:`${stageTot>0?Math.round(kpiAir/(kpiAir+kpiOcean||1)*100):0}% of outstanding`},
+        {l:"Ocean Inbound",     v:kpiOcean.toLocaleString(),         sub:`${stageTot>0?Math.round(kpiOcean/(kpiAir+kpiOcean||1)*100):0}% of outstanding`},
       ].map(k=>(
         <div key={k.l} style={{background:C.cd,borderRadius:10,border:`1px solid ${C.bd}`,padding:"13px 15px"}}>
           <div style={{fontSize:10,color:C.sL,textTransform:"uppercase",letterSpacing:.7,fontWeight:600,marginBottom:4}}>{k.l}</div>
@@ -2329,22 +2363,29 @@ const rows = [
         </div>
       ))}
     </div>
-
-    {/* Pipeline bar */}
+ 
+    {/* ── Pipeline bar ──────────────────────────────────────────────────── */}
     <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,padding:"16px 18px",marginBottom:12}}>
       <div style={{fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",letterSpacing:.7,marginBottom:11}}>Units by pipeline stage</div>
       <div style={{display:"flex",borderRadius:7,overflow:"hidden",height:30,gap:2}}>
         {stages.map(s=>{
-          const pct=s.units/stageTot*100, w=Math.max(pct,2);
-          return <div key={s.label} title={`${s.label}: ${s.units.toLocaleString()} units (${pct.toFixed(1)}%)`}
-            style={{background:s.color,width:`${w}%`,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}>
-            {w>6&&<span style={{fontSize:10,fontWeight:700,color:s.bg,padding:"0 5px",whiteSpace:"nowrap"}}>{pct.toFixed(1)}%</span>}
-          </div>;
+          const pct = s.units/stageTot*100;
+          const w = Math.max(pct,2);
+          return (
+            <div key={s.label} title={`${s.label}: ${s.units.toLocaleString()} units (${pct.toFixed(1)}%)`}
+              style={{background:s.color,width:`${w}%`,display:"flex",alignItems:"center",
+                justifyContent:"center",flexShrink:0}}>
+              {w>6&&<span style={{fontSize:10,fontWeight:700,color:s.bg,padding:"0 5px",whiteSpace:"nowrap"}}>
+                {pct.toFixed(1)}%
+              </span>}
+            </div>
+          );
         })}
       </div>
       <div style={{display:"flex",marginTop:13,borderTop:`1px solid #f1f5f9`,paddingTop:12}}>
         {stages.map((s,i)=>(
-          <div key={s.label} style={{flex:1,padding:"0 10px",borderRight:i<stages.length-1?`1px solid #f1f5f9`:"none",paddingLeft:i===0?0:undefined}}>
+          <div key={s.label} style={{flex:1,padding:"0 10px",borderRight:i<stages.length-1?`1px solid #f1f5f9`:"none",
+            paddingLeft:i===0?0:undefined}}>
             <div style={{display:"flex",alignItems:"center",gap:5,marginBottom:4}}>
               <span style={{width:9,height:9,borderRadius:2,background:s.color,display:"inline-block",flexShrink:0}}/>
               <span style={{fontSize:10,fontWeight:600,color:C.sl}}>{s.label}</span>
@@ -2355,60 +2396,74 @@ const rows = [
         ))}
       </div>
     </div>
-
-    {/* Filters */}
+ 
+    {/* ── Filters ───────────────────────────────────────────────────────── */}
     <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,padding:"11px 14px",marginBottom:12,display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
-      {[
-        {label:"Status",         all:allStatuses, active:ooSt,  setter:setOoStatus},
-        {label:"Quarter",        all:allQuarters, active:ooQtr, setter:setOoQuarter},
-        {label:"PO Season",      all:allSeasons,  active:ooSsn, setter:setOoSeason},
-        {label:"Delivery Month", all:allMonths,   active:ooMth, setter:setOoMonth},
-        {label:"Launch Category",all:allLaunches, active:ooLnc, setter:setOoLaunch},
-      ].map(({label,all,active,setter})=>{
-        const isFiltered = active.length>0 && active.length<all.length;
+ 
+      {/* Status */}
+      {[{label:"Filter: Status", all:allStatuses, active:ooSt, setter:setOoStatus},
+        {label:"Quarter",        all:allQuarters,  active:ooQtr, setter:setOoQuarter},
+        {label:"PO Season",      all:allSeasons,   active:ooSsn, setter:setOoSeason},
+        {label:"Delivery Month", all:allMonths,    active:ooMth, setter:setOoMonth},
+        {label:"Launch Category",all:allLaunches,  active:ooLnc, setter:setOoLaunch},
+      ].map(({label, all, active, setter}) => {
+        const isFiltered = active.length > 0 && active.length < all.length;
         return (
           <div key={label} style={{position:"relative",display:"inline-block"}}>
-            <details>
-              <summary style={{...fBtnS(isFiltered),listStyle:"none",display:"flex",alignItems:"center",gap:4,userSelect:"none"}}>
+            <details style={{position:"relative"}}>
+              <summary style={{...fBtnS(isFiltered), listStyle:"none", display:"flex", alignItems:"center", gap:4, userSelect:"none"}}>
                 {label}
-                {isFiltered&&<span style={{background:C.b1,color:"#fff",borderRadius:10,padding:"1px 5px",fontSize:10,marginLeft:2}}>{active.length}</span>}
+                {isFiltered && <span style={{background:C.b1,color:"#fff",borderRadius:10,padding:"1px 5px",fontSize:10,marginLeft:2}}>{active.length}</span>}
                 <span style={{fontSize:11}}>▾</span>
               </summary>
               <div style={{position:"absolute",top:"calc(100% + 4px)",left:0,background:C.cd,border:`1px solid ${C.bd}`,borderRadius:8,padding:5,minWidth:160,zIndex:100,boxShadow:"0 4px 16px rgba(0,0,0,.08)"}}>
                 {all.map(opt=>{
-                  const checked=active.length===0||active.includes(opt);
-                  return <label key={opt} style={{display:"flex",alignItems:"center",gap:7,padding:"5px 7px",borderRadius:5,cursor:"pointer",fontSize:12,color:C.sl}}>
-                    <input type="checkbox" checked={checked} style={{accentColor:C.b1}} onChange={()=>toggleFilter(setter,active,all,opt)}/>
-                    {opt}
-                  </label>;
+                  const checked = active.length===0||active.includes(opt);
+                  return (
+                    <label key={opt} style={{display:"flex",alignItems:"center",gap:7,padding:"5px 7px",borderRadius:5,cursor:"pointer",fontSize:12,color:C.sl}}>
+                      <input type="checkbox" checked={checked} style={{accentColor:C.b1}}
+                        onChange={()=>toggleFilter(setter, active, all, opt)}/>
+                      {opt}
+                    </label>
+                  );
                 })}
               </div>
             </details>
           </div>
         );
       })}
-
+ 
+      {/* Launch Conflict toggle */}
       <button onClick={()=>setOoConflict(!ooConflict)}
-        style={{background:ooConflict?"#fee2e2":C.cd,border:`1px solid ${ooConflict?"#dc2626":C.bd}`,color:ooConflict?"#991b1b":C.sl,borderRadius:6,padding:"4px 9px",fontSize:11,fontWeight:600,cursor:"pointer",display:"flex",alignItems:"center",gap:4}}>
+        style={{background:ooConflict?"#fee2e2":C.cd, border:`1px solid ${ooConflict?"#dc2626":C.bd}`,
+          color:ooConflict?"#991b1b":C.sl, borderRadius:6, padding:"4px 9px", fontSize:11,
+          fontWeight:600, cursor:"pointer", display:"flex", alignItems:"center", gap:4}}>
         <span style={{color:"#dc2626",fontSize:12}}>⚠</span> Launch Conflicts only
       </button>
-
+ 
       <div style={{width:1,height:22,background:C.bd,flexShrink:0}}/>
-
-      <input value={ooSearch} onChange={e=>setOoSearch(e.target.value)} placeholder="Search style…"
-        style={{border:`1px solid ${C.bd}`,borderRadius:6,padding:"5px 9px",fontSize:12,color:C.nv,outline:"none",width:160,background:"#f8fafc"}}/>
-
+ 
+      {/* Search */}
+      <input value={ooSearch} onChange={e=>setOoSearch(e.target.value)}
+        placeholder="Search style…"
+        style={{border:`1px solid ${C.bd}`,borderRadius:6,padding:"5px 9px",fontSize:12,
+          color:C.nv,outline:"none",width:160,background:"#f8fafc"}}/>
+ 
+      {/* Clear */}
       <button onClick={()=>{setOoStatus([]);setOoQuarter([]);setOoSeason([]);setOoMonth([]);setOoLaunch([]);setOoConflict(false);setOoSearch("");}}
         style={{background:"none",border:"none",color:C.sL,fontSize:11,cursor:"pointer",fontWeight:600,padding:"3px 5px"}}>
         Clear all
       </button>
     </div>
-
-    <div style={{fontSize:11,color:C.sL,marginBottom:8}}>Showing {sortedGroups.length} of {allGroups.length} styles</div>
-
-    {/* Table */}
+ 
+    {/* ── Result count ──────────────────────────────────────────────────── */}
+    <div style={{fontSize:11,color:C.sL,marginBottom:8}}>
+      Showing {sortedGroups.length} of {allGroups.length} styles
+    </div>
+ 
+    {/* ── Table ─────────────────────────────────────────────────────────── */}
     <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,overflow:"hidden",overflowX:"auto"}}>
-      <table style={{width:"100%",borderCollapse:"collapse",fontSize:12,minWidth:960}}>
+      <table style={{width:"100%",borderCollapse:"collapse",fontSize:12,minWidth:900}}>
         <thead>
           <tr>
             <TH/>
@@ -2429,101 +2484,117 @@ const rows = [
           </tr>
         </thead>
         <tbody>
-          {sortedGroups.map(g=>{
-            const rows=g.rows, hasSplit=rows.length>1;
-            const status=groupStatus(rows);
-            const isExp=ooExpanded[g.key];
-            const totOrd=rows.reduce((a,r)=>a+(Number(r.units_ordered)||0),0);
-            const totRcvd=rows.reduce((a,r)=>a+(Number(r.units_received)||0),0);
-            const totOut=rows.reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
-            const earliestEta=rows.map(r=>r.expected_delivery).filter(Boolean).sort()[0]||"";
-            const freights=[...new Set(rows.map(r=>r.freight_method).filter(Boolean))];
-            const rowBg=g.launch_conflict==="Launch Conflict"?"#fff8f8":C.cd;
-            const outColor=totOut>0?(status==="In Transit"?C.b1:status==="Partial Receipt"?C.am:C.nv):C.sL;
-
-            const FreightCell=()=>{
-              if(hasSplit&&freights.length>1) return <span style={{display:"inline-flex",alignItems:"center",padding:"2px 7px",borderRadius:20,fontSize:9,fontWeight:700,background:"#fef9c3",color:"#854d0e"}}>✈+〜 Split</span>;
+          {sortedGroups.map(g => {
+            const rows    = g.rows;
+            const hasSplit = rows.length > 1;
+            const status   = groupStatus(rows);
+            const isExp    = ooExpanded[g.key];
+            const totOrd   = rows.reduce((a,r)=>a+(Number(r.units_ordered)||0),0);
+            const totRcvd  = rows.reduce((a,r)=>a+(Number(r.units_received)||0),0);
+            const totOut   = rows.reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
+            const earliestEta = rows.map(r=>r.expected_delivery).filter(Boolean).sort()[0]||"";
+            const freights = [...new Set(rows.map(r=>r.freight_method).filter(Boolean))];
+            const rowBg    = g.launch_conflict==="Launch Conflict" ? "#fff8f8" : C.cd;
+            const outColor = totOut>0 ? (status==="In Transit"?C.b1:status==="Partial Receipt"?C.am:C.nv) : C.sL;
+ 
+            const FreightCell = () => {
+              if (hasSplit && freights.length > 1)
+                return <span style={{display:"inline-flex",alignItems:"center",padding:"2px 7px",borderRadius:20,fontSize:9,fontWeight:700,background:"#fef9c3",color:"#854d0e"}}>✈+〜 Split</span>;
               return <FreightBadge f={rows[0]?.freight_method}/>;
             };
-            const MetricCell=({val,color,sub})=>(
+ 
+            const MetricCell = ({val, color, sub}) => (
               <td style={{textAlign:"right",padding:"8px 8px",background:rowBg}}>
                 <div style={{fontSize:13,fontWeight:700,color:color||C.nv,lineHeight:1.1}}>{val||"—"}</div>
                 <div style={{fontSize:10,color:C.sL,marginTop:1}}>{sub}</div>
               </td>
             );
-
-            return <React.Fragment key={g.key}>
-              <tr style={{borderBottom:`1px solid #f1f5f9`,cursor:hasSplit?"pointer":"default"}}
-                onClick={()=>hasSplit&&setOoExpanded(p=>({...p,[g.key]:!p[g.key]}))}>
-                <td style={{padding:"0 0 0 10px",background:rowBg,width:22}}>
-                  {hasSplit&&<span style={{fontSize:14,color:C.sL,display:"inline-block",transition:"transform .15s",transform:isExp?"rotate(90deg)":"none"}}>›</span>}
-                </td>
-                <td style={{padding:"8px 8px",background:rowBg}}><SBadge s={status}/></td>
-                <td style={{padding:"8px 8px",fontWeight:700,color:C.nv,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",maxWidth:160,background:rowBg}}>{g.style_name}</td>
-                <td style={{padding:"8px 8px",fontFamily:"monospace",fontSize:11,color:"#64748b",background:rowBg}}>{g.style_number}</td>
-                <td style={{padding:"8px 8px",color:C.sl,background:rowBg}}>{g.color}</td>
-                <td style={{padding:"8px 8px",color:C.sL,fontSize:11,background:rowBg}}>{g.vendor}</td>
-                <td style={{padding:"8px 8px",color:"#64748b",fontSize:11,background:rowBg}}>{g.po_number||"—"}</td>
-                <td style={{padding:"8px 8px",background:rowBg}}><FreightCell/></td>
-                <MetricCell val={totOrd.toLocaleString()} sub="ordered"/>
-                <MetricCell val={totRcvd>0?totRcvd.toLocaleString():null} color={totRcvd>0?C.gn:C.sL} sub="received"/>
-                <MetricCell val={totOut>0?totOut.toLocaleString():null} color={outColor} sub="outstanding"/>
-                <td style={{padding:"8px 8px",fontSize:11,background:rowBg,color:earliestEta?C.nv:C.am,fontWeight:earliestEta?400:600}}>
-                  {earliestEta||"No ETA"}
-                </td>
-                <td style={{padding:"8px 8px",fontSize:11,color:"#64748b",background:rowBg}}>{rows[0]?.target_launch_date||"—"}</td>
-                <td style={{padding:"8px 8px",fontSize:11,color:"#64748b",background:rowBg}}>{g.launch_category}</td>
-                <td style={{padding:"8px 8px",background:rowBg}}><LcBadge v={g.launch_conflict}/></td>
-              </tr>
-              {isExp&&hasSplit&&rows.map((r,si)=>(
-                <tr key={si} style={{borderBottom:`1px solid #f1f5f9`,background:"#fafbff"}}>
-                  <td style={{padding:"0 0 0 10px"}}/>
-                  <td style={{padding:"6px 8px"}}><SBadge s={r.status||"Not Shipped"}/></td>
-                  <td style={{padding:"6px 8px 6px 18px",fontSize:11,color:"#64748b"}}>
-                    └ Shipment {si+1}
-                    {r.shipment_id&&<span style={{marginLeft:6,fontSize:10,color:C.sL}}>{r.shipment_id}</span>}
+ 
+            return (
+              <React.Fragment key={g.key}>
+                {/* Style (parent) row */}
+                <tr style={{borderBottom:`1px solid #f1f5f9`,cursor:hasSplit?"pointer":"default"}}
+                  onClick={()=>hasSplit&&setOoExpanded(p=>({...p,[g.key]:!p[g.key]}))}>
+                  <td style={{padding:"0 0 0 10px",background:rowBg,width:22}}>
+                    {hasSplit && <span style={{fontSize:14,color:C.sL,display:"inline-block",
+                      transition:"transform .15s",transform:isExp?"rotate(90deg)":"none"}}>›</span>}
                   </td>
-                  <td/><td/><td/><td/>
-                  <td style={{padding:"6px 8px"}}><FreightBadge f={r.freight_method}/></td>
-                  <td style={{padding:"6px 8px",textAlign:"right"}}>
-                    <div style={{fontSize:13,fontWeight:700,color:C.nv}}>{Number(r.units_ordered)||0}</div>
-                    <div style={{fontSize:10,color:C.sL}}>ordered</div>
+                  <td style={{padding:"8px 8px",background:rowBg}}><SBadge s={status}/></td>
+                  <td style={{padding:"8px 8px",fontWeight:700,color:C.nv,whiteSpace:"nowrap",
+                    overflow:"hidden",textOverflow:"ellipsis",maxWidth:160,background:rowBg}}>
+                    {g.style_name}
                   </td>
-                  <td style={{padding:"6px 8px",textAlign:"right"}}>
-                    {(Number(r.units_received)||0)>0
-                      ?<><div style={{fontSize:13,fontWeight:700,color:C.gn}}>{Number(r.units_received).toLocaleString()}</div><div style={{fontSize:10,color:C.sL}}>received</div></>
-                      :<span style={{color:C.sL}}>—</span>}
+                  <td style={{padding:"8px 8px",fontFamily:"monospace",fontSize:11,color:"#64748b",background:rowBg}}>{g.style_number}</td>
+                  <td style={{padding:"8px 8px",color:C.sl,background:rowBg}}>{g.color}</td>
+                  <td style={{padding:"8px 8px",color:C.sL,fontSize:11,background:rowBg}}>{g.vendor}</td>
+                  <td style={{padding:"8px 8px",color:"#64748b",fontSize:11,background:rowBg}}>{g.po_number||"—"}</td>
+                  <td style={{padding:"8px 8px",background:rowBg}}><FreightCell/></td>
+                  <MetricCell val={totOrd.toLocaleString()} sub="ordered"/>
+                  <MetricCell val={totRcvd>0?totRcvd.toLocaleString():null} color={totRcvd>0?C.gn:C.sL} sub="received"/>
+                  <MetricCell val={totOut>0?totOut.toLocaleString():null} color={outColor} sub="outstanding"/>
+                  <td style={{padding:"8px 8px",fontSize:11,background:rowBg,
+                    color:earliestEta?C.nv:C.am,fontWeight:earliestEta?400:600}}>
+                    {earliestEta||"No ETA"}
                   </td>
-                  <td style={{padding:"6px 8px",textAlign:"right"}}>
-                    {(Number(r.units_outstanding)||0)>0
-                      ?<><div style={{fontSize:13,fontWeight:700,color:C.b1}}>{Number(r.units_outstanding).toLocaleString()}</div><div style={{fontSize:10,color:C.sL}}>outstanding</div></>
-                      :<span style={{color:C.sL}}>—</span>}
+                  <td style={{padding:"8px 8px",fontSize:11,color:"#64748b",background:rowBg}}>
+                    {rows[0]?.target_launch_date||"—"}
                   </td>
-                  <td style={{padding:"6px 8px",fontSize:11,color:r.expected_delivery?C.nv:C.am,fontWeight:r.expected_delivery?400:600}}>{r.expected_delivery||"No ETA"}</td>
-                  <td style={{padding:"6px 8px",fontSize:11,color:"#64748b"}}>{r.target_launch_date||"—"}</td>
-                  <td/><td/>
+                  <td style={{padding:"8px 8px",fontSize:11,color:"#64748b",background:rowBg}}>{g.launch_category}</td>
+                  <td style={{padding:"8px 8px",background:rowBg}}><LcBadge v={g.launch_conflict}/></td>
                 </tr>
-              ))}
-            </React.Fragment>;
+ 
+                {/* Expanded shipment rows */}
+                {isExp && hasSplit && rows.map((r,si)=>(
+                  <tr key={si} style={{borderBottom:`1px solid #f1f5f9`,background:"#fafbff"}}>
+                    <td style={{padding:"0 0 0 10px"}}/>
+                    <td style={{padding:"6px 8px"}}><SBadge s={r.status||"Not Shipped"}/></td>
+                    <td style={{padding:"6px 8px 6px 18px",fontSize:11,color:"#64748b"}}>
+                      └ Shipment {si+1}
+                      {r.shipment_id&&<span style={{marginLeft:6,fontSize:10,color:C.sL}}>{r.shipment_id}</span>}
+                    </td>
+                    <td/><td/><td/><td/>
+                    <td style={{padding:"6px 8px"}}><FreightBadge f={r.freight_method}/></td>
+                    <td style={{padding:"6px 8px",textAlign:"right"}}>
+                      <div style={{fontSize:13,fontWeight:700,color:C.nv}}>{Number(r.units_ordered)||0}</div>
+                      <div style={{fontSize:10,color:C.sL}}>ordered</div>
+                    </td>
+                    <td style={{padding:"6px 8px",textAlign:"right"}}>
+                      {(Number(r.units_received)||0)>0
+                        ? <><div style={{fontSize:13,fontWeight:700,color:C.gn}}>{Number(r.units_received).toLocaleString()}</div><div style={{fontSize:10,color:C.sL}}>received</div></>
+                        : <span style={{color:C.sL}}>—</span>}
+                    </td>
+                    <td style={{padding:"6px 8px",textAlign:"right"}}>
+                      {(Number(r.units_outstanding)||0)>0
+                        ? <><div style={{fontSize:13,fontWeight:700,color:C.b1}}>{Number(r.units_outstanding).toLocaleString()}</div><div style={{fontSize:10,color:C.sL}}>outstanding</div></>
+                        : <span style={{color:C.sL}}>—</span>}
+                    </td>
+                    <td style={{padding:"6px 8px",fontSize:11,color:r.expected_delivery?C.nv:C.am,fontWeight:r.expected_delivery?400:600}}>
+                      {r.expected_delivery||"No ETA"}
+                    </td>
+                    <td style={{padding:"6px 8px",fontSize:11,color:"#64748b"}}>{r.target_launch_date||"—"}</td>
+                    <td/><td/>
+                  </tr>
+                ))}
+              </React.Fragment>
+            );
           })}
+ 
           {sortedGroups.length===0&&(
-            <tr><td colSpan={15} style={{padding:"32px",textAlign:"center",color:C.sL,fontSize:13}}>No styles match the current filters.</td></tr>
+            <tr><td colSpan={15} style={{padding:"32px",textAlign:"center",color:C.sL,fontSize:13}}>
+              No styles match the current filters.
+            </td></tr>
           )}
         </tbody>
       </table>
     </div>
-
+ 
     <div style={{marginTop:8,fontSize:10,color:C.sL,fontStyle:"italic"}}>
-      {data.metadata?.poLastUpdatedEST ? `On Order data last synced: ${data.metadata.poLastUpdatedEST}` : "On Order data managed by Sam · Push to sync via Google Sheet"}
+      Data sourced from Sam's on-order tracker. Last updated shown above.
     </div>
-
+ 
   </>;
 })()}
-
-        <div style={{marginTop:28,padding:"14px 0",borderTop:`1px solid ${C.bd}`,display:"flex",justifyContent:"space-between",fontSize:11,color:C.sL,flexWrap:"wrap",gap:8}}>
-          <span>Sarah Flint · Weekly Dashboard · {meta.dateRange}</span>
-          <span>Sources: Supermetrics, GA4, Meta Ads, Google Ads</span>
-        </div>
+`
       </div>
     </div>
   );
