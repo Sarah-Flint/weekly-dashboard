@@ -763,16 +763,9 @@ useEffect(() => {
   return (
     <div style={{fontFamily:"'DM Sans','Inter',system-ui,sans-serif",background:"#f1f5f9",minHeight:"100vh",color:C.sl}}>
       <div style={{background:"linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#1e40af 100%)",color:"#fff",padding:"20px 24px 14px"}}>
-        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",flexWrap:"wrap",gap:8}}>
-          <div>
-            <div style={{fontSize:11,letterSpacing:2,textTransform:"uppercase",opacity:0.6,marginBottom:2}}>Sarah Flint</div>
-            <h1 style={{fontSize:22,fontWeight:700,margin:0}}>Weekly Performance Dashboard</h1>
-          </div>
-          <div style={{textAlign:"right",fontSize:12,opacity:0.75,lineHeight:1.6}}>
-            <div>{meta.quarter} · {(meta.week||"").replace("WEEK","Week")} · {meta.dateRange}</div>
-            {meta.lastUpdatedEST && <div style={{fontSize:11,opacity:0.7}}>Updated {meta.lastUpdatedEST} EST</div>}
-          </div>
-        </div>
+        <div><div style={{fontSize:11,letterSpacing:2,textTransform:"uppercase",opacity:0.6,marginBottom:4}}>Sarah Flint</div>
+        <h1 style={{fontSize:22,fontWeight:700,margin:0}}>Weekly Performance Dashboard</h1>
+        <div style={{fontSize:13,opacity:0.7,marginTop:4}}>{meta.quarter} · {(meta.week||"").replace("WEEK","Week")} · {meta.dateRange}{meta.lastUpdatedEST ? <span style={{marginLeft:12,fontSize:11,opacity:0.6}}>Updated: {meta.lastUpdatedEST} EST</span> : null}</div></div>
         <div style={{display:"flex",gap:2,marginTop:16,overflowX:"auto"}}>
           {tabs.map(t=><button key={t.id} onClick={()=>setTab(t.id)} style={{background:tab===t.id?"rgba(255,255,255,0.15)":"transparent",border:"none",borderBottom:tab===t.id?"2px solid #93c5fd":"2px solid transparent",color:tab===t.id?"#fff":"rgba(255,255,255,0.55)",padding:"8px 12px",fontSize:13,fontWeight:600,cursor:"pointer",borderRadius:"8px 8px 0 0",whiteSpace:"nowrap"}}><span style={{marginRight:4}}>{t.i}</span>{t.l}</button>)}
         </div>
@@ -1682,265 +1675,191 @@ const rows = [
   const rs = data.returns_summary || [];
   const rd = data.returns_details || [];
 
-  // KPI aggregation from returns_summary
-  const totalSubmitted = rs.reduce((a,r)=>a+r['count Return ID'],0);
-  const totalValue = Math.abs(rs.reduce((a,r)=>a+r['sum Line Item Net'],0));
-  const closedReturns = rs.filter(r=>r['Return Status']==='closed'&&r['Outcome']==='Return');
-  const closedExchanges = rs.filter(r=>r['Return Status']==='closed'&&r['Outcome']==='Exchange');
-  const openRows = rs.filter(r=>r['Return Status']==='open');
-  const refundVal = Math.abs(closedReturns.reduce((a,r)=>a+r['sum Line Item Net'],0));
-  const refundCount = closedReturns.reduce((a,r)=>a+r['count Return ID'],0);
-  const exchVal = Math.abs(closedExchanges.reduce((a,r)=>a+r['sum Line Item Net'],0));
-  const exchCount = closedExchanges.reduce((a,r)=>a+r['count Return ID'],0);
-  const openVal = Math.abs(openRows.reduce((a,r)=>a+r['sum Line Item Net'],0));
-  const openCount = openRows.reduce((a,r)=>a+r['count Return ID'],0);
+  // ── Customer filter ───────────────────────────────────────────────────────
+  const cftFilter = retF==="new"?"First Time Customer":retF==="returning"?"Repeat Customer":null;
+  const rsF = cftFilter ? rs.filter(r=>r['Customer Frequency Type']===cftFilter) : rs;
+  const rdF = cftFilter ? rd.filter(r=>r['Customer Frequency Type']===cftFilter) : rd;
 
-  // Returns trend from weekly_trend (new_returns + returning_returns)
-  const getRetTrend = (metric) => (data.weekly_trend || []).find(r => r.metric === metric) || {};
-  const newRetTrend = getRetTrend("new_returns");
-  const retRetTrend = getRetTrend("returning_returns");
-  const totalRetTrend = getRetTrend("total_returns");
-  const totalNetTrend = getRetTrend("total_net_rev");
-  const trendWeeks = Object.keys(newRetTrend).filter(k => !isNaN(Number(k))).sort((a,b)=>Number(a)-Number(b));
-  const retTrendData = trendWeeks.map(wk => {
-    const nv = Number(newRetTrend[wk]);
-    const rv = Number(retRetTrend[wk]);
-    if ((isNaN(nv) || nv === 0) && (isNaN(rv) || rv === 0)) return null;
-    const totalRet = Math.abs(Number(totalRetTrend[wk]) || 0);
-    const netRev = Number(totalNetTrend[wk]) || 0;
+  // ── KPIs ─────────────────────────────────────────────────────────────────
+  const totalSubmitted = rsF.reduce((a,r)=>a+(r['count Return ID']||0),0);
+  const totalValue     = Math.abs(rsF.reduce((a,r)=>a+(r['sum Line Item Net']||0),0));
+  const closedReturns  = rsF.filter(r=>r['Return Status']==='closed'&&r['Outcome']==='Return');
+  const closedExch     = rsF.filter(r=>r['Return Status']==='closed'&&r['Outcome']==='Exchange');
+  const openRows       = rsF.filter(r=>r['Return Status']==='open');
+  const refundVal   = Math.abs(closedReturns.reduce((a,r)=>a+(r['sum Line Item Net']||0),0));
+  const refundCount = closedReturns.reduce((a,r)=>a+(r['count Return ID']||0),0);
+  const exchVal     = Math.abs(closedExch.reduce((a,r)=>a+(r['sum Line Item Net']||0),0));
+  const exchCount   = closedExch.reduce((a,r)=>a+(r['count Return ID']||0),0);
+  const openVal     = Math.abs(openRows.reduce((a,r)=>a+(r['sum Line Item Net']||0),0));
+  const openCount   = openRows.reduce((a,r)=>a+(r['count Return ID']||0),0);
+
+  // ── Weekly trend data ─────────────────────────────────────────────────────
+  const getT = (m) => (data.weekly_trend||[]).find(r=>r.metric===m)||{};
+  const tWks = Object.keys(getT("new_returns")).filter(k=>!isNaN(Number(k))).sort((a,b)=>Number(a)-Number(b));
+  const retTrendData = tWks.map(wk=>{
+    const nr=Math.abs(Number(getT("new_returns")[wk])||0);
+    const rr=Math.abs(Number(getT("returning_returns")[wk])||0);
+    const tr=Math.abs(Number(getT("total_returns")[wk])||0);
+    if(!nr&&!rr) return null;
+    const newNet=Number(getT("new_net_rev")[wk])||0;
+    const retNet=Number(getT("returning_net_rev")[wk])||0;
+    const totNet=Number(getT("total_net_rev")[wk])||0;
     return {
-      wk: `Wk ${wk}`,
-      newRefund: Math.abs(nv || 0),
-      retRefund: Math.abs(rv || 0),
-      retPct: netRev > 0 ? +((totalRet / netRev) * 100).toFixed(1) : 0,
+      wk:`Wk ${wk}`, nr, rr,
+      newPct: newNet>0?+((nr/newNet)*100).toFixed(1):0,
+      retPct: retNet>0?+((rr/retNet)*100).toFixed(1):0,
+      totPct: totNet>0?+((tr/totNet)*100).toFixed(1):0,
     };
   }).filter(Boolean);
 
-  // Build style-level 7D GLD lookup from product_sku for "% of 7D Sales"
+  // ── Style GLD lookup ─────────────────────────────────────────────────────
   const styleGldMap = {};
-  (data.product_sku || []).forEach(r => {
-    const n = r.style;
-    styleGldMap[n] = (styleGldMap[n] || 0) + (Number(r.gld7) || 0);
+  (data.product_sku||[]).forEach(r=>{ styleGldMap[r.style]=(styleGldMap[r.style]||0)+(Number(r.gld7)||0); });
+  const totalGld7All = Object.values(styleGldMap).reduce((a,v)=>a+v,0);
+
+  // ── CW returns details ────────────────────────────────────────────────────
+  const timeField = 'Week No (Processed)';
+  const allWeekNums = [...new Set(rdF.map(r=>r[timeField]).filter(v=>v!=null))].map(Number).sort((a,b)=>b-a);
+  const cwNum = allWeekNums[0]||null;
+  const cwTag = cwNum?String(cwNum):null;
+  const rdCW  = cwNum ? rdF.filter(r=>r[timeField]===cwNum) : rdF;
+
+  // ── Aggregate by style + reasons ─────────────────────────────────────────
+  const styleReasonMap = {};
+  rdCW.forEach(r=>{
+    const s=r['Product Title']; if(!s) return;
+    const parent=r['Parent Return Reason']||'Other';
+    const sub=(r['Return Reason']&&r['Return Reason']!=='#N/A')?r['Return Reason']:parent;
+    if(!styleReasonMap[s]) styleReasonMap[s]={s,count:0,value:0,reasons:{}};
+    styleReasonMap[s].count+=(r['count Return ID']||0);
+    styleReasonMap[s].value+=Math.abs(r['sum Line Item Net']||0);
+    if(!styleReasonMap[s].reasons[parent]) styleReasonMap[s].reasons[parent]={total:0,subs:{}};
+    styleReasonMap[s].reasons[parent].total+=(r['count Return ID']||0);
+    styleReasonMap[s].reasons[parent].subs[sub]=(styleReasonMap[s].reasons[parent].subs[sub]||0)+(r['count Return ID']||0);
   });
-  const totalGld7All = Object.values(styleGldMap).reduce((a, v) => a + v, 0);
+  const totalRefundCW = Object.values(styleReasonMap).reduce((a,s)=>a+s.value,0);
+  const retStyles = Object.values(styleReasonMap).map(s=>({
+    ...s,
+    pct: totalRefundCW>0?+((s.value/totalRefundCW)*100).toFixed(1):0,
+    salesGld: styleGldMap[s.s]||0,
+    pctOfSales:(styleGldMap[s.s]||0)>0?+((s.value/styleGldMap[s.s])*100).toFixed(1):null,
+  })).sort((a,b)=>b.value-a.value);
+  const retStylesShown=retStyles.slice(0,15);
+  const otherStyles=retStyles.slice(15);
+  const otherCount=otherStyles.reduce((a,s)=>a+s.count,0);
+  const otherValue=otherStyles.reduce((a,s)=>a+s.value,0);
+  const otherPct=totalRefundCW>0?+((otherValue/totalRefundCW)*100).toFixed(1):0;
 
-  // Style-level returns from returns_details
-  const timeField = rd.length > 0 && rd[0]['Week No'] != null ? 'Week No' : 'Time Tag';
-  const timeTags = [...new Set(rd.map(r=>r[timeField]).filter(v=>v!=null&&v!==''))];
-  const hasTimeTag = timeTags.length > 0;
-  const numericTags = timeTags.filter(t=>!isNaN(Number(t))).map(Number).sort((a,b)=>b-a);
-  const cwTag = numericTags.length > 0 ? String(numericTags[0]) : timeTags.includes("CW") ? "CW" : null;
-  const retTimeTag = cwTag;
-  const rdFiltered = !hasTimeTag ? rd : cwTag ? rd.filter(r => String(r[timeField]) === cwTag) : rd;
-  const styleMap = {};
-  rdFiltered.forEach(r => {
-    const s = r['Product Title'];
-    if (!styleMap[s]) styleMap[s] = { s, count: 0, value: 0 };
-    styleMap[s].count += r['count Return ID'];
-    styleMap[s].value += Math.abs(r['sum Line Item Net']);
-  });
-  const totalRefundFiltered = Object.values(styleMap).reduce((a, s) => a + s.value, 0);
-  const retStyles = Object.values(styleMap)
-    .map(s => ({
-      ...s,
-      pct: totalRefundFiltered > 0 ? +((s.value / totalRefundFiltered) * 100).toFixed(1) : 0,
-      salesGld: styleGldMap[s.s] || 0,
-      pctOfSales: (styleGldMap[s.s] || 0) > 0 ? +((s.value / styleGldMap[s.s]) * 100).toFixed(1) : null,
-    }))
-    .sort((a, b) => b.value - a.value);
-  const retStylesShown = retStyles.slice(0, 15);
-  const otherStyles = retStyles.slice(15);
-  const otherCount = otherStyles.reduce((a, s) => a + s.count, 0);
-  const otherValue = otherStyles.reduce((a, s) => a + s.value, 0);
-  const otherPct = totalRefundFiltered > 0 ? +((otherValue / totalRefundFiltered) * 100).toFixed(1) : 0;
-
-  // Reason grouping: prefer 'Reason Group' from data, fallback to hardcoded map
-  const hasReasonGroup = rd.length > 0 && rd[0]['Reason Group'] != null;
-  const reasonGroupsFallback = {
-    "Fit": ["Item Was Too Small", "Item Was Too Large", "Item Did Not Fit"],
-    "Changed mind": ["Changed My Mind", "Ordered Multiples For Comparison"],
-    "UX": ["Item Was Not as Expected/Pictured"],
-    "Other": ["I Had a Bad Experience", "Item Arrived Damaged", "Received Incorrect Item"],
-  };
-  const reasonGroupMapFallback = {};
-  Object.entries(reasonGroupsFallback).forEach(([g, reasons]) => reasons.forEach(r => { reasonGroupMapFallback[r] = g; }));
-  const getReasonGroup = (row) => hasReasonGroup ? (row['Reason Group'] || 'Other') : (reasonGroupMapFallback[row['Parent Return Reason']] || 'Other');
-
-  // Unique product styles for reason filter dropdown
-  const allReturnStyles = [...new Set(rd.map(r => r['Product Title']).filter(Boolean))].sort();
+  const fBtnRet=(v)=>({background:retF===v?C.b1:C.cd,color:retF===v?"#fff":C.sl,border:`1px solid ${retF===v?C.b1:C.bd}`,borderRadius:8,padding:"7px 14px",fontSize:12,fontWeight:600,cursor:"pointer"});
 
   return <>
+  {/* New / Returning filter */}
+  <div style={{display:"flex",gap:4,marginBottom:14}}>
+    {["all","new","returning"].map(f=><button key={f} onClick={()=>setRetF(f)} style={fBtnRet(f)}>{f==="all"?"All":f==="new"?"New":"Returning"}</button>)}
+  </div>
+
   {/* KPI Row */}
   <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
     <MC l="Returns Submitted" v={ff(totalValue)} inv sub={`${totalSubmitted} returns`}/>
-    <MC l="Refunds (Closed)" v={ff(refundVal)} sub={`${refundCount} return orders`}/>
-    <MC l="Exchanges (Closed)" v={ff(exchVal)} sub={`${exchCount} exchange orders · revenue retained`}/>
-    <MC l="Open Returns" v={ff(openVal)} inv sub={`${openCount} unprocessed`}/>
+    <MC l="Refunds (Closed)"  v={ff(refundVal)}  sub={`${refundCount} return orders`}/>
+    <MC l="Exchanges (Closed)" v={ff(exchVal)}   sub={`${exchCount} orders · revenue retained`}/>
+    <MC l="Open Returns"      v={ff(openVal)} inv sub={`${openCount} unprocessed`}/>
   </div>
 
-  {/* Weekly Trend Chart */}
-  {retTrendData.length > 0 && <>
+  {/* Weekly Trend */}
+  {retTrendData.length>0&&<>
   <SH t="Weekly Return Value Trend"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
     <ResponsiveContainer width="100%" height={220}>
       <ComposedChart data={retTrendData} margin={{top:4,right:8,left:0,bottom:0}}>
         <CartesianGrid strokeDasharray="3 3" stroke={C.bd}/>
         <XAxis dataKey="wk" tick={{fontSize:11,fill:C.sL}}/>
-        <YAxis yAxisId="left" tick={{fontSize:10,fill:C.sL}} width={52} tickFormatter={v=>`${v<0?"-":""}$${(Math.abs(v)/1000).toFixed(0)}k`}/>
+        <YAxis yAxisId="left" tick={{fontSize:10,fill:C.sL}} width={52} tickFormatter={v=>`$${(Math.abs(v)/1000).toFixed(0)}k`}/>
         <YAxis yAxisId="right" orientation="right" tick={{fontSize:10,fill:C.am}} width={40} tickFormatter={v=>`${v}%`}/>
         <Tooltip content={<CT/>}/>
-        <Bar yAxisId="left" dataKey="newRefund" stackId="a" fill={C.b1} radius={[0,0,0,0]} name="New Returns"/>
-        <Bar yAxisId="left" dataKey="retRefund" stackId="a" fill={C.b3} radius={[3,3,0,0]} name="Returning Returns"/>
-        <Line yAxisId="right" type="monotone" dataKey="retPct" stroke={C.am} strokeWidth={2} dot={{r:3,fill:C.am}} name="Returns / Net Sales %" connectNulls/>
+        {retF!=="returning"&&<Bar yAxisId="left" dataKey="nr" stackId="a" fill={C.b1} radius={retF==="new"?[3,3,0,0]:[0,0,0,0]} name="New Returns"/>}
+        {retF!=="new"&&<Bar yAxisId="left" dataKey="rr" stackId="a" fill={C.b3} radius={[3,3,0,0]} name="Returning Returns"/>}
+        {retF==="all"&&<Line yAxisId="right" type="monotone" dataKey="totPct" stroke={C.am} strokeWidth={2} dot={{r:3,fill:C.am}} name="Returns / Net Sales %" connectNulls/>}
+        {retF==="new"&&<Line yAxisId="right" type="monotone" dataKey="newPct" stroke={C.am} strokeWidth={2} dot={{r:3,fill:C.am}} name="New Returns / New Net Rev %" connectNulls/>}
+        {retF==="returning"&&<Line yAxisId="right" type="monotone" dataKey="retPct" stroke={C.am} strokeWidth={2} dot={{r:3,fill:C.am}} name="Ret Returns / Ret Net Rev %" connectNulls/>}
       </ComposedChart>
     </ResponsiveContainer>
     <div style={{display:"flex",gap:16,marginTop:8,fontSize:11,color:C.sL}}>
-      <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b1,borderRadius:2,display:"inline-block"}}/>New customer returns</span>
-      <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b3,borderRadius:2,display:"inline-block"}}/>Returning customer returns</span>
-      <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:3,background:C.am,borderRadius:1,display:"inline-block"}}/>Returns / net sales %</span>
+      {retF!=="returning"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b1,borderRadius:2,display:"inline-block"}}/>New returns</span>}
+      {retF!=="new"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b3,borderRadius:2,display:"inline-block"}}/>Returning returns</span>}
+      <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:3,background:C.am,borderRadius:1,display:"inline-block"}}/>{retF==="new"?"New returns / new net rev %":retF==="returning"?"Ret returns / ret net rev %":"Returns / net sales %"}</span>
     </div>
   </div>
   </>}
 
   {/* Top Returned Styles */}
-  <SH t={`Top Returned Styles – Wk ${cwTag || '?'}`}/>
+  <SH t={`Top Returned Styles${cwTag?` – Wk ${cwTag}`:""}`}/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:18,marginBottom:14}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-        {["Style","Returns","Refund $","% of Total","% of 7D Sales"].map(h=><th key={h} style={{textAlign:h==="Style"?"left":"right",padding:"5px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>{h}</th>)}
-      </tr></thead>
-      <tbody>{retStylesShown.map((r,i)=>(
-        <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}}>
-          <td style={{padding:"7px 6px",color:C.nv,fontWeight:500}}>{r.s}</td>
-          <td style={{padding:"7px 6px",textAlign:"right",fontWeight:600}}>{r.count}</td>
-          <td style={{padding:"7px 6px",textAlign:"right",color:C.rd,fontWeight:500}}>{ff(r.value)}</td>
-          <td style={{padding:"7px 6px",textAlign:"right"}}><div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:5}}><div style={{width:Math.round(r.pct*1.8),height:6,background:C.am,borderRadius:3,opacity:0.7}}/>{r.pct}%</div></td>
-          <td style={{padding:"7px 6px",textAlign:"right",fontWeight:500,color:r.pctOfSales!=null?(r.pctOfSales>=100?C.rd:r.pctOfSales>=50?C.am:C.nv):C.sL}}>{r.pctOfSales!=null?`${r.pctOfSales}%`:"–"}</td>
-        </tr>
-      ))}
-      {otherStyles.length>0&&<tr style={{borderBottom:`1px solid ${C.bd}`,background:"rgba(0,0,0,0.03)"}}>
-        <td style={{padding:"7px 6px",color:C.sL,fontStyle:"italic"}}>Other ({otherStyles.length} styles)</td>
-        <td style={{padding:"7px 6px",textAlign:"right"}}>{otherCount}</td>
-        <td style={{padding:"7px 6px",textAlign:"right",color:C.sL}}>{ff(otherValue)}</td>
-        <td style={{padding:"7px 6px",textAlign:"right"}}>{otherPct}%</td>
-        <td style={{padding:"7px 6px",textAlign:"right",color:C.sL}}>–</td>
-      </tr>}
-      <tr style={{borderTop:`2px solid ${C.bd}`,background:"rgba(0,0,0,0.02)"}}>
-        <td style={{padding:"7px 6px",fontWeight:700,color:C.nv}}>Total</td>
-        <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700}}>{retStyles.reduce((a,s)=>a+s.count,0)}</td>
-        <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700,color:C.rd}}>{ff(totalRefundFiltered)}</td>
-        <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700}}>100%</td>
-        <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700,color:C.nv}}>{totalGld7All>0?`${((totalRefundFiltered/totalGld7All)*100).toFixed(1)}%`:"–"}</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-
-  {/* Return Reasons */}
-  <SH t="Return Reasons"/>
-  {(()=>{
-    // Time filter: LW = current week only, L5W = last 5 weeks (5 most recent)
-    const last5Weeks = numericTags.slice(0, 5).map(String);
-    const rdReasonFiltered = (()=>{
-      let rows = rd;
-      // Time filter
-      if(hasTimeTag) {
-        if(reasonTime === "LW" && cwTag) rows = rows.filter(r => String(r[timeField]) === cwTag);
-        else if(reasonTime === "L5W" && last5Weeks.length) rows = rows.filter(r => last5Weeks.includes(String(r[timeField])));
-      }
-      // Style filter
-      if(reasonStyle !== "All") rows = rows.filter(r => r['Product Title'] === reasonStyle);
-      return rows;
-    })();
-
-    // 3-level aggregation: Reason Group → Parent Return Reason → Return Reason
-    const reasonData = {};
-    rdReasonFiltered.forEach(r => {
-      const group = getReasonGroup(r);
-      const parent = r['Parent Return Reason'] || group;
-      const sub = (r['Return Reason'] || r['Reason'] || parent);
-      const subKey = (sub && sub !== '#N/A') ? sub : parent;
-      if (!reasonData[group]) reasonData[group] = { g: group, total: 0, parents: {} };
-      reasonData[group].total += r['count Return ID'];
-      if (!reasonData[group].parents[parent]) reasonData[group].parents[parent] = { total: 0, subs: {} };
-      reasonData[group].parents[parent].total += r['count Return ID'];
-      if (!reasonData[group].parents[parent].subs[subKey]) reasonData[group].parents[parent].subs[subKey] = 0;
-      reasonData[group].parents[parent].subs[subKey] += r['count Return ID'];
-    });
-    const reasonRows = Object.values(reasonData).sort((a, b) => b.total - a.total);
-    const reasonGrandTotal = reasonRows.reduce((a, g) => a + g.total, 0);
-
-    return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
-    {/* Filters row */}
-    <div style={{display:"flex",gap:12,marginBottom:14,flexWrap:"wrap",alignItems:"center"}}>
-      <div style={{display:"flex",gap:4,alignItems:"center"}}>
-        {[["LW",cwTag?`Wk ${cwTag}`:"This Week"],["L5W","Last 5 Weeks"]].map(([k,label])=><button key={k} onClick={()=>setReasonTime(k)} style={{background:reasonTime===k?C.b1:"#fff",color:reasonTime===k?"#fff":C.sl,border:`1px solid ${reasonTime===k?C.b1:C.bd}`,borderRadius:6,padding:"6px 14px",fontSize:12,fontWeight:600,cursor:"pointer"}}>{label}</button>)}
-      </div>
-      <div style={{display:"flex",gap:6,alignItems:"center",flex:1,minWidth:200}}>
-        <span style={{fontSize:11,fontWeight:600,color:C.sL,whiteSpace:"nowrap"}}>Style:</span>
-        <select value={reasonStyle} onChange={e=>setReasonStyle(e.target.value)} style={{border:`1px solid ${C.bd}`,borderRadius:6,padding:"6px 10px",fontSize:12,color:C.nv,background:"#fff",outline:"none",maxWidth:280,flex:1,cursor:"pointer"}}>
-          <option value="All">All Styles</option>
-          {allReturnStyles.map(s=><option key={s} value={s}>{s}</option>)}
-        </select>
-      </div>
-      {reasonStyle!=="All"&&<button onClick={()=>setReasonStyle("All")} style={{background:"transparent",border:`1px solid ${C.bd}`,borderRadius:6,padding:"5px 10px",fontSize:11,color:C.sL,cursor:"pointer"}}>✕ Clear</button>}
-    </div>
-    {reasonStyle!=="All"&&<div style={{fontSize:11,color:C.b1,fontWeight:600,marginBottom:10}}>Showing reasons for: {reasonStyle}</div>}
-    <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
-      <thead><tr style={{borderBottom:`2px solid ${C.bd}`,background:"#f8fafc"}}>
-        <th style={{textAlign:"left",padding:"7px 8px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>Reason</th>
-        <th style={{textAlign:"right",padding:"7px 8px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>Count</th>
-        <th style={{textAlign:"right",padding:"7px 8px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>% of Total</th>
+        {["","Style","Returns","Refund $","% of Total","% of 7D Sales"].map(h=><th key={h} style={{textAlign:h==="Style"||h===""?"left":"right",padding:"5px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>{h}</th>)}
       </tr></thead>
       <tbody>
-        {reasonRows.map((grp)=>{
-          const grpOpen=expReasons[`g:${grp.g}`];
-          const parentRows=Object.entries(grp.parents).sort((a,b)=>b[1].total-a[1].total);
-          return <React.Fragment key={grp.g}>
-            {/* Level 1: Reason Group */}
-            <tr style={{borderBottom:`1px solid ${C.bd}`,cursor:"pointer",background:"#f8fafc"}} onClick={()=>setExpReasons(p=>({...p,[`g:${grp.g}`]:!p[`g:${grp.g}`]}))} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="#f8fafc"}>
-              <td style={{padding:"8px 8px",fontWeight:700,color:C.nv}}><span style={{marginRight:6,fontSize:10,color:C.sL}}>{grpOpen?"▾":"▸"}</span>{grp.g}</td>
-              <td style={{padding:"8px 8px",textAlign:"right",fontWeight:700}}>{grp.total}</td>
-              <td style={{padding:"8px 8px",textAlign:"right",fontWeight:700}}>{reasonGrandTotal>0?((grp.total/reasonGrandTotal)*100).toFixed(0):0}%</td>
+        {retStylesShown.map((r,i)=>{
+          const isOpen=expRetStyle[r.s];
+          const parentRows=Object.entries(r.reasons).sort((a,b)=>b[1].total-a[1].total);
+          return <React.Fragment key={i}>
+            <tr style={{borderBottom:isOpen?"none":`1px solid ${C.bd}`,cursor:"pointer"}}
+              onClick={()=>setExpRetStyle(p=>({...p,[r.s]:!p[r.s]}))}>
+              <td style={{padding:"7px 4px",color:C.sL,width:16}}>{isOpen?"▾":"▸"}</td>
+              <td style={{padding:"7px 6px",color:C.nv,fontWeight:600}}>{r.s}</td>
+              <td style={{padding:"7px 6px",textAlign:"right",fontWeight:600}}>{r.count}</td>
+              <td style={{padding:"7px 6px",textAlign:"right",color:C.rd,fontWeight:500}}>{ff(r.value)}</td>
+              <td style={{padding:"7px 6px",textAlign:"right"}}>
+                <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:5}}>
+                  <div style={{width:Math.round(r.pct*1.8),height:6,background:C.am,borderRadius:3,opacity:0.7}}/>
+                  {r.pct}%
+                </div>
+              </td>
+              <td style={{padding:"7px 6px",textAlign:"right",fontWeight:500,color:r.pctOfSales!=null?(r.pctOfSales>=100?C.rd:r.pctOfSales>=50?C.am:C.nv):C.sL}}>{r.pctOfSales!=null?`${r.pctOfSales}%`:"–"}</td>
             </tr>
-            {/* Level 2: Parent Return Reason */}
-            {grpOpen&&parentRows.map(([pName, pData])=>{
-              const pOpen=expReasons[`p:${grp.g}:${pName}`];
-              const subRows=Object.entries(pData.subs).sort((a,b)=>b[1]-a[1]);
-              const hasSubs=subRows.length>1||(subRows.length===1&&subRows[0][0]!==pName);
+            {isOpen&&parentRows.map(([pName,pData])=>{
+              const subRows=Object.entries(pData.subs).filter(([s])=>s!==pName).sort((a,b)=>b[1]-a[1]);
               return <React.Fragment key={pName}>
-                <tr style={{borderBottom:`1px solid ${C.bd}`,cursor:hasSubs?"pointer":"default",background:"#fff"}} onClick={()=>hasSubs&&setExpReasons(p=>({...p,[`p:${grp.g}:${pName}`]:!p[`p:${grp.g}:${pName}`]}))} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="#fff"}>
-                  <td style={{padding:"7px 8px 7px 28px",fontWeight:600,color:C.sl}}>{hasSubs&&<span style={{marginRight:5,fontSize:9,color:C.sL}}>{pOpen?"▾":"▸"}</span>}{pName}</td>
-                  <td style={{padding:"7px 8px",textAlign:"right",fontWeight:600,color:C.sl}}>{pData.total}</td>
-                  <td style={{padding:"7px 8px",textAlign:"right",color:C.sL}}>{reasonGrandTotal>0?((pData.total/reasonGrandTotal)*100).toFixed(1):0}%</td>
+                <tr style={{background:"#f8fafc",borderBottom:subRows.length?`none`:`1px solid ${C.bd}`}}>
+                  <td/>
+                  <td style={{padding:"5px 6px 5px 18px",color:C.sl,fontWeight:600,fontSize:11}}>↳ {pName}</td>
+                  <td style={{padding:"5px 6px",textAlign:"right",color:C.sL,fontSize:11}}>{pData.total}</td>
+                  <td colSpan={3}/>
                 </tr>
-                {/* Level 3: Return Reason */}
-                {pOpen&&hasSubs&&subRows.map(([reason,count],ri)=>(
-                  <tr key={ri} style={{borderBottom:`1px solid ${C.bd}`,background:"#fff"}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="#fff"}>
-                    <td style={{padding:"6px 8px 6px 48px",color:C.sL,fontSize:11}}>{reason}</td>
-                    <td style={{padding:"6px 8px",textAlign:"right",color:C.sL,fontSize:11}}>{count}</td>
-                    <td style={{padding:"6px 8px",textAlign:"right",color:C.sL,fontSize:11}}>{reasonGrandTotal>0?((count/reasonGrandTotal)*100).toFixed(1):0}%</td>
+                {subRows.map(([sub,cnt],si)=>(
+                  <tr key={si} style={{background:"#f8fafc",borderBottom:si===subRows.length-1?`1px solid ${C.bd}`:"none"}}>
+                    <td/>
+                    <td style={{padding:"4px 6px 4px 32px",color:C.sL,fontSize:10}}>· {sub}</td>
+                    <td style={{padding:"4px 6px",textAlign:"right",color:C.sL,fontSize:10}}>{cnt}</td>
+                    <td colSpan={3}/>
                   </tr>
                 ))}
               </React.Fragment>;
             })}
           </React.Fragment>;
         })}
-        {reasonGrandTotal===0&&<tr><td colSpan={3} style={{padding:16,textAlign:"center",color:C.sL,fontStyle:"italic"}}>No return data for this selection</td></tr>}
-        {reasonGrandTotal>0&&<tr style={{borderTop:`2px solid ${C.bd}`,background:"#f1f5f9"}}>
-          <td style={{padding:"8px 8px",fontWeight:700,color:C.nv}}>Grand Total</td>
-          <td style={{padding:"8px 8px",textAlign:"right",fontWeight:700}}>{reasonGrandTotal}</td>
-          <td style={{padding:"8px 8px",textAlign:"right",fontWeight:700}}>100%</td>
+        {otherStyles.length>0&&<tr style={{borderBottom:`1px solid ${C.bd}`,background:"rgba(0,0,0,0.03)"}}>
+          <td/><td style={{padding:"7px 6px",color:C.sL,fontStyle:"italic"}}>Other ({otherStyles.length} styles)</td>
+          <td style={{padding:"7px 6px",textAlign:"right"}}>{otherCount}</td>
+          <td style={{padding:"7px 6px",textAlign:"right",color:C.sL}}>{ff(otherValue)}</td>
+          <td style={{padding:"7px 6px",textAlign:"right"}}>{otherPct}%</td>
+          <td style={{padding:"7px 6px",textAlign:"right",color:C.sL}}>–</td>
         </tr>}
+        <tr style={{borderTop:`2px solid ${C.bd}`,background:"rgba(0,0,0,0.02)"}}>
+          <td/><td style={{padding:"7px 6px",fontWeight:700,color:C.nv}}>Total</td>
+          <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700}}>{retStyles.reduce((a,s)=>a+s.count,0)}</td>
+          <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700,color:C.rd}}>{ff(totalRefundCW)}</td>
+          <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700}}>100%</td>
+          <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700,color:C.nv}}>{totalGld7All>0?`${((totalRefundCW/totalGld7All)*100).toFixed(1)}%`:"–"}</td>
+        </tr>
       </tbody>
     </table>
-  </div>;
-  })()}
+  </div>
 
-  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["returnsSubmitted","refunds","exchanges","openReturns","retNetPct","pctOfTotal","pctOfSales","reasonGroup","parentReason","returnReason"]}/>
+  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["returnsSubmitted","refunds","exchanges","openReturns","retNetPct","pctOfTotal","pctOfSales","parentReason","returnReason"]}/>
 </>;
 })()}
-
 {tab==="marketing"&&<>
   <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
     <MC l="Total Spend" v={ff(DD.mktSpend)} ww={w(DD.mktSpend,DD.priorMktSpend)} pL={ff(DD.priorMktSpend)} inv sub={`MTD: ${ff(DD.mtdMktSpend)}`}/>
@@ -2398,16 +2317,19 @@ const rows = [
               </summary>
               <div style={{position:"absolute",top:"calc(100% + 4px)",left:0,background:C.cd,border:`1px solid ${C.bd}`,borderRadius:8,padding:5,minWidth:160,zIndex:100,boxShadow:"0 4px 16px rgba(0,0,0,.08)"}}>
                 <label style={{display:"flex",alignItems:"center",gap:7,padding:"5px 7px",borderRadius:5,cursor:"pointer",fontSize:11,fontWeight:600,color:C.b1,borderBottom:`1px solid ${C.bd}`,marginBottom:2}}>
-                  <input type="checkbox" checked={active.length===all.length} style={{accentColor:C.b1}}
-                    onChange={()=>setter(active.length===all.length?[]:[...all])}/>
-                  {active.length===all.length?"Deselect All":"Select All"}
+                  <input type="checkbox" checked={active.length===0} style={{accentColor:C.b1}}
+                    onChange={()=>setter([])}/>
+                  Select All
                 </label>
                 {all.map(opt=>{
-                  const checked = active.includes(opt);
+                  const checked = active.length>0 && active.includes(opt);
                   return (
                     <label key={opt} style={{display:"flex",alignItems:"center",gap:7,padding:"5px 7px",borderRadius:5,cursor:"pointer",fontSize:12,color:C.sl}}>
                       <input type="checkbox" checked={checked} style={{accentColor:C.b1}}
-                        onChange={()=>setter(checked?active.filter(x=>x!==opt):[...active,opt])}/>
+                        onChange={()=>{
+                          const next = active.includes(opt)?active.filter(x=>x!==opt):[...active,opt];
+                          setter(next);
+                        }}/>
                       {opt}
                     </label>
                   );
@@ -2423,7 +2345,7 @@ const rows = [
         style={{background:ooConflict?"#fee2e2":C.cd, border:`1px solid ${ooConflict?"#dc2626":C.bd}`,
           color:ooConflict?"#991b1b":C.sl, borderRadius:6, padding:"4px 9px", fontSize:11,
           fontWeight:600, cursor:"pointer", display:"flex", alignItems:"center", gap:4}}>
-        <span style={{color:"#dc2626",fontSize:12}}>⚠</span> Launch Conflicts only
+        <span style={{color:"#dc2626",fontSize:12}}>⚠</span> Launch Conflicts Only
       </button>
  
       <div style={{width:1,height:22,background:C.bd,flexShrink:0}}/>
