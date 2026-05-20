@@ -2227,7 +2227,7 @@ const rows = [
 {tab==="on_order"&&(()=>{
  
   // ── Raw data ──────────────────────────────────────────────────────────────
-  const raw = data.on_order || [];
+  const raw = data.po || [];
  
   // ── Build unique filter options from data ─────────────────────────────────
   const uniq = (key) => [...new Set(raw.map(r=>r[key]).filter(Boolean))].sort();
