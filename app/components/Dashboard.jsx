@@ -132,7 +132,7 @@ useEffect(() => {
   const [reasonTime,setReasonTime]=useState("L5W");
   const [expCamp,setExpCamp]=useState({});
   const [openFilter,setOpenFilter]=useState(null);
-  const [ooSort,setOoSort]=useState({col:"expected_delivery",dir:"asc"});
+  const [ooSort,setOoSort]=useState({col:"inwh_date",dir:"asc"});
   const [retF,setRetF]=useState("all");
   const [expRetStyle,setExpRetStyle]=useState({});
   const [ooExpanded,   setOoExpanded]   = useState({});
@@ -2397,23 +2397,61 @@ const rows = [
       <thead>
         <tr style={{background:"#f8fafc"}}>
           <th style={{width:28,padding:"8px 6px",borderBottom:`2px solid ${C.bd}`}}/>
-          {["Status","Style Name","Style #","PO #","Freight",
-            "Ordered","In Transit","Received","Bal",
-            "Ship Date","INWH Date","Launch Date","Delay Flag"
-          ].map((h,i)=>(
-            <th key={h} style={{padding:"8px 8px",textAlign:i>=5&&i<=8?"right":"left",
-              fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",
-              letterSpacing:.4,whiteSpace:"nowrap",borderBottom:`2px solid ${C.bd}`}}>
-              {h}
-            </th>
-          ))}
+          {[
+            {h:"Status",      col:"status",      right:false},
+            {h:"Style Name",  col:"style_name",  right:false},
+            {h:"Style #",     col:"style_number", right:false},
+            {h:"PO #",        col:"po_number",   right:false},
+            {h:"Freight",     col:null,           right:false},
+            {h:"Ordered",     col:"ordered",      right:true},
+            {h:"In Transit",  col:"in_transit",   right:true},
+            {h:"Received",    col:"received",     right:true},
+            {h:"Bal",         col:"bal",          right:true},
+            {h:"Ship Date",   col:"ship_date",    right:false},
+            {h:"INWH Date",   col:"inwh_date",    right:false},
+            {h:"Launch Date", col:"launch_date",  right:false},
+            {h:"Delay Flag",  col:null,           right:false},
+          ].map(({h,col,right})=>{
+            const active=col&&ooSort.col===col;
+            return <th key={h}
+              onClick={col?()=>setOoSort(p=>({col,dir:p.col===col?(p.dir==="asc"?"desc":"asc"):"asc"})):undefined}
+              style={{padding:"8px 8px",textAlign:right?"right":"left",
+                fontSize:10,fontWeight:700,color:active?C.nv:C.sL,
+                textTransform:"uppercase",letterSpacing:.4,whiteSpace:"nowrap",
+                borderBottom:`2px solid ${C.bd}`,
+                background:active?"#eff6ff":"#f8fafc",
+                cursor:col?"pointer":"default",userSelect:"none"}}>
+              {h}{col&&<span style={{marginLeft:3,fontSize:9,opacity:active?1:0.3}}>{active?(ooSort.dir==="asc"?"▲":"▼"):"▲"}</span>}
+            </th>;
+          })}
         </tr>
       </thead>
       <tbody>
         {sortedMonths.map(mo=>{
           const styleMap = monthMap[mo];
-          const styleKeys = Object.keys(styleMap).sort((a,b)=>
-            styleMap[a].style_name?.localeCompare(styleMap[b].style_name||"")||0);
+          const styleKeys = Object.keys(styleMap).sort((a,b)=>{
+            const dir = ooSort.dir==="asc"?1:-1;
+            const col = ooSort.col;
+            const sv = (sk) => {
+              const s = styleMap[sk];
+              const agg = styleAgg(s.shipments);
+              if(col==="style_name")   return (s.style_name||"").toLowerCase();
+              if(col==="style_number") return (s.style_number||"").toLowerCase();
+              if(col==="po_number")    return s.shipments.map(r=>r.po_number).filter(Boolean).join(",");
+              if(col==="launch_type")  return (s.launch_category||"").toLowerCase();
+              if(col==="inwh_date")    return s.inwh_date||"9999";
+              if(col==="ship_date")    return s.ex_factory_date||"9999";
+              if(col==="launch_date")  return s.target_launch_date||"9999";
+              if(col==="ordered")      return agg.ordered;
+              if(col==="in_transit")   return agg.inTransit;
+              if(col==="received")     return agg.received;
+              if(col==="bal")          return agg.bal;
+              if(col==="status")       return agg.status;
+              return "";
+            };
+            const av=sv(a), bv=sv(b);
+            return typeof av==="number"?(av-bv)*dir:String(av).localeCompare(String(bv))*dir;
+          });
           const moOpen = ooExpanded[`mo:${mo}`];
           const moRows = Object.values(styleMap).flatMap(s=>s.shipments);
           const moAgg  = {
