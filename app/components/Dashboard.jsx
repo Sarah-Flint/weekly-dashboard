@@ -1750,11 +1750,7 @@ const rows = [
     salesGld: styleGldMap[s.s]||0,
     pctOfSales:(styleGldMap[s.s]||0)>0?+((s.value/styleGldMap[s.s])*100).toFixed(1):null,
   })).sort((a,b)=>b.value-a.value);
-  const retStylesShown=retStyles.slice(0,15);
-  const otherStyles=retStyles.slice(15);
-  const otherCount=otherStyles.reduce((a,s)=>a+s.count,0);
-  const otherValue=otherStyles.reduce((a,s)=>a+s.value,0);
-  const otherPct=totalRefundCW>0?+((otherValue/totalRefundCW)*100).toFixed(1):0;
+  const retStylesShown=retStyles;
 
   const fBtnRet=(v)=>({background:retF===v?C.b1:C.cd,color:retF===v?"#fff":C.sl,border:`1px solid ${retF===v?C.b1:C.bd}`,borderRadius:8,padding:"7px 14px",fontSize:12,fontWeight:600,cursor:"pointer"});
 
@@ -1783,18 +1779,18 @@ const rows = [
         <YAxis yAxisId="left" tick={{fontSize:10,fill:C.sL}} width={56} tickFormatter={v=>`$${(Math.abs(v)/1000).toFixed(0)}k`}/>
         <YAxis yAxisId="right" orientation="right" tick={{fontSize:10,fill:C.am}} width={40} tickFormatter={v=>`${v}%`}/>
         <Tooltip content={<CT/>}/>
-        <Bar yAxisId="left" dataKey="netSales" fill="#e2e8f0" radius={[3,3,0,0]} name={retF==="new"?"New Net Sales":retF==="returning"?"Ret Net Sales":"Total Net Sales"} barSize={20}/>
-        {retF!=="returning"&&<Bar yAxisId="left" dataKey="nr" fill={C.b1} radius={[3,3,0,0]} name="New Returns" barSize={20}/>}
-        {retF!=="new"&&<Bar yAxisId="left" dataKey="rr" fill={C.b3} radius={[3,3,0,0]} name="Returning Returns" barSize={20}/>}
-        {retF==="all"&&<Bar yAxisId="left" dataKey="tr" fill={C.rd} radius={[3,3,0,0]} name="Total Returns" barSize={20} opacity={0.7}/>}
+        <Bar yAxisId="left" dataKey="netSales" fill="#94a3b8" radius={[3,3,0,0]} name={retF==="new"?"New Net Sales":retF==="returning"?"Ret Net Sales":"Total Net Sales"} barSize={20}/>
+        {retF==="all"&&<Bar yAxisId="left" dataKey="tr" fill={C.rd} radius={[3,3,0,0]} name="Total Returns" barSize={20} opacity={0.8}/>}
+        {retF==="new"&&<Bar yAxisId="left" dataKey="nr" fill={C.b1} radius={[3,3,0,0]} name="New Returns" barSize={20}/>}
+        {retF==="returning"&&<Bar yAxisId="left" dataKey="rr" fill={C.b3} radius={[3,3,0,0]} name="Returning Returns" barSize={20}/>}
         <Line yAxisId="right" type="monotone" dataKey="retPct" stroke={C.am} strokeWidth={2} dot={{r:3,fill:C.am}} name={retF==="new"?"Returns / New Net Rev %":retF==="returning"?"Returns / Ret Net Rev %":"Returns / Net Sales %"} connectNulls/>
       </ComposedChart>
     </ResponsiveContainer>
     <div style={{display:"flex",gap:16,marginTop:8,fontSize:11,color:C.sL,flexWrap:"wrap"}}>
-      <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:"#e2e8f0",border:"1px solid #cbd5e1",borderRadius:2,display:"inline-block"}}/>{retF==="new"?"New Net Sales":retF==="returning"?"Ret Net Sales":"Total Net Sales"}</span>
-      {retF==="all"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.rd,borderRadius:2,display:"inline-block",opacity:0.7}}/>Total Returns</span>}
-      {retF!=="returning"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b1,borderRadius:2,display:"inline-block"}}/>New Returns</span>}
-      {retF!=="new"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b3,borderRadius:2,display:"inline-block"}}/>Returning Returns</span>}
+      <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:"#94a3b8",borderRadius:2,display:"inline-block"}}/>{retF==="new"?"New Net Sales":retF==="returning"?"Ret Net Sales":"Total Net Sales"}</span>
+      {retF==="all"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.rd,borderRadius:2,display:"inline-block",opacity:0.8}}/>Total Returns</span>}
+      {retF==="new"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b1,borderRadius:2,display:"inline-block"}}/>New Returns</span>}
+      {retF==="returning"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b3,borderRadius:2,display:"inline-block"}}/>Returning Returns</span>}
       <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:3,background:C.am,borderRadius:1,display:"inline-block"}}/>{retF==="new"?"Returns / New Net Rev %":retF==="returning"?"Returns / Ret Net Rev %":"Returns / Net Sales %"}</span>
     </div>
     <div style={{fontSize:10,color:C.sL,fontStyle:"italic",marginTop:6}}>Source: Shopify</div>
@@ -1819,7 +1815,7 @@ const rows = [
               <td style={{padding:"7px 4px",color:C.sL,width:16}}>{isOpen?"▾":"▸"}</td>
               <td style={{padding:"7px 6px",color:C.nv,fontWeight:600}}>{r.s}</td>
               <td style={{padding:"7px 6px",textAlign:"right",fontWeight:600}}>{r.count}</td>
-              <td style={{padding:"7px 6px",textAlign:"right",color:C.rd,fontWeight:500}}>{ff(r.value)}</td>
+              <td style={{padding:"7px 6px",textAlign:"right",fontWeight:500}}>{ff(r.value)}</td>
               <td style={{padding:"7px 6px",textAlign:"right"}}>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:5}}>
                   <div style={{width:Math.round(r.pct*1.8),height:6,background:C.am,borderRadius:3,opacity:0.7}}/>
@@ -1830,32 +1826,30 @@ const rows = [
             </tr>
             {isOpen&&parentRows.map(([pName,pData])=>{
               const subRows=Object.entries(pData.subs).filter(([s])=>s!==pName).sort((a,b)=>b[1]-a[1]);
+              const parentPct=r.count>0?+((pData.total/r.count)*100).toFixed(0):0;
               return <React.Fragment key={pName}>
                 <tr style={{background:"#f8fafc",borderBottom:subRows.length?`none`:`1px solid ${C.bd}`}}>
                   <td/>
-                  <td style={{padding:"5px 6px 5px 18px",color:C.sl,fontWeight:600,fontSize:11}}>↳ {pName}</td>
+                  <td style={{padding:"5px 6px 5px 18px",color:C.sl,fontWeight:600,fontSize:11}}>{pName}</td>
                   <td style={{padding:"5px 6px",textAlign:"right",color:C.sL,fontSize:11}}>{pData.total}</td>
-                  <td colSpan={3}/>
+                  <td colSpan={2}/>
+                  <td style={{padding:"5px 6px",textAlign:"right",color:C.sL,fontSize:11}}>{parentPct}%</td>
                 </tr>
-                {subRows.map(([sub,cnt],si)=>(
-                  <tr key={si} style={{background:"#f8fafc",borderBottom:si===subRows.length-1?`1px solid ${C.bd}`:"none"}}>
+                {subRows.map(([sub,cnt],si)=>{
+                  const subPct=r.count>0?+((cnt/r.count)*100).toFixed(0):0;
+                  return <tr key={si} style={{background:"#f8fafc",borderBottom:si===subRows.length-1?`1px solid ${C.bd}`:"none"}}>
                     <td/>
-                    <td style={{padding:"4px 6px 4px 32px",color:C.sL,fontSize:10}}>· {sub}</td>
+                    <td style={{padding:"4px 6px 4px 32px",color:C.sL,fontSize:10}}>{sub}</td>
                     <td style={{padding:"4px 6px",textAlign:"right",color:C.sL,fontSize:10}}>{cnt}</td>
-                    <td colSpan={3}/>
-                  </tr>
-                ))}
+                    <td colSpan={2}/>
+                    <td style={{padding:"4px 6px",textAlign:"right",color:C.sL,fontSize:10}}>{subPct}%</td>
+                  </tr>;
+                })}
               </React.Fragment>;
             })}
           </React.Fragment>;
         })}
-        {otherStyles.length>0&&<tr style={{borderBottom:`1px solid ${C.bd}`,background:"rgba(0,0,0,0.03)"}}>
-          <td/><td style={{padding:"7px 6px",color:C.sL,fontStyle:"italic"}}>Other ({otherStyles.length} styles)</td>
-          <td style={{padding:"7px 6px",textAlign:"right"}}>{otherCount}</td>
-          <td style={{padding:"7px 6px",textAlign:"right",color:C.sL}}>{ff(otherValue)}</td>
-          <td style={{padding:"7px 6px",textAlign:"right"}}>{otherPct}%</td>
-          <td style={{padding:"7px 6px",textAlign:"right",color:C.sL}}>–</td>
-        </tr>}
+
         <tr style={{borderTop:`2px solid ${C.bd}`,background:"rgba(0,0,0,0.02)"}}>
           <td/><td style={{padding:"7px 6px",fontWeight:700,color:C.nv}}>Total</td>
           <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700}}>{retStyles.reduce((a,s)=>a+s.count,0)}</td>
