@@ -2231,7 +2231,7 @@ const rows = [
       if(col==="style_name")        return (g.style_name||"").toLowerCase();
       if(col==="style_number")      return (g.style_number||"").toLowerCase();
       if(col==="launch_category")   return (g.launch_category||"").toLowerCase();
-      if(col==="expected_delivery") return g.expected_delivery||"9999";
+      if(col==="inwh_date") return g.inwh_date||"9999";
       if(col==="target_launch_date")return g.target_launch_date||"9999";
       if(col==="ordered")    return g.rows.reduce((a,r)=>a+(Number(r.units_ordered)||0),0);
       if(col==="in_transit") return g.rows.reduce((a,r)=>a+(Number(r.units_in_transit)||0),0);
@@ -2328,7 +2328,7 @@ const rows = [
         {label:"PO Season",      all:allSeasons,     active:ooSeason,      setter:setOoSeason},
         {label:"Delivery Month", all:allMonths,      active:ooMonth,       setter:setOoMonth},
         {label:"Launch Month",   all:allLaunchMonths,active:ooLaunchMonth, setter:setOoLaunchMonth},
-        {label:"Launch Category",all:allLaunches,    active:ooLaunch,      setter:setOoLaunch},
+        {label:"Launch Type",   all:allLaunches,    active:ooLaunch,      setter:setOoLaunch},
       ].map(({label,all,active,setter})=>{
         const isOpen    = openFilter===label;
         const isFiltered = active.length>0;
@@ -2458,13 +2458,13 @@ const rows = [
             <TH col="status">Status</TH>
             <TH col="style_name">Style Name</TH>
             <TH col="style_number">Style #</TH>
-            <TH col="launch_category">Launch Cat.</TH>
+            <TH col="launch_category">Launch Type</TH>
             <TH>Freight</TH>
             <TH right col="ordered">Ordered</TH>
             <TH right col="in_transit">In Transit</TH>
             <TH right col="received">Received</TH>
             <TH right col="bal">Bal</TH>
-            <TH col="expected_delivery">Est. In-WH</TH>
+            <TH col="inwh_date">Est. In-WH</TH>
             <TH col="target_launch_date">Target Launch</TH>
             <TH>Delay Flag</TH>
           </tr>
@@ -2478,7 +2478,7 @@ const rows = [
             const totOrd   = rows.reduce((a,r)=>a+(Number(r.units_ordered)||0),0);
             const totRcvd  = rows.reduce((a,r)=>a+(Number(r.units_received)||0),0);
             const totOut   = rows.reduce((a,r)=>a+(Number(r.units_outstanding)||0),0);
-            const earliestEta = rows.map(r=>r.expected_delivery).filter(Boolean).sort()[0]||"";
+            const earliestEta = rows.map(r=>r.inwh_date).filter(Boolean).sort()[0]||"";
             const freights = [...new Set(rows.map(r=>r.freight_method).filter(Boolean))];
             const rowBg    = g.launch_conflict==="Launch Conflict" ? "#fff8f8" : C.cd;
             const outColor = totOut>0 ? (status==="In Transit"?C.b1:status==="Partial Receipt"?C.am:C.nv) : C.sL;
@@ -2551,7 +2551,7 @@ const rows = [
                     <td style={{padding:"6px 8px",textAlign:"right",fontSize:12,color:C.sl}}>{(Number(r.units_in_transit)||0)>0?Number(r.units_in_transit).toLocaleString():"—"}</td>
                     <td style={{padding:"6px 8px",textAlign:"right",fontSize:12,color:C.sl}}>{(Number(r.units_received)||0)>0?Number(r.units_received).toLocaleString():"—"}</td>
                     <td style={{padding:"6px 8px",textAlign:"right",fontSize:12,color:C.sl}}>{(Number(r.units_outstanding)||0)>0?Number(r.units_outstanding).toLocaleString():"—"}</td>
-                    <td style={{padding:"6px 8px",fontSize:11,color:r.expected_delivery?C.nv:C.am}}>{r.expected_delivery||"No ETA"}</td>
+                    <td style={{padding:"6px 8px",fontSize:11,color:r.inwh_date?C.nv:C.am}}>{r.inwh_date||"No ETA"}</td>
                     <td style={{padding:"6px 8px",fontSize:11,color:"#64748b"}}>{r.target_launch_date||"—"}</td>
                     <td/>
                   </tr>
