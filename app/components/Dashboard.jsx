@@ -2237,7 +2237,7 @@ const rows = [
   };
   const FreightBadge = ({f})=>{
     if(f==="Air")   return <span style={{display:"inline-flex",alignItems:"center",padding:"2px 6px",borderRadius:20,fontSize:10,fontWeight:700,background:"#e0f2fe",color:"#0369a1"}}>✈ Air</span>;
-    if(f==="Ocean") return <span style={{display:"inline-flex",alignItems:"center",padding:"2px 6px",borderRadius:20,fontSize:10,fontWeight:700,background:"#d1fae5",color:"#065f46"}}>〜 Ocean</span>;
+    if(f==="Sea") return <span style={{display:"inline-flex",alignItems:"center",padding:"2px 6px",borderRadius:20,fontSize:10,fontWeight:700,background:"#d1fae5",color:"#065f46"}}>〜 Sea</span>;
     return <span style={{color:C.sL,fontSize:11}}>—</span>;
   };
 
@@ -2270,7 +2270,21 @@ const rows = [
     })(),
   });
 
+  const fmtDate = (d) => {
+    if(!d) return "—";
+    const dt = new Date(d + "T12:00:00Z");
+    if(isNaN(dt)) return d;
+    return `${dt.getUTCMonth()+1}/${dt.getUTCDate()}`;
+  };
+
   return <>
+
+  {/* ── Last updated ──────────────────────────────────────────────────────── */}
+  <div style={{fontSize:11,color:C.sL,fontStyle:"italic",marginBottom:10}}>
+    {data.metadata?.poLastUpdatedEST
+      ? `PO data last updated: ${data.metadata.poLastUpdatedEST}`
+      : <span style={{color:C.am,fontWeight:600}}>PO data not yet synced</span>}
+  </div>
 
   {/* ── Filters ─────────────────────────────────────────────────────────── */}
   <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,
@@ -2309,11 +2323,9 @@ const rows = [
       ))}
       {ooSeason.length>0&&<button onClick={()=>setOoSeason([])}
         style={{background:"none",border:"none",color:C.sL,fontSize:11,cursor:"pointer"}}>✕</button>}
-    </div>
-
-    <div style={{display:"flex",gap:6,flexWrap:"wrap",alignItems:"center",marginBottom:8}}>
+      <div style={{width:1,height:18,background:C.bd,margin:"0 4px"}}/>
       <span style={{fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",
-        letterSpacing:.5,minWidth:70}}>Launch Type</span>
+        letterSpacing:.5,minWidth:80}}>Launch Type</span>
       {allLaunches.map(v=>(
         <button key={v} onClick={()=>togglePill(setOoLaunch,ooLaunch,v)}
           style={pillS(ooLaunch.includes(v))}>{v}</button>
@@ -2322,24 +2334,29 @@ const rows = [
         style={{background:"none",border:"none",color:C.sL,fontSize:11,cursor:"pointer"}}>✕</button>}
     </div>
 
-    {/* Flags + Search row */}
-    <div style={{display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
+    {/* Flags row */}
+    <div style={{display:"flex",gap:8,flexWrap:"wrap",alignItems:"center",marginBottom:8}}>
       <span style={{fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",
         letterSpacing:.5,minWidth:70}}>Flags</span>
       <button onClick={()=>setOoConflict(!ooConflict)}
-        style={flagS(ooConflict,"#dc2626")}>⚠ Launch Conflicts</button>
+        style={flagS(ooConflict,"#dc2626")}><span style={{color:"#dc2626"}}>⚠</span> Launch Conflicts</button>
       <button onClick={()=>setOoDelayFlag(!ooDelayFlag)}
         style={flagS(ooDelayFlag,"#d97706")}>🔴 Receipt Delays</button>
-      <div style={{width:1,height:22,background:C.bd}}/>
+    </div>
+
+    {/* Search row */}
+    <div style={{display:"flex",gap:8,flexWrap:"wrap",alignItems:"center"}}>
+      <span style={{fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",
+        letterSpacing:.5,minWidth:70}}>Search</span>
       <input value={ooSearch} onChange={e=>setOoSearch(e.target.value)}
         placeholder="Search style…"
         style={{border:`1px solid ${C.bd}`,borderRadius:6,padding:"5px 9px",
-          fontSize:12,color:C.nv,outline:"none",width:160,background:"#f8fafc"}}/>
-      {(ooStatus.length||ooQuarter.length||ooSeason.length||ooLaunch.length||ooConflict||ooSearch)
+          fontSize:12,color:C.nv,outline:"none",width:200,background:"#f8fafc"}}/>
+      {(ooStatus.length||ooQuarter.length||ooSeason.length||ooLaunch.length||ooConflict||ooDelayFlag||ooSearch)
         ?<button onClick={()=>{setOoStatus([]);setOoQuarter([]);setOoSeason([]);setOoLaunch([]);
             setOoMonth([]);setOoLaunchMonth([]);setOoConflict(false);setOoDelayFlag(false);setOoSearch("");}}
           style={{background:"none",border:"none",color:C.sL,fontSize:11,
-            cursor:"pointer",fontWeight:600}}>Clear all</button>:null}
+            cursor:"pointer",fontWeight:600}}>✕ Clear all</button>:null}
     </div>
   </div>
 
@@ -2363,12 +2380,12 @@ const rows = [
       <BarChart data={chartData} margin={{top:0,right:10,left:0,bottom:0}}>
         <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false}/>
         <XAxis dataKey="mo" tick={{fontSize:10,fill:C.sL}}/>
-        <YAxis tick={{fontSize:10,fill:C.sL}} tickFormatter={v=>v>=1000?`${(v/1000).toFixed(0)}K`:v}/>
+        <YAxis tick={{fontSize:10,fill:C.sL}} tickFormatter={v=>v>=1000?`${Math.round(v/1000)}K`:v}/>
         <Tooltip content={<CT/>}/>
         <Legend wrapperStyle={{fontSize:11}}/>
-        <Bar dataKey="notShipped" stackId="a" fill="#94a3b8" name="Not Shipped"/>
-        <Bar dataKey="inTransit"  stackId="a" fill={C.b2}   name="In Transit"/>
-        <Bar dataKey="received"   stackId="a" fill={C.gn}   name="Received" radius={[3,3,0,0]}/>
+        <Bar dataKey="notShipped" stackId="a" fill="#e2e8f0" name="Not Shipped"/>
+        <Bar dataKey="inTransit"  stackId="a" fill="#60a5fa" name="In Transit"/>
+        <Bar dataKey="received"   stackId="a" fill="#34d399" name="Received" radius={[3,3,0,0]}/>
       </BarChart>
     </ResponsiveContainer>
   </div>
@@ -2386,7 +2403,7 @@ const rows = [
       <thead>
         <tr style={{background:"#f8fafc"}}>
           <th style={{width:28,padding:"8px 6px",borderBottom:`2px solid ${C.bd}`}}/>
-          {["Status","Style Name","Style #","Launch Type","Freight",
+          {["Status","Style Name","Style #","PO #","Freight",
             "Ordered","In Transit","Received","Bal",
             "Ship Date","INWH Date","Launch Date","Delay Flag"
           ].map((h,i)=>(
@@ -2424,15 +2441,13 @@ const rows = [
               <td style={{padding:"8px 6px",textAlign:"center",color:C.sL}}>
                 {moOpen?"▾":"▸"}
               </td>
-              <td colSpan={9} style={{padding:"8px 8px",fontWeight:700,color:C.nv,fontSize:13}}>
+              <td colSpan={13} style={{padding:"8px 8px",fontWeight:700,color:C.nv,fontSize:13}}>
                 {moLabel}
                 <span style={{marginLeft:10,fontSize:11,fontWeight:400,color:C.sL}}>
                   {styleKeys.length} styles · {moAgg.ordered} ordered · {moAgg.received} received · {moAgg.bal} outstanding
+                  {moAgg.inTransit>0&&<span style={{marginLeft:6,color:C.b1,fontWeight:700}}> · {moAgg.inTransit} in transit</span>}
                 </span>
                 {hasDelays&&<span style={{marginLeft:8,fontSize:10,color:"#dc2626",fontWeight:700}}>⚠ delays</span>}
-              </td>
-              <td colSpan={4} style={{padding:"8px 8px",textAlign:"right",fontSize:11,color:C.sL}}>
-                {moAgg.inTransit>0&&<span style={{color:C.b1,fontWeight:600}}>{moAgg.inTransit} in transit</span>}
               </td>
             </tr>
 
@@ -2453,30 +2468,32 @@ const rows = [
                   </td>
                   <td style={{padding:"7px 8px",background:rowBg}}>
                     <SBadge s={agg.status}/>
-                    {s.po_number&&<div style={{fontSize:10,color:C.sL,marginTop:2}}>{s.shipments.map(r=>r.po_number).filter((v,i,a)=>a.indexOf(v)===i).join(", ")}</div>}
+                    {s.launch_category&&<div style={{fontSize:10,color:C.sL,marginTop:2}}>{s.launch_category}</div>}
                   </td>
                   <td style={{padding:"7px 8px",background:rowBg,maxWidth:180}}>
                     <div style={{fontWeight:700,color:C.nv,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{s.style_name}</div>
                     {s.color&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{s.color}</div>}
                   </td>
                   <td style={{padding:"7px 8px",fontFamily:"monospace",fontSize:11,color:"#64748b"}}>{s.style_number}</td>
-                  <td style={{padding:"7px 8px",fontSize:11,color:"#64748b"}}>{s.launch_category}</td>
+                  <td style={{padding:"7px 8px",fontSize:11,color:C.sL}}>
+                    {s.shipments.map(r=>r.po_number).filter((v,i,a)=>v&&a.indexOf(v)===i).join(", ")||"—"}
+                  </td>
                   <td style={{padding:"7px 8px"}}>
                     {hasMulti
                       ? <span style={{fontSize:10,color:C.sL}}>{s.shipments.length} shipments</span>
-                      : <span style={{fontSize:11}}>{(()=>{const f=s.shipments[0]?.freight_method;return f==="Air"?<span style={{color:"#0369a1",fontWeight:600}}>✈ Air</span>:f==="Ocean"?<span style={{color:"#065f46",fontWeight:600}}>〜 Ocean</span>:"—";})()}</span>
+                      : <span style={{fontSize:11}}>{(()=>{const f=s.shipments[0]?.freight_method;return f==="Air"?<span style={{color:"#0369a1",fontWeight:600}}>✈ Air</span>:f==="Sea"?<span style={{color:"#065f46",fontWeight:600}}>〜 Sea</span>:"—";})()}</span>
                     }
                   </td>
                   {[agg.ordered,agg.inTransit,agg.received,agg.bal].map((v,i)=>(
                     <td key={i} style={{padding:"7px 8px",textAlign:"right",fontSize:12,color:v>0?C.nv:C.sL}}>{v>0?v.toLocaleString():"—"}</td>
                   ))}
-                  <td style={{padding:"7px 8px",fontSize:11,color:C.sL}}>{s.ex_factory_date||"—"}</td>
+                  <td style={{padding:"7px 8px",fontSize:11,color:C.sL}}>{fmtDate(s.ex_factory_date)}</td>
                   <td style={{padding:"7px 8px",fontSize:11,
                     color:s.inwh_date?C.nv:C.am,fontWeight:s.inwh_date?400:600}}>
-                    {s.inwh_date||"No ETA"}
+                    {fmtDate(s.inwh_date)||"No ETA"}
                     {s.launch_conflict==="Launch Conflict"&&<span style={{marginLeft:5,color:"#dc2626"}}>⚠</span>}
                   </td>
-                  <td style={{padding:"7px 8px",fontSize:11,color:"#64748b"}}>{s.target_launch_date||"—"}</td>
+                  <td style={{padding:"7px 8px",fontSize:11,color:"#64748b"}}>{fmtDate(s.target_launch_date)}</td>
                   <td style={{padding:"7px 8px",fontSize:11,
                     background:s.shipments.some(r=>r.flag_delay)?"#fee2e2":"transparent",
                     color:"#991b1b",fontWeight:600}}>
@@ -2501,9 +2518,9 @@ const rows = [
                         {(Number(v)||0)>0?Number(v).toLocaleString():"—"}
                       </td>
                     ))}
-                    <td style={{padding:"5px 8px",fontSize:11,color:C.sL}}>{r.ex_factory_date||"—"}</td>
-                    <td style={{padding:"5px 8px",fontSize:11,color:r.inwh_date?C.nv:C.am}}>{r.inwh_date||"No ETA"}</td>
-                    <td style={{padding:"5px 8px",fontSize:11,color:C.sL}}>{r.target_launch_date||"—"}</td>
+                    <td style={{padding:"5px 8px",fontSize:11,color:C.sL}}>{fmtDate(r.ex_factory_date)}</td>
+                    <td style={{padding:"5px 8px",fontSize:11,color:r.inwh_date?C.nv:C.am}}>{fmtDate(r.inwh_date)||"No ETA"}</td>
+                    <td style={{padding:"5px 8px",fontSize:11,color:C.sL}}>{fmtDate(r.target_launch_date)}</td>
                     <td style={{padding:"5px 8px",fontSize:11,background:r.flag_delay?"#fee2e2":"transparent",color:"#991b1b",fontWeight:600}}>{r.flag_delay||"—"}</td>
                   </tr>
                 ))}
@@ -2520,11 +2537,7 @@ const rows = [
     </table>
   </div>
 
-  <div style={{marginTop:8,fontSize:10,color:C.sL,fontStyle:"italic"}}>
-    {data.metadata?.poLastUpdatedEST
-      ? `PO data last updated: ${data.metadata.poLastUpdatedEST}`
-      : <span style={{color:C.am}}>PO data not yet synced</span>}
-  </div>
+
 
 
   </>;
