@@ -713,12 +713,12 @@ useEffect(() => {
   const tabs=[
   {id:"overview",  l:"Overview",   i:"📊"},
   {id:"revenue",   l:"Revenue",    i:"💰"},
+  {id:"website",   l:"Website",    i:"🌐"},
+  {id:"marketing", l:"Marketing",  i:"📣"},
   {id:"products",  l:"Products",   i:"👠"},
+  {id:"returns",   l:"Returns",    i:"↩️"},
   {id:"inventory", l:"Inventory",  i:"📦"},
   {id:"on_order",  l:"On Order",   i:"🚢"},
-  {id:"returns",   l:"Returns",    i:"↩️"},
-  {id:"marketing", l:"Marketing",  i:"📣"},
-  {id:"website",   l:"Website",    i:"🌐"},
 ];
   
   const rv = revF === "new" ? {
@@ -1780,7 +1780,7 @@ const rows = [
         <YAxis yAxisId="right" orientation="right" tick={{fontSize:10,fill:C.am}} width={40} tickFormatter={v=>`${v}%`}/>
         <Tooltip content={<CT/>}/>
         <Bar yAxisId="left" dataKey="netSales" fill="#94a3b8" radius={[3,3,0,0]} name={retF==="new"?"New Net Sales":retF==="returning"?"Ret Net Sales":"Total Net Sales"} barSize={20}/>
-        {retF==="all"&&<Bar yAxisId="left" dataKey="tr" fill={C.rd} radius={[3,3,0,0]} name="Total Returns" barSize={20} opacity={0.8}/>}
+        {retF==="all"&&<Bar yAxisId="left" dataKey="tr" fill="#8b5cf6" radius={[3,3,0,0]} name="Total Returns" barSize={20}/>}
         {retF==="new"&&<Bar yAxisId="left" dataKey="nr" fill={C.b1} radius={[3,3,0,0]} name="New Returns" barSize={20}/>}
         {retF==="returning"&&<Bar yAxisId="left" dataKey="rr" fill={C.b3} radius={[3,3,0,0]} name="Returning Returns" barSize={20}/>}
         <Line yAxisId="right" type="monotone" dataKey="retPct" stroke={C.am} strokeWidth={2} dot={{r:3,fill:C.am}} name={retF==="new"?"Returns / New Net Rev %":retF==="returning"?"Returns / Ret Net Rev %":"Returns / Net Sales %"} connectNulls/>
@@ -1788,7 +1788,7 @@ const rows = [
     </ResponsiveContainer>
     <div style={{display:"flex",gap:16,marginTop:8,fontSize:11,color:C.sL,flexWrap:"wrap"}}>
       <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:"#94a3b8",borderRadius:2,display:"inline-block"}}/>{retF==="new"?"New Net Sales":retF==="returning"?"Ret Net Sales":"Total Net Sales"}</span>
-      {retF==="all"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.rd,borderRadius:2,display:"inline-block",opacity:0.8}}/>Total Returns</span>}
+      {retF==="all"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:"#8b5cf6",borderRadius:2,display:"inline-block"}}/>Total Returns</span>}
       {retF==="new"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b1,borderRadius:2,display:"inline-block"}}/>New Returns</span>}
       {retF==="returning"&&<span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b3,borderRadius:2,display:"inline-block"}}/>Returning Returns</span>}
       <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:3,background:C.am,borderRadius:1,display:"inline-block"}}/>{retF==="new"?"Returns / New Net Rev %":retF==="returning"?"Returns / Ret Net Rev %":"Returns / Net Sales %"}</span>
@@ -1832,8 +1832,9 @@ const rows = [
                   <td/>
                   <td style={{padding:"5px 6px 5px 18px",color:C.sl,fontWeight:600,fontSize:11}}>{pName}</td>
                   <td style={{padding:"5px 6px",textAlign:"right",color:C.sL,fontSize:11}}>{pData.total}</td>
-                  <td colSpan={2}/>
+                  <td/>
                   <td style={{padding:"5px 6px",textAlign:"right",color:C.sL,fontSize:11}}>{parentPct}%</td>
+                  <td/>
                 </tr>
                 {subRows.map(([sub,cnt],si)=>{
                   const subPct=r.count>0?+((cnt/r.count)*100).toFixed(0):0;
@@ -1841,8 +1842,9 @@ const rows = [
                     <td/>
                     <td style={{padding:"4px 6px 4px 32px",color:C.sL,fontSize:10}}>{sub}</td>
                     <td style={{padding:"4px 6px",textAlign:"right",color:C.sL,fontSize:10}}>{cnt}</td>
-                    <td colSpan={2}/>
+                    <td/>
                     <td style={{padding:"4px 6px",textAlign:"right",color:C.sL,fontSize:10}}>{subPct}%</td>
+                    <td/>
                   </tr>;
                 })}
               </React.Fragment>;
