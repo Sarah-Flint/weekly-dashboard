@@ -1547,14 +1547,14 @@ const rows = [
   const profitColor=(v)=>v>0?C.gn:v<0?C.rd:C.sL;
   const renderCells=(d,bold)=><>
     <td style={{padding:"7px 5px",textAlign:"right",fontWeight:bold?700:600}}>{d.oh.toLocaleString()}</td>
-    <td style={{padding:"7px 5px",textAlign:"right",color:d.oo>0?C.nv:C.sL}}>{d.oo>0?d.oo.toLocaleString():"–"}</td>
+    <td style={{padding:"7px 5px",textAlign:"right"}}>{d.oo>0?d.oo.toLocaleString():"–"}</td>
     <td style={{padding:"7px 5px",textAlign:"right",fontWeight:bold?700:600}}>{d.owned.toLocaleString()}</td>
-    <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>{ff(d.ov)}</td>
+    <td style={{padding:"7px 5px",textAlign:"right"}}>{ff(d.ov)}</td>
     <td style={{padding:"7px 5px",textAlign:"right"}}>{d.nu}</td>
     <td style={{padding:"7px 5px",textAlign:"right",color:stColor(d.st)}}>{d.st}%</td>
-    <td style={{padding:"7px 5px",textAlign:"right",color:C.sL}}>{d.uc>0?`$${Math.round(d.uc)}`:"–"}</td>
+    <td style={{padding:"7px 5px",textAlign:"right"}}>{d.uc>0?`$${Math.round(d.uc)}`:"–"}</td>
     <td style={{padding:"7px 5px",textAlign:"right"}}>{d.avgP>0?`$${d.avgP}`:"–"}</td>
-    <td style={{padding:"7px 5px",textAlign:"right",color:profitColor(d.avgPr)}}>{d.avgPr!==0?`$${d.avgPr}`:"–"}</td>
+    <td style={{padding:"7px 5px",textAlign:"right"}}>{d.avgPr!==0?`$${d.avgPr}`:"–"}</td>
     <td style={{padding:"7px 5px",textAlign:"right",color:d.imu>=50?C.gn:d.imu>=30?C.nv:d.imu>0?C.am:C.sL}}>{d.imu>0?`${d.imu}%`:"–"}</td>
     <td style={{padding:"7px 5px",textAlign:"right",fontWeight:600,color:wohColor(d.woh)}}>{fmtWoh(d.woh)}</td>
   </>;
