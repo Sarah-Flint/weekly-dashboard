@@ -3,9 +3,9 @@
     "week": "WEEK 21",
     "dateRange": "5/24/26 to 5/30/26",
     "quarter": "Q2",
-    "lastUpdatedISO": "2026-06-01T13:26:51.356Z",
-    "lastUpdatedEST": "Jun 01, 2026 09:26:51",
-    "poLastUpdatedEST": "Jun 01, 2026 09:26:53"
+    "lastUpdatedISO": "2026-06-01T13:32:40.475Z",
+    "lastUpdatedEST": "Jun 01, 2026 09:32:40",
+    "poLastUpdatedEST": "Jun 01, 2026 09:32:41"
   },
   "kpi": [
     {
@@ -23731,6 +23731,15 @@
   ],
   "returns_summary": [
     {
+      "Week End (Submitted)": "2026-05-02",
+      "Week End (Processed)": "2026-05-30",
+      "Return Status": "closed",
+      "Customer Frequency Type": "First Time Customer",
+      "Outcome": "Return",
+      "sum Line Item Net": -1096,
+      "count Return ID": 2
+    },
+    {
       "Week End (Submitted)": "2026-05-09",
       "Week End (Processed)": "2026-05-30",
       "Return Status": "closed",
@@ -23740,48 +23749,93 @@
       "count Return ID": 2
     },
     {
-      "Week End (Submitted)": "2026-05-23",
+      "Week End (Submitted)": "2026-05-16",
+      "Week End (Processed)": "2026-05-30",
+      "Return Status": "closed",
+      "Customer Frequency Type": "First Time Customer",
+      "Outcome": "Exchange",
+      "sum Line Item Net": -608,
+      "count Return ID": 2
+    },
+    {
+      "Week End (Submitted)": "2026-05-16",
       "Week End (Processed)": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
-      "sum Line Item Net": -1136,
-      "count Return ID": 3
+      "sum Line Item Net": -1654,
+      "count Return ID": 4
     },
     {
-      "Week End (Submitted)": "2026-05-23",
+      "Week End (Submitted)": "2026-05-16",
+      "Week End (Processed)": "2026-05-30",
+      "Return Status": "closed",
+      "Customer Frequency Type": "Repeat Customer",
+      "Outcome": "Exchange",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week End (Submitted)": "2026-05-16",
       "Week End (Processed)": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Return",
-      "sum Line Item Net": -475,
-      "count Return ID": 1
+      "sum Line Item Net": -1826.24,
+      "count Return ID": 4
     },
     {
-      "Week End (Submitted)": "2026-05-30",
-      "Week End (Processed)": null,
-      "Return Status": "open",
+      "Week End (Submitted)": "2026-05-23",
+      "Week End (Processed)": "2026-05-30",
+      "Return Status": "closed",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Exchange",
-      "sum Line Item Net": -396,
-      "count Return ID": 1
+      "sum Line Item Net": -792,
+      "count Return ID": 2
     },
     {
-      "Week End (Submitted)": "2026-05-30",
-      "Week End (Processed)": null,
-      "Return Status": "open",
+      "Week End (Submitted)": "2026-05-23",
+      "Week End (Processed)": "2026-05-30",
+      "Return Status": "closed",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
-      "sum Line Item Net": -4431,
+      "sum Line Item Net": -4716.61,
       "count Return ID": 12
     },
     {
+      "Week End (Submitted)": "2026-05-23",
+      "Week End (Processed)": "2026-05-30",
+      "Return Status": "closed",
+      "Customer Frequency Type": "Repeat Customer",
+      "Outcome": "Return",
+      "sum Line Item Net": -3220.6,
+      "count Return ID": 7
+    },
+    {
+      "Week End (Submitted)": "2026-05-30",
+      "Week End (Processed)": null,
+      "Return Status": "open",
+      "Customer Frequency Type": "First Time Customer",
+      "Outcome": "Exchange",
+      "sum Line Item Net": -2438,
+      "count Return ID": 6
+    },
+    {
+      "Week End (Submitted)": "2026-05-30",
+      "Week End (Processed)": null,
+      "Return Status": "open",
+      "Customer Frequency Type": "First Time Customer",
+      "Outcome": "Return",
+      "sum Line Item Net": -13970,
+      "count Return ID": 33
+    },
+    {
       "Week End (Submitted)": "2026-05-30",
       "Week End (Processed)": null,
       "Return Status": "open",
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Exchange",
-      "sum Line Item Net": -891,
+      "sum Line Item Net": -924.58,
       "count Return ID": 2
     },
     {
@@ -23790,8 +23844,35 @@
       "Return Status": "open",
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Return",
-      "sum Line Item Net": -4626.05,
-      "count Return ID": 11
+      "sum Line Item Net": -11669.05,
+      "count Return ID": 29
+    },
+    {
+      "Week End (Submitted)": "2026-05-30",
+      "Week End (Processed)": "2026-05-30",
+      "Return Status": "closed",
+      "Customer Frequency Type": "First Time Customer",
+      "Outcome": "Exchange",
+      "sum Line Item Net": -4284.53,
+      "count Return ID": 12
+    },
+    {
+      "Week End (Submitted)": "2026-05-30",
+      "Week End (Processed)": "2026-05-30",
+      "Return Status": "closed",
+      "Customer Frequency Type": "First Time Customer",
+      "Outcome": "Return",
+      "sum Line Item Net": -26666.03,
+      "count Return ID": 68
+    },
+    {
+      "Week End (Submitted)": "2026-05-30",
+      "Week End (Processed)": "2026-05-30",
+      "Return Status": "closed",
+      "Customer Frequency Type": "Repeat Customer",
+      "Outcome": "Exchange",
+      "sum Line Item Net": -2062.25,
+      "count Return ID": 5
     },
     {
       "Week End (Submitted)": "2026-05-30",
@@ -23799,11 +23880,87 @@
       "Return Status": "closed",
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Return",
-      "sum Line Item Net": -247.27,
+      "sum Line Item Net": -19146.34,
+      "count Return ID": 46
+    },
+    {
+      "Week End (Submitted)": "2026-05-30",
+      "Week End (Processed)": "2026-06-06",
+      "Return Status": "closed",
+      "Customer Frequency Type": "First Time Customer",
+      "Outcome": "Exchange",
+      "sum Line Item Net": -520,
       "count Return ID": 1
+    },
+    {
+      "Week End (Submitted)": "2026-05-30",
+      "Week End (Processed)": "2026-06-06",
+      "Return Status": "closed",
+      "Customer Frequency Type": "First Time Customer",
+      "Outcome": "Return",
+      "sum Line Item Net": -2717,
+      "count Return ID": 6
+    },
+    {
+      "Week End (Submitted)": "2026-05-30",
+      "Week End (Processed)": "2026-06-06",
+      "Return Status": "closed",
+      "Customer Frequency Type": "Repeat Customer",
+      "Outcome": "Exchange",
+      "sum Line Item Net": -275,
+      "count Return ID": 2
+    },
+    {
+      "Week End (Submitted)": "2026-05-30",
+      "Week End (Processed)": "2026-06-06",
+      "Return Status": "closed",
+      "Customer Frequency Type": "Repeat Customer",
+      "Outcome": "Return",
+      "sum Line Item Net": -2257.9,
+      "count Return ID": 5
     }
   ],
   "returns_details": [
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Alexandra 50",
+      "Color": "Navy Stretch Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -716,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Arabesque Slide",
+      "Color": "Two-Tone Camel Nappa",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Not as Expected/Pictured",
+      "Return Reason": "I was looking for something specific",
+      "sum Line Item Net": -191.61,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Boat Shoe",
+      "Color": "Sandstone Nubuck",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -365,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Grear",
+      "Color": "Saddle Vachetta",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too wide",
+      "sum Line Item Net": -236,
+      "count Return ID": 1
+    },
     {
       "Week No (Processed)": 21,
       "Product Title": "Judy Loafer",
@@ -23816,12 +23973,282 @@
     },
     {
       "Week No (Processed)": 21,
+      "Product Title": "Krystle Slide",
+      "Color": "Black Velvet",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -272,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Natalie",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -375,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Natalie",
+      "Color": "Saddle Vachetta",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -300,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Natalie",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too wide",
+      "sum Line Item Net": -375,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Natalie",
+      "Color": "Taupe Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "I Had a Bad Experience",
+      "Return Reason": "I Had a Bad Experience",
+      "sum Line Item Net": -300,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Natalie Sling",
+      "Color": "Petal Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -375,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Natalie Sling",
+      "Color": "Petal Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Toe box shape did not work for me",
+      "sum Line Item Net": -325,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Natalie Sling",
+      "Color": "Petal Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Received Incorrect Item",
+      "Return Reason": "Received Incorrect Item",
+      "sum Line Item Net": -281.25,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Arabesque Wedge 80",
+      "Color": "Two-Tone Camel Nappa & Woven Wedge",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -168,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Aziza 85",
+      "Color": "Gold Textured Saffiano",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -990,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "I was looking for something specific",
       "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 30",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Strap is too tight",
+      "sum Line Item Net": -760,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 30",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Toe box shape did not work for me",
+      "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 30",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "Return Reason": "to compare for size",
+      "sum Line Item Net": -760,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 30",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Did Not Receive Item In Time",
+      "Return Reason": "Did Not Receive Item In Time",
+      "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 30",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Strap is too tight",
+      "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 30",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 30",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Arrived Damaged",
+      "Return Reason": "Item Arrived Damaged",
+      "sum Line Item Net": -380,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 30",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Strap is too tight",
+      "sum Line Item Net": -380,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 30",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "Return Reason": "to compare for size",
+      "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 30",
+      "Color": "White Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -380,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 30",
+      "Color": "White Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Toe box shape did not work for me",
+      "sum Line Item Net": -380,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 30",
+      "Color": "White Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "Return Reason": "to compare for size",
+      "sum Line Item Net": -760,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 30",
+      "Color": "White Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 60",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 60",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Toe box shape did not work for me",
+      "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 60",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -380,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 60",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -375,
       "count Return ID": 1
     },
     {
@@ -23836,12 +24263,382 @@
     },
     {
       "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 60",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Strap is too loose",
+      "sum Line Item Net": -380,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 60",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Toe box shape did not work for me",
+      "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 60",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -1325,
+      "count Return ID": 3
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 60",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 60",
+      "Color": "Silver Textured Saffiano",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too wide",
+      "sum Line Item Net": -950,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 60",
+      "Color": "White Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Toe box shape did not work for me",
+      "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 90",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "Return Reason": "to compare for size",
+      "sum Line Item Net": -380,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 90",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 90",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Strap is too tight",
+      "sum Line Item Net": -380,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 90",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -380,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 90",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -401.24,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 90",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Block Sandal 90",
+      "Color": "White Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -380,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Platform 80",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -457.8,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Platform 80",
+      "Color": "Gold Textured Saffiano",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Platform 80",
+      "Color": "Gold Textured Saffiano",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too wide",
+      "sum Line Item Net": -457.8,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Platform 80",
+      "Color": "Gold Textured Saffiano",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Platform 80",
+      "Color": "Natural Fine Woven Linen",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Not as Expected/Pictured",
+      "Return Reason": "I was looking for something specific",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Platform 80",
+      "Color": "Pink Floral Satin",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Not as Expected/Pictured",
+      "Return Reason": "I was looking for something specific",
+      "sum Line Item Net": -725,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Platform 80",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -990,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Platform 80",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "Return Reason": "to compare for size",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Platform 80",
+      "Color": "Silver Textured Saffiano",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Toe box shape did not work for me",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Sandal 50",
+      "Color": "Black Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -450,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Sandal 50",
+      "Color": "Cognac Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Toe box shape did not work for me",
+      "sum Line Item Net": -360,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Sandal 50",
+      "Color": "Cognac Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -422.03,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Sandal 50",
+      "Color": "Cognac Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -720,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Sandal 50",
+      "Color": "Cognac Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -450,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Sandal 50",
+      "Color": "Gold Saffiano",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -810,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Crossover Sandal 50",
+      "Color": "Gold Saffiano",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Strap is too tight",
+      "sum Line Item Net": -450,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Dawn Sandal",
+      "Color": "Cognac Nappa",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "Return Reason": "to compare for size",
+      "sum Line Item Net": -345,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Dawn Sandal",
+      "Color": "Cognac Nappa",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -690,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Dawn Sandal",
+      "Color": "Cognac Nappa",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -665.57,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Dawn Sandal",
+      "Color": "Cognac Nappa",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "Return Reason": "to compare for style",
+      "sum Line Item Net": -345,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
       "Product Title": "Perfect Dawn Sandal",
       "Color": "Gold Textured Saffiano",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
-      "sum Line Item Net": -247.27,
+      "sum Line Item Net": -592.27,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Dawn Sandal",
+      "Color": "Navy Nappa",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "Return Reason": "to compare for size",
+      "sum Line Item Net": -345,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Dawn Sandal",
+      "Color": "Navy Nappa",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -345,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Dawn Sandal",
+      "Color": "Navy Nappa",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -345,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Emma",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -495,
       "count Return ID": 1
     },
     {
@@ -23856,7 +24653,167 @@
     },
     {
       "Week No (Processed)": 21,
-      "Product Title": "Perfect Pump 85",
+      "Product Title": "Perfect Emma",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Emma",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Emma",
+      "Color": "Espresso Suede",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -395,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Emma",
+      "Color": "Gold Textured Saffiano",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Emma",
+      "Color": "Gold Textured Saffiano",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Emma",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Emma",
+      "Color": "Taupe Suede",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "Return Reason": "to compare for size",
+      "sum Line Item Net": -395,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Emma 85",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Emma 85",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Emma Sling 50",
+      "Color": "Black Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "Return Reason": "to compare for size",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Emma Sling 50",
+      "Color": "Cognac Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Emma Sling 50",
+      "Color": "Cognac Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "Return Reason": "to compare for style",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Erika 30",
+      "Color": "Gold Shimmer Suede",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Erika 60",
+      "Color": "Gold Shimmer Suede",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Erika 60",
+      "Color": "Gold Shimmer Suede",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "Return Reason": "to compare for color",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Erika 60",
+      "Color": "Light Pink Shimmer Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Kitten Pump 50",
       "Color": "Black Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
@@ -23866,12 +24823,552 @@
     },
     {
       "Week No (Processed)": 21,
+      "Product Title": "Perfect Kitten Pump 50",
+      "Color": "Black Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Kitten Pump 50",
+      "Color": "Black Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Kitten Pump 50",
+      "Color": "Navy Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Kitten Pump 50",
+      "Color": "Taupe Suede",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Kitten Sling 50",
+      "Color": "Black Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "Return Reason": "to compare for style",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Kitten Sling 50",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Ordered Multiples For Comparison",
+      "Return Reason": "to compare for style",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Mirjana Wedge 50",
+      "Color": "White Calf & Raffia",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Arrived Damaged",
+      "Return Reason": "Item Arrived Damaged",
+      "sum Line Item Net": -340,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Nina 100",
+      "Color": "White Satin",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -208,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 100",
+      "Color": "Black Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 100",
+      "Color": "Black Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 100",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Black Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Black Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -792,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Black Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Toe box shape did not work for me",
+      "sum Line Item Net": -792,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Black Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Black Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Black Patent",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -395,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Camel Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Not as Expected/Pictured",
+      "Return Reason": "I was looking for something specific",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Camel Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -396.53,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Camel Suede",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -990,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Gunmetal Lame",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Light Sand Patent",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "I Had a Bad Experience",
+      "Return Reason": "I Had a Bad Experience",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Light Sand Patent",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -395,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Navy Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Pump 85",
+      "Color": "Navy Suede",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -990,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Round Toe Pump 70",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Round Toe Pump 70",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Toe box did not work for me",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Round Toe Pump 70",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Toe box shape did not work for me",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Round Toe Pump 70",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Round Toe Pump 70",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Round Toe Pump 70",
+      "Color": "Black Suede",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Round Toe Pump 70",
+      "Color": "Camel Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Toe box shape did not work for me",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Round Toe Pump 70",
+      "Color": "Camel Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Round Toe Pump 70",
+      "Color": "Camel Suede",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Round Toe Pump 70",
+      "Color": "Cognac Suede",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Toe box shape did not work for me",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Sandal 100",
+      "Color": "Gold Nappa",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -855,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Sandal 85",
+      "Color": "Gunmetal Lame",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "I Had a Bad Experience",
+      "Return Reason": "I Had a Bad Experience",
+      "sum Line Item Net": -380,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Sling 85",
+      "Color": "Black Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Sling 85",
+      "Color": "Gold Saffiano",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Sling 85",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Not as Expected/Pictured",
+      "Return Reason": "Color is not as expected/pictured on website",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Sling 85",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Toe box shape did not work for me",
+      "sum Line Item Net": -792,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Sling 85",
+      "Color": "Sand Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -396,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Perfect Sling 85",
+      "Color": "Silver Textured Saffiano",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too short",
+      "sum Line Item Net": -495,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Reversible Knot Belt",
+      "Color": "Cream And Saddle Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -225,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Reversible Knot Belt",
+      "Color": "Cream And Saddle Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Did Not Fit",
+      "Return Reason": "Item Was Too Small",
+      "sum Line Item Net": -225,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Reversible Knot Belt",
+      "Color": "Navy And Cobalt Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Did Not Fit",
+      "Return Reason": "Item Was Too Small",
+      "sum Line Item Net": -382.5,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Reversible Scarf Waist Belt",
+      "Color": "28 IN / Cream & Saddle Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Did Not Fit",
+      "Return Reason": "Item Was Too Small",
+      "sum Line Item Net": -424,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
       "Product Title": "Reversible Scarf Waist Belt",
       "Color": "35 IN / Black & Cognac Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Did Not Fit",
       "Return Reason": "Item Was Too Small",
       "sum Line Item Net": -265,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Reversible Scarf Waist Belt",
+      "Color": "39 IN / Black & Cognac Calf",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Did Not Fit",
+      "Return Reason": "Item Was Too Big",
+      "sum Line Item Net": -212,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Sarah Flint x Mary Orton Perfect Cap Toe Flat",
+      "Color": "Ivory Nappa",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Changed My Mind",
+      "Return Reason": "Changed My Mind",
+      "sum Line Item Net": -288,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Stella",
+      "Color": "Cognac Croc Embossed Calf",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Small",
+      "Return Reason": "Too narrow",
+      "sum Line Item Net": -641,
+      "count Return ID": 2
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Wedding Perfect Block Sandal 60",
+      "Color": "Wedding White Satin & Lace",
+      "Customer Frequency Type": "First Time Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -380,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Wedding Perfect Block Sandal 60",
+      "Color": "Wedding White Satin & Lace",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Not as Expected/Pictured",
+      "Return Reason": "Color is not as expected/pictured on website",
+      "sum Line Item Net": -475,
+      "count Return ID": 1
+    },
+    {
+      "Week No (Processed)": 21,
+      "Product Title": "Wedding Perfect Block Sandal 60",
+      "Color": "Wedding White Satin & Lace",
+      "Customer Frequency Type": "Repeat Customer",
+      "Parent Return Reason": "Item Was Too Large",
+      "Return Reason": "Too long",
+      "sum Line Item Net": -475,
       "count Return ID": 1
     }
   ],
