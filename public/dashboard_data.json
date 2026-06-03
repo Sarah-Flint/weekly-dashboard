@@ -3,9 +3,9 @@
     "week": "WEEK 21",
     "dateRange": "5/24/26 to 5/30/26",
     "quarter": "Q2",
-    "lastUpdatedISO": "2026-06-01T22:06:19.779Z",
-    "lastUpdatedEST": "Jun 01, 2026 18:06:19",
-    "poLastUpdatedEST": "Jun 01, 2026 18:06:21"
+    "lastUpdatedISO": "2026-06-03T22:01:48.543Z",
+    "lastUpdatedEST": "Jun 03, 2026 18:01:48",
+    "poLastUpdatedEST": "Jun 03, 2026 18:01:57"
   },
   "kpi": [
     {
@@ -493,14 +493,14 @@
       "metric_group": "marketing",
       "customer_group": "Total",
       "metric_label": "Google Revenue",
-      "_cw": 45482.08,
+      "_cw": 46952.87,
       "_pw": 68462.63,
       "_cw_plan": null,
-      "_mtd": 262599.35,
+      "_mtd": 262790.16,
       "_mtd_plan": null,
-      "_qtd": 613222.04,
+      "_qtd": 613412.85,
       "_qtd_plan": null,
-      "_ytd": 1260413.33,
+      "_ytd": 1260604.14,
       "_ytd_plan": null
     },
     {
@@ -523,14 +523,14 @@
       "metric_group": "marketing",
       "customer_group": "Total",
       "metric_label": "Google ROAS",
-      "_cw": 5.51,
+      "_cw": 5.69,
       "_pw": 9.06,
       "_cw_plan": null,
-      "_mtd": 7.89,
+      "_mtd": 7.9,
       "_mtd_plan": null,
       "_qtd": 8.52,
       "_qtd_plan": null,
-      "_ytd": 9.21,
+      "_ytd": 9.22,
       "_ytd_plan": null
     },
     {
@@ -1316,10 +1316,10 @@
       "15": 97376.28,
       "16": 87829.5,
       "17": 84943,
-      "18": 66694.17,
+      "18": 65414.19,
       "19": 81960.47,
       "20": 68462.63,
-      "21": 45482.08,
+      "21": 46952.87,
       "22": null,
       "23": null,
       "24": null,
@@ -1356,10 +1356,10 @@
       "15": 11.18,
       "16": 7.31,
       "17": 9.35,
-      "18": 7.12,
+      "18": 6.99,
       "19": 10.11,
       "20": 9.06,
-      "21": 5.51,
+      "21": 5.69,
       "22": null,
       "23": null,
       "24": null,
@@ -1574,14 +1574,14 @@
       "Advertising channel type": "Search",
       "Campaign name": "SEA - Search - BRD - BOF - Sarah Flint - Exact - MaxCV (tROAS) - Conversion - Purchase - US",
       "Spend": 1360.16,
-      "Revenue": 18709.45,
-      "ROAS": 13.76,
+      "Revenue": 19707.43,
+      "ROAS": 14.49,
       "CPM": 292.51,
       "CPC": 0.91,
-      "CPO": 43.43,
+      "CPO": 42.08,
       "Impressions": 4650,
       "Clicks": 1496,
-      "Orders": 31.32
+      "Orders": 32.32
     },
     {
       "CW & PW": "CW",
@@ -1634,14 +1634,14 @@
       "Advertising channel type": "Performance Max",
       "Campaign name": "PMAX - NB - Non Brand - BOF - Conversions - Purchase - New Customers (NCA) - MaxCV (tROAS) - Select SKUs - US",
       "Spend": 3198.19,
-      "Revenue": 6399.99,
-      "ROAS": 2,
+      "Revenue": 6845.47,
+      "ROAS": 2.14,
       "CPM": 19.18,
       "CPC": 2.47,
-      "CPO": 273.12,
+      "CPO": 253.22,
       "Impressions": 166729,
       "Clicks": 1296,
-      "Orders": 11.71
+      "Orders": 12.63
     },
     {
       "CW & PW": "CW",
@@ -1664,14 +1664,14 @@
       "Advertising channel type": "Shopping",
       "Campaign name": "SHP - NB - Non Brand - BOF - All Products [High] - Conversions - Purchase - tROAS - US",
       "Spend": 1376.09,
-      "Revenue": 5696.73,
-      "ROAS": 4.14,
+      "Revenue": 5724.06,
+      "ROAS": 4.16,
       "CPM": 24,
       "CPC": 2.54,
-      "CPO": 112.79,
+      "CPO": 112.15,
       "Impressions": 57331,
       "Clicks": 541,
-      "Orders": 12.2
+      "Orders": 12.27
     },
     {
       "CW & PW": "CW",
@@ -23870,1645 +23870,1645 @@
   ],
   "returns_summary": [
     {
-      "Week End (Submitted)": "2026-05-02",
-      "Week End (Processed)": "2026-05-30",
+      "Submit_Week": "2026-05-02",
+      "Processed_Week": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -1096,
-      "count Return ID": 2
+      "count Submit_Week": 2
     },
     {
-      "Week End (Submitted)": "2026-05-09",
-      "Week End (Processed)": "2026-05-30",
+      "Submit_Week": "2026-05-09",
+      "Processed_Week": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -736,
-      "count Return ID": 2
+      "count Submit_Week": 2
     },
     {
-      "Week End (Submitted)": "2026-05-16",
-      "Week End (Processed)": "2026-05-30",
+      "Submit_Week": "2026-05-16",
+      "Processed_Week": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -608,
-      "count Return ID": 2
+      "count Submit_Week": 2
     },
     {
-      "Week End (Submitted)": "2026-05-16",
-      "Week End (Processed)": "2026-05-30",
+      "Submit_Week": "2026-05-16",
+      "Processed_Week": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -1654,
-      "count Return ID": 4
+      "count Submit_Week": 4
     },
     {
-      "Week End (Submitted)": "2026-05-16",
-      "Week End (Processed)": "2026-05-30",
+      "Submit_Week": "2026-05-16",
+      "Processed_Week": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Submit_Week": 1
     },
     {
-      "Week End (Submitted)": "2026-05-16",
-      "Week End (Processed)": "2026-05-30",
+      "Submit_Week": "2026-05-16",
+      "Processed_Week": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Return",
       "sum Line Item Net": -1826.24,
-      "count Return ID": 4
+      "count Submit_Week": 4
     },
     {
-      "Week End (Submitted)": "2026-05-23",
-      "Week End (Processed)": "2026-05-30",
+      "Submit_Week": "2026-05-23",
+      "Processed_Week": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -792,
-      "count Return ID": 2
+      "count Submit_Week": 2
     },
     {
-      "Week End (Submitted)": "2026-05-23",
-      "Week End (Processed)": "2026-05-30",
+      "Submit_Week": "2026-05-23",
+      "Processed_Week": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -4716.61,
-      "count Return ID": 12
+      "count Submit_Week": 12
     },
     {
-      "Week End (Submitted)": "2026-05-23",
-      "Week End (Processed)": "2026-05-30",
+      "Submit_Week": "2026-05-23",
+      "Processed_Week": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Return",
       "sum Line Item Net": -3220.6,
-      "count Return ID": 7
+      "count Submit_Week": 7
     },
     {
-      "Week End (Submitted)": "2026-05-30",
-      "Week End (Processed)": null,
+      "Submit_Week": "2026-05-30",
+      "Processed_Week": null,
       "Return Status": "open",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -2438,
-      "count Return ID": 6
+      "count Submit_Week": 6
     },
     {
-      "Week End (Submitted)": "2026-05-30",
-      "Week End (Processed)": null,
+      "Submit_Week": "2026-05-30",
+      "Processed_Week": null,
       "Return Status": "open",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -13970,
-      "count Return ID": 33
+      "count Submit_Week": 33
     },
     {
-      "Week End (Submitted)": "2026-05-30",
-      "Week End (Processed)": null,
+      "Submit_Week": "2026-05-30",
+      "Processed_Week": null,
       "Return Status": "open",
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -924.58,
-      "count Return ID": 2
+      "count Submit_Week": 2
     },
     {
-      "Week End (Submitted)": "2026-05-30",
-      "Week End (Processed)": null,
+      "Submit_Week": "2026-05-30",
+      "Processed_Week": null,
       "Return Status": "open",
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Return",
       "sum Line Item Net": -11669.05,
-      "count Return ID": 29
+      "count Submit_Week": 29
     },
     {
-      "Week End (Submitted)": "2026-05-30",
-      "Week End (Processed)": "2026-05-30",
+      "Submit_Week": "2026-05-30",
+      "Processed_Week": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -4284.53,
-      "count Return ID": 12
+      "count Submit_Week": 12
     },
     {
-      "Week End (Submitted)": "2026-05-30",
-      "Week End (Processed)": "2026-05-30",
+      "Submit_Week": "2026-05-30",
+      "Processed_Week": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -26666.03,
-      "count Return ID": 68
+      "count Submit_Week": 68
     },
     {
-      "Week End (Submitted)": "2026-05-30",
-      "Week End (Processed)": "2026-05-30",
+      "Submit_Week": "2026-05-30",
+      "Processed_Week": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -2062.25,
-      "count Return ID": 5
+      "count Submit_Week": 5
     },
     {
-      "Week End (Submitted)": "2026-05-30",
-      "Week End (Processed)": "2026-05-30",
+      "Submit_Week": "2026-05-30",
+      "Processed_Week": "2026-05-30",
       "Return Status": "closed",
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Return",
       "sum Line Item Net": -19146.34,
-      "count Return ID": 46
+      "count Submit_Week": 46
     },
     {
-      "Week End (Submitted)": "2026-05-30",
-      "Week End (Processed)": "2026-06-06",
+      "Submit_Week": "2026-05-30",
+      "Processed_Week": "2026-06-06",
       "Return Status": "closed",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -520,
-      "count Return ID": 1
+      "count Submit_Week": 1
     },
     {
-      "Week End (Submitted)": "2026-05-30",
-      "Week End (Processed)": "2026-06-06",
+      "Submit_Week": "2026-05-30",
+      "Processed_Week": "2026-06-06",
       "Return Status": "closed",
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -2717,
-      "count Return ID": 6
+      "count Submit_Week": 6
     },
     {
-      "Week End (Submitted)": "2026-05-30",
-      "Week End (Processed)": "2026-06-06",
+      "Submit_Week": "2026-05-30",
+      "Processed_Week": "2026-06-06",
       "Return Status": "closed",
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -275,
-      "count Return ID": 2
+      "count Submit_Week": 2
     },
     {
-      "Week End (Submitted)": "2026-05-30",
-      "Week End (Processed)": "2026-06-06",
+      "Submit_Week": "2026-05-30",
+      "Processed_Week": "2026-06-06",
       "Return Status": "closed",
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Return",
       "sum Line Item Net": -2257.9,
-      "count Return ID": 5
+      "count Submit_Week": 5
     }
   ],
   "returns_details": [
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Alexandra 50",
       "Color": "Navy Stretch Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -716,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Arabesque Slide",
       "Color": "Two-Tone Camel Nappa",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "I was looking for something specific",
       "sum Line Item Net": -191.61,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Boat Shoe",
       "Color": "Sandstone Nubuck",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -365,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Grear",
       "Color": "Saddle Vachetta",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too wide",
       "sum Line Item Net": -236,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Judy Loafer",
       "Color": "Espresso Pebbled Leather",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "Quality is not as expected/pictured on website",
       "sum Line Item Net": -340,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Krystle Slide",
       "Color": "Black Velvet",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -272,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Natalie",
       "Color": "Black Suede",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -375,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Natalie",
       "Color": "Saddle Vachetta",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -300,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Natalie",
       "Color": "Sand Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too wide",
       "sum Line Item Net": -375,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Natalie",
       "Color": "Taupe Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "I Had a Bad Experience",
       "Return Reason": "I Had a Bad Experience",
       "sum Line Item Net": -300,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Natalie Sling",
       "Color": "Petal Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -375,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Natalie Sling",
       "Color": "Petal Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -325,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Natalie Sling",
       "Color": "Petal Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Received Incorrect Item",
       "Return Reason": "Received Incorrect Item",
       "sum Line Item Net": -281.25,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Arabesque Wedge 80",
       "Color": "Two-Tone Camel Nappa & Woven Wedge",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -168,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Aziza 85",
       "Color": "Gold Textured Saffiano",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -990,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "I was looking for something specific",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Strap is too tight",
       "sum Line Item Net": -760,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -760,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Did Not Receive Item In Time",
       "Return Reason": "Did Not Receive Item In Time",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Strap is too tight",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "Sand Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Arrived Damaged",
       "Return Reason": "Item Arrived Damaged",
       "sum Line Item Net": -380,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "Sand Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Strap is too tight",
       "sum Line Item Net": -380,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "Sand Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "White Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -380,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "White Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -380,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "White Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -760,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 30",
       "Color": "White Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 60",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 60",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 60",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -380,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 60",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -375,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 60",
       "Color": "Navy Striped Linen",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 60",
       "Color": "Sand Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Strap is too loose",
       "sum Line Item Net": -380,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 60",
       "Color": "Sand Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 60",
       "Color": "Sand Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -1325,
-      "count Return ID": 3
+      "count Processed_Week_No": 3
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 60",
       "Color": "Sand Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 60",
       "Color": "Silver Textured Saffiano",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too wide",
       "sum Line Item Net": -950,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 60",
       "Color": "White Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 90",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -380,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 90",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 90",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Strap is too tight",
       "sum Line Item Net": -380,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 90",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -380,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 90",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -401.24,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 90",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Block Sandal 90",
       "Color": "White Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -380,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Platform 80",
       "Color": "Black Suede",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -457.8,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Platform 80",
       "Color": "Gold Textured Saffiano",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Platform 80",
       "Color": "Gold Textured Saffiano",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too wide",
       "sum Line Item Net": -457.8,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Platform 80",
       "Color": "Gold Textured Saffiano",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Platform 80",
       "Color": "Natural Fine Woven Linen",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "I was looking for something specific",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Platform 80",
       "Color": "Pink Floral Satin",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "I was looking for something specific",
       "sum Line Item Net": -725,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Platform 80",
       "Color": "Sand Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -990,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Platform 80",
       "Color": "Sand Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Platform 80",
       "Color": "Silver Textured Saffiano",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Sandal 50",
       "Color": "Black Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -450,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Sandal 50",
       "Color": "Cognac Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -360,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Sandal 50",
       "Color": "Cognac Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -422.03,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Sandal 50",
       "Color": "Cognac Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -720,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Sandal 50",
       "Color": "Cognac Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -450,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Sandal 50",
       "Color": "Gold Saffiano",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -810,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Crossover Sandal 50",
       "Color": "Gold Saffiano",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Strap is too tight",
       "sum Line Item Net": -450,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Dawn Sandal",
       "Color": "Cognac Nappa",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -345,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Dawn Sandal",
       "Color": "Cognac Nappa",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -690,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Dawn Sandal",
       "Color": "Cognac Nappa",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -665.57,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Dawn Sandal",
       "Color": "Cognac Nappa",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for style",
       "sum Line Item Net": -345,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Dawn Sandal",
       "Color": "Gold Textured Saffiano",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -592.27,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Dawn Sandal",
       "Color": "Navy Nappa",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -345,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Dawn Sandal",
       "Color": "Navy Nappa",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -345,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Dawn Sandal",
       "Color": "Navy Nappa",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -345,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Emma",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Emma",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "Quality is not as expected/pictured on website",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Emma",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Emma",
       "Color": "Black Suede",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Emma",
       "Color": "Espresso Suede",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -395,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Emma",
       "Color": "Gold Textured Saffiano",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Emma",
       "Color": "Gold Textured Saffiano",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Emma",
       "Color": "Sand Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Emma",
       "Color": "Taupe Suede",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -395,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Emma 85",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Emma 85",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Emma Sling 50",
       "Color": "Black Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Emma Sling 50",
       "Color": "Cognac Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Emma Sling 50",
       "Color": "Cognac Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for style",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Erika 30",
       "Color": "Gold Shimmer Suede",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Erika 60",
       "Color": "Gold Shimmer Suede",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Erika 60",
       "Color": "Gold Shimmer Suede",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for color",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Erika 60",
       "Color": "Light Pink Shimmer Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Kitten Pump 50",
       "Color": "Black Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Kitten Pump 50",
       "Color": "Black Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Kitten Pump 50",
       "Color": "Black Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Kitten Pump 50",
       "Color": "Navy Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Kitten Pump 50",
       "Color": "Taupe Suede",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Kitten Sling 50",
       "Color": "Black Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for style",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Kitten Sling 50",
       "Color": "Sand Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for style",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Mirjana Wedge 50",
       "Color": "White Calf & Raffia",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Arrived Damaged",
       "Return Reason": "Item Arrived Damaged",
       "sum Line Item Net": -340,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Nina 100",
       "Color": "White Satin",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -208,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 100",
       "Color": "Black Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 100",
       "Color": "Black Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 100",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Black Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Black Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -792,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Black Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -792,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Black Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Black Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Black Patent",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Black Suede",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -395,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Camel Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "I was looking for something specific",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Camel Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396.53,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Camel Suede",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -990,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Gunmetal Lame",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Light Sand Patent",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "I Had a Bad Experience",
       "Return Reason": "I Had a Bad Experience",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Light Sand Patent",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -395,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Navy Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Pump 85",
       "Color": "Navy Suede",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -990,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Round Toe Pump 70",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Round Toe Pump 70",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Toe box did not work for me",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Round Toe Pump 70",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Round Toe Pump 70",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Round Toe Pump 70",
       "Color": "Black Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Round Toe Pump 70",
       "Color": "Black Suede",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Round Toe Pump 70",
       "Color": "Camel Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Round Toe Pump 70",
       "Color": "Camel Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Round Toe Pump 70",
       "Color": "Camel Suede",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Round Toe Pump 70",
       "Color": "Cognac Suede",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Sandal 100",
       "Color": "Gold Nappa",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -855,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Sandal 85",
       "Color": "Gunmetal Lame",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "I Had a Bad Experience",
       "Return Reason": "I Had a Bad Experience",
       "sum Line Item Net": -380,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Sling 85",
       "Color": "Black Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Sling 85",
       "Color": "Gold Saffiano",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Sling 85",
       "Color": "Sand Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "Color is not as expected/pictured on website",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Sling 85",
       "Color": "Sand Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -792,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Sling 85",
       "Color": "Sand Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -396,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Perfect Sling 85",
       "Color": "Silver Textured Saffiano",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -495,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Reversible Knot Belt",
       "Color": "Cream And Saddle Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -225,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Reversible Knot Belt",
       "Color": "Cream And Saddle Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Did Not Fit",
       "Return Reason": "Item Was Too Small",
       "sum Line Item Net": -225,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Reversible Knot Belt",
       "Color": "Navy And Cobalt Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Did Not Fit",
       "Return Reason": "Item Was Too Small",
       "sum Line Item Net": -382.5,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Reversible Scarf Waist Belt",
       "Color": "28 IN / Cream & Saddle Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Did Not Fit",
       "Return Reason": "Item Was Too Small",
       "sum Line Item Net": -424,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Reversible Scarf Waist Belt",
       "Color": "35 IN / Black & Cognac Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Did Not Fit",
       "Return Reason": "Item Was Too Small",
       "sum Line Item Net": -265,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Reversible Scarf Waist Belt",
       "Color": "39 IN / Black & Cognac Calf",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Did Not Fit",
       "Return Reason": "Item Was Too Big",
       "sum Line Item Net": -212,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Sarah Flint x Mary Orton Perfect Cap Toe Flat",
       "Color": "Ivory Nappa",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -288,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Stella",
       "Color": "Cognac Croc Embossed Calf",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -641,
-      "count Return ID": 2
+      "count Processed_Week_No": 2
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Wedding Perfect Block Sandal 60",
       "Color": "Wedding White Satin & Lace",
       "Customer Frequency Type": "First Time Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -380,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Wedding Perfect Block Sandal 60",
       "Color": "Wedding White Satin & Lace",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "Color is not as expected/pictured on website",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     },
     {
-      "Week No (Processed)": 21,
+      "Processed_Week_No": 21,
       "Product Title": "Wedding Perfect Block Sandal 60",
       "Color": "Wedding White Satin & Lace",
       "Customer Frequency Type": "Repeat Customer",
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -475,
-      "count Return ID": 1
+      "count Processed_Week_No": 1
     }
   ],
   "po": [
@@ -25538,9 +25538,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": 60,
+      "est_payment_date": "2026-03-10",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25568,9 +25569,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP382 bal 1/15",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-15",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25598,9 +25600,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25628,9 +25631,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25658,9 +25662,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25688,9 +25693,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-09",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25718,9 +25724,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25748,9 +25755,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP382 bal 1/15",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-15",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25778,9 +25786,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25808,9 +25817,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25838,9 +25848,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25868,9 +25879,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25898,9 +25910,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25928,9 +25941,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25958,9 +25972,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -25988,9 +26003,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "1/38,5 shipped 11/21 INBSHIP367; INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Balance"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26018,9 +26034,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26048,9 +26065,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26078,9 +26096,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP382 bal 1/15",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-15",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26108,9 +26127,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP382 bal 1/15",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-15",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26138,9 +26158,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP382 bal 1/15",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-15",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26168,9 +26189,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP382 bal 1/15",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-15",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26198,9 +26220,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP382 bal 1/15",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-15",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26228,9 +26251,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP385 bal shipped 1/23",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-23",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26258,9 +26282,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP382 bal 1/15",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-15",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26288,9 +26313,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP382 bal 1/15",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-15",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26318,9 +26344,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26348,9 +26375,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP382 bal 1/15",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-15",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26378,9 +26406,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26408,9 +26437,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26438,9 +26468,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP385 bal shipped 1/23",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-23",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26468,9 +26499,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP385 bal shipped 1/23",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-23",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26498,9 +26530,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP385 bal shipped 1/23",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-23",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26528,9 +26561,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP385 bal shipped 1/23",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-23",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26558,9 +26592,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP385 bal shipped 1/23",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-01-23",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26588,9 +26623,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/18",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26618,9 +26654,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/18",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26648,9 +26685,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/18",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26678,9 +26716,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP375 bal 12/18",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2025-12-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26708,9 +26747,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP386 bal 2/4",
-      "next_shipment_notes": "Confirmed Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-05",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26738,9 +26778,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP385 partial 46u shipped 1/23, INBSHIP387 bal 2/5",
-      "next_shipment_notes": "Confirmed - Balance"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-06",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26768,9 +26809,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP385 partial 99u shipped 1/23, INBSHIP387 bal 2/5",
-      "next_shipment_notes": "Confirmed - Balance"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-06",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26798,9 +26840,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP386 bal 2/4",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-05",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26828,9 +26871,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP382 bal 1/15",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-05",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26858,9 +26902,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP386 bal 2/4",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-05",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26888,9 +26933,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP386 bal 2/4",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-05",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26918,9 +26964,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP386 bal 2/4",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-05",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26948,9 +26995,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP389 bal 2/12",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-12",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -26978,9 +27026,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP389 bal 2/12",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-12",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27008,9 +27057,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP388 bal 2/12",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-12",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27038,9 +27088,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP395 partial 3/2, INBSHIP400 bal 3/19",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-20",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27068,9 +27119,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-27",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27098,9 +27150,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-27",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27128,9 +27181,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-27",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27158,9 +27212,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP382 partial 1/15, INBSHIP392 2/26",
-      "next_shipment_notes": "Confirmed - Balance"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-26",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27188,9 +27243,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP382 partial 1/15",
-      "next_shipment_notes": "Estimate - Balance"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-12",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27218,9 +27274,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP392",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-26",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27248,9 +27305,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "71 only, cxl 9",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-27",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27278,9 +27336,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "full 40",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-27",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27308,9 +27367,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP401 balance",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-20",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27338,9 +27398,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP389 bal 2/12",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-27",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27368,9 +27429,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "Cxl bal 1?",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-25",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27398,9 +27460,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "INBSHIP397 partial 3/6, INBSHIP398 partial 3/11"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27428,9 +27491,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "INBSHIP397 partial 3/6, INBSHIP398 partial 3/11"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27458,9 +27522,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "INBSHIP397 partial 3/6, INBSHIP398 partial 3/11"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27488,9 +27553,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "INBSHIP397 partial 3/6, INBSHIP398 bal 3/11"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27518,9 +27584,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "Canceling 3u size 39 balance due to outsoles",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-26",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27548,9 +27615,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP399 partial 3/11, INBSHIP412 bal 3/17",
-      "next_shipment_notes": "Estimate - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-13",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27578,9 +27646,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP399 bal 3/11",
-      "next_shipment_notes": "Estimate - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-13",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27608,9 +27677,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP399 bal 3/11",
-      "next_shipment_notes": "Estimate - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-13",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27638,9 +27708,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP399 bal 3/11",
-      "next_shipment_notes": "Estimate - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-13",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27668,9 +27739,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP399 bal 3/11",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-13",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27698,9 +27770,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP399 bal 3/11",
-      "next_shipment_notes": "Estimate - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-13",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27728,9 +27801,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP399 bal 3/11",
-      "next_shipment_notes": "Estimate - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-13",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27758,9 +27832,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP399 bal 3/11",
-      "next_shipment_notes": "Estimate - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-13",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27788,9 +27863,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-26",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27818,9 +27894,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-26",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27848,9 +27925,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP395 partial 3/2, INBSHIP400 partial 3/19,\n INBSHIP404 bal 3/27",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-27",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27878,9 +27956,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP399 partial 3/11, INBSHIP401 partial 3/20, INBSHIP412 bal 3/17",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-17",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27908,9 +27987,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "NBSHIP401 partial 3/20, INBSHIP412 bal 4/17",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-17",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27938,9 +28018,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP402 bal",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-27",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27968,9 +28049,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP402 bal",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-27",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -27998,9 +28080,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28028,9 +28111,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP408 bal 4/2",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-03",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28058,9 +28142,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP403 partial 3/27, INBSHIP412 bal 4/17",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-17",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28088,9 +28173,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP403 bal 3/27",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-27",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28118,9 +28204,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP409 bal 4/10",
-      "next_shipment_notes": "1u shortage"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-10",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28148,9 +28235,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP409 bal 4/10",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-10",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28178,9 +28266,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP406 bal 4/2",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-03",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28208,9 +28297,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28238,9 +28328,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28268,9 +28359,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28298,9 +28390,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "INBSHIP412 bal"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-17",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28328,9 +28421,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28358,9 +28452,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP406 bal 4/2",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-03",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28388,9 +28483,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28418,9 +28514,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28448,9 +28545,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28478,9 +28576,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28508,9 +28607,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28538,9 +28638,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP407 bal 4/2",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-03",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28568,9 +28669,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28598,9 +28700,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28628,9 +28731,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28658,9 +28762,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28688,9 +28793,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-02-24",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28718,9 +28824,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP407 bal 4/2",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-03",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28748,9 +28855,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "NS PO0000738",
-      "next_shipment_notes": "INBSHIP413 bal"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-16",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28778,9 +28886,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP412 bal",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-17",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28808,9 +28917,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP412 bal",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-17",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28838,9 +28948,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP412 partial 4/17",
-      "next_shipment_notes": "Partial 29u + 4/10 bal"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -28868,9 +28979,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP385 partial 39u shipped 1/23\n INBSHIP410 bal 4/13",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -28898,9 +29010,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP385 partial 63u shipped 1/23\n INBSHIP410 bal 4/13",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -28928,9 +29041,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP408 partial 4/2, IBSHIP412 partial 4/17",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-15",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28958,9 +29072,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-04",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -28988,9 +29103,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -29018,9 +29134,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -29048,9 +29165,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -29078,9 +29196,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -29108,9 +29227,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -29138,9 +29258,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -29168,9 +29289,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -29198,9 +29320,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -29228,9 +29351,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -29258,9 +29382,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "In Transit",
@@ -29288,9 +29413,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP410 bal 4/13",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "In Transit",
@@ -29318,9 +29444,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP410 bal 4/13",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "In Transit",
@@ -29348,9 +29475,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "INBSHIP410 bal 4/13",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -29378,9 +29506,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-18",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -29408,9 +29537,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP401 partial 3/20\n INBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -29438,9 +29568,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP401 partial 3/20,\n INBSHIP403 partial 3/27\n NBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -29468,9 +29599,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP403 partial 3/27\n INBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -29498,9 +29630,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP403 partial 3/27\n INBSHIP410 partial 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -29528,9 +29661,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP403 partial 3/27\n INBSHIP410 partial 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -29558,9 +29692,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP403 partial 3/27\n INBSHIP410 partial 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -29588,9 +29723,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP403 partial 3/27\n INBSHIP410 partial 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -29618,9 +29754,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP403 partial 3/27\n INBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -29648,9 +29785,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP403 partial 3/27\n INBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -29678,9 +29816,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP403 partial 3/27\n INBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -29708,9 +29847,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP403 partial 3/27\n INBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -29738,9 +29878,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP407 partial 4/2\n INBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -29768,9 +29909,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "& AIR",
-      "next_shipment_notes": "NBSHIP410 partial 4/13 -15u boat\n INBSHIP411 bal 4/15 - 39u air"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -29798,9 +29940,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "& AIR",
-      "next_shipment_notes": "NBSHIP410 partial 4/13 - 13u boat\n INBSHIP411 bal 4/15 - 37u air"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -29828,9 +29971,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-15",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -29858,9 +30002,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-15",
+      "image_url": null
     },
     {
       "status": "In Transit",
@@ -29888,9 +30033,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-11",
+      "image_url": null
     },
     {
       "status": "In Transit",
@@ -29918,9 +30064,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-11",
+      "image_url": null
     },
     {
       "status": "In Transit",
@@ -29948,9 +30095,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-11",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -29978,9 +30126,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -30008,9 +30157,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-20",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -30038,9 +30188,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-15",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -30068,9 +30219,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-20",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -30098,9 +30250,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "1899-12-30",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -30128,9 +30281,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -30158,9 +30312,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -30188,9 +30343,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -30218,9 +30374,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-30",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -30248,9 +30405,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-30",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -30278,9 +30436,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-30",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -30308,9 +30467,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-03-30",
+      "image_url": null
     },
     {
       "status": "Full Receipt",
@@ -30338,9 +30498,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "1899-12-30",
+      "image_url": null
     },
     {
       "status": "In Transit",
@@ -30368,9 +30529,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -30398,9 +30560,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "Size 34",
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "#VALUE!",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -30428,9 +30591,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP403 partial 3/27\n INBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -30458,9 +30622,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP407 partial 4/2\n INBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -30488,9 +30653,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP407 partial 4/2\n INBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -30518,9 +30684,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP407 partial 4/2\n INBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -30548,9 +30715,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP407 partial 4/2\n INBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -30578,9 +30746,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP407 partial 4/2\n INBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -30608,9 +30777,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "(& AIR)",
-      "next_shipment_notes": "INBSHIP407 partial 4/2\n INBSHIP410 bal 4/13"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-04-13",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -30638,9 +30808,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "20/39 + 5/40 - end of May"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -30668,9 +30839,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -30698,9 +30870,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-08",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -30728,9 +30901,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": "3 preorder units as of 4/15 = mid-May XFTY"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-29",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -30758,9 +30932,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-29",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -30788,9 +30963,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-29",
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -30818,9 +30994,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "1899-12-30",
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -30848,9 +31025,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "1899-12-30",
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -30878,9 +31056,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "1899-12-30",
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -30908,9 +31087,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "1899-12-30",
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -30938,9 +31118,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "1899-12-30",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -30968,9 +31149,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-29",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -30998,9 +31180,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-29",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31028,9 +31211,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-29",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31058,9 +31242,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch OK",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-05-29",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31088,9 +31273,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-06-19",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31118,9 +31304,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-06-19",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31148,9 +31335,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-06-19",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31178,9 +31366,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-06-19",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31208,9 +31397,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": "2026-06-19",
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31238,9 +31428,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31268,9 +31459,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31298,9 +31490,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31328,9 +31521,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31358,9 +31552,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31388,9 +31583,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31418,9 +31614,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31448,9 +31645,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31478,9 +31676,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31508,9 +31707,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31538,9 +31738,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31568,9 +31769,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Partial Receipt",
@@ -31598,9 +31800,10 @@
       "delay_flag": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
-      "image_url": null,
-      "notes": "65 shipped, 62 rcvd",
-      "next_shipment_notes": "Confirmed - Full"
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31628,9 +31831,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31658,9 +31862,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31688,9 +31893,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31718,9 +31924,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31748,9 +31955,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31778,9 +31986,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31808,9 +32017,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31838,9 +32048,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31868,9 +32079,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31898,9 +32110,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31928,9 +32141,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31958,9 +32172,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -31988,9 +32203,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32018,9 +32234,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32048,9 +32265,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32078,9 +32296,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32108,9 +32327,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32138,9 +32358,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32168,9 +32389,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32198,9 +32420,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32228,9 +32451,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32258,9 +32482,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32288,9 +32513,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32318,9 +32544,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32348,9 +32575,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32378,9 +32606,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32408,9 +32637,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32438,9 +32668,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32468,9 +32699,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32498,9 +32730,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32528,9 +32761,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32558,9 +32792,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32588,9 +32823,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32618,9 +32854,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32648,9 +32885,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32678,9 +32916,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32708,9 +32947,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32738,9 +32978,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32768,9 +33009,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32798,9 +33040,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32828,9 +33071,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -32858,9 +33102,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -32888,9 +33133,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -32918,9 +33164,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -32948,9 +33195,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -32978,9 +33226,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -33008,9 +33257,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33038,9 +33288,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33068,9 +33319,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33098,9 +33350,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33128,9 +33381,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33158,9 +33412,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33188,9 +33443,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33218,9 +33474,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -33248,9 +33505,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -33278,9 +33536,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -33308,9 +33567,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -33338,9 +33598,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -33368,9 +33629,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -33398,9 +33660,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -33428,9 +33691,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "PO Not Placed",
@@ -33458,9 +33722,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33488,9 +33753,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33518,9 +33784,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33548,9 +33815,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33578,9 +33846,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33608,9 +33877,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33638,9 +33908,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33668,9 +33939,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33698,9 +33970,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33728,9 +34001,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33758,9 +34032,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33788,9 +34063,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33818,9 +34094,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33848,9 +34125,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33878,9 +34156,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33908,9 +34187,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     },
     {
       "status": "Not Shipped",
@@ -33938,9 +34218,10 @@
       "delay_flag": null,
       "launch_conflict": null,
       "website_pre_order": null,
-      "image_url": null,
-      "notes": null,
-      "next_shipment_notes": null
+      "cost_estimate": null,
+      "net_terms_days": null,
+      "est_payment_date": null,
+      "image_url": null
     }
   ]
 }
