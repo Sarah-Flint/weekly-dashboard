@@ -1718,6 +1718,18 @@ const rows = [
     };
   }).filter(Boolean);
 
+  // ── Weekly resolution-status cohort (returns_trends) ──────────────────────
+  const rtCat = retF==="new"?"New":retF==="returning"?"Returning":"Total";
+  const rtFor = (label) => (data.returns_trends||[]).find(r=>r['New vs. Returning']===rtCat&&r['Return Category']===label)||{};
+  const rtSame=rtFor('Closed same week'), rtPrior=rtFor('Closed from prior week'), rtOpen=rtFor('Open week end');
+  const rtKeys=Object.keys(rtSame).filter(k=>k.startsWith('Sat ')).sort((a,b)=>new Date(a)-new Date(b));
+  const cohortData=rtKeys.map(k=>({
+    wk:new Date(k).toLocaleDateString('en-US',{month:'short',day:'numeric'}),
+    sameWk:Math.abs(Number(rtSame[k])||0),
+    priorWk:Math.abs(Number(rtPrior[k])||0),
+    openEnd:Math.abs(Number(rtOpen[k])||0),
+  }));
+
   // ── Style GLD lookup ─────────────────────────────────────────────────────
   const styleGldMap = {};
   (data.product_sku||[]).forEach(r=>{ styleGldMap[r.style]=(styleGldMap[r.style]||0)+(Number(r.gld7)||0); });
@@ -1770,7 +1782,7 @@ const rows = [
 
   {/* Weekly Trend */}
   {retTrendData.length>0&&<>
-  <SH t="Weekly Return Trend (Excluding Exchanges)"/>
+  <SH t="Weekly Returns vs. Net Sales (Excluding Exchanges)"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
     <ResponsiveContainer width="100%" height={220}>
       <ComposedChart data={retTrendData} margin={{top:4,right:8,left:0,bottom:0}}>
@@ -1794,6 +1806,30 @@ const rows = [
       <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:3,background:C.am,borderRadius:1,display:"inline-block"}}/>{retF==="new"?"Returns / New Net Rev %":retF==="returning"?"Returns / Ret Net Rev %":"Returns / Net Sales %"}</span>
     </div>
     <div style={{fontSize:10,color:C.sL,fontStyle:"italic",marginTop:6}}>Source: Shopify</div>
+  </div>
+  </>}
+
+  {/* Weekly Returns by Resolution Status */}
+  {cohortData.length>0&&<>
+  <SH t="Weekly Returns by Resolution Status"/>
+  <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
+    <ResponsiveContainer width="100%" height={240}>
+      <BarChart data={cohortData} margin={{top:4,right:8,left:0,bottom:0}}>
+        <CartesianGrid strokeDasharray="3 3" stroke={C.bd}/>
+        <XAxis dataKey="wk" tick={{fontSize:11,fill:C.sL}}/>
+        <YAxis tick={{fontSize:10,fill:C.sL}} width={56} tickFormatter={v=>`$${(Math.abs(v)/1000).toFixed(0)}k`}/>
+        <Tooltip content={<CT/>}/>
+        <Bar dataKey="sameWk"  stackId="coh" fill={C.b1} name="Closed same week" barSize={26}/>
+        <Bar dataKey="priorWk" stackId="coh" fill={C.b3} name="Closed from prior week" barSize={26}/>
+        <Bar dataKey="openEnd" stackId="coh" fill={C.am} radius={[3,3,0,0]} name="Open at week end" barSize={26}/>
+      </BarChart>
+    </ResponsiveContainer>
+    <div style={{display:"flex",gap:16,marginTop:8,fontSize:11,color:C.sL,flexWrap:"wrap"}}>
+      <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b1,borderRadius:2,display:"inline-block"}}/>Closed same week</span>
+      <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.b3,borderRadius:2,display:"inline-block"}}/>Closed from prior week</span>
+      <span style={{display:"flex",alignItems:"center",gap:4}}><span style={{width:10,height:10,background:C.am,borderRadius:2,display:"inline-block"}}/>Open at week end</span>
+    </div>
+    <div style={{fontSize:10,color:C.sL,fontStyle:"italic",marginTop:6}}>Source: Loop · stacked $ value. Open = backlog stock at week end; the two closed segments are weekly flows, so total bar height isn't an additive metric.</div>
   </div>
   </>}
 
