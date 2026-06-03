@@ -3,9 +3,9 @@
     "week": "WEEK 21",
     "dateRange": "5/24/26 to 5/30/26",
     "quarter": "Q2",
-    "lastUpdatedISO": "2026-06-03T22:07:08.117Z",
-    "lastUpdatedEST": "Jun 03, 2026 18:07:08",
-    "poLastUpdatedEST": "Jun 03, 2026 18:07:09"
+    "lastUpdatedISO": "2026-06-03T22:17:40.111Z",
+    "lastUpdatedEST": "Jun 03, 2026 18:17:40",
+    "poLastUpdatedEST": "Jun 03, 2026 18:17:40"
   },
   "kpi": [
     {
@@ -24004,7 +24004,7 @@
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -1096,
-      "count Submit_Week": 2
+      "count Return ID": 2
     },
     {
       "Submit_Week": "2026-05-09",
@@ -24013,7 +24013,7 @@
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -736,
-      "count Submit_Week": 2
+      "count Return ID": 2
     },
     {
       "Submit_Week": "2026-05-16",
@@ -24022,7 +24022,7 @@
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -608,
-      "count Submit_Week": 2
+      "count Return ID": 2
     },
     {
       "Submit_Week": "2026-05-16",
@@ -24031,7 +24031,7 @@
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -1654,
-      "count Submit_Week": 4
+      "count Return ID": 4
     },
     {
       "Submit_Week": "2026-05-16",
@@ -24040,7 +24040,7 @@
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -495,
-      "count Submit_Week": 1
+      "count Return ID": 1
     },
     {
       "Submit_Week": "2026-05-16",
@@ -24049,7 +24049,7 @@
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Return",
       "sum Line Item Net": -1826.24,
-      "count Submit_Week": 4
+      "count Return ID": 4
     },
     {
       "Submit_Week": "2026-05-23",
@@ -24058,7 +24058,7 @@
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -792,
-      "count Submit_Week": 2
+      "count Return ID": 2
     },
     {
       "Submit_Week": "2026-05-23",
@@ -24067,7 +24067,7 @@
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -4716.61,
-      "count Submit_Week": 12
+      "count Return ID": 12
     },
     {
       "Submit_Week": "2026-05-23",
@@ -24076,7 +24076,7 @@
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Return",
       "sum Line Item Net": -3220.6,
-      "count Submit_Week": 7
+      "count Return ID": 7
     },
     {
       "Submit_Week": "2026-05-30",
@@ -24085,7 +24085,7 @@
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -2438,
-      "count Submit_Week": 6
+      "count Return ID": 6
     },
     {
       "Submit_Week": "2026-05-30",
@@ -24094,7 +24094,7 @@
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -13970,
-      "count Submit_Week": 33
+      "count Return ID": 33
     },
     {
       "Submit_Week": "2026-05-30",
@@ -24103,7 +24103,7 @@
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -924.58,
-      "count Submit_Week": 2
+      "count Return ID": 2
     },
     {
       "Submit_Week": "2026-05-30",
@@ -24112,7 +24112,7 @@
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Return",
       "sum Line Item Net": -11669.05,
-      "count Submit_Week": 29
+      "count Return ID": 29
     },
     {
       "Submit_Week": "2026-05-30",
@@ -24121,7 +24121,7 @@
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -4284.53,
-      "count Submit_Week": 12
+      "count Return ID": 12
     },
     {
       "Submit_Week": "2026-05-30",
@@ -24130,7 +24130,7 @@
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -26666.03,
-      "count Submit_Week": 68
+      "count Return ID": 68
     },
     {
       "Submit_Week": "2026-05-30",
@@ -24139,7 +24139,7 @@
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -2062.25,
-      "count Submit_Week": 5
+      "count Return ID": 5
     },
     {
       "Submit_Week": "2026-05-30",
@@ -24148,7 +24148,7 @@
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Return",
       "sum Line Item Net": -19146.34,
-      "count Submit_Week": 46
+      "count Return ID": 46
     },
     {
       "Submit_Week": "2026-05-30",
@@ -24157,7 +24157,7 @@
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -520,
-      "count Submit_Week": 1
+      "count Return ID": 1
     },
     {
       "Submit_Week": "2026-05-30",
@@ -24166,7 +24166,7 @@
       "Customer Frequency Type": "First Time Customer",
       "Outcome": "Return",
       "sum Line Item Net": -2717,
-      "count Submit_Week": 6
+      "count Return ID": 6
     },
     {
       "Submit_Week": "2026-05-30",
@@ -24175,7 +24175,7 @@
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Exchange",
       "sum Line Item Net": -275,
-      "count Submit_Week": 2
+      "count Return ID": 2
     },
     {
       "Submit_Week": "2026-05-30",
@@ -24184,7 +24184,7 @@
       "Customer Frequency Type": "Repeat Customer",
       "Outcome": "Return",
       "sum Line Item Net": -2257.9,
-      "count Submit_Week": 5
+      "count Return ID": 5
     }
   ],
   "returns_details": [
@@ -24196,7 +24196,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -716,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24206,7 +24206,7 @@
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "I was looking for something specific",
       "sum Line Item Net": -191.61,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24216,7 +24216,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -365,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24226,7 +24226,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too wide",
       "sum Line Item Net": -236,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24236,7 +24236,7 @@
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "Quality is not as expected/pictured on website",
       "sum Line Item Net": -340,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24246,7 +24246,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -272,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24256,7 +24256,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -375,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24266,7 +24266,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -300,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24276,7 +24276,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too wide",
       "sum Line Item Net": -375,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24286,7 +24286,7 @@
       "Parent Return Reason": "I Had a Bad Experience",
       "Return Reason": "I Had a Bad Experience",
       "sum Line Item Net": -300,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24296,7 +24296,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -375,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24306,7 +24306,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -325,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24316,7 +24316,7 @@
       "Parent Return Reason": "Received Incorrect Item",
       "Return Reason": "Received Incorrect Item",
       "sum Line Item Net": -281.25,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24326,7 +24326,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -168,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24336,7 +24336,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -990,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -24346,7 +24346,7 @@
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "I was looking for something specific",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24356,7 +24356,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Strap is too tight",
       "sum Line Item Net": -760,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -24366,7 +24366,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24376,7 +24376,7 @@
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -760,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -24386,7 +24386,7 @@
       "Parent Return Reason": "Did Not Receive Item In Time",
       "Return Reason": "Did Not Receive Item In Time",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24396,7 +24396,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Strap is too tight",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24406,7 +24406,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24416,7 +24416,7 @@
       "Parent Return Reason": "Item Arrived Damaged",
       "Return Reason": "Item Arrived Damaged",
       "sum Line Item Net": -380,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24426,7 +24426,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Strap is too tight",
       "sum Line Item Net": -380,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24436,7 +24436,7 @@
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24446,7 +24446,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -380,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24456,7 +24456,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -380,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24466,7 +24466,7 @@
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -760,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -24476,7 +24476,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24486,7 +24486,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24496,7 +24496,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24506,7 +24506,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -380,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24516,7 +24516,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -375,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24526,7 +24526,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24536,7 +24536,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Strap is too loose",
       "sum Line Item Net": -380,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24546,7 +24546,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24556,7 +24556,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -1325,
-      "count Processed_Week_No": 3
+      "count Return ID": 3
     },
     {
       "Processed_Week_No": 21,
@@ -24566,7 +24566,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24576,7 +24576,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too wide",
       "sum Line Item Net": -950,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -24586,7 +24586,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24596,7 +24596,7 @@
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -380,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24606,7 +24606,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24616,7 +24616,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Strap is too tight",
       "sum Line Item Net": -380,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24626,7 +24626,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -380,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24636,7 +24636,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -401.24,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24646,7 +24646,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24656,7 +24656,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -380,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24666,7 +24666,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -457.8,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24676,7 +24676,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24686,7 +24686,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too wide",
       "sum Line Item Net": -457.8,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24696,7 +24696,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24706,7 +24706,7 @@
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "I was looking for something specific",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24716,7 +24716,7 @@
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "I was looking for something specific",
       "sum Line Item Net": -725,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24726,7 +24726,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -990,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -24736,7 +24736,7 @@
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24746,7 +24746,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24756,7 +24756,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -450,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24766,7 +24766,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -360,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24776,7 +24776,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -422.03,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24786,7 +24786,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -720,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -24796,7 +24796,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -450,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24806,7 +24806,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -810,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -24816,7 +24816,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Strap is too tight",
       "sum Line Item Net": -450,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24826,7 +24826,7 @@
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -345,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24836,7 +24836,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -690,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -24846,7 +24846,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -665.57,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -24856,7 +24856,7 @@
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for style",
       "sum Line Item Net": -345,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24866,7 +24866,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -592.27,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -24876,7 +24876,7 @@
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -345,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24886,7 +24886,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -345,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24896,7 +24896,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -345,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24906,7 +24906,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24916,7 +24916,7 @@
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "Quality is not as expected/pictured on website",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24926,7 +24926,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24936,7 +24936,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24946,7 +24946,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -395,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24956,7 +24956,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24966,7 +24966,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24976,7 +24976,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24986,7 +24986,7 @@
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -395,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -24996,7 +24996,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25006,7 +25006,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25016,7 +25016,7 @@
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for size",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25026,7 +25026,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25036,7 +25036,7 @@
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for style",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25046,7 +25046,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25056,7 +25056,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25066,7 +25066,7 @@
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for color",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25076,7 +25076,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25086,7 +25086,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25096,7 +25096,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25106,7 +25106,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25116,7 +25116,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25126,7 +25126,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25136,7 +25136,7 @@
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for style",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25146,7 +25146,7 @@
       "Parent Return Reason": "Ordered Multiples For Comparison",
       "Return Reason": "to compare for style",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25156,7 +25156,7 @@
       "Parent Return Reason": "Item Arrived Damaged",
       "Return Reason": "Item Arrived Damaged",
       "sum Line Item Net": -340,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25166,7 +25166,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -208,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25176,7 +25176,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25186,7 +25186,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25196,7 +25196,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25206,7 +25206,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25216,7 +25216,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -792,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -25226,7 +25226,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -792,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -25236,7 +25236,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25246,7 +25246,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25256,7 +25256,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25266,7 +25266,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -395,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25276,7 +25276,7 @@
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "I was looking for something specific",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25286,7 +25286,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396.53,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25296,7 +25296,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -990,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -25306,7 +25306,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25316,7 +25316,7 @@
       "Parent Return Reason": "I Had a Bad Experience",
       "Return Reason": "I Had a Bad Experience",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25326,7 +25326,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -395,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25336,7 +25336,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25346,7 +25346,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -990,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -25356,7 +25356,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25366,7 +25366,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Toe box did not work for me",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25376,7 +25376,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25386,7 +25386,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25396,7 +25396,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25406,7 +25406,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25416,7 +25416,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25426,7 +25426,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25436,7 +25436,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25446,7 +25446,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25456,7 +25456,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -855,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -25466,7 +25466,7 @@
       "Parent Return Reason": "I Had a Bad Experience",
       "Return Reason": "I Had a Bad Experience",
       "sum Line Item Net": -380,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25476,7 +25476,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25486,7 +25486,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25496,7 +25496,7 @@
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "Color is not as expected/pictured on website",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25506,7 +25506,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Toe box shape did not work for me",
       "sum Line Item Net": -792,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -25516,7 +25516,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -396,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25526,7 +25526,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too short",
       "sum Line Item Net": -495,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25536,7 +25536,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -225,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25546,7 +25546,7 @@
       "Parent Return Reason": "Item Did Not Fit",
       "Return Reason": "Item Was Too Small",
       "sum Line Item Net": -225,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25556,7 +25556,7 @@
       "Parent Return Reason": "Item Did Not Fit",
       "Return Reason": "Item Was Too Small",
       "sum Line Item Net": -382.5,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -25566,7 +25566,7 @@
       "Parent Return Reason": "Item Did Not Fit",
       "Return Reason": "Item Was Too Small",
       "sum Line Item Net": -424,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -25576,7 +25576,7 @@
       "Parent Return Reason": "Item Did Not Fit",
       "Return Reason": "Item Was Too Small",
       "sum Line Item Net": -265,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25586,7 +25586,7 @@
       "Parent Return Reason": "Item Did Not Fit",
       "Return Reason": "Item Was Too Big",
       "sum Line Item Net": -212,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25596,7 +25596,7 @@
       "Parent Return Reason": "Changed My Mind",
       "Return Reason": "Changed My Mind",
       "sum Line Item Net": -288,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25606,7 +25606,7 @@
       "Parent Return Reason": "Item Was Too Small",
       "Return Reason": "Too narrow",
       "sum Line Item Net": -641,
-      "count Processed_Week_No": 2
+      "count Return ID": 2
     },
     {
       "Processed_Week_No": 21,
@@ -25616,7 +25616,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -380,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25626,7 +25626,7 @@
       "Parent Return Reason": "Item Was Not as Expected/Pictured",
       "Return Reason": "Color is not as expected/pictured on website",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     },
     {
       "Processed_Week_No": 21,
@@ -25636,7 +25636,7 @@
       "Parent Return Reason": "Item Was Too Large",
       "Return Reason": "Too long",
       "sum Line Item Net": -475,
-      "count Processed_Week_No": 1
+      "count Return ID": 1
     }
   ],
   "po": [
