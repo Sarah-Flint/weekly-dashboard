@@ -3,9 +3,9 @@
     "week": "WEEK 21",
     "dateRange": "5/24/26 to 5/30/26",
     "quarter": "Q2",
-    "lastUpdatedISO": "2026-06-03T22:05:20.062Z",
-    "lastUpdatedEST": "Jun 03, 2026 18:05:20",
-    "poLastUpdatedEST": "Jun 03, 2026 18:05:21"
+    "lastUpdatedISO": "2026-06-03T22:07:08.117Z",
+    "lastUpdatedEST": "Jun 03, 2026 18:07:08",
+    "poLastUpdatedEST": "Jun 03, 2026 18:07:09"
   },
   "kpi": [
     {
@@ -23866,6 +23866,134 @@
       "woh_owned<16": "Y",
       "woh>30": "N",
       "oh>100": "N"
+    }
+  ],
+  "returns_trends": [
+    {
+      "New vs. Returning": "New",
+      "Return Category": "Closed from prior week",
+      "Sat Mar 28 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -13100.5,
+      "Sat Apr 04 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -11429.25,
+      "Sat Apr 11 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -11140.15,
+      "Sat Apr 18 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -13997.5,
+      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -16193.75,
+      "Sat May 02 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -10320.6,
+      "Sat May 09 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -13217,
+      "Sat May 16 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -22531.59,
+      "Sat May 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -10561,
+      "Sat May 30 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -9602.61
+    },
+    {
+      "New vs. Returning": "New",
+      "Return Category": "Closed same week",
+      "Sat Mar 28 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -31422,
+      "Sat Apr 04 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -21751.83,
+      "Sat Apr 11 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -29324.55,
+      "Sat Apr 18 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -35701,
+      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -39708,
+      "Sat May 02 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -39547,
+      "Sat May 09 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -28691.79,
+      "Sat May 16 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -34945.54,
+      "Sat May 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -34431.56,
+      "Sat May 30 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -30950.56
+    },
+    {
+      "New vs. Returning": "New",
+      "Return Category": "Open week end",
+      "Sat Mar 28 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -9774.9,
+      "Sat Apr 04 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -12028.75,
+      "Sat Apr 11 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -15036.5,
+      "Sat Apr 18 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -17743.75,
+      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -12285.6,
+      "Sat May 02 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -18074,
+      "Sat May 09 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -21409.59,
+      "Sat May 16 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -11487.05,
+      "Sat May 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -7866.19,
+      "Sat May 30 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -19645
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Return Category": "Closed from prior week",
+      "Sat Mar 28 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -14702.73,
+      "Sat Apr 04 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -15692.43,
+      "Sat Apr 11 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -14723.47,
+      "Sat Apr 18 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -11869.59,
+      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -13862.37,
+      "Sat May 02 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -7663.98,
+      "Sat May 09 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -12244.28,
+      "Sat May 16 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -9532,
+      "Sat May 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -13370.5,
+      "Sat May 30 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -5541.84
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Return Category": "Closed same week",
+      "Sat Mar 28 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -28390.51,
+      "Sat Apr 04 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -24221.16,
+      "Sat Apr 11 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -38444.87,
+      "Sat Apr 18 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -34985.7,
+      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -29759.57,
+      "Sat May 02 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -35374.04,
+      "Sat May 09 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -24213.9,
+      "Sat May 16 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -30964.65,
+      "Sat May 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -20962.33,
+      "Sat May 30 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -21208.59
+    },
+    {
+      "New vs. Returning": "Returning",
+      "Return Category": "Open week end",
+      "Sat Mar 28 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -12041.34,
+      "Sat Apr 04 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -14356.79,
+      "Sat Apr 11 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -13637.09,
+      "Sat Apr 18 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -12353.55,
+      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -10307.51,
+      "Sat May 02 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -12587.75,
+      "Sat May 09 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -13773.6,
+      "Sat May 16 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -12389.95,
+      "Sat May 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -6230.1,
+      "Sat May 30 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -15126.53
+    },
+    {
+      "New vs. Returning": "Total",
+      "Return Category": "Closed from prior week",
+      "Sat Mar 28 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -27803.23,
+      "Sat Apr 04 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -27121.68,
+      "Sat Apr 11 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -25863.62,
+      "Sat Apr 18 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -25867.09,
+      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -30056.12,
+      "Sat May 02 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -17984.58,
+      "Sat May 09 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -25461.28,
+      "Sat May 16 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -32063.59,
+      "Sat May 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -23931.5,
+      "Sat May 30 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -15144.45
+    },
+    {
+      "New vs. Returning": "Total",
+      "Return Category": "Closed same week",
+      "Sat Mar 28 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -59812.51,
+      "Sat Apr 04 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -45972.99,
+      "Sat Apr 11 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -67769.42,
+      "Sat Apr 18 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -70686.7,
+      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -69467.57,
+      "Sat May 02 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -74921.04,
+      "Sat May 09 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -52905.69,
+      "Sat May 16 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -65910.19,
+      "Sat May 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -55393.89,
+      "Sat May 30 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -52159.15
+    },
+    {
+      "New vs. Returning": "Total",
+      "Return Category": "Open week end",
+      "Sat Mar 28 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -21816.24,
+      "Sat Apr 04 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -26385.54,
+      "Sat Apr 11 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -28673.59,
+      "Sat Apr 18 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -30097.3,
+      "Sat Apr 25 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -22593.11,
+      "Sat May 02 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -30661.75,
+      "Sat May 09 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -35183.19,
+      "Sat May 16 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -23877,
+      "Sat May 23 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -14096.29,
+      "Sat May 30 2026 00:00:00 GMT-0400 (Eastern Daylight Time)": -34771.53
     }
   ],
   "returns_summary": [
