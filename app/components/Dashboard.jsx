@@ -2669,8 +2669,8 @@ const label = mo.slice(0,7); // "2026-06"
                 {h:"Style",     right:false},
                 {h:"Style #",   right:false},
                 {h:"Color",     right:false},
-                {h:"Incoming",  right:true},
                 {h:"INWH Date", right:false},
+                {h:"Incoming",  right:true},
                 {h:"OH Qty",    right:true},
               ].map(({h,right})=>(
                 <th key={h} style={{padding:"8px 10px",textAlign:right?"right":"left",
@@ -2707,8 +2707,8 @@ const label = mo.slice(0,7); // "2026-06"
                     <td style={{padding:"8px 10px",fontWeight:600,color:C.nv}}>{r.style}</td>
                     <td style={{padding:"8px 10px",fontFamily:"monospace",fontSize:11,color:"#64748b"}}>{r.styleNumber||"—"}</td>
                     <td style={{padding:"8px 10px",color:C.sL}}>{r.color||"—"}</td>
-                    <td style={{padding:"8px 10px",textAlign:"right",fontWeight:600}}>{r.qtyIncoming>0?r.qtyIncoming.toLocaleString():"—"}</td>
                     <td style={{padding:"8px 10px",color:r.inwhDate?C.nv:C.am,fontWeight:r.inwhDate?400:600}}>{fmtDate(r.inwhDate)||"No ETA"}</td>
+                    <td style={{padding:"8px 10px",textAlign:"right",fontWeight:600}}>{r.qtyIncoming>0?r.qtyIncoming.toLocaleString():"—"}</td>
                     <td style={{padding:"8px 10px",textAlign:"right",color:r.oh>0?C.nv:C.rd,fontWeight:r.oh>0?400:700}}>{r.oh>0?r.oh.toLocaleString():"0"}</td>
                   </tr>
                 ))}
