@@ -2262,12 +2262,13 @@ const label = mo.slice(0,7); // "2026-06"
     if (!key) return;
     ohByStyleNumber[key] = (ohByStyleNumber[key] || 0) + (Number(sk.u_oh) || 0);
   });
-      const restockInTransit = raw
-        .filter(r => r.launch_category === "Restock"
-          && r.status !== "Full Receipt"
-          && (Number(r.units_outstanding) || 0) > 5)
-        .map(r => ({
+  const restockInTransit = raw
+    .filter(r => r.launch_category === "Restock"
+      && r.status !== "Full Receipt"
+      && (Number(r.units_outstanding) || 0) > 5)
+    .map(r => ({
       style: r.style_name,
+      styleNumber: r.style_number,
       color: r.color,
       status: r.status,
       qtyIncoming: Number(r.units_outstanding) || 0,
@@ -2456,6 +2457,54 @@ const label = mo.slice(0,7); // "2026-06"
     </ResponsiveContainer>
   </div>
 
+  {/* ── Upcoming Restocks ───────────────────────────────────────────────── */}
+  {restockInTransit.length > 0 && (
+    <div style={{marginTop:28,marginBottom:12}}>
+      <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>
+        Upcoming Restocks
+        <span style={{fontSize:11,fontWeight:400,color:C.sL,marginLeft:8}}>
+          {restockInTransit.length} styles · not yet fully received · sorted by soonest arrival
+        </span>
+      </div>
+      <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,overflow:"hidden",overflowX:"auto"}}>
+        <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
+          <thead>
+            <tr style={{background:"#f8fafc"}}>
+              {[
+                {h:"Status",    right:false},
+                {h:"Style",     right:false},
+                {h:"Style #",   right:false},
+                {h:"Color",     right:false},
+                {h:"Incoming",  right:true},
+                {h:"INWH Date", right:false},
+                {h:"OH Qty",    right:true},
+              ].map(({h,right})=>(
+                <th key={h} style={{padding:"8px 10px",textAlign:right?"right":"left",
+                  fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",
+                  letterSpacing:.4,whiteSpace:"nowrap",borderBottom:`2px solid ${C.bd}`}}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {restockInTransit.map((r,i)=>(
+              <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}}
+                onMouseEnter={e=>e.currentTarget.style.background=C.b4}
+                onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+                <td style={{padding:"8px 10px"}}><SBadge s={r.status}/></td>
+                <td style={{padding:"8px 10px",fontWeight:600,color:C.nv}}>{r.style}</td>
+                <td style={{padding:"8px 10px",fontFamily:"monospace",fontSize:11,color:"#64748b"}}>{r.styleNumber||"—"}</td>
+                <td style={{padding:"8px 10px",color:C.sL}}>{r.color||"—"}</td>
+                <td style={{padding:"8px 10px",textAlign:"right",fontWeight:600}}>{r.qtyIncoming>0?r.qtyIncoming.toLocaleString():"—"}</td>
+                <td style={{padding:"8px 10px",color:r.inwhDate?C.nv:C.am,fontWeight:r.inwhDate?400:600}}>{fmtDate(r.inwhDate)||"No ETA"}</td>
+                <td style={{padding:"8px 10px",textAlign:"right",color:r.oh>0?C.nv:C.rd,fontWeight:r.oh>0?400:700}}>{r.oh>0?r.oh.toLocaleString():"0"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
   {/* ── POs by Delivery Month ────────────────────────────────────────────── */}
 
   <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>
@@ -2642,52 +2691,9 @@ const label = mo.slice(0,7); // "2026-06"
     </table>
   </div>
 
-      {/* ── Upcoming Restocks ───────────────────────────────────────────────── */}
-  {restockInTransit.length > 0 && (
-    <div style={{marginBottom:12}}>
-      <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>
-        Upcoming Restocks
-        <span style={{fontSize:11,fontWeight:400,color:C.sL,marginLeft:8}}>
-          {restockInTransit.length} styles · not yet fully received · sorted by soonest arrival
-        </span>
-      </div>
-      <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,overflow:"hidden",overflowX:"auto"}}>
-        <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
-          <thead>
-            <tr style={{background:"#f8fafc"}}>
-              {[
-                {h:"Status",    right:false},
-                {h:"Style",     right:false},
-                {h:"Color",     right:false},
-                {h:"Incoming",  right:true},
-                {h:"INWH Date", right:false},
-                {h:"OH Qty",    right:true},
-              ].map(({h,right})=>(
-                <th key={h} style={{padding:"8px 10px",textAlign:right?"right":"left",
-                  fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",
-                  letterSpacing:.4,whiteSpace:"nowrap",borderBottom:`2px solid ${C.bd}`}}>{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {restockInTransit.map((r,i)=>(
-              <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}}
-                onMouseEnter={e=>e.currentTarget.style.background=C.b4}
-                onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
-                <td style={{padding:"8px 10px"}}><SBadge s={r.status}/></td>
-                <td style={{padding:"8px 10px",fontWeight:600,color:C.nv}}>{r.style}</td>
-                <td style={{padding:"8px 10px",color:C.sL}}>{r.color||"—"}</td>
-                <td style={{padding:"8px 10px",textAlign:"right",fontWeight:600}}>{r.qtyIncoming>0?r.qtyIncoming.toLocaleString():"—"}</td>
-                <td style={{padding:"8px 10px",color:r.inwhDate?C.nv:C.am,fontWeight:r.inwhDate?400:600}}>{fmtDate(r.inwhDate)||"No ETA"}</td>
-                <td style={{padding:"8px 10px",textAlign:"right",color:r.oh>0?C.nv:C.rd,fontWeight:r.oh>0?400:700}}>{r.oh>0?r.oh.toLocaleString():"0"}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  )}
-    
+
+
+
   </>;
 })()}
 
