@@ -5,7 +5,7 @@
     "quarter": "Q2",
     "lastUpdatedISO": "2026-06-08T14:00:08.590Z",
     "lastUpdatedEST": "Jun 08, 2026 10:00:08",
-    "poLastUpdatedEST": "Jun 08, 2026 18:20:44"
+    "poLastUpdatedEST": "Jun 08, 2026 18:23:13"
   },
   "kpi": [
     {
@@ -30683,7 +30683,7 @@
     },
     {
       "status": "Not Shipped",
-      "concat": "SF1222-SPLES_PO0000751",
+      "concat": "SF1222SPLES_PO0000751",
       "po_season": "F26",
       "quarter": "Q3 2026",
       "delivery_month": "2026-07-31",
@@ -30691,7 +30691,7 @@
       "launch_category": "Restock",
       "style_name": "Judy Loafer",
       "color": "Espresso Pebbled Leather",
-      "style_number": "SF1222-SPLES",
+      "style_number": "SF1222SPLES",
       "vendor": "MAMYAS",
       "po_number": "PO0000751",
       "freight_method": "Air",
@@ -30718,7 +30718,7 @@
     },
     {
       "status": "Not Shipped",
-      "concat": "SF117-SBK_PO0000751",
+      "concat": "SF117SBK_PO0000751",
       "po_season": "F26",
       "quarter": "Q3 2026",
       "delivery_month": "2026-07-31",
@@ -30726,7 +30726,7 @@
       "launch_category": "Restock",
       "style_name": "Natalie",
       "color": "Black Suede",
-      "style_number": "SF117-SBK",
+      "style_number": "SF117SBK",
       "vendor": "MAMYAS",
       "po_number": "PO0000751",
       "freight_method": "Air",
@@ -30753,7 +30753,7 @@
     },
     {
       "status": "Not Shipped",
-      "concat": "SF117-PCES_PO0000751",
+      "concat": "SF117PCES_PO0000751",
       "po_season": "F26",
       "quarter": "Q3 2026",
       "delivery_month": "2026-07-31",
@@ -30761,7 +30761,7 @@
       "launch_category": "Restock",
       "style_name": "Natalie",
       "color": "Espresso Polished Calf",
-      "style_number": "SF117-PCES",
+      "style_number": "SF117PCES",
       "vendor": "MAMYAS",
       "po_number": "PO0000751",
       "freight_method": "Air",
@@ -32118,7 +32118,7 @@
     },
     {
       "status": "Not Shipped",
-      "concat": "SF1222-SPLES_PO0000753",
+      "concat": "SF1222SPLES_PO0000753",
       "po_season": "F26",
       "quarter": "Q3 2026",
       "delivery_month": "2026-09-30",
@@ -32126,7 +32126,7 @@
       "launch_category": "Restock",
       "style_name": "Judy Loafer",
       "color": "Espresso Pebbled Leather",
-      "style_number": "SF1222-SPLES",
+      "style_number": "SF1222SPLES",
       "vendor": "MAMYAS",
       "po_number": "PO0000753",
       "freight_method": "Air",
@@ -32153,7 +32153,7 @@
     },
     {
       "status": "Not Shipped",
-      "concat": "SF117-PCES_PO0000753",
+      "concat": "SF117PCES_PO0000753",
       "po_season": "F26",
       "quarter": "Q3 2026",
       "delivery_month": "2026-09-30",
@@ -32161,7 +32161,7 @@
       "launch_category": "Restock",
       "style_name": "Natalie",
       "color": "Espresso Polished Calf",
-      "style_number": "SF117-PCES",
+      "style_number": "SF117PCES",
       "vendor": "MAMYAS",
       "po_number": "PO0000753",
       "freight_method": "Air",
