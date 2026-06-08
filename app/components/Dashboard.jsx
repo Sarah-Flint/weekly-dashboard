@@ -2192,9 +2192,6 @@ const rows = [
   <div style={{marginTop:4,fontSize:10,color:C.sL,fontStyle:"italic"}}>Note: Website traffic data is from Google Analytics filtered for United States only.</div>
 </>}
 
-
-
-        `
 {/* ═══ ON ORDER ═══ */}
 {tab==="on_order"&&(()=>{
 
