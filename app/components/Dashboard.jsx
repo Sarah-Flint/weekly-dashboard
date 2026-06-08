@@ -145,7 +145,6 @@ useEffect(() => {
   const [ooConflict,   setOoConflict]   = useState(false);
   const [ooDelayFlag,  setOoDelayFlag]  = useState(false);
   const [ooSearch,     setOoSearch]     = useState("");
-  const [ooSearch,     setOoSearch]     = useState("");
   const [ooGroupBy,    setOoGroupBy]    = useState("delivery"); // "delivery" | "launch"
   if (!data) return <div>Loading...</div>;
   const meta = data.metadata || {};
