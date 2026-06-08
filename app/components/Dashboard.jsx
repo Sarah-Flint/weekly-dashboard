@@ -2640,11 +2640,11 @@ const label = mo.slice(0,7); // "2026-06"
     </table>
   </div>
 
-      {/* ── Incoming Restocks ───────────────────────────────────────────────── */}
+      {/* ── Upcoming Restocks ───────────────────────────────────────────────── */}
   {restockInTransit.length > 0 && (
     <div style={{marginBottom:12}}>
       <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>
-        Incoming Restocks
+        Upcoming Restocks
         <span style={{fontSize:11,fontWeight:400,color:C.sL,marginLeft:8}}>
           {restockInTransit.length} styles · not yet fully received · sorted by soonest arrival
         </span>
