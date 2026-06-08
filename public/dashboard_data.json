@@ -5,7 +5,7 @@
     "quarter": "Q2",
     "lastUpdatedISO": "2026-06-08T14:00:08.590Z",
     "lastUpdatedEST": "Jun 08, 2026 10:00:08",
-    "poLastUpdatedEST": "Jun 08, 2026 18:00:23"
+    "poLastUpdatedEST": "Jun 08, 2026 18:14:14"
   },
   "kpi": [
     {
@@ -32001,7 +32001,7 @@
       "shipment_id": null,
       "target_launch_date": "2026-08-15",
       "delay_flag": null,
-      "launch_conflict": null,
+      "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
       "cost_estimate": 101,
       "total_cost": 5050,
@@ -32071,7 +32071,7 @@
       "shipment_id": null,
       "target_launch_date": "2026-08-15",
       "delay_flag": null,
-      "launch_conflict": null,
+      "launch_conflict": "Launch OK",
       "website_pre_order": null,
       "cost_estimate": 103,
       "total_cost": 6695,
