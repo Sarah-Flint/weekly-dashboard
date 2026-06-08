@@ -145,6 +145,8 @@ useEffect(() => {
   const [ooConflict,   setOoConflict]   = useState(false);
   const [ooDelayFlag,  setOoDelayFlag]  = useState(false);
   const [ooSearch,     setOoSearch]     = useState("");
+  const [ooSearch,     setOoSearch]     = useState("");
+  const [ooGroupBy,    setOoGroupBy]    = useState("delivery"); // "delivery" | "launch"
   if (!data) return <div>Loading...</div>;
   const meta = data.metadata || {};
   const getMetric = (metric) =>
@@ -2224,11 +2226,14 @@ const rows = [
     if(ooSearch && !r.style_name?.toLowerCase().includes(ooSearch.toLowerCase())) return false;
     return true;
   });
-
-  // ── Group by delivery_month → style_name+style_number → shipments ─────────
+  // ── Group by delivery_month OR launch_month → style+style_number → shipments ─
+  const groupKey = (r) =>
+    ooGroupBy === "launch"
+      ? (r.launch_month || "Unknown")
+      : (r.delivery_month || "Unknown");
   const monthMap = {};
   filtered.forEach(r => {
-    const mo = r.delivery_month || "Unknown";
+    const mo = groupKey(r);
     const styleKey = `${r.style_name||""}__${r.style_number||""}`;
     if(!monthMap[mo]) monthMap[mo] = {};
     if(!monthMap[mo][styleKey]) monthMap[mo][styleKey] = {
@@ -2311,11 +2316,23 @@ const rows = [
 
   return <>
 
-  {/* ── Last updated ──────────────────────────────────────────────────────── */}
+{/* ── Last updated ──────────────────────────────────────────────────────── */}
   <div style={{fontSize:11,color:C.sL,fontStyle:"italic",marginBottom:10}}>
     {data.metadata?.poLastUpdatedEST
       ? `PO data last updated: ${data.metadata.poLastUpdatedEST}`
       : <span style={{color:C.am,fontWeight:600}}>PO data not yet synced</span>}
+  </div>
+
+  {/* ── Group-by toggle ─────────────────────────────────────────────────── */}
+  <div style={{display:"flex",gap:6,marginBottom:12,alignItems:"center"}}>
+    <span style={{fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",
+      letterSpacing:.5,minWidth:70}}>Group By</span>
+    {[{k:"delivery",l:"Delivery Month"},{k:"launch",l:"Launch Month"}].map(o=>(
+      <button key={o.k} onClick={()=>setOoGroupBy(o.k)}
+        style={{background:ooGroupBy===o.k?C.b1:C.cd,color:ooGroupBy===o.k?"#fff":C.sl,
+          border:`1px solid ${ooGroupBy===o.k?C.b1:C.bd}`,borderRadius:6,
+          padding:"5px 12px",fontSize:12,fontWeight:600,cursor:"pointer"}}>{o.l}</button>
+    ))}
   </div>
 
   {/* ── Filters ─────────────────────────────────────────────────────────── */}
@@ -2403,7 +2420,7 @@ const rows = [
   <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,
     padding:"16px 18px",marginBottom:12}}>
     <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:4}}>
-      Units by Delivery Month
+      Units by {ooGroupBy === "launch" ? "Launch" : "Delivery"} Month
     </div>
     <div style={{fontSize:10,color:C.sL,marginBottom:12}}>
       Stacked by fulfillment status
@@ -2422,9 +2439,9 @@ const rows = [
     </ResponsiveContainer>
   </div>
 
-  {/* ── POs by Delivery Month ────────────────────────────────────────────── */}
+{/* ── POs by Delivery Month ────────────────────────────────────────────── */}
   <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>
-    POs by Delivery Month
+    POs by {ooGroupBy === "launch" ? "Launch" : "Delivery"} Month
     <span style={{fontSize:11,fontWeight:400,color:C.sL,marginLeft:8}}>
       {filtered.length} rows · {sortedMonths.length} months
     </span>
