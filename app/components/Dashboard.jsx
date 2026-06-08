@@ -2262,9 +2262,11 @@ const label = mo.slice(0,7); // "2026-06"
     if (!key) return;
     ohByStyleNumber[key] = (ohByStyleNumber[key] || 0) + (Number(sk.u_oh) || 0);
   });
-  const restockInTransit = raw
-    .filter(r => r.status !== "Full Receipt" && (Number(r.units_outstanding) || 0) > 5)
-    .map(r => ({
+      const restockInTransit = raw
+        .filter(r => r.launch_category === "Restocks"
+          && r.status !== "Full Receipt"
+          && (Number(r.units_outstanding) || 0) > 5)
+        .map(r => ({
       style: r.style_name,
       color: r.color,
       status: r.status,
