@@ -2263,11 +2263,12 @@ const label = mo.slice(0,7); // "2026-06"
     ohByStyleNumber[key] = (ohByStyleNumber[key] || 0) + (Number(sk.u_oh) || 0);
   });
   const restockInTransit = raw
-    .filter(r => r.launch_category === "Restock" && r.status === "In Transit")
+    .filter(r => r.status !== "Full Receipt" && (Number(r.units_outstanding) || 0) > 0)
     .map(r => ({
       style: r.style_name,
       color: r.color,
-      qtyInTransit: Number(r.units_in_transit) || 0,
+      status: r.status,
+      qtyIncoming: Number(r.units_outstanding) || 0,
       inwhDate: r.inwh_date,
       oh: ohByStyleNumber[String(r.style_number ?? "").trim()] || 0,
     }))
@@ -2453,13 +2454,13 @@ const label = mo.slice(0,7); // "2026-06"
     </ResponsiveContainer>
   </div>
 
-  {/* ── Restocks In Transit ─────────────────────────────────────────────── */}
+  {/* ── Incoming Restocks ───────────────────────────────────────────────── */}
   {restockInTransit.length > 0 && (
     <div style={{marginBottom:12}}>
       <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>
-        Restocks In Transit
+        Incoming Restocks
         <span style={{fontSize:11,fontWeight:400,color:C.sL,marginLeft:8}}>
-          {restockInTransit.length} styles · sorted by soonest arrival
+          {restockInTransit.length} styles · not yet fully received · sorted by soonest arrival
         </span>
       </div>
       <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,overflow:"hidden",overflowX:"auto"}}>
@@ -2467,11 +2468,12 @@ const label = mo.slice(0,7); // "2026-06"
           <thead>
             <tr style={{background:"#f8fafc"}}>
               {[
-                {h:"Style",          right:false},
-                {h:"Color",          right:false},
-                {h:"Qty In Transit", right:true},
-                {h:"INWH Date",      right:false},
-                {h:"OH Qty",         right:true},
+                {h:"Status",    right:false},
+                {h:"Style",     right:false},
+                {h:"Color",     right:false},
+                {h:"Incoming",  right:true},
+                {h:"INWH Date", right:false},
+                {h:"OH Qty",    right:true},
               ].map(({h,right})=>(
                 <th key={h} style={{padding:"8px 10px",textAlign:right?"right":"left",
                   fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",
@@ -2484,9 +2486,10 @@ const label = mo.slice(0,7); // "2026-06"
               <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}}
                 onMouseEnter={e=>e.currentTarget.style.background=C.b4}
                 onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+                <td style={{padding:"8px 10px"}}><SBadge s={r.status}/></td>
                 <td style={{padding:"8px 10px",fontWeight:600,color:C.nv}}>{r.style}</td>
                 <td style={{padding:"8px 10px",color:C.sL}}>{r.color||"—"}</td>
-                <td style={{padding:"8px 10px",textAlign:"right",fontWeight:600}}>{r.qtyInTransit>0?r.qtyInTransit.toLocaleString():"—"}</td>
+                <td style={{padding:"8px 10px",textAlign:"right",fontWeight:600}}>{r.qtyIncoming>0?r.qtyIncoming.toLocaleString():"—"}</td>
                 <td style={{padding:"8px 10px",color:r.inwhDate?C.nv:C.am,fontWeight:r.inwhDate?400:600}}>{fmtDate(r.inwhDate)||"No ETA"}</td>
                 <td style={{padding:"8px 10px",textAlign:"right",color:r.oh>0?C.nv:C.rd,fontWeight:r.oh>0?400:700}}>{r.oh>0?r.oh.toLocaleString():"0"}</td>
               </tr>
