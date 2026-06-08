@@ -2251,9 +2251,27 @@ const rows = [
     const notShipped = rows.filter(r=>r.status==="Not Shipped").reduce((a,r)=>a+(Number(r.units_ordered)||0),0);
     const inTransit  = rows.filter(r=>r.status==="In Transit").reduce((a,r)=>a+(Number(r.units_in_transit)||0),0);
     const received   = rows.reduce((a,r)=>a+(Number(r.units_received)||0),0);
-    const label = mo.slice(0,7); // "2026-06"
+const label = mo.slice(0,7); // "2026-06"
     return { mo: label, notShipped, inTransit, received };
   });
+
+  // ── Restock In-Transit table: OH lookup by style number (product_sku.sku) ─
+  const ohByStyleNumber = {};
+  (data.product_sku || []).forEach(sk => {
+    const key = String(sk.sku ?? "").trim();
+    if (!key) return;
+    ohByStyleNumber[key] = (ohByStyleNumber[key] || 0) + (Number(sk.u_oh) || 0);
+  });
+  const restockInTransit = raw
+    .filter(r => r.launch_category === "Restock" && r.status === "In Transit")
+    .map(r => ({
+      style: r.style_name,
+      color: r.color,
+      qtyInTransit: Number(r.units_in_transit) || 0,
+      inwhDate: r.inwh_date,
+      oh: ohByStyleNumber[String(r.style_number ?? "").trim()] || 0,
+    }))
+    .sort((a,b) => (a.inwhDate||"9999").localeCompare(b.inwhDate||"9999"));
 
   // ── Status badge ─────────────────────────────────────────────────────────
   const sBg = {
@@ -2435,7 +2453,52 @@ const rows = [
     </ResponsiveContainer>
   </div>
 
-{/* ── POs by Delivery Month ────────────────────────────────────────────── */}
+  {/* ── Restocks In Transit ─────────────────────────────────────────────── */}
+  {restockInTransit.length > 0 && (
+    <div style={{marginBottom:12}}>
+      <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>
+        Restocks In Transit
+        <span style={{fontSize:11,fontWeight:400,color:C.sL,marginLeft:8}}>
+          {restockInTransit.length} styles · sorted by soonest arrival
+        </span>
+      </div>
+      <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,overflow:"hidden",overflowX:"auto"}}>
+        <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
+          <thead>
+            <tr style={{background:"#f8fafc"}}>
+              {[
+                {h:"Style",          right:false},
+                {h:"Color",          right:false},
+                {h:"Qty In Transit", right:true},
+                {h:"INWH Date",      right:false},
+                {h:"OH Qty",         right:true},
+              ].map(({h,right})=>(
+                <th key={h} style={{padding:"8px 10px",textAlign:right?"right":"left",
+                  fontSize:10,fontWeight:700,color:C.sL,textTransform:"uppercase",
+                  letterSpacing:.4,whiteSpace:"nowrap",borderBottom:`2px solid ${C.bd}`}}>{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {restockInTransit.map((r,i)=>(
+              <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}}
+                onMouseEnter={e=>e.currentTarget.style.background=C.b4}
+                onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+                <td style={{padding:"8px 10px",fontWeight:600,color:C.nv}}>{r.style}</td>
+                <td style={{padding:"8px 10px",color:C.sL}}>{r.color||"—"}</td>
+                <td style={{padding:"8px 10px",textAlign:"right",fontWeight:600}}>{r.qtyInTransit>0?r.qtyInTransit.toLocaleString():"—"}</td>
+                <td style={{padding:"8px 10px",color:r.inwhDate?C.nv:C.am,fontWeight:r.inwhDate?400:600}}>{fmtDate(r.inwhDate)||"No ETA"}</td>
+                <td style={{padding:"8px 10px",textAlign:"right",color:r.oh>0?C.nv:C.rd,fontWeight:r.oh>0?400:700}}>{r.oh>0?r.oh.toLocaleString():"0"}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
+  {/* ── POs by Delivery Month ────────────────────────────────────────────── */}
+
   <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>
     POs by {ooGroupBy === "launch" ? "Launch" : "Delivery"} Month
     <span style={{fontSize:11,fontWeight:400,color:C.sL,marginLeft:8}}>
