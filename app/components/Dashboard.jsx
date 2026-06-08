@@ -2683,20 +2683,23 @@ const label = mo.slice(0,7); // "2026-06"
             {restockMonths.map(mo=>{
               const moRows = restockByMonth[mo];
               const moIncoming = moRows.reduce((a,r)=>a+r.qtyIncoming,0);
+              const moOpen = ooExpanded[`rs:${mo}`] === true; // default closed
               const moLabel = (()=>{
                 const d=new Date(mo+'T12:00:00Z');
                 return isNaN(d)?mo:d.toLocaleDateString("en-US",{month:"long",year:"numeric"});
               })();
               return <React.Fragment key={mo}>
-                <tr style={{background:"#f1f5f9",borderBottom:`1px solid ${C.bd}`}}>
+                <tr style={{background:"#f1f5f9",borderBottom:`1px solid ${C.bd}`,cursor:"pointer"}}
+                  onClick={()=>setOoExpanded(p=>({...p,[`rs:${mo}`]:moOpen?false:true}))}>
                   <td colSpan={7} style={{padding:"8px 10px",fontWeight:700,color:C.nv,fontSize:13}}>
+                    <span style={{display:"inline-block",width:14,color:C.sL}}>{moOpen?"▾":"▸"}</span>
                     {moLabel}
                     <span style={{marginLeft:10,fontSize:11,fontWeight:400,color:C.sL}}>
                       {moRows.length} styles · {moIncoming.toLocaleString()} units incoming
                     </span>
                   </td>
                 </tr>
-                {moRows.map((r,i)=>(
+                {moOpen&&moRows.map((r,i)=>(
                   <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}}
                     onMouseEnter={e=>e.currentTarget.style.background=C.b4}
                     onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
