@@ -2263,7 +2263,7 @@ const label = mo.slice(0,7); // "2026-06"
     ohByStyleNumber[key] = (ohByStyleNumber[key] || 0) + (Number(sk.u_oh) || 0);
   });
       const restockInTransit = raw
-        .filter(r => r.launch_category === "Restocks"
+        .filter(r => r.launch_category === "Restock"
           && r.status !== "Full Receipt"
           && (Number(r.units_outstanding) || 0) > 5)
         .map(r => ({
