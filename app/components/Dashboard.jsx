@@ -136,6 +136,7 @@ useEffect(() => {
   const [lpSort,setLpSort]=useState({col:"s",dir:"desc"});
   const [ooSort,setOoSort]=useState({col:"inwh_date",dir:"asc"});
   const [retF,setRetF]=useState("all");
+  const [retRange,setRetRange]=useState("LW");
   const [expRetStyle,setExpRetStyle]=useState({});
   const [ooExpanded,   setOoExpanded]   = useState({});
   const [ooStatus,     setOoStatus]     = useState([]);
@@ -1711,7 +1712,7 @@ const rows = [
 {/* ═══ RETURNS ═══ */}
 {tab==="returns"&&(()=>{
   const rs = data.returns_summary || [];
-  const rd = data.returns_details || [];
+  const rd = retRange==="30D" ? (data.returns_30d || []) : (data.returns_lw || data.returns_details || []);
 
   // ── Customer filter ───────────────────────────────────────────────────────
   const cftFilter = retF==="new"?"First Time Customer":retF==="returning"?"Repeat Customer":null;
@@ -1772,8 +1773,8 @@ const rows = [
   const timeField = 'Week No (Processed)';
   const allWeekNums = [...new Set(rdF.map(r=>r[timeField]).filter(v=>v!=null))].map(Number).sort((a,b)=>b-a);
   const cwNum = allWeekNums[0]||null;
-  const cwTag = cwNum?String(cwNum):null;
-  const rdCW  = cwNum ? rdF.filter(r=>r[timeField]===cwNum) : rdF;
+  const cwTag = retRange==="30D" ? null : (cwNum?String(cwNum):null);
+  const rdCW  = retRange==="30D" ? rdF : (cwNum ? rdF.filter(r=>r[timeField]===cwNum) : rdF);
 
   // ── Aggregate by style + reasons ─────────────────────────────────────────
   const styleReasonMap = {};
@@ -1867,8 +1868,13 @@ const rows = [
   </>}
 
   {/* Top Returned Styles */}
-  <SH t={`Top Returned Styles${cwTag?` – Wk ${cwTag}`:""}`}/>
-  <div style={{fontSize:10,color:C.sL,fontStyle:"italic",marginBottom:6}}>Source: Loop</div>
+  <SH t={`Top Returned Styles${retRange==="LW"&&cwTag?` – Wk ${cwTag}`:retRange==="30D"?" – Last 30 Days":""}`}/>
+  <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:6}}>
+    <div style={{display:"flex",gap:4}}>
+      {["LW","30D"].map(v=><button key={v} onClick={()=>{setRetRange(v);setExpRetStyle({});}} style={{background:retRange===v?C.nv:C.cd,color:retRange===v?"#fff":C.sl,border:`1px solid ${retRange===v?C.nv:C.bd}`,borderRadius:6,padding:"5px 12px",fontSize:11,fontWeight:600,cursor:"pointer"}}>{v==="LW"?"Last Week":"Last 30 Days"}</button>)}
+    </div>
+    <span style={{fontSize:10,color:C.sL,fontStyle:"italic"}}>Source: Loop</span>
+  </div>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:18,marginBottom:14}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
