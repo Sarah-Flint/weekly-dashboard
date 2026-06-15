@@ -2194,21 +2194,25 @@ const rows = [
     ];
     const toggleLpSort=(k)=>{if(!k)return;setLpSort(p=>p.col===k?{...p,dir:p.dir==="desc"?"asc":"desc"}:{col:k,dir:"desc"});};
     const rawLpRows = data.landing_pages_channel || [];
-    // Build LP-level aggregates with child rows by Traffic Category
+    // Build LP-level aggregates with child rows by Source/Medium + Campaign
     const lpMap = {};
     rawLpRows.forEach(r => {
       const url = r['Landing Page URL'];
-      if (!lpMap[url]) lpMap[url] = { lp: url, s: 0, atc: 0, tx: 0, rev: 0, children: {} };
+      const cat = r['Traffic Category'] || 'Other';
+      if (!lpMap[url]) lpMap[url] = { lp: url, s: 0, atc: 0, tx: 0, rev: 0, cats: new Set(), children: {} };
       lpMap[url].s += Number(r['sum Sessions']) || 0;
       lpMap[url].atc += Number(r['sum Add-to-carts']) || 0;
       lpMap[url].tx += Number(r['sum Transactions']) || 0;
       lpMap[url].rev += Number(r['sum Revenue']) || 0;
-      const cat = r['Traffic Category'] || 'Other';
-      if (!lpMap[url].children[cat]) lpMap[url].children[cat] = { ch: cat, s: 0, atc: 0, tx: 0, rev: 0 };
-      lpMap[url].children[cat].s += Number(r['sum Sessions']) || 0;
-      lpMap[url].children[cat].atc += Number(r['sum Add-to-carts']) || 0;
-      lpMap[url].children[cat].tx += Number(r['sum Transactions']) || 0;
-      lpMap[url].children[cat].rev += Number(r['sum Revenue']) || 0;
+      lpMap[url].cats.add(cat);
+      const sm = r['Session source / medium'] || '(direct) / (none)';
+      const camp = r['Session campaign name'] || '(not set)';
+      const childKey = `${sm}|||${camp}|||${cat}`;
+      if (!lpMap[url].children[childKey]) lpMap[url].children[childKey] = { sm, camp, cat, s: 0, atc: 0, tx: 0, rev: 0 };
+      lpMap[url].children[childKey].s += Number(r['sum Sessions']) || 0;
+      lpMap[url].children[childKey].atc += Number(r['sum Add-to-carts']) || 0;
+      lpMap[url].children[childKey].tx += Number(r['sum Transactions']) || 0;
+      lpMap[url].children[childKey].rev += Number(r['sum Revenue']) || 0;
     });
     let lpRows = Object.values(lpMap).map(lp => ({
       ...lp,
@@ -2223,7 +2227,7 @@ const rows = [
     // Apply channel filter
     if (lpChannel !== "All") {
       lpRows = lpRows.map(lp => {
-        const filtered = lp.childArr.filter(c => c.ch === lpChannel);
+        const filtered = lp.childArr.filter(c => c.cat === lpChannel);
         if (!filtered.length) return null;
         const s = filtered.reduce((a, c) => a + c.s, 0);
         const atc = filtered.reduce((a, c) => a + c.atc, 0);
@@ -2272,7 +2276,12 @@ const rows = [
             {isExp && lp.childArr.map((c,j)=>(
               <tr key={`${i}-${j}`} style={{borderBottom:`1px solid ${C.bd}`,background:"#f8fafc"}}>
                 <td style={{padding:"6px 4px"}}/>
-                <td style={{padding:"6px 6px",paddingLeft:24,fontSize:11,color:C.sl}}><span style={{background:"#e2e8f0",padding:"2px 8px",borderRadius:10,fontSize:10,fontWeight:600}}>{c.ch}</span></td>
+                <td style={{padding:"6px 6px",paddingLeft:20,fontSize:11}}>
+                  <div style={{display:"flex",alignItems:"center",gap:6,flexWrap:"wrap"}}>
+                    <span style={{fontWeight:600,color:C.nv,fontSize:10}}>{c.sm}</span>
+                    {c.camp && c.camp !== '(not set)' && <span style={{background:"#e2e8f0",padding:"1px 7px",borderRadius:10,fontSize:9,color:C.sl,fontWeight:500,maxWidth:200,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{c.camp}</span>}
+                  </div>
+                </td>
                 <td style={{padding:"6px 6px",textAlign:"right",fontSize:11}}>{c.s.toLocaleString()}</td>
                 <td style={{padding:"6px 6px",textAlign:"right",fontSize:11}}>{c.atc}</td>
                 <td style={{padding:"6px 6px",textAlign:"right",fontSize:11,color:c.ar>=15?C.gn:c.ar>=5?C.nv:c.ar>=2?C.am:C.rd}}>{c.ar}%</td>
