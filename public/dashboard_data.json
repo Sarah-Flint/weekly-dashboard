@@ -3,9 +3,9 @@
     "week": "WEEK 23",
     "dateRange": "6/7/26 to 6/13/26",
     "quarter": "Q2",
-    "lastUpdatedISO": "2026-06-15T17:16:59.171Z",
-    "lastUpdatedEST": "Jun 15, 2026 13:16:59",
-    "poLastUpdatedEST": "Jun 15, 2026 13:17:00"
+    "lastUpdatedISO": "2026-06-15T17:53:34.980Z",
+    "lastUpdatedEST": "Jun 15, 2026 13:53:34",
+    "poLastUpdatedEST": "Jun 15, 2026 13:53:36"
   },
   "kpi": [
     {
@@ -1372,10 +1372,10 @@
   "disc_code": [
     {
       "New vs. Returning": "New",
-      "Discount Code": "W20SJ25",
-      "sum Gross sales": 27215,
-      "sum Discounts": 5443,
-      "sum Orders": 53
+      "Discount Code": "WELCOME20",
+      "sum Gross sales": 28615,
+      "sum Discounts": 5723,
+      "sum Orders": 57
     },
     {
       "New vs. Returning": "Returning",
@@ -1456,13 +1456,6 @@
     },
     {
       "New vs. Returning": "New",
-      "Discount Code": "WELCOME20",
-      "sum Gross sales": 905,
-      "sum Discounts": 181,
-      "sum Orders": 3
-    },
-    {
-      "New vs. Returning": "New",
       "Discount Code": "WMY25B",
       "sum Gross sales": 715,
       "sum Discounts": 200,
@@ -1473,13 +1466,6 @@
       "Discount Code": "SBVIP30",
       "sum Gross sales": 502.98,
       "sum Discounts": 150.89,
-      "sum Orders": 1
-    },
-    {
-      "New vs. Returning": "New",
-      "Discount Code": "W20JG28",
-      "sum Gross sales": 495,
-      "sum Discounts": 99,
       "sum Orders": 1
     },
     {
@@ -34124,6 +34110,46 @@
       "latest_USD_total_cost": 5970.8
     },
     {
+      "status": "In Transit",
+      "sku_po_id": "SF117SABDM_PO0000731",
+      "po_season": "S26",
+      "quarter": "Q2 2026",
+      "delivery_month": "2026-06-30",
+      "launch_month": "2026-06-30",
+      "launch_category": "MTO Relaunch",
+      "style_name": "Natalie",
+      "color": "Metallic Beaded Satin",
+      "style_number": "SF117SABDM",
+      "vendor": "LOISI",
+      "po_number": "PO0000731",
+      "freight_method": "Air",
+      "units_ordered": 4,
+      "units_in_transit": 4,
+      "units_received": null,
+      "units_cancelled": null,
+      "units_outstanding": 0,
+      "ex_factory_date": "2026-06-12",
+      "inwh_date": "2026-06-19",
+      "shipment_id": "INBSHIP426",
+      "target_launch_date": "2026-06-15",
+      "delay_flag": null,
+      "launch_conflict": "Launch Conflict",
+      "website_pre_order": null,
+      "net_terms_days": 60,
+      "est_EUR_unit_cost": 505,
+      "est_EUR_total_cost": 2020,
+      "est_USD_unit_cost": 595.9,
+      "est_USD_total_cost": 2383.6,
+      "actual_EUR_unit_cost": null,
+      "actual_EUR_total_cost": null,
+      "actual_USD_unit_cost": null,
+      "actual_USD_total_cost": null,
+      "latest_EUR_unit_cost": 505,
+      "latest_EUR_total_cost": 2020,
+      "latest_USD_unit_cost": 595.9,
+      "latest_USD_total_cost": 2383.6
+    },
+    {
       "status": "Not Shipped",
       "sku_po_id": "SF117SABDM_PO0000731",
       "po_season": "S26",
@@ -34137,11 +34163,11 @@
       "vendor": "LOISI",
       "po_number": "PO0000731",
       "freight_method": "Air",
-      "units_ordered": 5,
+      "units_ordered": 1,
       "units_in_transit": null,
       "units_received": null,
       "units_cancelled": null,
-      "units_outstanding": 5,
+      "units_outstanding": 1,
       "ex_factory_date": "2026-06-26",
       "inwh_date": "2026-07-03",
       "shipment_id": null,
@@ -34151,17 +34177,17 @@
       "website_pre_order": null,
       "net_terms_days": 60,
       "est_EUR_unit_cost": 505,
-      "est_EUR_total_cost": 2525,
+      "est_EUR_total_cost": 505,
       "est_USD_unit_cost": 595.9,
-      "est_USD_total_cost": 2979.5,
+      "est_USD_total_cost": 595.9,
       "actual_EUR_unit_cost": null,
       "actual_EUR_total_cost": null,
       "actual_USD_unit_cost": null,
       "actual_USD_total_cost": null,
       "latest_EUR_unit_cost": 505,
-      "latest_EUR_total_cost": 2525,
+      "latest_EUR_total_cost": 505,
       "latest_USD_unit_cost": 595.9,
-      "latest_USD_total_cost": 2979.5
+      "latest_USD_total_cost": 595.9
     },
     {
       "status": "Not Shipped",
