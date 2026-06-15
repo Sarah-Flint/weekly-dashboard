@@ -132,6 +132,9 @@ useEffect(() => {
   const [reasonTime,setReasonTime]=useState("L5W");
   const [expCamp,setExpCamp]=useState({});
   const [openFilter,setOpenFilter]=useState(null);
+  const [tcSort,setTcSort]=useState({col:"cS",dir:"desc"});
+  const [expLp,setExpLp]=useState({});
+  const [lpSort,setLpSort]=useState({col:"s",dir:"desc"});
   const [ooSort,setOoSort]=useState({col:"inwh_date",dir:"asc"});
   const [retF,setRetF]=useState("all");
   const [expRetStyle,setExpRetStyle]=useState({});
@@ -568,6 +571,8 @@ useEffect(() => {
         retNet: hasActual ? (typeof getTrend("returning_net_rev")[week] === "number" ? getTrend("returning_net_rev")[week] : 0) : null,
         plan: typeof planRow[week] === "number" ? planRow[week] : (planRow[week] !== "" && planRow[week] != null ? Number(planRow[week]) || null : null),
         spend: getTrend("total_marketing")[week] || 0,
+        metaSpend: getTrend("meta_marketing")[week] || 0,
+        googleSpend: getTrend("google_marketing")[week] || 0,
         newCust: getTrend("new_orders")[week] || 0,
         cac: getTrend("total_cac")[week] || 0,
         roas: getTrend("new_net_roas")[week] || 0,
@@ -605,16 +610,21 @@ useEffect(() => {
     const pw = tc.filter(r => r['CW PW Tag'] === 'PW');
     return cw.map(c => {
       const p = pw.find(r => r['Traffic Category'] === c['Traffic Category']) || {};
+      const cS = Number(c['sum Sessions']) || 0;
+      const pS = Number(p['sum Sessions']) || 0;
+      const cAtc = Number(c['sum Add-to-carts']) || 0;
+      const pAtc = Number(p['sum Add-to-carts']) || 0;
+      const cTx = Number(c['sum Transactions']) || 0;
+      const pTx = Number(p['sum Transactions']) || 0;
+      const cRev = Number(c['sum Revenue']) || 0;
+      const pRev = Number(p['sum Revenue']) || 0;
       return {
         ch: c['Traffic Category'],
-        cS: Number(c['sum Sessions']) || 0,
-        cAtc: Number(c['sum Add-to-carts']) || 0,
-        cTx: Number(c['sum Transactions']) || 0,
-        cRev: Number(c['sum Revenue']) || 0,
-        pS: Number(p['sum Sessions']) || 0,
-        pAtc: Number(p['sum Add-to-carts']) || 0,
-        pTx: Number(p['sum Transactions']) || 0,
-        pRev: Number(p['sum Revenue']) || 0,
+        cS, pS, cAtc, pAtc, cTx, pTx, cRev, pRev,
+        cAtcR: cS > 0 ? +(cAtc / cS * 100).toFixed(2) : 0,
+        pAtcR: pS > 0 ? +(pAtc / pS * 100).toFixed(2) : 0,
+        cCvr: cS > 0 ? +(cTx / cS * 100).toFixed(2) : 0,
+        pCvr: pS > 0 ? +(pTx / pS * 100).toFixed(2) : 0,
       };
     });
   })();
@@ -986,6 +996,27 @@ const rows = [
       </ComposedChart>
     </ResponsiveContainer>
   </div>
+
+  {/* Marketing Spend + CAC Chart */}
+  {(()=>{
+    const mktData = WEEKLY_TREND_LIVE.filter(d => d.metaSpend > 0 || d.googleSpend > 0);
+    if (!mktData.length) return null;
+    return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
+      <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:14}}>Marketing Spend & CAC – Weekly</div>
+      <ResponsiveContainer width="100%" height={230}>
+        <ComposedChart data={mktData}><CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0"/>
+          <XAxis dataKey="week" tick={{fontSize:11,fill:C.sL}}/>
+          <YAxis yAxisId="spend" tick={{fontSize:11,fill:C.sL}} tickFormatter={v=>`$${(v/1000).toFixed(0)}K`}/>
+          <YAxis yAxisId="cac" orientation="right" tick={{fontSize:11,fill:C.sL}} tickFormatter={v=>`$${v.toFixed(0)}`}/>
+          <Tooltip content={<CT/>}/>
+          <Legend iconType="circle" wrapperStyle={{fontSize:11}}/>
+          <Bar yAxisId="spend" dataKey="metaSpend" stackId="s" fill="#8b5cf6" name="Meta Spend"/>
+          <Bar yAxisId="spend" dataKey="googleSpend" stackId="s" fill="#06b6d4" radius={[4,4,0,0]} name="Google Spend"/>
+          <Line yAxisId="cac" dataKey="cac" stroke={C.rd} strokeWidth={2} dot={{r:3,fill:C.rd}} name="CAC" connectNulls/>
+        </ComposedChart>
+      </ResponsiveContainer>
+    </div>;
+  })()}
 
   <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,marginBottom:14}}>
     <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20}}>
@@ -2100,49 +2131,161 @@ const rows = [
   </div>
 
   <SH t="Traffic by Channel (WoW)"/>
-  <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
+  {(()=>{
+    const tcCols=[
+      {h:"Channel",k:"ch",left:true},
+      {h:"CW Sess",k:"cS"},
+      {h:"PW Sess",k:"pS"},
+      {h:"Sess WoW",k:"sessWow",pill:true},
+      {h:"ATC Rate %",k:"cAtcR"},
+      {h:"ATC WoW",k:"atcWow",pill:true},
+      {h:"Conv Rate %",k:"cCvr"},
+      {h:"Conv WoW",k:"cvrWow",pill:true},
+      {h:"CW Rev",k:"cRev"},
+      {h:"Rev WoW",k:"revWow",pill:true},
+    ];
+    const toggleTcSort=(k)=>{if(!k||k.endsWith("Wow"))return;setTcSort(p=>p.col===k?{...p,dir:p.dir==="desc"?"asc":"desc"}:{col:k,dir:"desc"});};
+    const sorted=[...TRAFFIC_LIVE].sort((a,b)=>{
+      const dir=tcSort.dir==="asc"?1:-1;
+      const av=a[tcSort.col]||0, bv=b[tcSort.col]||0;
+      if(typeof av==="string") return dir*av.localeCompare(bv);
+      return dir*(av-bv);
+    });
+    return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-        {["Channel","CW Sess","PW Sess","WoW","CW ATC","CW Tx","CW Rev"].map(h=><th key={h} style={{textAlign:h==="Channel"?"left":"right",padding:"8px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>{h}</th>)}
+        {tcCols.map(col=>{
+          const active=tcSort.col===col.k;
+          const sortable=col.k&&!col.k.endsWith("Wow");
+          return <th key={col.h} onClick={()=>toggleTcSort(col.k)} style={{textAlign:col.left?"left":"right",padding:"8px 6px",color:active?C.nv:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap",cursor:sortable?"pointer":"default",userSelect:"none"}}>
+            {col.h}{active?<span style={{marginLeft:3,fontSize:8}}>{tcSort.dir==="desc"?"▼":"▲"}</span>:sortable?<span style={{marginLeft:3,fontSize:8,opacity:0.3}}>▲</span>:""}
+          </th>;
+        })}
       </tr></thead>
-      <tbody>{TRAFFIC_LIVE.map((t,i)=>(
+      <tbody>{sorted.map((t,i)=>(
         <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
           <td style={{padding:"8px 6px",fontWeight:600,color:C.nv}}>{t.ch}</td>
           <td style={{padding:"8px 6px",textAlign:"right"}}>{t.cS.toLocaleString()}</td>
           <td style={{padding:"8px 6px",textAlign:"right",color:C.sL}}>{t.pS.toLocaleString()}</td>
           <td style={{padding:"8px 6px",textAlign:"right"}}>{t.pS>0?<Pill v={w(t.cS,t.pS)}/>:"–"}</td>
-          <td style={{padding:"8px 6px",textAlign:"right"}}>{t.cAtc}</td>
-          <td style={{padding:"8px 6px",textAlign:"right"}}>{t.cTx}</td>
+          <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600}}>{t.cAtcR.toFixed(1)}%</td>
+          <td style={{padding:"8px 6px",textAlign:"right"}}>{t.pAtcR>0?<Pill v={w(t.cAtcR,t.pAtcR)}/>:"–"}</td>
+          <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600,color:t.cCvr>=2?C.gn:t.cCvr>=1?C.nv:t.cCvr>0?C.am:C.sL}}>{t.cCvr.toFixed(2)}%</td>
+          <td style={{padding:"8px 6px",textAlign:"right"}}>{t.pCvr>0?<Pill v={w(t.cCvr,t.pCvr)}/>:"–"}</td>
           <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600}}>{t.cRev>0?ff(t.cRev):"–"}</td>
+          <td style={{padding:"8px 6px",textAlign:"right"}}>{t.pRev>0?<Pill v={w(t.cRev,t.pRev)}/>:"–"}</td>
         </tr>
       ))}</tbody>
     </table>
-  </div>
+    </div>;
+  })()}
 
   <SH t="Top Landing Pages by Channel"/>
-  <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
-    <div style={{display:"flex",gap:8,marginBottom:14,flexWrap:"wrap"}}>
-      {["All",...Object.keys(LP_CH_LIVE)].map(ch=>(
-        <button key={ch} onClick={()=>setLpChannel(ch)} style={{padding:"8px 14px",borderRadius:6,border:`1px solid ${C.bd}`,cursor:"pointer",fontSize:11,fontWeight:700,background:lpChannel===ch?C.nv:"#fff",color:lpChannel===ch?"#fff":C.nv}}>{ch}</button>
-      ))}
-    </div>
-    <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
-      <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-        {["Landing Page","Sessions","ATC","ATC %","Orders","CVR","Revenue"].map(h=><th key={h} style={{textAlign:h==="Landing Page"?"left":"right",padding:"8px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>{h}</th>)}
-      </tr></thead>
-      <tbody>{(lpChannel==="All"?LP_ALL_LIVE:(LP_CH_LIVE[lpChannel]||[])).map((lp,i)=>(
-        <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
-          <td style={{padding:"8px 6px"}}><div style={{fontWeight:600,color:C.nv,fontSize:11}}>{lp.lp}</div></td>
-          <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600}}>{lp.s.toLocaleString()}</td>
-          <td style={{padding:"8px 6px",textAlign:"right"}}>{lp.atc}</td>
-          <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600,color:lp.ar>=15?C.gn:lp.ar>=5?C.nv:lp.ar>=2?C.am:C.rd}}>{lp.ar}%</td>
-          <td style={{padding:"8px 6px",textAlign:"right"}}>{lp.tx}</td>
-          <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600,color:lp.cr>=2?C.gn:lp.cr>=1?C.nv:C.rd}}>{lp.cr}%</td>
-          <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600}}>{lp.rev>0?ff(lp.rev):"–"}</td>
-        </tr>
-      ))}</tbody>
-    </table>
-  </div>
+  {(()=>{
+    const lpCols=[
+      {h:"",k:null,left:true},
+      {h:"Landing Page",k:"lp",left:true},
+      {h:"Sessions",k:"s"},
+      {h:"ATC",k:"atc"},
+      {h:"ATC %",k:"ar"},
+      {h:"Orders",k:"tx"},
+      {h:"CVR",k:"cr"},
+      {h:"Revenue",k:"rev"},
+    ];
+    const toggleLpSort=(k)=>{if(!k)return;setLpSort(p=>p.col===k?{...p,dir:p.dir==="desc"?"asc":"desc"}:{col:k,dir:"desc"});};
+    const rawLpRows = data.landing_pages_channel || [];
+    // Build LP-level aggregates with child rows by Traffic Category
+    const lpMap = {};
+    rawLpRows.forEach(r => {
+      const url = r['Landing Page URL'];
+      if (!lpMap[url]) lpMap[url] = { lp: url, s: 0, atc: 0, tx: 0, rev: 0, children: {} };
+      lpMap[url].s += Number(r['sum Sessions']) || 0;
+      lpMap[url].atc += Number(r['sum Add-to-carts']) || 0;
+      lpMap[url].tx += Number(r['sum Transactions']) || 0;
+      lpMap[url].rev += Number(r['sum Revenue']) || 0;
+      const cat = r['Traffic Category'] || 'Other';
+      if (!lpMap[url].children[cat]) lpMap[url].children[cat] = { ch: cat, s: 0, atc: 0, tx: 0, rev: 0 };
+      lpMap[url].children[cat].s += Number(r['sum Sessions']) || 0;
+      lpMap[url].children[cat].atc += Number(r['sum Add-to-carts']) || 0;
+      lpMap[url].children[cat].tx += Number(r['sum Transactions']) || 0;
+      lpMap[url].children[cat].rev += Number(r['sum Revenue']) || 0;
+    });
+    let lpRows = Object.values(lpMap).map(lp => ({
+      ...lp,
+      ar: lp.s > 0 ? +(lp.atc / lp.s * 100).toFixed(1) : 0,
+      cr: lp.s > 0 ? +(lp.tx / lp.s * 100).toFixed(2) : 0,
+      childArr: Object.values(lp.children).map(c => ({
+        ...c,
+        ar: c.s > 0 ? +(c.atc / c.s * 100).toFixed(1) : 0,
+        cr: c.s > 0 ? +(c.tx / c.s * 100).toFixed(2) : 0,
+      })).sort((a, b) => b.s - a.s),
+    }));
+    // Apply channel filter
+    if (lpChannel !== "All") {
+      lpRows = lpRows.map(lp => {
+        const filtered = lp.childArr.filter(c => c.ch === lpChannel);
+        if (!filtered.length) return null;
+        const s = filtered.reduce((a, c) => a + c.s, 0);
+        const atc = filtered.reduce((a, c) => a + c.atc, 0);
+        const tx = filtered.reduce((a, c) => a + c.tx, 0);
+        const rev = filtered.reduce((a, c) => a + c.rev, 0);
+        return { ...lp, s, atc, tx, rev, ar: s > 0 ? +(atc / s * 100).toFixed(1) : 0, cr: s > 0 ? +(tx / s * 100).toFixed(2) : 0, childArr: filtered };
+      }).filter(Boolean);
+    }
+    // Sort
+    const sortDir = lpSort.dir === "asc" ? 1 : -1;
+    lpRows.sort((a, b) => {
+      const av = a[lpSort.col] || 0, bv = b[lpSort.col] || 0;
+      if (typeof av === "string") return sortDir * av.localeCompare(bv);
+      return sortDir * (av - bv);
+    });
+    lpRows = lpRows.slice(0, 25);
+    return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:14}}>
+      <div style={{display:"flex",gap:8,marginBottom:14,flexWrap:"wrap"}}>
+        {["All",...Object.keys(LP_CH_LIVE)].map(ch=>(
+          <button key={ch} onClick={()=>setLpChannel(ch)} style={{padding:"8px 14px",borderRadius:6,border:`1px solid ${C.bd}`,cursor:"pointer",fontSize:11,fontWeight:700,background:lpChannel===ch?C.nv:"#fff",color:lpChannel===ch?"#fff":C.nv}}>{ch}</button>
+        ))}
+      </div>
+      <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}>
+        <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
+          {lpCols.map(col=>{
+            const active=lpSort.col===col.k;
+            const sortable=!!col.k&&col.k!=="lp";
+            return <th key={col.h||"_exp"} onClick={()=>col.k&&col.k!=="lp"?toggleLpSort(col.k):null} style={{textAlign:col.left?"left":"right",padding:"8px 6px",color:active?C.nv:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap",cursor:sortable?"pointer":"default",userSelect:"none",width:col.k===null?"28px":undefined}}>
+              {col.h}{active?<span style={{marginLeft:3,fontSize:8}}>{lpSort.dir==="desc"?"▼":"▲"}</span>:sortable?<span style={{marginLeft:3,fontSize:8,opacity:0.3}}>▲</span>:""}
+            </th>;
+          })}
+        </tr></thead>
+        <tbody>{lpRows.map((lp,i)=>{
+          const isExp = !!expLp[lp.lp];
+          return <React.Fragment key={i}>
+            <tr style={{borderBottom:`1px solid ${C.bd}`,cursor:"pointer"}} onClick={()=>setExpLp(p=>({...p,[lp.lp]:!p[lp.lp]}))} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
+              <td style={{padding:"8px 4px",textAlign:"center",fontSize:10,color:C.sL,width:28}}>{isExp?"▼":"▶"}</td>
+              <td style={{padding:"8px 6px"}}><div style={{fontWeight:600,color:C.nv,fontSize:11,maxWidth:280,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{lp.lp}</div></td>
+              <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600}}>{lp.s.toLocaleString()}</td>
+              <td style={{padding:"8px 6px",textAlign:"right"}}>{lp.atc}</td>
+              <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600,color:lp.ar>=15?C.gn:lp.ar>=5?C.nv:lp.ar>=2?C.am:C.rd}}>{lp.ar}%</td>
+              <td style={{padding:"8px 6px",textAlign:"right"}}>{lp.tx}</td>
+              <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600,color:lp.cr>=2?C.gn:lp.cr>=1?C.nv:C.rd}}>{lp.cr}%</td>
+              <td style={{padding:"8px 6px",textAlign:"right",fontWeight:600}}>{lp.rev>0?ff(lp.rev):"–"}</td>
+            </tr>
+            {isExp && lp.childArr.map((c,j)=>(
+              <tr key={`${i}-${j}`} style={{borderBottom:`1px solid ${C.bd}`,background:"#f8fafc"}}>
+                <td style={{padding:"6px 4px"}}/>
+                <td style={{padding:"6px 6px",paddingLeft:24,fontSize:11,color:C.sl}}><span style={{background:"#e2e8f0",padding:"2px 8px",borderRadius:10,fontSize:10,fontWeight:600}}>{c.ch}</span></td>
+                <td style={{padding:"6px 6px",textAlign:"right",fontSize:11}}>{c.s.toLocaleString()}</td>
+                <td style={{padding:"6px 6px",textAlign:"right",fontSize:11}}>{c.atc}</td>
+                <td style={{padding:"6px 6px",textAlign:"right",fontSize:11,color:c.ar>=15?C.gn:c.ar>=5?C.nv:c.ar>=2?C.am:C.rd}}>{c.ar}%</td>
+                <td style={{padding:"6px 6px",textAlign:"right",fontSize:11}}>{c.tx}</td>
+                <td style={{padding:"6px 6px",textAlign:"right",fontSize:11,color:c.cr>=2?C.gn:c.cr>=1?C.nv:C.rd}}>{c.cr}%</td>
+                <td style={{padding:"6px 6px",textAlign:"right",fontSize:11}}>{c.rev>0?ff(c.rev):"–"}</td>
+              </tr>
+            ))}
+          </React.Fragment>;
+        })}</tbody>
+      </table>
+    </div>;
+  })()}
 
   {/* Top Page Views by Type */}
   {(()=>{
