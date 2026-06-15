@@ -1876,9 +1876,13 @@ const rows = [
     <span style={{fontSize:10,color:C.sL,fontStyle:"italic"}}>Source: Loop</span>
   </div>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:18,marginBottom:14}}>
-    <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
+    {(()=>{
+    const showSalesPct = retRange !== "30D";
+    const retCols = ["","Style","Returns","Refund $","% of Total"];
+    if (showSalesPct) retCols.push("% of 7D Sales");
+    return <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-        {["","Style","Returns","Refund $","% of Total","% of 7D Sales"].map(h=><th key={h} style={{textAlign:h==="Style"||h===""?"left":"right",padding:"5px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>{h}</th>)}
+        {retCols.map(h=><th key={h} style={{textAlign:h==="Style"||h===""?"left":"right",padding:"5px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase"}}>{h}</th>)}
       </tr></thead>
       <tbody>
         {retStylesShown.map((r,i)=>{
@@ -1897,7 +1901,7 @@ const rows = [
                   {r.pct}%
                 </div>
               </td>
-              <td style={{padding:"7px 6px",textAlign:"right",fontWeight:500,color:r.pctOfSales!=null?(r.pctOfSales>=100?C.rd:r.pctOfSales>=50?C.am:C.nv):C.sL}}>{r.pctOfSales!=null?`${r.pctOfSales}%`:"–"}</td>
+              {showSalesPct&&<td style={{padding:"7px 6px",textAlign:"right",fontWeight:500,color:r.pctOfSales!=null?(r.pctOfSales>=100?C.rd:r.pctOfSales>=50?C.am:C.nv):C.sL}}>{r.pctOfSales!=null?`${r.pctOfSales}%`:"–"}</td>}
             </tr>
             {isOpen&&parentRows.map(([pName,pData])=>{
               const subRows=Object.entries(pData.subs).filter(([s])=>s!==pName).sort((a,b)=>b[1]-a[1]);
@@ -1909,7 +1913,7 @@ const rows = [
                   <td style={{padding:"5px 6px",textAlign:"right",color:C.sL,fontSize:11}}>{pData.total}</td>
                   <td/>
                   <td style={{padding:"5px 6px",textAlign:"right",color:C.sL,fontSize:11}}>{parentPct}%</td>
-                  <td/>
+                  {showSalesPct&&<td/>}
                 </tr>
                 {subRows.map(([sub,cnt],si)=>{
                   const subPct=r.count>0?+((cnt/r.count)*100).toFixed(0):0;
@@ -1919,7 +1923,7 @@ const rows = [
                     <td style={{padding:"4px 6px",textAlign:"right",color:C.sL,fontSize:10}}>{cnt}</td>
                     <td/>
                     <td style={{padding:"4px 6px",textAlign:"right",color:C.sL,fontSize:10}}>{subPct}%</td>
-                    <td/>
+                    {showSalesPct&&<td/>}
                   </tr>;
                 })}
               </React.Fragment>;
@@ -1932,10 +1936,11 @@ const rows = [
           <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700}}>{retStyles.reduce((a,s)=>a+s.count,0)}</td>
           <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700,color:C.rd}}>{ff(totalRefundCW)}</td>
           <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700}}>100%</td>
-          <td style={{padding:"7px 6px",textAlign:"right",fontWeight:700,color:C.nv}}>{totalGld7All>0?`${((totalRefundCW/totalGld7All)*100).toFixed(1)}%`:"–"}</td>
+          {showSalesPct&&<td style={{padding:"7px 6px",textAlign:"right",fontWeight:700,color:C.nv}}>{totalGld7All>0?`${((totalRefundCW/totalGld7All)*100).toFixed(1)}%`:"–"}</td>}
         </tr>
       </tbody>
-    </table>
+    </table>;
+    })()}
   </div>
 
   <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["returnsSubmitted","refunds","exchanges","openReturns","retNetPct","pctOfTotal","pctOfSales","parentReason","returnReason"]}/>
