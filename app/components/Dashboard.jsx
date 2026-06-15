@@ -84,16 +84,17 @@ const CampTbl=({data,title,tSpend,tWow,tRoas,tRoasW})=>(
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:6,overflowX:"auto"}}>
     <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:10}}>{title}: {ff(tSpend)} <span style={{fontWeight:400,color:C.sL}}>({tWow} WoW)</span> · ROAS: {tRoas} <span style={{fontWeight:400,color:C.sL}}>({tRoasW} WoW)</span></div>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:12}}><thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-      {["Campaign","Type","Spend","PW Spend","Revenue","PW Rev","ROAS"].map(h=><th key={h} style={{textAlign:h==="Campaign"?"left":"right",padding:"7px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap"}}>{h}</th>)}
+      {["Campaign","Type","Spend","Spend WoW","Revenue","Rev WoW","ROAS","ROAS WoW"].map(h=><th key={h} style={{textAlign:h==="Campaign"?"left":"right",padding:"7px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap"}}>{h}</th>)}
     </tr></thead><tbody>{data.map((c,i)=>(
       <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
         <td style={{padding:"8px 6px",fontWeight:500,color:C.nv,maxWidth:190}}>{c.name}</td>
         <td style={{padding:"8px 6px",textAlign:"right"}}><span style={{background:(c.type||c.brand||"").includes("Prosp")?"#dbeafe":(c.type||c.brand||"").includes("Remarket")||(c.type||c.brand||"").includes("Retarget")?"#fef3c7":(c.type||c.brand||"").includes("Brand")?"#d1fae5":"#ede9fe",padding:"2px 6px",borderRadius:4,fontSize:10,fontWeight:600}}>{c.type||c.brand||"–"}</span></td>
-        <td style={{padding:"8px 6px",textAlign:"right"}}><div style={{fontWeight:600}}>{ff(c.cS)}</div><div style={{marginTop:2}}>{c.wS!=null?<Pill v={c.wS} inv/>:<span style={{color:C.sL,fontSize:10}}>New</span>}</div></td>
-        <td style={{padding:"8px 6px",textAlign:"right",color:C.sL}}>{c.pS>0?ff(c.pS):"–"}</td>
-        <td style={{padding:"8px 6px",textAlign:"right"}}><div style={{fontWeight:600}}>{ff(c.cR)}</div><div style={{marginTop:2}}>{c.wR!=null?<Pill v={c.wR}/>:<span style={{color:C.sL,fontSize:10}}>New</span>}</div></td>
-        <td style={{padding:"8px 6px",textAlign:"right",color:C.sL}}>{c.pR>0?ff(c.pR):"–"}</td>
-        <td style={{padding:"8px 6px",textAlign:"right"}}><div style={{fontWeight:600,color:c.cX>=3?C.gn:c.cX>=1.5?C.nv:c.cX>0?C.am:C.sL}}>{c.cX>0?(c.cX>=10?c.cX.toFixed(1):c.cX.toFixed(2))+"x":"–"}</div><div style={{marginTop:2}}>{c.wX!=null?<Pill v={c.wX}/>:<span style={{color:C.sL,fontSize:10}}>–</span>}</div></td>
+        <td style={{padding:"8px 6px",textAlign:"right"}}><div style={{fontWeight:600}}>{ff(c.cS)}</div>{c.pS>0&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{ff(c.pS)}</div>}</td>
+        <td style={{padding:"8px 6px",textAlign:"right"}}>{c.wS!=null?<span style={{background:"rgba(148,163,184,0.12)",color:C.sl,padding:"2px 7px",borderRadius:20,fontSize:11,fontWeight:600,whiteSpace:"nowrap"}}>{c.wS>0?"▲":"▼"} {Math.abs(c.wS).toFixed(1)}%</span>:<span style={{color:C.sL,fontSize:11}}>New</span>}</td>
+        <td style={{padding:"8px 6px",textAlign:"right"}}><div style={{fontWeight:600}}>{ff(c.cR)}</div>{c.pR>0&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{ff(c.pR)}</div>}</td>
+        <td style={{padding:"8px 6px",textAlign:"right"}}>{c.wR!=null?<Pill v={c.wR}/>:<span style={{color:C.sL,fontSize:11}}>New</span>}</td>
+        <td style={{padding:"8px 6px",textAlign:"right"}}><div style={{fontWeight:600,color:c.cX>=3?C.gn:c.cX>=1.5?C.nv:c.cX>0?C.am:C.sL}}>{c.cX>0?(c.cX>=10?c.cX.toFixed(1):c.cX.toFixed(2))+"x":"–"}</div>{c.pX>0&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{(c.pX>=10?c.pX.toFixed(1):c.pX.toFixed(2))+"x"}</div>}</td>
+        <td style={{padding:"8px 6px",textAlign:"right"}}>{c.wX!=null?<Pill v={c.wX}/>:<span style={{color:C.sL,fontSize:11}}>–</span>}</td>
       </tr>
     ))}</tbody></table>
   </div>
@@ -2025,7 +2026,7 @@ const rows = [
       return <span style={{background:bg,padding:"2px 6px",borderRadius:4,fontSize:10,fontWeight:600}}>{label||"–"}</span>;
     };
 
-    const campHeaders = ["","Group","Spend","PW Spend","Revenue","PW Rev","ROAS"];
+    const campHeaders = ["","Group","Spend","Spend WoW","Revenue","Rev WoW","ROAS","ROAS WoW"];
 
     const renderDrillDown = (groups, prefix, title, tSpend, tWow, tRoas, tRoasW) => {
       const gtCS = groups.reduce((a,g)=>a+g.cS,0);
@@ -2038,6 +2039,7 @@ const rows = [
       const gtWS = gtPS > 0 ? ((gtCS - gtPS) / gtPS) * 100 : null;
       const gtWR = gtPR > 0 ? ((gtCR - gtPR) / gtPR) * 100 : null;
       const gtWX = gtPX > 0 ? ((gtCX - gtPX) / gtPX) * 100 : null;
+      const neutralPill = (v,inv) => v!=null?<span style={{background:"rgba(148,163,184,0.12)",color:C.sl,padding:"2px 7px",borderRadius:20,fontSize:11,fontWeight:600,whiteSpace:"nowrap"}}>{v>0?"▲":"▼"} {Math.abs(v).toFixed(1)}%</span>:<span style={{color:C.sL,fontSize:10}}>New</span>;
       return (
       <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20,marginBottom:6,overflowX:"auto"}}>
         <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:10}}>{title}: {ff(tSpend)} <span style={{fontWeight:400,color:C.sL}}>({tWow} WoW)</span> · ROAS: {tRoas} <span style={{fontWeight:400,color:C.sL}}>({tRoasW} WoW)</span></div>
@@ -2053,21 +2055,23 @@ const rows = [
                 <tr style={{borderBottom:open?"none":`1px solid ${C.bd}`,cursor:"pointer",background:"#f8fafc"}} onClick={()=>setExpCamp(p=>({...p,[key]:!p[key]}))} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="#f8fafc"}>
                   <td style={{padding:"8px 4px",color:C.sL,width:16}}>{open?"▾":"▸"}</td>
                   <td style={{padding:"8px 6px",fontWeight:700,color:C.nv}}>{typeBadge(g.name)} <span style={{marginLeft:4,fontSize:11,color:C.sL}}>({g.camps.length})</span></td>
-                  <td style={{...tdR}}><div style={{fontWeight:700}}>{ff(g.cS)}</div><div style={{marginTop:2}}>{g.wS!=null?<Pill v={g.wS} inv/>:<span style={{color:C.sL,fontSize:10}}>New</span>}</div></td>
-                  <td style={{...tdR,color:C.sL}}>{g.pS>0?ff(g.pS):"–"}</td>
-                  <td style={{...tdR}}><div style={{fontWeight:700}}>{ff(g.cR)}</div><div style={{marginTop:2}}>{g.wR!=null?<Pill v={g.wR}/>:<span style={{color:C.sL,fontSize:10}}>New</span>}</div></td>
-                  <td style={{...tdR,color:C.sL}}>{g.pR>0?ff(g.pR):"–"}</td>
-                  <td style={{...tdR}}><div style={{fontWeight:700,color:g.cX>=3?C.gn:g.cX>=1.5?C.nv:g.cX>0?C.am:C.sL}}>{fmtRoas(g.cX)}</div><div style={{marginTop:2}}>{g.wX!=null?<Pill v={g.wX}/>:<span style={{color:C.sL,fontSize:10}}>–</span>}</div></td>
+                  <td style={{...tdR}}><div style={{fontWeight:700}}>{ff(g.cS)}</div>{g.pS>0&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{ff(g.pS)}</div>}</td>
+                  <td style={tdR}>{neutralPill(g.wS)}</td>
+                  <td style={{...tdR}}><div style={{fontWeight:700}}>{ff(g.cR)}</div>{g.pR>0&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{ff(g.pR)}</div>}</td>
+                  <td style={tdR}>{g.wR!=null?<Pill v={g.wR}/>:<span style={{color:C.sL,fontSize:10}}>New</span>}</td>
+                  <td style={{...tdR}}><div style={{fontWeight:700,color:g.cX>=3?C.gn:g.cX>=1.5?C.nv:g.cX>0?C.am:C.sL}}>{fmtRoas(g.cX)}</div>{g.pX>0&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{fmtRoas(g.pX)}</div>}</td>
+                  <td style={tdR}>{g.wX!=null?<Pill v={g.wX}/>:<span style={{color:C.sL,fontSize:10}}>–</span>}</td>
                 </tr>
                 {open && g.camps.sort((a,b)=>b.cS-a.cS).map((c,ci) => (
                   <tr key={ci} style={{borderBottom:`1px solid ${C.bd}`,background:"#fff"}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="#fff"}>
                     <td/>
                     <td style={{padding:"7px 6px 7px 20px",fontWeight:500,color:C.nv,maxWidth:190,fontSize:11}}>{c.name}</td>
-                    <td style={tdR}><div>{ff(c.cS)}</div><div style={{marginTop:2}}>{c.wS!=null?<Pill v={c.wS} inv/>:<span style={{color:C.sL,fontSize:10}}>New</span>}</div></td>
-                    <td style={{...tdR,color:C.sL}}>{c.pS>0?ff(c.pS):"–"}</td>
-                    <td style={tdR}><div>{ff(c.cR)}</div><div style={{marginTop:2}}>{c.wR!=null?<Pill v={c.wR}/>:<span style={{color:C.sL,fontSize:10}}>New</span>}</div></td>
-                    <td style={{...tdR,color:C.sL}}>{c.pR>0?ff(c.pR):"–"}</td>
-                    <td style={tdR}><div style={{fontWeight:600,color:c.cX>=3?C.gn:c.cX>=1.5?C.nv:c.cX>0?C.am:C.sL}}>{fmtRoas(c.cX)}</div><div style={{marginTop:2}}>{c.wX!=null?<Pill v={c.wX}/>:<span style={{color:C.sL,fontSize:10}}>–</span>}</div></td>
+                    <td style={tdR}><div>{ff(c.cS)}</div>{c.pS>0&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{ff(c.pS)}</div>}</td>
+                    <td style={tdR}>{neutralPill(c.wS)}</td>
+                    <td style={tdR}><div>{ff(c.cR)}</div>{c.pR>0&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{ff(c.pR)}</div>}</td>
+                    <td style={tdR}>{c.wR!=null?<Pill v={c.wR}/>:<span style={{color:C.sL,fontSize:10}}>New</span>}</td>
+                    <td style={tdR}><div style={{fontWeight:600,color:c.cX>=3?C.gn:c.cX>=1.5?C.nv:c.cX>0?C.am:C.sL}}>{fmtRoas(c.cX)}</div>{c.pX>0&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{fmtRoas(c.pX)}</div>}</td>
+                    <td style={tdR}>{c.wX!=null?<Pill v={c.wX}/>:<span style={{color:C.sL,fontSize:10}}>–</span>}</td>
                   </tr>
                 ))}
               </React.Fragment>;
@@ -2075,11 +2079,12 @@ const rows = [
             <tr style={{borderTop:`2px solid ${C.bd}`,background:"#f1f5f9"}}>
               <td/>
               <td style={{padding:"8px 6px",fontWeight:700,color:C.nv}}>Total</td>
-              <td style={{...tdR}}><div style={{fontWeight:700}}>{ff(gtCS)}</div><div style={{marginTop:2}}>{gtWS!=null?<Pill v={gtWS} inv/>:"–"}</div></td>
-              <td style={{...tdR,fontWeight:700,color:C.sL}}>{gtPS>0?ff(gtPS):"–"}</td>
-              <td style={{...tdR}}><div style={{fontWeight:700}}>{ff(gtCR)}</div><div style={{marginTop:2}}>{gtWR!=null?<Pill v={gtWR}/>:"–"}</div></td>
-              <td style={{...tdR,fontWeight:700,color:C.sL}}>{gtPR>0?ff(gtPR):"–"}</td>
-              <td style={{...tdR}}><div style={{fontWeight:700,color:gtCX>=3?C.gn:gtCX>=1.5?C.nv:gtCX>0?C.am:C.sL}}>{fmtRoas(gtCX)}</div><div style={{marginTop:2}}>{gtWX!=null?<Pill v={gtWX}/>:"–"}</div></td>
+              <td style={{...tdR}}><div style={{fontWeight:700}}>{ff(gtCS)}</div>{gtPS>0&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{ff(gtPS)}</div>}</td>
+              <td style={{...tdR,fontWeight:700}}>{gtWS!=null?neutralPill(gtWS):"–"}</td>
+              <td style={{...tdR}}><div style={{fontWeight:700}}>{ff(gtCR)}</div>{gtPR>0&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{ff(gtPR)}</div>}</td>
+              <td style={{...tdR,fontWeight:700}}>{gtWR!=null?<Pill v={gtWR}/>:"–"}</td>
+              <td style={{...tdR}}><div style={{fontWeight:700,color:gtCX>=3?C.gn:gtCX>=1.5?C.nv:gtCX>0?C.am:C.sL}}>{fmtRoas(gtCX)}</div>{gtPX>0&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{fmtRoas(gtPX)}</div>}</td>
+              <td style={{...tdR,fontWeight:700}}>{gtWX!=null?<Pill v={gtWX}/>:"–"}</td>
             </tr>
           </tbody>
         </table>
