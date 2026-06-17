@@ -2404,6 +2404,7 @@ const rows = [
       vendor: r.vendor, launch_conflict: r.launch_conflict,
       target_launch_date: r.target_launch_date,
       inwh_date: r.inwh_date, ex_factory_date: r.ex_factory_date,
+      image_url: r.image_url || null,
       shipments: [],
     };
     monthMap[mo][styleKey].shipments.push(r);
@@ -2657,6 +2658,7 @@ const label = mo.slice(0,7); // "2026-06"
           <th style={{width:28,padding:"8px 6px",borderBottom:`2px solid ${C.bd}`,position:"sticky",top:0,zIndex:2,background:"#f8fafc"}}/>
           {[
             {h:"Status",      col:"status",      right:false},
+            {h:"",            col:null,           right:false},
             {h:"Style Name",  col:"style_name",  right:false},
             {h:"Style #",     col:"style_number", right:false},
             {h:"PO #",        col:"po_number",   right:false},
@@ -2732,7 +2734,7 @@ const label = mo.slice(0,7); // "2026-06"
               <td style={{padding:"8px 6px",textAlign:"center",color:C.sL}}>
                 {moOpen?"▾":"▸"}
               </td>
-              <td colSpan={13} style={{padding:"8px 8px",fontWeight:700,color:C.nv,fontSize:13}}>
+              <td colSpan={14} style={{padding:"8px 8px",fontWeight:700,color:C.nv,fontSize:13}}>
                 {moLabel}
                 <span style={{marginLeft:10,fontSize:11,fontWeight:400,color:C.sL}}>
                   {styleKeys.length} styles · {moAgg.ordered} ordered · {moAgg.received} received · {moAgg.bal} outstanding
@@ -2760,6 +2762,9 @@ const label = mo.slice(0,7); // "2026-06"
                   <td style={{padding:"7px 8px",background:rowBg}}>
                     <SBadge s={agg.status}/>
                     {s.launch_category&&<div style={{fontSize:10,color:C.sL,marginTop:2}}>{s.launch_category}</div>}
+                  </td>
+                  <td style={{padding:"4px 8px",background:rowBg,width:44}}>
+                    {s.image_url?<img src={s.image_url} alt="" style={{width:40,height:40,objectFit:"cover",borderRadius:6,border:`1px solid ${C.bd}`}}/>:<div style={{width:40,height:40,borderRadius:6,background:"#f1f5f9",border:`1px solid ${C.bd}`}}/>}
                   </td>
                   <td style={{padding:"7px 8px",background:rowBg,maxWidth:180}}>
                     <div style={{fontWeight:700,color:C.nv,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{s.style_name}</div>
@@ -2797,6 +2802,7 @@ const label = mo.slice(0,7); // "2026-06"
                   <tr key={si} style={{background:"#fafbff",borderBottom:`1px solid #f1f5f9`}}>
                     <td style={{paddingLeft:30,color:C.sL,fontSize:11}}>└</td>
                     <td style={{padding:"5px 8px"}}><SBadge s={r.status}/></td>
+                    <td/>
                     <td style={{padding:"5px 8px",fontSize:11,color:C.sL,paddingLeft:20}}>
                       Shipment {si+1}{r.shipment_id&&<span style={{marginLeft:6,color:C.sL}}>{r.shipment_id}</span>}
                       {r.po_number&&<div style={{fontSize:10,color:C.sL}}>{r.po_number}</div>}
