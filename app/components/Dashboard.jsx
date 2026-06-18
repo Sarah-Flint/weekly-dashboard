@@ -2771,8 +2771,8 @@ const label = mo.slice(0,7); // "2026-06"
                     <div style={{fontWeight:700,color:C.nv,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",fontSize:11}}>{s.style_name}</div>
                     {s.color&&<div style={{fontSize:9,color:C.sL,marginTop:1}}>{s.color}</div>}
                   </td>
-                  <td style={{padding:"5px 4px",fontFamily:"monospace",fontSize:10,color:"#64748b"}}>{s.style_number}</td>
-                  <td style={{padding:"5px 4px",fontSize:9,color:C.sL,maxWidth:70,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>
+                  <td style={{padding:"5px 3px",fontFamily:"monospace",fontSize:9,color:"#64748b",whiteSpace:"nowrap"}}>{s.style_number}</td>
+                  <td style={{padding:"5px 3px",fontSize:8,color:C.sL,maxWidth:55,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>
                     {s.shipments.map(r=>r.po_number).filter((v,i,a)=>v&&a.indexOf(v)===i).join(", ")||"—"}
                   </td>
                   <td style={{padding:"5px 4px",fontSize:10}}>
