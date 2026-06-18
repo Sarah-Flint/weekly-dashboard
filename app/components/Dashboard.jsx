@@ -2438,6 +2438,7 @@ const label = mo.slice(0,7); // "2026-06"
       styleNumber: r.style_number,
       color: r.color,
       status: r.status,
+      image_url: r.image_url || null,
       qtyIncoming: Number(r.units_outstanding) || 0,
       inwhDate: r.inwh_date,
       deliveryMonth: r.delivery_month || "Unknown",
@@ -2764,7 +2765,7 @@ const label = mo.slice(0,7); // "2026-06"
                     {s.launch_category&&<div style={{fontSize:10,color:C.sL,marginTop:2}}>{s.launch_category}</div>}
                   </td>
                   <td style={{padding:"4px 8px",background:rowBg,width:48}}>
-                    {s.image_url&&<img src={s.image_url} alt="" style={{width:44,height:44,objectFit:"contain",borderRadius:4,background:"#f8fafc"}}/>}
+                    {s.image_url&&<img src={s.image_url} alt="" style={{width:44,height:44,objectFit:"contain",borderRadius:4,background:"#fff"}}/>}
                   </td>
                   <td style={{padding:"7px 8px",background:rowBg,maxWidth:180}}>
                     <div style={{fontWeight:700,color:C.nv,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{s.style_name}</div>
@@ -2849,9 +2850,9 @@ const label = mo.slice(0,7); // "2026-06"
             <tr style={{background:"#f8fafc"}}>
               {[
                 {h:"Status",    right:false},
+                {h:"",          right:false},
                 {h:"Style",     right:false},
                 {h:"Style #",   right:false},
-                {h:"Color",     right:false},
                 {h:"INWH Date", right:false},
                 {h:"Incoming",  right:true},
                 {h:"OH Qty",    right:true},
@@ -2888,9 +2889,14 @@ const label = mo.slice(0,7); // "2026-06"
                     onMouseEnter={e=>e.currentTarget.style.background=C.b4}
                     onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
                     <td style={{padding:"8px 10px"}}><SBadge s={r.status}/></td>
-                    <td style={{padding:"8px 10px",fontWeight:600,color:C.nv}}>{r.style}</td>
+                    <td style={{padding:"4px 8px",width:48}}>
+                      {r.image_url&&<img src={r.image_url} alt="" style={{width:44,height:44,objectFit:"contain",borderRadius:4,background:"#fff"}}/>}
+                    </td>
+                    <td style={{padding:"8px 10px"}}>
+                      <div style={{fontWeight:600,color:C.nv}}>{r.style}</div>
+                      {r.color&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{r.color}</div>}
+                    </td>
                     <td style={{padding:"8px 10px",fontFamily:"monospace",fontSize:11,color:"#64748b"}}>{r.styleNumber||"—"}</td>
-                    <td style={{padding:"8px 10px",color:C.sL}}>{r.color||"—"}</td>
                     <td style={{padding:"8px 10px",color:r.inwhDate?C.nv:C.am,fontWeight:r.inwhDate?400:600}}>{fmtDate(r.inwhDate)||"No ETA"}</td>
                     <td style={{padding:"8px 10px",textAlign:"right",fontWeight:600}}>{r.qtyIncoming>0?r.qtyIncoming.toLocaleString():"—"}</td>
                     <td style={{padding:"8px 10px",textAlign:"right",color:r.oh>0?C.nv:C.rd,fontWeight:r.oh>0?400:700}}>{r.oh>0?r.oh.toLocaleString():"0"}</td>
