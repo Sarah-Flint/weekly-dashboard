@@ -2653,37 +2653,37 @@ const label = mo.slice(0,7); // "2026-06"
   </div>
 
   <div style={{background:C.cd,border:`1px solid ${C.bd}`,borderRadius:10,overflowX:"auto",overflowY:"auto",maxHeight:"70vh"}}>
-    <table style={{width:"100%",borderCollapse:"collapse",fontSize:12,minWidth:1400}}>
+    <table style={{width:"100%",borderCollapse:"collapse",fontSize:11,minWidth:900}}>
       <thead>
         <tr style={{background:"#f8fafc"}}>
-          <th style={{width:28,padding:"8px 6px",borderBottom:`2px solid ${C.bd}`,position:"sticky",top:0,zIndex:2,background:"#f8fafc"}}/>
+          <th style={{width:22,padding:"6px 4px",borderBottom:`2px solid ${C.bd}`,position:"sticky",top:0,zIndex:2,background:"#f8fafc"}}/>
           {[
             {h:"Status",      col:"status",      right:false},
             {h:"",            col:null,           right:false},
-            {h:"Style Name",  col:"style_name",  right:false},
+            {h:"Style",       col:"style_name",  right:false},
             {h:"Style #",     col:"style_number", right:false},
             {h:"PO #",        col:"po_number",   right:false},
             {h:"Freight",     col:null,           right:false},
-            {h:"Ordered",     col:"ordered",      right:true},
-            {h:"In Transit",  col:"in_transit",   right:true},
-            {h:"Received",    col:"received",     right:true},
+            {h:"Ord",         col:"ordered",      right:true},
+            {h:"Transit",     col:"in_transit",   right:true},
+            {h:"Rec'd",       col:"received",     right:true},
             {h:"Bal",         col:"bal",          right:true},
-            {h:"Ship Date",   col:"ship_date",    right:false},
-            {h:"INWH Date",   col:"inwh_date",    right:false},
-            {h:"Launch Date", col:"launch_date",  right:false},
-            {h:"Delay Flag",  col:null,           right:false},
+            {h:"Ship",        col:"ship_date",    right:false},
+            {h:"INWH",        col:"inwh_date",    right:false},
+            {h:"Launch",      col:"launch_date",  right:false},
+            {h:"Delay",       col:null,           right:false},
           ].map(({h,col,right})=>{
             const active=col&&ooSort.col===col;
             return <th key={h}
               onClick={col?()=>setOoSort(p=>({col,dir:p.col===col?(p.dir==="asc"?"desc":"asc"):"asc"})):undefined}
-              style={{padding:"8px 8px",textAlign:right?"right":"left",
-                fontSize:10,fontWeight:700,color:active?C.nv:C.sL,
-                textTransform:"uppercase",letterSpacing:.4,whiteSpace:"nowrap",
+              style={{padding:"6px 4px",textAlign:right?"right":"left",
+                fontSize:9,fontWeight:700,color:active?C.nv:C.sL,
+                textTransform:"uppercase",letterSpacing:.3,whiteSpace:"nowrap",
                 borderBottom:`2px solid ${C.bd}`,
                 background:active?"#eff6ff":"#f8fafc",
                 position:"sticky",top:0,zIndex:2,
                 cursor:col?"pointer":"default",userSelect:"none"}}>
-              {h}{col&&<span style={{marginLeft:3,fontSize:9,opacity:active?1:0.3}}>{active?(ooSort.dir==="asc"?"▲":"▼"):"▲"}</span>}
+              {h}{col&&<span style={{marginLeft:2,fontSize:8,opacity:active?1:0.3}}>{active?(ooSort.dir==="asc"?"▲":"▼"):"▲"}</span>}
             </th>;
           })}
         </tr>
@@ -2760,38 +2760,38 @@ const label = mo.slice(0,7); // "2026-06"
                   <td style={{padding:"6px 6px",textAlign:"center",color:C.sL,paddingLeft:18}}>
                     {hasMulti?(styleOpen?"▾":"▸"):""}
                   </td>
-                  <td style={{padding:"7px 8px",background:rowBg}}>
+                  <td style={{padding:"5px 4px",background:rowBg}}>
                     <SBadge s={agg.status}/>
-                    {s.launch_category&&<div style={{fontSize:10,color:C.sL,marginTop:2}}>{s.launch_category}</div>}
+                    {s.launch_category&&<div style={{fontSize:9,color:C.sL,marginTop:1}}>{s.launch_category}</div>}
                   </td>
-                  <td style={{padding:"4px 8px",background:rowBg,width:48}}>
-                    {s.image_url&&<img src={s.image_url} alt="" style={{width:44,height:44,objectFit:"contain",borderRadius:4,background:"#fff"}}/>}
+                  <td style={{padding:"3px 4px",background:rowBg,width:40}}>
+                    {s.image_url&&<img src={s.image_url} alt="" style={{width:36,height:36,objectFit:"contain",borderRadius:3,background:"#fff"}}/>}
                   </td>
-                  <td style={{padding:"7px 8px",background:rowBg,maxWidth:130}}>
-                    <div style={{fontWeight:700,color:C.nv,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",fontSize:12}}>{s.style_name}</div>
-                    {s.color&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{s.color}</div>}
+                  <td style={{padding:"5px 4px",background:rowBg,maxWidth:120}}>
+                    <div style={{fontWeight:700,color:C.nv,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",fontSize:11}}>{s.style_name}</div>
+                    {s.color&&<div style={{fontSize:9,color:C.sL,marginTop:1}}>{s.color}</div>}
                   </td>
-                  <td style={{padding:"7px 8px",fontFamily:"monospace",fontSize:11,color:"#64748b"}}>{s.style_number}</td>
-                  <td style={{padding:"7px 8px",fontSize:10,color:C.sL,maxWidth:80,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>
+                  <td style={{padding:"5px 4px",fontFamily:"monospace",fontSize:10,color:"#64748b"}}>{s.style_number}</td>
+                  <td style={{padding:"5px 4px",fontSize:9,color:C.sL,maxWidth:70,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>
                     {s.shipments.map(r=>r.po_number).filter((v,i,a)=>v&&a.indexOf(v)===i).join(", ")||"—"}
                   </td>
-                  <td style={{padding:"7px 8px"}}>
+                  <td style={{padding:"5px 4px",fontSize:10}}>
                     {hasMulti
                       ? <span style={{fontSize:10,color:C.sL}}>{s.shipments.length} shipments</span>
                       : <span style={{fontSize:11}}>{(()=>{const f=s.shipments[0]?.freight_method;return f==="Air"?<span style={{color:"#0369a1",fontWeight:600}}>✈ Air</span>:f==="Sea"?<span style={{color:"#065f46",fontWeight:600}}>〜 Sea</span>:"—";})()}</span>
                     }
                   </td>
                   {[agg.ordered,agg.inTransit,agg.received,agg.bal].map((v,i)=>(
-                    <td key={i} style={{padding:"7px 8px",textAlign:"right",fontSize:12,color:v>0?C.nv:C.sL}}>{v>0?v.toLocaleString():"—"}</td>
+                    <td key={i} style={{padding:"5px 4px",textAlign:"right",fontSize:11,color:v>0?C.nv:C.sL}}>{v>0?v.toLocaleString():"—"}</td>
                   ))}
-                  <td style={{padding:"7px 8px",fontSize:11,color:C.sL,whiteSpace:"nowrap"}}>{dateRange(s.shipments,"ex_factory_date")||"—"}</td>
-                  <td style={{padding:"7px 8px",fontSize:11,whiteSpace:"nowrap",
+                  <td style={{padding:"5px 4px",fontSize:10,color:C.sL,whiteSpace:"nowrap"}}>{dateRange(s.shipments,"ex_factory_date")||"—"}</td>
+                  <td style={{padding:"5px 4px",fontSize:10,whiteSpace:"nowrap",
                     color:dateRange(s.shipments,"inwh_date")?C.nv:C.am,fontWeight:dateRange(s.shipments,"inwh_date")?400:600}}>
                     {dateRange(s.shipments,"inwh_date")||"No ETA"}
-                    {s.launch_conflict==="Launch Conflict"&&<span style={{marginLeft:5,color:"#dc2626"}}>⚠</span>}
+                    {s.launch_conflict==="Launch Conflict"&&<span style={{marginLeft:3,color:"#dc2626"}}>⚠</span>}
                   </td>
-                  <td style={{padding:"7px 8px",fontSize:11,color:"#64748b"}}>{fmtDate(s.target_launch_date)}</td>
-                  <td style={{padding:"7px 8px",fontSize:11,
+                  <td style={{padding:"5px 4px",fontSize:10,color:"#64748b"}}>{fmtDate(s.target_launch_date)}</td>
+                  <td style={{padding:"5px 4px",fontSize:10,
                     background:s.shipments.some(r=>r.flag_delay)?"#fee2e2":"transparent",
                     color:"#991b1b",fontWeight:600}}>
                     {s.shipments.map(r=>r.flag_delay).filter(Boolean)[0]||"—"}
@@ -2801,25 +2801,25 @@ const label = mo.slice(0,7); // "2026-06"
                 {/* Shipment detail rows */}
                 {styleOpen&&s.shipments.map((r,si)=>(
                   <tr key={si} style={{background:"#fafbff",borderBottom:`1px solid #f1f5f9`}}>
-                    <td style={{paddingLeft:30,color:C.sL,fontSize:11}}>└</td>
-                    <td style={{padding:"5px 8px"}}><SBadge s={r.status}/></td>
+                    <td style={{paddingLeft:20,color:C.sL,fontSize:10}}>└</td>
+                    <td style={{padding:"4px 4px"}}><SBadge s={r.status}/></td>
                     <td/>
-                    <td style={{padding:"5px 8px",fontSize:11,color:C.sL,paddingLeft:20}}>
-                      Shipment {si+1}{r.shipment_id&&<span style={{marginLeft:6,color:C.sL}}>{r.shipment_id}</span>}
-                      {r.po_number&&<div style={{fontSize:10,color:C.sL}}>{r.po_number}</div>}
+                    <td style={{padding:"4px 4px",fontSize:10,color:C.sL,paddingLeft:14}}>
+                      Shipment {si+1}{r.shipment_id&&<span style={{marginLeft:4,color:C.sL}}>{r.shipment_id}</span>}
+                      {r.po_number&&<div style={{fontSize:9,color:C.sL}}>{r.po_number}</div>}
                     </td>
                     <td/>
                     <td/>
-                    <td style={{padding:"5px 8px"}}><FreightBadge f={r.freight_method}/></td>
+                    <td style={{padding:"4px 4px"}}><FreightBadge f={r.freight_method}/></td>
                     {[r.units_ordered,r.units_in_transit,r.units_received,r.units_outstanding].map((v,i)=>(
-                      <td key={i} style={{padding:"5px 8px",textAlign:"right",fontSize:11,color:C.sl}}>
+                      <td key={i} style={{padding:"4px 4px",textAlign:"right",fontSize:10,color:C.sl}}>
                         {(Number(v)||0)>0?Number(v).toLocaleString():"—"}
                       </td>
                     ))}
-                    <td style={{padding:"5px 8px",fontSize:11,color:C.sL}}>{fmtDate(r.ex_factory_date)}</td>
-                    <td style={{padding:"5px 8px",fontSize:11,color:r.inwh_date?C.nv:C.am}}>{fmtDate(r.inwh_date)||"No ETA"}</td>
-                    <td style={{padding:"5px 8px",fontSize:11,color:C.sL}}>{fmtDate(r.target_launch_date)}</td>
-                    <td style={{padding:"5px 8px",fontSize:11,background:r.flag_delay?"#fee2e2":"transparent",color:"#991b1b",fontWeight:600}}>{r.flag_delay||"—"}</td>
+                    <td style={{padding:"4px 4px",fontSize:10,color:C.sL}}>{fmtDate(r.ex_factory_date)}</td>
+                    <td style={{padding:"4px 4px",fontSize:10,color:r.inwh_date?C.nv:C.am}}>{fmtDate(r.inwh_date)||"No ETA"}</td>
+                    <td style={{padding:"4px 4px",fontSize:10,color:C.sL}}>{fmtDate(r.target_launch_date)}</td>
+                    <td style={{padding:"4px 4px",fontSize:10,background:r.flag_delay?"#fee2e2":"transparent",color:"#991b1b",fontWeight:600}}>{r.flag_delay||"—"}</td>
                   </tr>
                 ))}
               </React.Fragment>;
