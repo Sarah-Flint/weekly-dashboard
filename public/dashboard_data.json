@@ -5,7 +5,7 @@
     "quarter": "Q2",
     "lastUpdatedISO": "2026-06-15T18:59:07.458Z",
     "lastUpdatedEST": "Jun 15, 2026 14:59:07",
-    "poLastUpdatedEST": "Jun 17, 2026 19:55:11"
+    "poLastUpdatedEST": "Jun 17, 2026 22:47:12"
   },
   "kpi": [
     {
@@ -37483,7 +37483,7 @@
       "est_payment_date": "2026-05-29",
       "est_payment_week": "2026-05-30",
       "est_payment_mth": "2026-05-31",
-      "image_url": "#N/A",
+      "image_url": null,
       "notes": null
     },
     {
@@ -37531,7 +37531,7 @@
       "est_payment_date": "2026-05-29",
       "est_payment_week": "2026-05-30",
       "est_payment_mth": "2026-05-31",
-      "image_url": "#N/A",
+      "image_url": null,
       "notes": null
     },
     {
@@ -40363,7 +40363,7 @@
       "est_payment_date": "2026-07-28",
       "est_payment_week": "2026-08-01",
       "est_payment_mth": "2026-07-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-scarf-45-anemome.png?v=1781750412",
       "notes": null
     },
     {
@@ -40411,7 +40411,7 @@
       "est_payment_date": "2026-07-28",
       "est_payment_week": "2026-08-01",
       "est_payment_mth": "2026-07-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-scarf-140-dashwood.png?v=1781750413",
       "notes": null
     },
     {
@@ -40459,7 +40459,7 @@
       "est_payment_date": "2026-07-28",
       "est_payment_week": "2026-08-01",
       "est_payment_mth": "2026-07-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-scarf-90-dashwood.png?v=1781750413",
       "notes": null
     },
     {
@@ -40699,7 +40699,7 @@
       "est_payment_date": "2026-03-23",
       "est_payment_week": "2026-03-28",
       "est_payment_mth": "2026-03-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-04_SF_PerfectPump_01.png?v=1744398253",
       "notes": null
     },
     {
@@ -41707,7 +41707,7 @@
       "est_payment_date": "2026-08-15",
       "est_payment_week": "2026-08-15",
       "est_payment_mth": "2026-08-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pkp-mocha.png?v=1781749723",
       "notes": null
     },
     {
@@ -41803,7 +41803,7 @@
       "est_payment_date": "2026-08-15",
       "est_payment_week": "2026-08-15",
       "est_payment_mth": "2026-08-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pp100-mocha.png?v=1781749722",
       "notes": null
     },
     {
@@ -41899,7 +41899,7 @@
       "est_payment_date": "2026-08-15",
       "est_payment_week": "2026-08-15",
       "est_payment_mth": "2026-08-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pp85-misty-gray.png?v=1781750790",
       "notes": null
     },
     {
@@ -42139,7 +42139,7 @@
       "est_payment_date": "2026-08-15",
       "est_payment_week": "2026-08-15",
       "est_payment_mth": "2026-08-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-prtp-espresso.png?v=1781750100",
       "notes": null
     },
     {
@@ -42187,7 +42187,7 @@
       "est_payment_date": "2026-08-15",
       "est_payment_week": "2026-08-15",
       "est_payment_mth": "2026-08-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-emma-black-calf.png?v=1781749724",
       "notes": null
     },
     {
@@ -42763,7 +42763,7 @@
       "est_payment_date": "2026-09-01",
       "est_payment_week": "2026-09-05",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pkp-misty-gray.jpg?v=1781750790",
       "notes": null
     },
     {
@@ -42811,7 +42811,7 @@
       "est_payment_date": "2026-09-13",
       "est_payment_week": "2026-09-19",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pp100-bordeaux-suede.png?v=1781749722",
       "notes": null
     },
     {
@@ -42859,7 +42859,7 @@
       "est_payment_date": "2026-09-13",
       "est_payment_week": "2026-09-19",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pp100-mocha.png?v=1781749722",
       "notes": null
     },
     {
@@ -42955,7 +42955,7 @@
       "est_payment_date": "2026-09-13",
       "est_payment_week": "2026-09-19",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pp100-misty-gray.png?v=1781749724",
       "notes": null
     },
     {
@@ -43003,7 +43003,7 @@
       "est_payment_date": "2026-09-13",
       "est_payment_week": "2026-09-19",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-ballet-black-suede.png?v=1781749722",
       "notes": null
     },
     {
@@ -43051,7 +43051,7 @@
       "est_payment_date": "2026-09-13",
       "est_payment_week": "2026-09-19",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-ballet-espresso-suede.jpg?v=1781749720",
       "notes": null
     },
     {
@@ -43099,7 +43099,7 @@
       "est_payment_date": "2026-09-13",
       "est_payment_week": "2026-09-19",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-ballet-lipstick-red.png?v=1781749722",
       "notes": null
     },
     {
@@ -43147,7 +43147,7 @@
       "est_payment_date": "2026-09-13",
       "est_payment_week": "2026-09-19",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-ballet-navy.png?v=1781749722",
       "notes": null
     },
     {
@@ -43195,7 +43195,7 @@
       "est_payment_date": "2026-09-13",
       "est_payment_week": "2026-09-19",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-ballet-taupe.png?v=1781749720",
       "notes": null
     },
     {
@@ -43243,7 +43243,7 @@
       "est_payment_date": "2026-09-13",
       "est_payment_week": "2026-09-19",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-blakeney-bblack.png?v=1781749723",
       "notes": null
     },
     {
@@ -43291,7 +43291,7 @@
       "est_payment_date": "2026-09-13",
       "est_payment_week": "2026-09-19",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-davis-bordeaux.png?v=1781749724",
       "notes": null
     },
     {
@@ -43339,7 +43339,7 @@
       "est_payment_date": "2026-09-13",
       "est_payment_week": "2026-09-19",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pmjp100-black-patent.png?v=1781749723",
       "notes": null
     },
     {
@@ -43387,7 +43387,7 @@
       "est_payment_date": "2026-09-13",
       "est_payment_week": "2026-09-19",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-alexandra-bordeaux.png?v=1781749721",
       "notes": null
     },
     {
@@ -43435,7 +43435,7 @@
       "est_payment_date": "2026-11-30",
       "est_payment_week": "2026-12-05",
       "est_payment_mth": "2026-11-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-emma-olive.png?v=1781749723",
       "notes": "7/15x OG"
     },
     {
@@ -43483,7 +43483,7 @@
       "est_payment_date": "2026-09-28",
       "est_payment_week": "2026-10-03",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-perez-flat-espresso.png?v=1781749722",
       "notes": null
     },
     {
@@ -43531,7 +43531,7 @@
       "est_payment_date": "2026-09-28",
       "est_payment_week": "2026-10-03",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-perez-85-black.png?v=1781749722",
       "notes": null
     },
     {
@@ -43579,7 +43579,7 @@
       "est_payment_date": "2026-09-28",
       "est_payment_week": "2026-10-03",
       "est_payment_mth": "2026-09-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-natalie-bordeaux-calf.png?v=1781749722",
       "notes": null
     },
     {
@@ -43627,7 +43627,7 @@
       "est_payment_date": "2026-11-30",
       "est_payment_week": "2026-12-05",
       "est_payment_mth": "2026-11-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-natalie-midnight-navy-tweed.png?v=1781749722",
       "notes": "7/30x OG"
     },
     {
@@ -45259,7 +45259,7 @@
       "est_payment_date": "2026-11-14",
       "est_payment_week": "2026-11-14",
       "est_payment_mth": "2026-11-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-judy-light-mocha.jpg?v=1781749720",
       "notes": null
     },
     {
@@ -45595,7 +45595,7 @@
       "est_payment_date": "2026-11-29",
       "est_payment_week": "2026-12-05",
       "est_payment_mth": "2026-11-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-stephanie-espresso-suede.png?v=1781749722",
       "notes": null
     },
     {
@@ -45835,7 +45835,7 @@
       "est_payment_date": "2026-11-29",
       "est_payment_week": "2026-12-05",
       "est_payment_mth": "2026-11-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-hambrook-bootie-espresso-calf.png?v=1781749722",
       "notes": null
     },
     {
@@ -45883,7 +45883,7 @@
       "est_payment_date": "2026-11-30",
       "est_payment_week": "2026-12-05",
       "est_payment_mth": "2026-11-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-natalie-anenome.png?v=1781749722",
       "notes": null
     },
     {
@@ -45931,7 +45931,7 @@
       "est_payment_date": "2026-11-30",
       "est_payment_week": "2026-12-05",
       "est_payment_mth": "2026-11-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-emma-anenome.png?v=1781749723",
       "notes": null
     },
     {
@@ -45979,7 +45979,7 @@
       "est_payment_date": "2026-11-30",
       "est_payment_week": "2026-12-05",
       "est_payment_mth": "2026-11-30",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-emma-midnight-navy-tweed.png?v=1781749724",
       "notes": null
     },
     {
@@ -46027,7 +46027,7 @@
       "est_payment_date": "2026-12-14",
       "est_payment_week": "2026-12-19",
       "est_payment_mth": "2026-12-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-hambrook-bootie-black-suede.jpg?v=1781749720",
       "notes": null
     },
     {
@@ -46075,7 +46075,7 @@
       "est_payment_date": "2026-12-14",
       "est_payment_week": "2026-12-19",
       "est_payment_mth": "2026-12-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-hambrook-bootie-espresso-calf.png?v=1781749722",
       "notes": null
     },
     {
@@ -46123,7 +46123,7 @@
       "est_payment_date": "2026-12-14",
       "est_payment_week": "2026-12-19",
       "est_payment_mth": "2026-12-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-hambrook-boot-black-calf.png?v=1781749721",
       "notes": null
     },
     {
@@ -46171,7 +46171,7 @@
       "est_payment_date": "2026-12-14",
       "est_payment_week": "2026-12-19",
       "est_payment_mth": "2026-12-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-hambrook-black-calf.png?v=1781749721",
       "notes": null
     },
     {
@@ -46219,7 +46219,7 @@
       "est_payment_date": "2026-12-14",
       "est_payment_week": "2026-12-19",
       "est_payment_mth": "2026-12-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-helen-bootie-light-mocha.png?v=1781749723",
       "notes": null
     },
     {
@@ -46267,7 +46267,7 @@
       "est_payment_date": "2026-12-29",
       "est_payment_week": "2027-01-02",
       "est_payment_mth": "2026-12-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-perfect-sandal-85-mauve.png?v=1781749722",
       "notes": null
     },
     {
@@ -46315,7 +46315,7 @@
       "est_payment_date": "2026-12-31",
       "est_payment_week": "2027-01-02",
       "est_payment_mth": "2026-12-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-colbert-loafer-velvet.png?v=1781749722",
       "notes": null
     },
     {
@@ -46363,7 +46363,7 @@
       "est_payment_date": "2026-12-31",
       "est_payment_week": "2027-01-02",
       "est_payment_mth": "2026-12-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-karey-flat-velvet.png?v=1781749722",
       "notes": null
     },
     {
@@ -46411,7 +46411,7 @@
       "est_payment_date": "2026-12-31",
       "est_payment_week": "2027-01-02",
       "est_payment_mth": "2026-12-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pp85-black-velvet-pearl.png?v=1781749721",
       "notes": null
     },
     {
@@ -46459,7 +46459,7 @@
       "est_payment_date": "2027-01-30",
       "est_payment_week": "2027-01-30",
       "est_payment_mth": "2027-01-31",
-      "image_url": "#N/A",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-espresso-crosta.png?v=1781749723",
       "notes": null
     },
     {
