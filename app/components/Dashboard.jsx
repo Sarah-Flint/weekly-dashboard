@@ -2634,7 +2634,7 @@ const label = mo.slice(0,7); // "2026-06"
         <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false}/>
         <XAxis dataKey="mo" tick={{fontSize:10,fill:C.sL}}/>
         <YAxis tick={{fontSize:10,fill:C.sL}} tickFormatter={v=>v>=1000?`${Math.round(v/1000)}K`:v}/>
-        <Tooltip content={<CT/>}/>
+        <Tooltip content={({active,payload,label})=>{if(!active||!payload?.length)return null;return(<div style={{background:"#fff",border:`1px solid ${C.bd}`,borderRadius:8,padding:"10px 14px",boxShadow:"0 4px 16px rgba(0,0,0,0.08)"}}><div style={{fontSize:12,fontWeight:600,color:C.nv,marginBottom:4}}>{label}</div>{payload.map((p,i)=><div key={i} style={{fontSize:12,color:p.color||C.sl}}>{p.name}: {typeof p.value==="number"?p.value.toLocaleString():p.value} units</div>)}</div>);}}/>
         <Legend wrapperStyle={{fontSize:11}}/>
         <Bar dataKey="notShipped" stackId="a" fill="#e2e8f0" name="Not Shipped"/>
         <Bar dataKey="inTransit"  stackId="a" fill="#60a5fa" name="In Transit"/>
@@ -2767,12 +2767,12 @@ const label = mo.slice(0,7); // "2026-06"
                   <td style={{padding:"4px 8px",background:rowBg,width:48}}>
                     {s.image_url&&<img src={s.image_url} alt="" style={{width:44,height:44,objectFit:"contain",borderRadius:4,background:"#fff"}}/>}
                   </td>
-                  <td style={{padding:"7px 8px",background:rowBg,maxWidth:180}}>
-                    <div style={{fontWeight:700,color:C.nv,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{s.style_name}</div>
+                  <td style={{padding:"7px 8px",background:rowBg,maxWidth:130}}>
+                    <div style={{fontWeight:700,color:C.nv,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis",fontSize:12}}>{s.style_name}</div>
                     {s.color&&<div style={{fontSize:10,color:C.sL,marginTop:1}}>{s.color}</div>}
                   </td>
                   <td style={{padding:"7px 8px",fontFamily:"monospace",fontSize:11,color:"#64748b"}}>{s.style_number}</td>
-                  <td style={{padding:"7px 8px",fontSize:11,color:C.sL}}>
+                  <td style={{padding:"7px 8px",fontSize:10,color:C.sL,maxWidth:80,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>
                     {s.shipments.map(r=>r.po_number).filter((v,i,a)=>v&&a.indexOf(v)===i).join(", ")||"—"}
                   </td>
                   <td style={{padding:"7px 8px"}}>
