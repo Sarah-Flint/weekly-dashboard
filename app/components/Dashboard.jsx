@@ -2763,8 +2763,8 @@ const label = mo.slice(0,7); // "2026-06"
                     <SBadge s={agg.status}/>
                     {s.launch_category&&<div style={{fontSize:10,color:C.sL,marginTop:2}}>{s.launch_category}</div>}
                   </td>
-                  <td style={{padding:"4px 8px",background:rowBg,width:44}}>
-                    {s.image_url?<img src={s.image_url} alt="" style={{width:40,height:40,objectFit:"cover",borderRadius:6,border:`1px solid ${C.bd}`}}/>:<div style={{width:40,height:40,borderRadius:6,background:"#f1f5f9",border:`1px solid ${C.bd}`}}/>}
+                  <td style={{padding:"4px 8px",background:rowBg,width:48}}>
+                    {s.image_url&&<img src={s.image_url} alt="" style={{width:44,height:44,objectFit:"contain",borderRadius:4,background:"#f8fafc"}}/>}
                   </td>
                   <td style={{padding:"7px 8px",background:rowBg,maxWidth:180}}>
                     <div style={{fontWeight:700,color:C.nv,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}}>{s.style_name}</div>
