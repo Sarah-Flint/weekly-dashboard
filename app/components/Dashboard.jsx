@@ -2432,14 +2432,14 @@ const label = mo.slice(0,7); // "2026-06"
   const restockInTransit = raw
     .filter(r => r.launch_category === "Restock"
       && r.status !== "Full Receipt"
-      && (Number(r.units_outstanding) || 0) > 5)
+      && ((Number(r.units_outstanding) || 0) + (Number(r.units_in_transit) || 0)) > 5)
     .map(r => ({
       style: r.style_name,
       styleNumber: r.style_number,
       color: r.color,
       status: r.status,
       image_url: r.image_url || null,
-      qtyIncoming: Number(r.units_outstanding) || 0,
+      qtyIncoming: (Number(r.units_in_transit) || 0) + (Number(r.units_outstanding) || 0),
       inwhDate: r.inwh_date,
       deliveryMonth: r.delivery_month || "Unknown",
       oh: ohByStyleNumber[String(r.style_number ?? "").trim()] || 0,
