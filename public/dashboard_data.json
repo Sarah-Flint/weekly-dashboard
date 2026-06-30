@@ -5,7 +5,7 @@
     "quarter": "Q2",
     "lastUpdatedISO": "2026-06-29T15:58:10.097Z",
     "lastUpdatedEST": "Jun 29, 2026 11:58:10",
-    "poLastUpdatedEST": "Jun 29, 2026 11:58:12"
+    "poLastUpdatedEST": "Jun 29, 2026 23:30:16"
   },
   "kpi": [
     {
@@ -32350,7 +32350,12 @@
       "latest_USD_total_cost": 18768.53,
       "USD_received": 18768.53,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-01-25",
+      "est_payment_week": "2026-01-31",
+      "est_payment_mth": "2026-01-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_CROSSOVER_PLATFORM_80_02_01_v2.png?v=1756985949",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -32397,7 +32402,12 @@
       "latest_USD_total_cost": 6124.44,
       "USD_received": 6124.44,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-01-25",
+      "est_payment_week": "2026-01-31",
+      "est_payment_mth": "2026-01-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_CROSSOVER_PLATFORM_80_03_01.png?v=1756985947",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -32444,7 +32454,12 @@
       "latest_USD_total_cost": 6551.5,
       "USD_received": 6551.5,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-01-25",
+      "est_payment_week": "2026-01-31",
+      "est_payment_mth": "2026-01-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_CROSSOVER_PLATFORM_80_04_01.png?v=1756985944",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -32491,7 +32506,12 @@
       "latest_USD_total_cost": 17780.73,
       "USD_received": 17780.73,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-01-25",
+      "est_payment_week": "2026-01-31",
+      "est_payment_mth": "2026-01-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_20_PERFECT_CROSSOVER_PLATOFRM_90_Black_Suede_01.png?v=1769186148",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -32538,7 +32558,12 @@
       "latest_USD_total_cost": 8878.46,
       "USD_received": 8878.46,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_02_PERFECT_KITTEN_PUMP_50_Dusty_Brown_Patent_01.png?v=1766001102",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -32585,7 +32610,12 @@
       "latest_USD_total_cost": 11727.69,
       "USD_received": 11727.69,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_03_PERFECT_PUMP_85_Dusty_Brown_Patent_01.png?v=1766001233",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -32632,7 +32662,12 @@
       "latest_USD_total_cost": 10743.91,
       "USD_received": 10743.91,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_05_PERFECT_ROUNDTOE_PUMP_Camel_Suede_01.png?v=1766001670",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -32679,7 +32714,12 @@
       "latest_USD_total_cost": 13340.25,
       "USD_received": 13340.25,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_04_PERFECT_PUMP_85_Camel_Suede_01.png?v=1766001415",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -32726,7 +32766,12 @@
       "latest_USD_total_cost": 17145.32,
       "USD_received": 17145.32,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectEmma_BlackSuede_1_Side-min.png?v=1756986348",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -32773,7 +32818,12 @@
       "latest_USD_total_cost": 7398.71,
       "USD_received": 7398.71,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectKittenPump50_BlackCalf_Side1.png?v=1756986167",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -32820,7 +32870,12 @@
       "latest_USD_total_cost": 8138.59,
       "USD_received": 8138.59,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectKittenPump50_BlackSuede_Side1.png?v=1756986169",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -32867,7 +32922,12 @@
       "latest_USD_total_cost": 7036.63,
       "USD_received": 7036.63,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump85_EspressoSuede1_Side.png?v=1756986262",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -32914,7 +32974,12 @@
       "latest_USD_total_cost": 7183.22,
       "USD_received": 7183.22,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/PerfPump85_DarkNavy2_Side-a.png?v=1756986383",
+      "notes": "1/38,5 shipped 11/21 INBSHIP367; INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -32961,7 +33026,12 @@
       "latest_USD_total_cost": 9382.18,
       "USD_received": 9382.18,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump85_SandCalf1_side-min.png?v=1756986341",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -33008,7 +33078,12 @@
       "latest_USD_total_cost": 6124.7,
       "USD_received": 6124.7,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/RoundToePump_BlackSuede1_Side.png?v=1756986303",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -33055,7 +33130,12 @@
       "latest_USD_total_cost": 9683.18,
       "USD_received": 9683.18,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Natalie_Black1_Top.png?v=1757419178",
+      "notes": "INBSHIP375 bal 12/18"
     },
     {
       "status": "Full Receipt",
@@ -33102,7 +33182,12 @@
       "latest_USD_total_cost": 9268.18,
       "USD_received": 9268.18,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Natalie_Saddle1_Side.png?v=1757419172",
+      "notes": "INBSHIP375 bal 12/18"
     },
     {
       "status": "Full Receipt",
@@ -33149,7 +33234,12 @@
       "latest_USD_total_cost": 8454.5,
       "USD_received": 8454.5,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Natalie_SandCalf1_side-min.png?v=1757419154",
+      "notes": "INBSHIP375 bal 12/18"
     },
     {
       "status": "Full Receipt",
@@ -33196,7 +33286,12 @@
       "latest_USD_total_cost": 10257.37,
       "USD_received": 10257.37,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/natalie_taupe_side1.png?v=1757419128",
+      "notes": "INBSHIP375 bal 12/18"
     },
     {
       "status": "Full Receipt",
@@ -33243,7 +33338,12 @@
       "latest_USD_total_cost": 10261.68,
       "USD_received": 10261.68,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_10_PERFECT_PUMP_85_Sea_Blue_Patent_01-ezgif.com-optipng.png?v=1769119578",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -33290,7 +33390,12 @@
       "latest_USD_total_cost": 2469.78,
       "USD_received": 2469.78,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-09",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_11_SARAH_S_GARDEN_SCARF_45_Hydrangea_Blue_Silk_01-resized.png?v=1769124261",
+      "notes": "INBSHIP375 bal 12/11"
     },
     {
       "status": "Full Receipt",
@@ -33337,7 +33442,12 @@
       "latest_USD_total_cost": 10259.62,
       "USD_received": 10259.62,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-08",
+      "est_payment_week": "2026-02-14",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_06_PERFECT_STEPHANIE_Camel_Suede_01.png?v=1766001872",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -33384,7 +33494,12 @@
       "latest_USD_total_cost": 449.15,
       "USD_received": 449.15,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-27",
+      "est_payment_week": "2026-02-28",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-10-31_SF_Judy_01.png?v=1762281866",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -33431,7 +33546,12 @@
       "latest_USD_total_cost": 3889.56,
       "USD_received": 3889.56,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-28",
+      "est_payment_week": "2026-02-28",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-10-31_SF_Emma_01_v3.png?v=1762293944",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -33478,7 +33598,12 @@
       "latest_USD_total_cost": 1288.07,
       "USD_received": 1288.07,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-28",
+      "est_payment_week": "2026-02-28",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/perfect-elizabeth-black-crosta-V2.png?v=1764703852",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -33525,7 +33650,12 @@
       "latest_USD_total_cost": 990.84,
       "USD_received": 990.84,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-28",
+      "est_payment_week": "2026-02-28",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/perfect-elizabeth-cognac-crosta-V2.png?v=1764703666",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -33572,7 +33702,12 @@
       "latest_USD_total_cost": 12273.44,
       "USD_received": 12273.44,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-02-28",
+      "est_payment_week": "2026-02-28",
+      "est_payment_mth": "2026-02-28",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-06-05_SF_11_A_PerfectDressBoot60_EspressoStretchNappa.png?v=1756986048",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -33619,7 +33754,12 @@
       "latest_USD_total_cost": 9928.69,
       "USD_received": 9928.69,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-10",
+      "est_payment_week": "2026-03-14",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-06-10_SF_PERFECT_STEPHANIE_45-Black_Suede_01.png?v=1756985898",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -33666,7 +33806,12 @@
       "latest_USD_total_cost": 9778.73,
       "USD_received": 9778.73,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-16",
+      "est_payment_week": "2026-03-21",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_01_ALYSIA_SNEAKER_Grey_Crosta_01_v2.png?v=1766002949",
+      "notes": "INBSHIP382 bal 1/15"
     },
     {
       "status": "Full Receipt",
@@ -33713,7 +33858,12 @@
       "latest_USD_total_cost": 8107.12,
       "USD_received": 8107.12,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-16",
+      "est_payment_week": "2026-03-21",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/PerfPump85_Pomegranate1_Side.png?v=1766158004",
+      "notes": "INBSHIP382 bal 1/15"
     },
     {
       "status": "PO Not Placed",
@@ -33733,11 +33883,11 @@
       "freight_method": "Air",
       "oh_qty": 0,
       "13w_sales": 0,
-      "units_ordered": 100,
+      "units_ordered": 150,
       "units_in_transit": null,
       "units_received": null,
       "units_cancelled": null,
-      "units_outstanding": 100,
+      "units_outstanding": 150,
       "ex_factory_date": "2027-01-05",
       "inwh_date": "2027-01-12",
       "shipment_id": null,
@@ -33747,20 +33897,25 @@
       "website_pre_order": null,
       "net_terms_days": 30,
       "est_EUR_unit_cost": 128,
-      "est_EUR_total_cost": 12800,
+      "est_EUR_total_cost": 19200,
       "est_USD_unit_cost": 151.04,
-      "est_USD_total_cost": 15104,
+      "est_USD_total_cost": 22656,
       "actual_EUR_unit_cost": null,
       "actual_EUR_total_cost": null,
       "actual_USD_unit_cost": null,
       "actual_USD_total_cost": null,
       "latest_EUR_unit_cost": 128,
-      "latest_EUR_total_cost": 12800,
+      "latest_EUR_total_cost": 19200,
       "latest_USD_unit_cost": 151.04,
-      "latest_USD_total_cost": 15104,
+      "latest_USD_total_cost": 22656,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 15104
+      "USD_outsanding_cost": 22656,
+      "est_payment_date": "2027-02-04",
+      "est_payment_week": "2027-02-06",
+      "est_payment_mth": "2027-02-28",
+      "image_url": null,
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -33807,7 +33962,12 @@
       "latest_USD_total_cost": 7917.05,
       "USD_received": 7917.05,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-16",
+      "est_payment_week": "2026-03-21",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectEmma_Sand1_Side.png?v=1756986270",
+      "notes": "INBSHIP382 bal 1/15"
     },
     {
       "status": "Full Receipt",
@@ -33854,7 +34014,12 @@
       "latest_USD_total_cost": 5448.59,
       "USD_received": 5448.59,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-16",
+      "est_payment_week": "2026-03-21",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Perfect-Pump-100-Black-Side.png?v=1756986402",
+      "notes": "INBSHIP382 bal 1/15"
     },
     {
       "status": "Full Receipt",
@@ -33901,7 +34066,12 @@
       "latest_USD_total_cost": 9709.59,
       "USD_received": 9709.59,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-16",
+      "est_payment_week": "2026-03-21",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump100_Black_Suede_1_Side-min.png?v=1756986361",
+      "notes": "INBSHIP382 bal 1/15"
     },
     {
       "status": "Full Receipt",
@@ -33948,7 +34118,12 @@
       "latest_USD_total_cost": 6561.13,
       "USD_received": 6561.13,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-16",
+      "est_payment_week": "2026-03-21",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/PerfectPump100_NavySuede1_recolor.png?v=1756986381",
+      "notes": "INBSHIP382 bal 1/15"
     },
     {
       "status": "Full Receipt",
@@ -33995,7 +34170,12 @@
       "latest_USD_total_cost": 5924.4,
       "USD_received": 5924.4,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-16",
+      "est_payment_week": "2026-03-21",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Perfect_Pump_85_White_Calf1_Side.png?v=1756986378",
+      "notes": "INBSHIP382 bal 1/15"
     },
     {
       "status": "Full Receipt",
@@ -34042,7 +34222,12 @@
       "latest_USD_total_cost": 15402.78,
       "USD_received": 15402.78,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-16",
+      "est_payment_week": "2026-03-21",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_44_PERFECT_MARY_JANE_PUMP_85_Black_Patent_01.png?v=1769116714",
+      "notes": "INBSHIP382 bal 1/15"
     },
     {
       "status": "Full Receipt",
@@ -34089,7 +34274,12 @@
       "latest_USD_total_cost": 12863.88,
       "USD_received": 12863.88,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-16",
+      "est_payment_week": "2026-03-21",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_57_PERFECT_MARY_JANE_PUMP_85_Sand_Patent_01.png?v=1769116561",
+      "notes": "INBSHIP382 bal 1/15"
     },
     {
       "status": "Full Receipt",
@@ -34136,7 +34326,12 @@
       "latest_USD_total_cost": 10550.74,
       "USD_received": 10550.74,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-16",
+      "est_payment_week": "2026-03-21",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_07_ALYSIA_SNEAKER_Ocean_Blue_Crosta_01.png?v=1769118171",
+      "notes": "INBSHIP382 bal 1/15"
     },
     {
       "status": "Full Receipt",
@@ -34183,7 +34378,12 @@
       "latest_USD_total_cost": 3873.11,
       "USD_received": 3873.11,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-24",
+      "est_payment_week": "2026-03-28",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectSandal85_Black1_Side-min.png?v=1756986391",
+      "notes": "INBSHIP385 bal shipped 1/23"
     },
     {
       "status": "Full Receipt",
@@ -34230,7 +34430,12 @@
       "latest_USD_total_cost": 4990.37,
       "USD_received": 4990.37,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-24",
+      "est_payment_week": "2026-03-28",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectSandal_GoldNappa_85mm_Side-min.png?v=1756986354",
+      "notes": "INBSHIP385 bal shipped 1/23"
     },
     {
       "status": "Full Receipt",
@@ -34277,7 +34482,12 @@
       "latest_USD_total_cost": 9654.89,
       "USD_received": 9654.89,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-24",
+      "est_payment_week": "2026-03-28",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal30_Sand1_side-min.png?v=1756986330",
+      "notes": "INBSHIP385 bal shipped 1/23"
     },
     {
       "status": "Full Receipt",
@@ -34324,7 +34534,12 @@
       "latest_USD_total_cost": 12182.77,
       "USD_received": 12182.77,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-24",
+      "est_payment_week": "2026-03-28",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal60_Black1_side-min.png?v=1756986317",
+      "notes": "INBSHIP385 bal shipped 1/23"
     },
     {
       "status": "Full Receipt",
@@ -34371,7 +34586,12 @@
       "latest_USD_total_cost": 11619.4,
       "USD_received": 11619.4,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-24",
+      "est_payment_week": "2026-03-28",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal60_GoldNappa1_side-min.png?v=1756986319",
+      "notes": "INBSHIP385 bal shipped 1/23"
     },
     {
       "status": "Full Receipt",
@@ -34418,7 +34638,12 @@
       "latest_USD_total_cost": 7224.9,
       "USD_received": 7224.9,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-24",
+      "est_payment_week": "2026-03-28",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal60_Sand1_side-min_415bf2aa-19b2-4ab4-9e48-5e3ac0698911.png?v=1756986322",
+      "notes": "INBSHIP385 bal shipped 1/23"
     },
     {
       "status": "Full Receipt",
@@ -34465,7 +34690,12 @@
       "latest_USD_total_cost": 22654.72,
       "USD_received": 22654.72,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-29",
+      "est_payment_week": "2026-04-04",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_19_PERFECT_CROSSOVER_PLATOFRM_90_Sand_Calf_01.png?v=1769185359",
+      "notes": "INBSHIP388 bal 2/12"
     },
     {
       "status": "Full Receipt",
@@ -34512,7 +34742,12 @@
       "latest_USD_total_cost": 2365.75,
       "USD_received": 2365.75,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-27",
+      "est_payment_week": "2026-03-28",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_18_REVERSIBLE_SCARF_BELT_Navy_and_Red_Calf_01-v2.png?v=1769181909",
+      "notes": "Cxl bal 1?"
     },
     {
       "status": "Full Receipt",
@@ -34559,7 +34794,12 @@
       "latest_USD_total_cost": 1556.13,
       "USD_received": 1556.13,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-23",
+      "est_payment_week": "2026-03-28",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-04_SF_PerfectPump_01.png?v=1744398253",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -34606,7 +34846,12 @@
       "latest_USD_total_cost": 4907.51,
       "USD_received": 4907.51,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-23",
+      "est_payment_week": "2026-03-28",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_PUMP_85_STARRY_NIGHT_BEADED_SATIN_01.png?v=1748546895",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -34653,7 +34898,12 @@
       "latest_USD_total_cost": 535.43,
       "USD_received": 535.43,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-23",
+      "est_payment_week": "2026-03-28",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25_08_05_SF_PERFECT_PUMP_85_OF_VENUS_Seafoam_Embroidery_01-2.png?v=1756825587",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -34700,7 +34950,12 @@
       "latest_USD_total_cost": 1079.29,
       "USD_received": 1079.29,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-03-23",
+      "est_payment_week": "2026-03-28",
+      "est_payment_mth": "2026-03-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_PUMP_WOMAN_IN_GOLD_85_Metallic_Beaded_Satin_01.png?v=1748378367",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -34747,7 +35002,12 @@
       "latest_USD_total_cost": 10624.97,
       "USD_received": 10624.97,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-06",
+      "est_payment_week": "2026-04-11",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_30_PERFECT_GITA_70_Black_Suede_01.png?v=1769116347",
+      "notes": "INBSHIP386 bal 2/4"
     },
     {
       "status": "Full Receipt",
@@ -34794,7 +35054,12 @@
       "latest_USD_total_cost": 5863.8,
       "USD_received": 5863.8,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-06",
+      "est_payment_week": "2026-04-11",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_PERFECT_KITTEN_PUMP_50-BLACK_PATENT_01_Sq_f7812d39-a0f4-4f19-80b6-1b3960efee4f.png?v=1756986016",
+      "notes": "INBSHIP386 bal 2/4"
     },
     {
       "status": "Full Receipt",
@@ -34841,7 +35106,12 @@
       "latest_USD_total_cost": 7595.05,
       "USD_received": 7595.05,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-06",
+      "est_payment_week": "2026-04-11",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfetPump100_SandCalf1_side-min.png?v=1756986339",
+      "notes": "INBSHIP382 bal 1/15"
     },
     {
       "status": "Full Receipt",
@@ -34888,7 +35158,12 @@
       "latest_USD_total_cost": 15511.1,
       "USD_received": 15511.1,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-06",
+      "est_payment_week": "2026-04-11",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump85_Black1_Side.png?v=1756986359",
+      "notes": "INBSHIP386 bal 2/4"
     },
     {
       "status": "Full Receipt",
@@ -34935,7 +35210,12 @@
       "latest_USD_total_cost": 9790.87,
       "USD_received": 9790.87,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-06",
+      "est_payment_week": "2026-04-11",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_PERFECT_PUMP_85-LIGHT_SAND_PATENT_01_566d5339-98b3-47b7-ba17-9582d2350fc0.png?v=1756986013",
+      "notes": "INBSHIP386 bal 2/4"
     },
     {
       "status": "Full Receipt",
@@ -34982,7 +35262,12 @@
       "latest_USD_total_cost": 9870.71,
       "USD_received": 9870.71,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-06",
+      "est_payment_week": "2026-04-11",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfPump85_TaupeSuede1_Side_UPDATE.png?v=1756986395",
+      "notes": "INBSHIP386 bal 2/4"
     },
     {
       "status": "Full Receipt",
@@ -35029,7 +35314,12 @@
       "latest_USD_total_cost": 19113.39,
       "USD_received": 19113.39,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-07",
+      "est_payment_week": "2026-04-11",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_PERFECT_CROSSOVER_SANDAL_50-COGNAC_CALF_01.png?v=1756985960",
+      "notes": "INBSHIP385 partial 46u shipped 1/23, INBSHIP387 bal 2/5"
     },
     {
       "status": "Full Receipt",
@@ -35076,7 +35366,12 @@
       "latest_USD_total_cost": 16581.28,
       "USD_received": 16581.28,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-07",
+      "est_payment_week": "2026-04-11",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_PERFECT_CROSSOVER_SANDAL_50-GOLD_TEXTURED_SAFFIANO_01.png?v=1756985961",
+      "notes": "INBSHIP385 partial 99u shipped 1/23, INBSHIP387 bal 2/5"
     },
     {
       "status": "Full Receipt",
@@ -35123,7 +35418,12 @@
       "latest_USD_total_cost": 3776.71,
       "USD_received": 3776.71,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-13",
+      "est_payment_week": "2026-04-18",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_29_BEETLE__CAT__SCARF__90_Blue_Nautical_Silk_01-resized.png?v=1769123601",
+      "notes": "INBSHIP389 bal 2/12"
     },
     {
       "status": "Full Receipt",
@@ -35170,7 +35470,12 @@
       "latest_USD_total_cost": 2474.29,
       "USD_received": 2474.29,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-13",
+      "est_payment_week": "2026-04-18",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_28_BEETLE__CAT__GREAR__TIES_Blue_Nautical_Silk_01.png?v=1769121871",
+      "notes": "INBSHIP389 bal 2/12"
     },
     {
       "status": "Full Receipt",
@@ -35217,7 +35522,12 @@
       "latest_USD_total_cost": 11006.09,
       "USD_received": 11006.09,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-25",
+      "est_payment_week": "2026-04-25",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_45_BOAT_SHOE_Sandstone_Nubuck_01.png?v=1769198748",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35264,7 +35574,12 @@
       "latest_USD_total_cost": 10787.97,
       "USD_received": 10787.97,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-25",
+      "est_payment_week": "2026-04-25",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_21_PERFECT_EMMA_Cognac_Calf_01.png?v=1769203571",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35311,7 +35626,12 @@
       "latest_USD_total_cost": 11037.53,
       "USD_received": 11037.53,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-25",
+      "est_payment_week": "2026-04-25",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_23_PERFECT_EMMA_85_Cognac_Calf_01.png?v=1769204314",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35358,7 +35678,12 @@
       "latest_USD_total_cost": 11037.53,
       "USD_received": 11037.53,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-25",
+      "est_payment_week": "2026-04-25",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_22_PERFECT_EMMA_85_Black_Calf_01.png?v=1769204246",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35405,7 +35730,12 @@
       "latest_USD_total_cost": 18585.74,
       "USD_received": 18585.74,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-10",
+      "est_payment_week": "2026-04-11",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_CROSSOVER_PLATFORM_80_02_01_v2.png?v=1756985949",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35452,7 +35782,12 @@
       "latest_USD_total_cost": 8846.42,
       "USD_received": 8846.42,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-10",
+      "est_payment_week": "2026-04-11",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_CROSSOVER_PLATFORM_80_03_01.png?v=1756985947",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35499,7 +35834,12 @@
       "latest_USD_total_cost": 11726.03,
       "USD_received": 11726.03,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-25",
+      "est_payment_week": "2026-04-25",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectEmma_BlackSuede_1_Side-min.png?v=1756986348",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35546,7 +35886,12 @@
       "latest_USD_total_cost": 5192.58,
       "USD_received": 5192.58,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-25",
+      "est_payment_week": "2026-04-25",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_PERFECT_EMMA_50-GOLD_TEXTURED_SAFFIANO_01.png?v=1756986026",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35593,7 +35938,12 @@
       "latest_USD_total_cost": 5003.1,
       "USD_received": 5003.1,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-25",
+      "est_payment_week": "2026-04-25",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Emma_Navy1_Side-min_6e9618f2-54ce-4158-8d91-7138837c4956.png?v=1756986346",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35640,7 +35990,12 @@
       "latest_USD_total_cost": 5003.06,
       "USD_received": 5003.06,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-25",
+      "est_payment_week": "2026-04-25",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectEmma_Taupe_Suede_1_Side-min.png?v=1756986344",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35687,7 +36042,12 @@
       "latest_USD_total_cost": 5006.13,
       "USD_received": 5006.13,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-25",
+      "est_payment_week": "2026-04-25",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_PERFECT_KITTEN_PUMP_50-BLACK_PATENT_01_Sq_f7812d39-a0f4-4f19-80b6-1b3960efee4f.png?v=1756986016",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35734,7 +36094,12 @@
       "latest_USD_total_cost": 6579.49,
       "USD_received": 6579.49,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-25",
+      "est_payment_week": "2026-04-25",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectKittenPump50_BlackSuede_Side1.png?v=1756986169",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35781,7 +36146,12 @@
       "latest_USD_total_cost": 5435.21,
       "USD_received": 5435.21,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-25",
+      "est_payment_week": "2026-04-25",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-06-10_SF_PERFECT_KITTEN_PUMP_50_Navy_Suede_01.png?v=1756985893",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35828,7 +36198,12 @@
       "latest_USD_total_cost": 5149.15,
       "USD_received": 5149.15,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-25",
+      "est_payment_week": "2026-04-25",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectKittenPump_SandCalf_Side1.png?v=1756986161",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35875,7 +36250,12 @@
       "latest_USD_total_cost": 5864.34,
       "USD_received": 5864.34,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-25",
+      "est_payment_week": "2026-04-25",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectKittenPump50_TaupesSuede_Side1.png?v=1756986164",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -35922,7 +36302,12 @@
       "latest_USD_total_cost": 6019.48,
       "USD_received": 6019.48,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-27",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectKittenPump_SandCalf_Side1.png?v=1756986161",
+      "notes": "INBSHIP382 partial 1/15, INBSHIP392 2/26"
     },
     {
       "status": "Full Receipt",
@@ -35969,7 +36354,12 @@
       "latest_USD_total_cost": 5916.24,
       "USD_received": 5916.24,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-27",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump85_WeddingWhite1_side-min.png?v=1756986308",
+      "notes": "INBSHIP392"
     },
     {
       "status": "Full Receipt",
@@ -36016,7 +36406,12 @@
       "latest_USD_total_cost": 9366.85,
       "USD_received": 9366.85,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-27",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_AYSIA-SNEAKER_SILVERSAFFIANO_01.png?v=1757419057",
+      "notes": "Canceling 3u size 39 balance due to outsoles"
     },
     {
       "status": "Full Receipt",
@@ -36063,7 +36458,12 @@
       "latest_USD_total_cost": 9122.59,
       "USD_received": 9122.59,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-27",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_04_PERFECT_PUMP_85_Camel_Suede_01.png?v=1766001415",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -36110,7 +36510,12 @@
       "latest_USD_total_cost": 7448.24,
       "USD_received": 7448.24,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-27",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_05_PERFECT_ROUNDTOE_PUMP_Camel_Suede_01.png?v=1766001670",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -36157,7 +36562,12 @@
       "latest_USD_total_cost": 6134.54,
       "USD_received": 6134.54,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-28",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_41_NATALIE_Blue_Hydrangea_Silk_01.png?v=1769119337",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -36204,7 +36614,12 @@
       "latest_USD_total_cost": 12177.77,
       "USD_received": 12177.77,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-28",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/26-02-13_SF_PerfectBlockSandal60_SilverSaffiano_01.png?v=1771365926",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -36251,7 +36666,12 @@
       "latest_USD_total_cost": 11187.01,
       "USD_received": 11187.01,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-28",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_17_PERFECT_SLING_85_Silver_Textured_Saffiano_01.png?v=1769180529",
+      "notes": null
     },
     {
       "status": "PO Not Placed",
@@ -36298,7 +36718,12 @@
       "latest_USD_total_cost": 5575.5,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5575.5
+      "USD_outsanding_cost": 5575.5,
+      "est_payment_date": "2026-11-30",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": null,
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -36345,7 +36770,12 @@
       "latest_USD_total_cost": 3958.55,
       "USD_received": 3958.55,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-28",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/HiddenGardenScarf90_Chesnut_Front1-min.png?v=1756986312",
+      "notes": "71 only, cxl 9"
     },
     {
       "status": "Full Receipt",
@@ -36392,7 +36822,12 @@
       "latest_USD_total_cost": 2267.49,
       "USD_received": 2267.49,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-28",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/HiddenGardenScarf90_Blue_Front1-min.png?v=1756986311",
+      "notes": "full 40"
     },
     {
       "status": "Full Receipt",
@@ -36439,7 +36874,12 @@
       "latest_USD_total_cost": 12019.97,
       "USD_received": 12019.97,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-28",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_13_MARINER_S_SCARF_140_01-resized.png?v=1769123608",
+      "notes": "INBSHIP389 bal 2/12"
     },
     {
       "status": "Full Receipt",
@@ -36486,7 +36926,12 @@
       "latest_USD_total_cost": 11328.64,
       "USD_received": 11328.64,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-19",
+      "est_payment_week": "2026-04-25",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_08_PERFECT_KENDRA_45_Light_Pink_Patent_01-ezgif.com-optipng.png?v=1769121740",
+      "notes": "INBSHIP395 partial 3/2, INBSHIP400 bal 3/19"
     },
     {
       "status": "Full Receipt",
@@ -36533,7 +36978,12 @@
       "latest_USD_total_cost": 12999.17,
       "USD_received": 12999.17,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-26",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_09_PERFECT_KENDRA_45_Nacy_Croc_Embossed_Calf_01-ezgif.com-optipng.png?v=1769122292",
+      "notes": "INBSHIP395 partial 3/2, INBSHIP400 partial 3/19,\n INBSHIP404 bal 3/27"
     },
     {
       "status": "Full Receipt",
@@ -36580,7 +37030,12 @@
       "latest_USD_total_cost": 4585.06,
       "USD_received": 4585.06,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-26",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_33_KNOT_BELT_Saddle_and_Cream_04-3.png?v=1769627783",
+      "notes": "INBSHIP402 bal"
     },
     {
       "status": "Full Receipt",
@@ -36627,7 +37082,12 @@
       "latest_USD_total_cost": 1965.02,
       "USD_received": 1965.02,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-26",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_34_KNOT_BELT_Navy_and_Cobalt_04-4.png?v=1769627880",
+      "notes": "INBSHIP402 bal"
     },
     {
       "status": "Full Receipt",
@@ -36674,7 +37134,12 @@
       "latest_USD_total_cost": 219.13,
       "USD_received": 219.13,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-04-29",
+      "est_payment_week": "2026-05-02",
+      "est_payment_mth": "2026-04-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_61_PERFECT_AZIZA_85_WhiteSatin_01.png?v=1769544271",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -36721,7 +37186,12 @@
       "latest_USD_total_cost": 15961.01,
       "USD_received": 15961.01,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-10",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_46_PERFECT_BALLET_FLAT_Black_Woven_Calf_01.png?v=1771971600",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -36768,7 +37238,12 @@
       "latest_USD_total_cost": 15911.75,
       "USD_received": 15911.75,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-10",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_58_PERFECT_BALLET_FLAT_SaddleWovenCalf_01.png?v=1772123680",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -36815,7 +37290,12 @@
       "latest_USD_total_cost": 9331.01,
       "USD_received": 9331.01,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-10",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_64_PERFECT_BALLET_FLAT_SilverWovenCalf_01.png?v=1771971359",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -36862,7 +37342,12 @@
       "latest_USD_total_cost": 5636.65,
       "USD_received": 5636.65,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-10",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_62_PERFECT_BALLET_FLAT_StripedNavyLinen_01.png?v=1771971496",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -36909,7 +37394,12 @@
       "latest_USD_total_cost": 6246.77,
       "USD_received": 6246.77,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-11",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump100_TaupeSuede1_Side.png?v=1756986393",
+      "notes": "INBSHIP382 partial 1/15"
     },
     {
       "status": "Full Receipt",
@@ -36956,7 +37446,12 @@
       "latest_USD_total_cost": 5523.13,
       "USD_received": 5523.13,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-12",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_JUDY_LOAFER-BLACK_PEBBLED_LEATHER_01_2893de91-6c14-4b7e-900a-5054b01b0315.png?v=1757419055",
+      "notes": "INBSHIP399 partial 3/11, INBSHIP412 bal 3/17"
     },
     {
       "status": "Full Receipt",
@@ -37003,7 +37498,12 @@
       "latest_USD_total_cost": 5915.55,
       "USD_received": 5915.55,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-12",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_JUDY_LOAFER-DESERT_TAN_CROSTA_01.png?v=1757419079",
+      "notes": "INBSHIP399 bal 3/11"
     },
     {
       "status": "Full Receipt",
@@ -37050,7 +37550,12 @@
       "latest_USD_total_cost": 18009.76,
       "USD_received": 18009.76,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-12",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Natalie_Black1_Top.png?v=1757419178",
+      "notes": "INBSHIP399 bal 3/11"
     },
     {
       "status": "Full Receipt",
@@ -37097,7 +37602,12 @@
       "latest_USD_total_cost": 6560.17,
       "USD_received": 6560.17,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-12",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Natalie_NavySuede1_side-min.png?v=1757419152",
+      "notes": "INBSHIP399 bal 3/11"
     },
     {
       "status": "Full Receipt",
@@ -37144,7 +37654,12 @@
       "latest_USD_total_cost": 8401.43,
       "USD_received": 8401.43,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-12",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-06-05_SF_05_A_Natalie_BlackSuede.png?v=1757419108",
+      "notes": "INBSHIP399 bal 3/11"
     },
     {
       "status": "Full Receipt",
@@ -37191,7 +37706,12 @@
       "latest_USD_total_cost": 11770.16,
       "USD_received": 11770.16,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-12",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Natalie_Saddle1_Side.png?v=1757419172",
+      "notes": "INBSHIP399 bal 3/11"
     },
     {
       "status": "Full Receipt",
@@ -37238,7 +37758,12 @@
       "latest_USD_total_cost": 6122.8,
       "USD_received": 6122.8,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-12",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/natalie_taupe_side1.png?v=1757419128",
+      "notes": "INBSHIP399 bal 3/11"
     },
     {
       "status": "Full Receipt",
@@ -37285,7 +37810,12 @@
       "latest_USD_total_cost": 12562.82,
       "USD_received": 12562.82,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-12",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_50_PERFECT_CROSSOVER_SANDAL_Black_Suede_01_v2.png?v=1769532609",
+      "notes": "INBSHIP399 bal 3/11"
     },
     {
       "status": "Full Receipt",
@@ -37332,7 +37862,12 @@
       "latest_USD_total_cost": 9538.2,
       "USD_received": 9538.2,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-19",
+      "est_payment_week": "2026-05-23",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_36_JULIA_Cognac_Nappa_01_v3.png?v=1769535853",
+      "notes": "INBSHIP401 balance"
     },
     {
       "status": "Full Receipt",
@@ -37379,7 +37914,12 @@
       "latest_USD_total_cost": 8880.51,
       "USD_received": 8880.51,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-26",
+      "est_payment_week": "2026-05-30",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_39_PERFECT_ERIKA_60_Pink_Shummer_Suede_01.png?v=1769187890",
+      "notes": "INBSHIP403 bal 3/27"
     },
     {
       "status": "Full Receipt",
@@ -37426,7 +37966,12 @@
       "latest_USD_total_cost": 190.99,
       "USD_received": 190.99,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-29",
+      "est_payment_week": "2026-05-30",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_45_BOAT_SHOE_Sandstone_Nubuck_01.png?v=1769198748",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -37473,7 +38018,12 @@
       "latest_USD_total_cost": 158.65,
       "USD_received": 158.65,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-29",
+      "est_payment_week": "2026-05-30",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_07_ALYSIA_SNEAKER_Ocean_Blue_Crosta_01.png?v=1769118171",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -37520,7 +38070,12 @@
       "latest_USD_total_cost": 180.6,
       "USD_received": 180.6,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-29",
+      "est_payment_week": "2026-05-30",
+      "est_payment_mth": "2026-05-31",
+      "image_url": null,
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -37567,7 +38122,12 @@
       "latest_USD_total_cost": 180.6,
       "USD_received": 180.6,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-29",
+      "est_payment_week": "2026-05-30",
+      "est_payment_mth": "2026-05-31",
+      "image_url": null,
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -37614,7 +38174,12 @@
       "latest_USD_total_cost": 13898.17,
       "USD_received": 13898.17,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-18",
+      "est_payment_week": "2026-05-23",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_63_PERFECT_CROSSOVER_PLATFORM_80_PinkFloralSilk_01.png?v=1769548637",
+      "notes": "INBSHIP406 bal 4/2"
     },
     {
       "status": "Full Receipt",
@@ -37661,7 +38226,12 @@
       "latest_USD_total_cost": 12338.11,
       "USD_received": 12338.11,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-18",
+      "est_payment_week": "2026-05-23",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_CROSSOVER_PLATFORM_80_01_01.png?v=1756985927",
+      "notes": "INBSHIP406 bal 4/2"
     },
     {
       "status": "Full Receipt",
@@ -37708,7 +38278,12 @@
       "latest_USD_total_cost": 17395.93,
       "USD_received": 17395.93,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-10",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_31_PERFECT_AZIZA_85_Gold_Textured_Saffiano_01.png?v=1769544693",
+      "notes": "INBSHIP409 bal 4/10"
     },
     {
       "status": "Full Receipt",
@@ -37755,7 +38330,12 @@
       "latest_USD_total_cost": 11394.97,
       "USD_received": 11394.97,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-10",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_61_PERFECT_AZIZA_85_WhiteSatin_01.png?v=1769544271",
+      "notes": "INBSHIP409 bal 4/10"
     },
     {
       "status": "Full Receipt",
@@ -37802,7 +38382,12 @@
       "latest_USD_total_cost": 9862.9,
       "USD_received": 9862.9,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-05-16",
+      "est_payment_week": "2026-05-16",
+      "est_payment_mth": "2026-05-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ReversibleScarfBelt_BlackBrown_01_c2192ac8-b626-453b-8056-455ef6594010.png?v=1764697233",
+      "notes": "NS PO0000738"
     },
     {
       "status": "Full Receipt",
@@ -37849,7 +38434,12 @@
       "latest_USD_total_cost": 21084.73,
       "USD_received": 21084.73,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-02",
+      "est_payment_week": "2026-06-06",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_48_PERFECT_ERIKA_30_Gold_Shimmer_Suede_01.png?v=1769201650",
+      "notes": "INBSHIP408 bal 4/2"
     },
     {
       "status": "Full Receipt",
@@ -37896,7 +38486,12 @@
       "latest_USD_total_cost": 9652.61,
       "USD_received": 9652.61,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-02",
+      "est_payment_week": "2026-06-06",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectKittenPump50_BlackCalf_Side1.png?v=1756986167",
+      "notes": "INBSHIP407 bal 4/2"
     },
     {
       "status": "Full Receipt",
@@ -37943,7 +38538,12 @@
       "latest_USD_total_cost": 8862.12,
       "USD_received": 8862.12,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-02",
+      "est_payment_week": "2026-06-06",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/RoundToePump_BlackSuede1_Side.png?v=1756986303",
+      "notes": "INBSHIP407 bal 4/2"
     },
     {
       "status": "Full Receipt",
@@ -37990,7 +38590,12 @@
       "latest_USD_total_cost": 6942.07,
       "USD_received": 6942.07,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal30_Gold1_side-min.png?v=1756986327",
+      "notes": "INBSHIP385 partial 39u shipped 1/23\n INBSHIP410 bal 4/13"
     },
     {
       "status": "Full Receipt",
@@ -38037,7 +38642,12 @@
       "latest_USD_total_cost": 10295.46,
       "USD_received": 10295.46,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal30_White1_side-min.png?v=1756986375",
+      "notes": "INBSHIP385 partial 63u shipped 1/23\n INBSHIP410 bal 4/13"
     },
     {
       "status": "Full Receipt",
@@ -38084,7 +38694,12 @@
       "latest_USD_total_cost": 6482.31,
       "USD_received": 6482.31,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_01_ALYSIA_SNEAKER_Grey_Crosta_01_v2.png?v=1766002949",
+      "notes": "INBSHIP410 bal 4/13"
     },
     {
       "status": "Full Receipt",
@@ -38131,7 +38746,12 @@
       "latest_USD_total_cost": 9865.14,
       "USD_received": 9865.14,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_44_PERFECT_MARY_JANE_PUMP_85_Black_Patent_01.png?v=1769116714",
+      "notes": "INBSHIP410 bal 4/13"
     },
     {
       "status": "Full Receipt",
@@ -38178,7 +38798,12 @@
       "latest_USD_total_cost": 8360.3,
       "USD_received": 8360.3,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_57_PERFECT_MARY_JANE_PUMP_85_Sand_Patent_01.png?v=1769116561",
+      "notes": "INBSHIP410 bal 4/13"
     },
     {
       "status": "Full Receipt",
@@ -38225,7 +38850,12 @@
       "latest_USD_total_cost": 9731.97,
       "USD_received": 9731.97,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Natalie_SandCalf1_side-min.png?v=1757419154",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -38272,7 +38902,12 @@
       "latest_USD_total_cost": 6689.8,
       "USD_received": 6689.8,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/SarahFlint_08-13-21_nataliesling__petalcalf_side1_0689.png?v=1757419135",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -38319,7 +38954,12 @@
       "latest_USD_total_cost": 8801.67,
       "USD_received": 8801.67,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal30_Gold1_side-min.png?v=1756986327",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -38366,7 +39006,12 @@
       "latest_USD_total_cost": 6946.2,
       "USD_received": 6946.2,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal30_Sand1_side-min.png?v=1756986330",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -38413,7 +39058,12 @@
       "latest_USD_total_cost": 7744.45,
       "USD_received": 7744.45,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal60_Sand1_side-min_415bf2aa-19b2-4ab4-9e48-5e3ac0698911.png?v=1756986322",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -38460,7 +39110,12 @@
       "latest_USD_total_cost": 6342.5,
       "USD_received": 6342.5,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal90_Black_Side1.png?v=1756986151",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -38507,7 +39162,12 @@
       "latest_USD_total_cost": 5264.87,
       "USD_received": 5264.87,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal90_GoldNappa1_side-min.png?v=1756986313",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -38554,7 +39214,12 @@
       "latest_USD_total_cost": 6316.75,
       "USD_received": 6316.75,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_PERFECT_KITTEN_SLING_50-BLACK_CALF_01.png?v=1756985970",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -38601,7 +39266,12 @@
       "latest_USD_total_cost": 7965.17,
       "USD_received": 7965.17,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_PERFECT_KITTEN_SLING_50-GOLD_TEXTURED_SAFFIANO_01.png?v=1756985972",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -38648,7 +39318,12 @@
       "latest_USD_total_cost": 7553.84,
       "USD_received": 7553.84,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-06-10_SF_PERFECT_EMMA_85_Black_Suede_01_v3.png?v=1756985902",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -38695,7 +39370,12 @@
       "latest_USD_total_cost": 8913.99,
       "USD_received": 8913.99,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_PERFECT_EMMA_SLING_50-BLACK_CALF_01.png?v=1756985993",
+      "notes": "& AIR"
     },
     {
       "status": "Full Receipt",
@@ -38742,7 +39422,12 @@
       "latest_USD_total_cost": 8257.28,
       "USD_received": 8257.28,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_PERFECT_EMMA_SLING_50-COGNAC_CALF_01.png?v=1756985991",
+      "notes": "& AIR"
     },
     {
       "status": "Full Receipt",
@@ -38789,7 +39474,12 @@
       "latest_USD_total_cost": 8295.86,
       "USD_received": 8295.86,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectSandal85_Black1_Side-min.png?v=1756986391",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -38836,7 +39526,12 @@
       "latest_USD_total_cost": 9050.72,
       "USD_received": 9050.72,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump85_Black1_Side.png?v=1756986359",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -38883,7 +39578,12 @@
       "latest_USD_total_cost": 14053.96,
       "USD_received": 14053.96,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/PP85-PDPs-1.png?v=1762201834",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -38930,7 +39630,12 @@
       "latest_USD_total_cost": 12621.17,
       "USD_received": 12621.17,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump85_BlackSuede_1_Side-min.png?v=1756986363",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -38977,7 +39682,12 @@
       "latest_USD_total_cost": 4448.69,
       "USD_received": 4448.69,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/PerfPump85_DarkNavy2_Side-a.png?v=1756986383",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -39024,7 +39734,12 @@
       "latest_USD_total_cost": 8578.08,
       "USD_received": 8578.08,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump85_SandCalf1_side-min.png?v=1756986341",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -39071,7 +39786,12 @@
       "latest_USD_total_cost": 7311.22,
       "USD_received": 7311.22,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-12",
+      "est_payment_week": "2026-06-13",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfPump85_TaupeSuede1_Side_UPDATE.png?v=1756986395",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -39118,7 +39838,12 @@
       "latest_USD_total_cost": 10051.22,
       "USD_received": 10051.22,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-16",
+      "est_payment_week": "2026-06-20",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_37_PERFECT_JULIA_85_Ivory_Nappa_01.png?v=1769184302",
+      "notes": "INBSHIP399 partial 3/11, INBSHIP401 partial 3/20, INBSHIP412 bal 3/17"
     },
     {
       "status": "Full Receipt",
@@ -39165,7 +39890,12 @@
       "latest_USD_total_cost": 7191.98,
       "USD_received": 7191.98,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-16",
+      "est_payment_week": "2026-06-20",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/26-02-13_SF_PerfectBlockSandal60_NavyStripedLinen_01.png?v=1771365825",
+      "notes": "NBSHIP401 partial 3/20, INBSHIP412 bal 4/17"
     },
     {
       "status": "Full Receipt",
@@ -39212,7 +39942,12 @@
       "latest_USD_total_cost": 6557.45,
       "USD_received": 6557.45,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-16",
+      "est_payment_week": "2026-06-20",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_49_PERFECT_ERIKA_30_Pink_Shummer_Suede_01.png?v=1769202494",
+      "notes": "INBSHIP403 partial 3/27, INBSHIP412 bal 4/17"
     },
     {
       "status": "Full Receipt",
@@ -39259,7 +39994,12 @@
       "latest_USD_total_cost": 6705.53,
       "USD_received": 6705.53,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-16",
+      "est_payment_week": "2026-06-20",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PBS60_WeddingWhite1_Side-min.png?v=1756986234",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -39306,7 +40046,12 @@
       "latest_USD_total_cost": 143.32,
       "USD_received": 143.32,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-16",
+      "est_payment_week": "2026-06-20",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-01-14-SF_21_PERFECT_SLING_85_WHITE_SATIN_01.png?v=1756985973",
+      "notes": "INBSHIP412 bal"
     },
     {
       "status": "Full Receipt",
@@ -39353,7 +40098,12 @@
       "latest_USD_total_cost": 9375.98,
       "USD_received": 9375.98,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-16",
+      "est_payment_week": "2026-06-20",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/26-02-13_SF_PerfectSlingback85_CognacCrocembossedCalf_01.png?v=1771366302",
+      "notes": "INBSHIP412 bal"
     },
     {
       "status": "Full Receipt",
@@ -39400,7 +40150,12 @@
       "latest_USD_total_cost": 6138.36,
       "USD_received": 6138.36,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-28",
+      "est_payment_week": "2026-07-04",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_25_PERFECT__DAWN__WEDGE__50_Ocean_Blue_Vacchetta_01_fdcaf339-4ba1-4b1b-980a-046b01702675.png?v=1777650973",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -39447,7 +40202,12 @@
       "latest_USD_total_cost": 7763.22,
       "USD_received": 7763.22,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-28",
+      "est_payment_week": "2026-07-04",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_24_PERFECT__DAWN__WEDGE__50_Sand_Calf_01.png?v=1769207155",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -39494,7 +40254,12 @@
       "latest_USD_total_cost": 12982.26,
       "USD_received": 12982.26,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-06-29",
+      "est_payment_week": "2026-07-04",
+      "est_payment_mth": "2026-06-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ReversibleScarfWaistBelt_CREAMSADDLECALF_1.png?v=1756986155",
+      "notes": null
     },
     {
       "status": "Cancelled",
@@ -39541,7 +40306,12 @@
       "latest_USD_total_cost": 1444.32,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-26",
+      "est_payment_week": "2026-08-01",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_25_PERFECT__DAWN__WEDGE__50_Ocean_Blue_Vacchetta_01_fdcaf339-4ba1-4b1b-980a-046b01702675.png?v=1777650973",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -39588,7 +40358,12 @@
       "latest_USD_total_cost": 3791.34,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 3791.34
+      "USD_outsanding_cost": 3791.34,
+      "est_payment_date": "2026-07-26",
+      "est_payment_week": "2026-08-01",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_24_PERFECT__DAWN__WEDGE__50_Sand_Calf_01.png?v=1769207155",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -39635,7 +40410,12 @@
       "latest_USD_total_cost": 5027.99,
       "USD_received": 5027.99,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-17",
+      "est_payment_week": "2026-07-18",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/secret-garden-scarf-90-transparent.png?v=1780931792",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -39682,7 +40462,12 @@
       "latest_USD_total_cost": 948.72,
       "USD_received": 948.72,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-28",
+      "est_payment_week": "2026-08-01",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-scarf-45-anemome.png?v=1781750412",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -39729,7 +40514,12 @@
       "latest_USD_total_cost": 6697.68,
       "USD_received": 6697.68,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-28",
+      "est_payment_week": "2026-08-01",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-scarf-140-dashwood.png?v=1781750413",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -39776,7 +40566,12 @@
       "latest_USD_total_cost": 2704.56,
       "USD_received": 2704.56,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-28",
+      "est_payment_week": "2026-08-01",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-scarf-90-dashwood.png?v=1781750413",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -39823,7 +40618,12 @@
       "latest_USD_total_cost": 21240,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 21240
+      "USD_outsanding_cost": 21240,
+      "est_payment_date": "2026-08-31",
+      "est_payment_week": "2026-09-05",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_58_PERFECT_BALLET_FLAT_SaddleWovenCalf_01.png?v=1772123680",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -39870,7 +40670,12 @@
       "latest_USD_total_cost": 2265.6,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 2265.6
+      "USD_outsanding_cost": 2265.6,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-06-05_SF_05_A_Natalie_BlackSuede.png?v=1757419108",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -39917,7 +40722,12 @@
       "latest_USD_total_cost": 4088.7,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4088.7
+      "USD_outsanding_cost": 4088.7,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-06-10_SF_PERFECT_EMMA_85_Taupe_Suede_01.png?v=1756985900",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -39964,7 +40774,12 @@
       "latest_USD_total_cost": 21074.8,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 21074.8
+      "USD_outsanding_cost": 21074.8,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Alexandra50_EspressoSuede_side1.png?v=1756986219",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40011,7 +40826,12 @@
       "latest_USD_total_cost": 8084.22,
       "USD_received": 8084.22,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-07",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_14_NATALIE_SLING_Blue_Striped_Linen_01.png?v=1769116074",
+      "notes": "INBSHIP412 partial 4/17"
     },
     {
       "status": "Full Receipt",
@@ -40058,7 +40878,12 @@
       "latest_USD_total_cost": 9709.97,
       "USD_received": 9709.97,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-07",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal30_Black1_side-min.png?v=1756986324",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40105,7 +40930,12 @@
       "latest_USD_total_cost": 4759.85,
       "USD_received": 4759.85,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-07",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal30_Gold1_side-min.png?v=1756986327",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40152,7 +40982,12 @@
       "latest_USD_total_cost": 4620.96,
       "USD_received": 4620.96,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-07",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal30_Sand1_side-min.png?v=1756986330",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40199,7 +41034,12 @@
       "latest_USD_total_cost": 14819.39,
       "USD_received": 14819.39,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-07",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal60_GoldNappa1_side-min.png?v=1756986319",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40246,7 +41086,12 @@
       "latest_USD_total_cost": 7903.02,
       "USD_received": 7903.02,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-07",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal60_Sand1_side-min_415bf2aa-19b2-4ab4-9e48-5e3ac0698911.png?v=1756986322",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40293,7 +41138,12 @@
       "latest_USD_total_cost": 11553.81,
       "USD_received": 11553.81,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-07",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal60_WhiteCalf1_side-min.png?v=1756986321",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40340,7 +41190,12 @@
       "latest_USD_total_cost": 6334.01,
       "USD_received": 6334.01,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-07",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_27_STELLA_Cognac_Croc_Embossed_Calf_01_65165264-2020-4d90-9eba-48fe77d4f620.png?v=1778516146",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40387,7 +41242,12 @@
       "latest_USD_total_cost": 4603.63,
       "USD_received": 4603.63,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-07",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal30_White1_side-min.png?v=1756986375",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40434,7 +41294,12 @@
       "latest_USD_total_cost": 14220.33,
       "USD_received": 14220.33,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-19",
+      "est_payment_week": "2026-07-25",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_56_PERFECT_CROSSOVERSANDAL_50_Almond_Raffia_01.png?v=1769551213",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40481,7 +41346,12 @@
       "latest_USD_total_cost": 5739.52,
       "USD_received": 5739.52,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-28",
+      "est_payment_week": "2026-08-01",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/26-02-13_SF_PerfectCrossoverSandal50_PinkFloralSatin_01.png?v=1771366102",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40528,7 +41398,12 @@
       "latest_USD_total_cost": 7021,
       "USD_received": 7021,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-07",
+      "est_payment_week": "2026-08-08",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_54_JUDY_LOAFER_Bluefish_Linen_01.png?v=1769551930",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40575,7 +41450,12 @@
       "latest_USD_total_cost": 177,
       "USD_received": 177,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-07",
+      "est_payment_week": "2026-08-08",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_39_PERFECT_ERIKA_60_Pink_Shummer_Suede_01.png?v=1769187890",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40622,7 +41502,12 @@
       "latest_USD_total_cost": 197.06,
       "USD_received": 197.06,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-07",
+      "est_payment_week": "2026-08-08",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_36_JULIA_Cognac_Nappa_01_v3.png?v=1769535853",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40669,7 +41554,12 @@
       "latest_USD_total_cost": 121.54,
       "USD_received": 121.54,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-07",
+      "est_payment_week": "2026-08-08",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_41_NATALIE_Blue_Hydrangea_Silk_01.png?v=1769119337",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40716,7 +41606,12 @@
       "latest_USD_total_cost": 1688.58,
       "USD_received": 1688.58,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-07",
+      "est_payment_week": "2026-08-08",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/SF_09-14-23_Shoe_Side1.png?v=1738191812",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40763,7 +41658,12 @@
       "latest_USD_total_cost": 2336.4,
       "USD_received": 2336.4,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-07",
+      "est_payment_week": "2026-08-08",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25_08_05_SF_NATALIE_OF_VENUS_Seafoam_Embroidery_01.png?v=1756825391",
+      "notes": null
     },
     {
       "status": "In Transit",
@@ -40810,7 +41710,12 @@
       "latest_USD_total_cost": 5428,
       "USD_received": 0,
       "USD_in_transit_cost": 5428,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-11",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Natalie_StarryNatalie1_Side.png?v=1631221547",
+      "notes": null
     },
     {
       "status": "In Transit",
@@ -40857,7 +41762,12 @@
       "latest_USD_total_cost": 2383.6,
       "USD_received": 0,
       "USD_in_transit_cost": 2383.6,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-11",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/TheWomaninGoldNatalie_side1.png?v=1745500315",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40904,7 +41814,12 @@
       "latest_USD_total_cost": 525.1,
       "USD_received": 525.1,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-11",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-04_SF_Natalie_01.png?v=1744398256",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -40951,14 +41866,19 @@
       "latest_USD_total_cost": 708,
       "USD_received": 708,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-11",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_38_PERFECT_ERIKA_60_Gold_Shimmer_Suede_01.png?v=1769187319",
+      "notes": "INBSHIP408 partial 4/2, IBSHIP412 partial 4/17"
     },
     {
       "status": "PO Not Placed",
       "sku_po_id": "SF7001CRMC_",
       "po_season": "S26",
       "quarter": "Q4 2026",
-      "delivery_month": "2026-12-31",
+      "delivery_month": "2026-11-30",
       "launch_month": "2026-06-30",
       "launch_category": "MTO New Launch",
       "thumbnail": "CellImage",
@@ -40971,13 +41891,13 @@
       "freight_method": "Air",
       "oh_qty": 0,
       "13w_sales": 0,
-      "units_ordered": 26,
+      "units_ordered": 22,
       "units_in_transit": null,
       "units_received": null,
       "units_cancelled": null,
-      "units_outstanding": 26,
-      "ex_factory_date": "2026-12-01",
-      "inwh_date": "2026-12-08",
+      "units_outstanding": 22,
+      "ex_factory_date": "2026-11-01",
+      "inwh_date": "2026-11-08",
       "shipment_id": null,
       "target_launch_date": "2026-06-25",
       "delay_flag": null,
@@ -40985,20 +41905,25 @@
       "website_pre_order": null,
       "net_terms_days": 30,
       "est_EUR_unit_cost": 128,
-      "est_EUR_total_cost": 3328,
+      "est_EUR_total_cost": 2816,
       "est_USD_unit_cost": 151.04,
-      "est_USD_total_cost": 3927.04,
+      "est_USD_total_cost": 3322.88,
       "actual_EUR_unit_cost": null,
       "actual_EUR_total_cost": null,
       "actual_USD_unit_cost": null,
       "actual_USD_total_cost": null,
       "latest_EUR_unit_cost": 128,
-      "latest_EUR_total_cost": 3328,
+      "latest_EUR_total_cost": 2816,
       "latest_USD_unit_cost": 151.04,
-      "latest_USD_total_cost": 3927.04,
+      "latest_USD_total_cost": 3322.88,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 3927.04
+      "USD_outsanding_cost": 3322.88,
+      "est_payment_date": "2026-12-01",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-12-31",
+      "image_url": null,
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -41045,7 +41970,12 @@
       "latest_USD_total_cost": 177,
       "USD_received": 177,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-11",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_40_NATALIE_Almond_Raffia_01.png?v=1769552211",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -41092,7 +42022,12 @@
       "latest_USD_total_cost": 134.52,
       "USD_received": 134.52,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-11",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal60_GoldNappa1_side-min.png?v=1756986319",
+      "notes": "(& AIR)"
     },
     {
       "status": "Not Shipped",
@@ -41139,7 +42074,12 @@
       "latest_USD_total_cost": 826,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 826
+      "USD_outsanding_cost": 826,
+      "est_payment_date": "2026-08-25",
+      "est_payment_week": "2026-08-29",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_54_JUDY_LOAFER_Bluefish_Linen_01.png?v=1769551930",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -41186,7 +42126,12 @@
       "latest_USD_total_cost": 542.8,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 542.8
+      "USD_outsanding_cost": 542.8,
+      "est_payment_date": "2026-08-25",
+      "est_payment_week": "2026-08-29",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Natalie_StarryNatalie1_Side.png?v=1631221547",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -41233,7 +42178,12 @@
       "latest_USD_total_cost": 595.9,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 595.9
+      "USD_outsanding_cost": 595.9,
+      "est_payment_date": "2026-08-25",
+      "est_payment_week": "2026-08-29",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/TheWomaninGoldNatalie_side1.png?v=1745500315",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -41280,7 +42230,12 @@
       "latest_USD_total_cost": 525.1,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 525.1
+      "USD_outsanding_cost": 525.1,
+      "est_payment_date": "2026-08-25",
+      "est_payment_week": "2026-08-29",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-04_SF_Natalie_01.png?v=1744398256",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -41327,7 +42282,12 @@
       "latest_USD_total_cost": 5437.44,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5437.44
+      "USD_outsanding_cost": 5437.44,
+      "est_payment_date": "2026-08-25",
+      "est_payment_week": "2026-08-29",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/26-02-13_SF_PerfectCrossoverSandal50_PinkFloralSatin_01.png?v=1771366102",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -41374,7 +42334,12 @@
       "latest_USD_total_cost": 8800.44,
       "USD_received": 8667.1,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 133.34
+      "USD_outsanding_cost": 133.34,
+      "est_payment_date": "2026-08-25",
+      "est_payment_week": "2026-08-29",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal60_Black1_side-min.png?v=1756986317",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -41421,7 +42386,12 @@
       "latest_USD_total_cost": 4933.58,
       "USD_received": 4800.24,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 133.34
+      "USD_outsanding_cost": 133.34,
+      "est_payment_date": "2026-08-25",
+      "est_payment_week": "2026-08-29",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal60_Black1_side-min.png?v=1756986317",
+      "notes": "(& AIR)"
     },
     {
       "status": "Full Receipt",
@@ -41468,7 +42438,12 @@
       "latest_USD_total_cost": 21417,
       "USD_received": 21417,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-07",
+      "est_payment_week": "2026-08-08",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_38_PERFECT_ERIKA_60_Gold_Shimmer_Suede_01.png?v=1769187319",
+      "notes": "INBSHIP408 partial 4/2, IBSHIP412 partial 4/17"
     },
     {
       "status": "Full Receipt",
@@ -41515,7 +42490,12 @@
       "latest_USD_total_cost": 10478.4,
       "USD_received": 10478.4,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-07",
+      "est_payment_week": "2026-08-08",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_PERFECT_BLOCK_SANDAL_60-ALMOND_RAFFIA_01.png?v=1756985938",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -41562,7 +42542,12 @@
       "latest_USD_total_cost": 14337,
       "USD_received": 14337,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-07",
+      "est_payment_week": "2026-08-08",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_40_NATALIE_Almond_Raffia_01.png?v=1769552211",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -41609,7 +42594,12 @@
       "latest_USD_total_cost": 7684.16,
       "USD_received": 7684.16,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-07",
+      "est_payment_week": "2026-08-08",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_55_PERFECT_BLOCK_SANDAL_60_Bluefish_Linen_01.png?v=1769551674",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -41656,7 +42646,12 @@
       "latest_USD_total_cost": 5246.28,
       "USD_received": 5246.28,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-25",
+      "est_payment_week": "2026-08-29",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal60_GoldNappa1_side-min.png?v=1756986319",
+      "notes": "(& AIR)"
     },
     {
       "status": "Not Shipped",
@@ -41703,7 +42698,12 @@
       "latest_USD_total_cost": 13310.4,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 13310.4
+      "USD_outsanding_cost": 13310.4,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-03-20_SarahFlint_28_01a_a0b6b2ad-2a87-4537-aee6-2ee9db99fba6.png?v=1756986094",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -41750,7 +42750,12 @@
       "latest_USD_total_cost": 13650.24,
       "USD_received": 13650.24,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-07",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectEmma_EspressoSuede1_side.png?v=1756986263",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -41797,7 +42802,12 @@
       "latest_USD_total_cost": 5992.85,
       "USD_received": 5992.85,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-07",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectKittenPump50_BlackCalf_Side1.png?v=1756986167",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -41844,7 +42854,12 @@
       "latest_USD_total_cost": 28580.96,
       "USD_received": 28580.96,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-07",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump85_BlackSuede_1_Side-min.png?v=1756986363",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -41891,7 +42906,12 @@
       "latest_USD_total_cost": 13454.44,
       "USD_received": 13454.44,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-07",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump85_EspressoSuede1_Side.png?v=1756986262",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -41938,7 +42958,12 @@
       "latest_USD_total_cost": 5543.64,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5543.64
+      "USD_outsanding_cost": 5543.64,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-01-14-SF_04_ALYSIA_SNEAKER_SADDLE_PEBBLED_LEATHER_01.png?v=1757419049",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -41985,7 +43010,12 @@
       "latest_USD_total_cost": 8413.4,
       "USD_received": 8413.4,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-28",
+      "est_payment_week": "2026-08-01",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_32_BOAT_SHOE_Sandstone_Nubuck_01.png?v=1769200123",
+      "notes": "65 shipped, 62 rcvd"
     },
     {
       "status": "Full Receipt",
@@ -42032,7 +43062,12 @@
       "latest_USD_total_cost": 4722.36,
       "USD_received": 4722.36,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-28",
+      "est_payment_week": "2026-08-01",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-09-12_SF_AlysiaSneaker_Tan_01_v2.png?v=1757419084",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -42079,7 +43114,12 @@
       "latest_USD_total_cost": 431.88,
       "USD_received": 431.88,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-04",
+      "est_payment_week": "2026-08-08",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_PUMP_85_STARRY_NIGHT_BEADED_SATIN_01.png?v=1748546895",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -42126,7 +43166,12 @@
       "latest_USD_total_cost": 2669.16,
       "USD_received": 2669.16,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-04",
+      "est_payment_week": "2026-08-08",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_PUMP_85_WATER_LILIES_EMBELLISHED_SILK_01_v2.png?v=1748546156",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -42173,7 +43218,12 @@
       "latest_USD_total_cost": 475.54,
       "USD_received": 475.54,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-04",
+      "est_payment_week": "2026-08-08",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_PUMP_WOMAN_IN_GOLD_85_Metallic_Beaded_Satin_01.png?v=1748378367",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -42220,7 +43270,12 @@
       "latest_USD_total_cost": 469.64,
       "USD_received": 469.64,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-04",
+      "est_payment_week": "2026-08-08",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25_08_05_SF_PERFECT_PUMP_85_OF_VENUS_Seafoam_Embroidery_01-2.png?v=1756825587",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42267,7 +43322,12 @@
       "latest_USD_total_cost": 7965,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 7965
+      "USD_outsanding_cost": 7965,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/PerfectMary_JanePlatfomr90_Black_Side1.png?v=1756986139",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42314,7 +43374,12 @@
       "latest_USD_total_cost": 4006.1,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4006.1
+      "USD_outsanding_cost": 4006.1,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/PP85-PDPs-1.png?v=1762201834",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42361,7 +43426,12 @@
       "latest_USD_total_cost": 7025.13,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 7025.13
+      "USD_outsanding_cost": 7025.13,
+      "est_payment_date": "2026-09-28",
+      "est_payment_week": "2026-10-03",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ReversibleScarfBelt_BlackBrown_01_c2192ac8-b626-453b-8056-455ef6594010.png?v=1764697233",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42408,7 +43478,12 @@
       "latest_USD_total_cost": 3865.68,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 3865.68
+      "USD_outsanding_cost": 3865.68,
+      "est_payment_date": "2026-09-28",
+      "est_payment_week": "2026-10-03",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ReversibleScarfWaistBelt_CREAMSADDLECALF_1.png?v=1756986155",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42455,7 +43530,12 @@
       "latest_USD_total_cost": 7255.82,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 7255.82
+      "USD_outsanding_cost": 7255.82,
+      "est_payment_date": "2026-09-28",
+      "est_payment_week": "2026-10-03",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ZipBootie30_Black_1_Side-min.png?v=1756986366",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42502,7 +43582,12 @@
       "latest_USD_total_cost": 6749.6,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 6749.6
+      "USD_outsanding_cost": 6749.6,
+      "est_payment_date": "2026-09-28",
+      "est_payment_week": "2026-10-03",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ZipBootie30_EspressoSuede_1_Side.png?v=1756986254",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42549,7 +43634,12 @@
       "latest_USD_total_cost": 7174.4,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 7174.4
+      "USD_outsanding_cost": 7174.4,
+      "est_payment_date": "2026-09-28",
+      "est_payment_week": "2026-10-03",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectZipBootie30_Saddle_Vachetta1_Side.png?v=1756986203",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42596,7 +43686,12 @@
       "latest_USD_total_cost": 6749.6,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 6749.6
+      "USD_outsanding_cost": 6749.6,
+      "est_payment_date": "2026-09-28",
+      "est_payment_week": "2026-10-03",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ZipBootie_BlackLeather1_Side-min.png?v=1756986365",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42643,7 +43738,12 @@
       "latest_USD_total_cost": 14160,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 14160
+      "USD_outsanding_cost": 14160,
+      "est_payment_date": "2026-11-30",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-natalie-anenome.png?v=1781749722",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42690,7 +43790,12 @@
       "latest_USD_total_cost": 12390,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 12390
+      "USD_outsanding_cost": 12390,
+      "est_payment_date": "2026-11-30",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-emma-anenome.png?v=1781749723",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42737,7 +43842,12 @@
       "latest_USD_total_cost": 4543,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4543
+      "USD_outsanding_cost": 4543,
+      "est_payment_date": "2026-12-29",
+      "est_payment_week": "2027-01-02",
+      "est_payment_mth": "2026-12-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-perfect-sandal-85-mauve.png?v=1781749722",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42784,7 +43894,12 @@
       "latest_USD_total_cost": 5062.2,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5062.2
+      "USD_outsanding_cost": 5062.2,
+      "est_payment_date": "2026-09-28",
+      "est_payment_week": "2026-10-03",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ZipBootie_EspressoSeude1_Side.png?v=1756986252",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42831,7 +43946,12 @@
       "latest_USD_total_cost": 7174.4,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 7174.4
+      "USD_outsanding_cost": 7174.4,
+      "est_payment_date": "2026-09-28",
+      "est_payment_week": "2026-10-03",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectZipBootie70_SaddleVachetta1_Side.png?v=1756986205",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42878,7 +43998,12 @@
       "latest_USD_total_cost": 5324.16,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5324.16
+      "USD_outsanding_cost": 5324.16,
+      "est_payment_date": "2026-09-28",
+      "est_payment_week": "2026-10-03",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25_08_05_SF_NATALIE_Espresso_Polished_calf_01.png?v=1756985914",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42925,7 +44050,12 @@
       "latest_USD_total_cost": 8437,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 8437
+      "USD_outsanding_cost": 8437,
+      "est_payment_date": "2026-09-28",
+      "est_payment_week": "2026-10-03",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-06-10_SF_PEREZ-Black_Suede_01.png?v=1757419040",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -42972,7 +44102,12 @@
       "latest_USD_total_cost": 5905.9,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5905.9
+      "USD_outsanding_cost": 5905.9,
+      "est_payment_date": "2026-09-28",
+      "est_payment_week": "2026-10-03",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-06-10_SF_PERFECT_PEREZ_85-Espresso_Suede_01.png?v=1756985909",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -43019,7 +44154,12 @@
       "latest_USD_total_cost": 13865,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 13865
+      "USD_outsanding_cost": 13865,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/Alexandra50_BlackSuede1_Side-1.png?v=1756986282",
+      "notes": "7/15x OG"
     },
     {
       "status": "Not Shipped",
@@ -43066,7 +44206,12 @@
       "latest_USD_total_cost": 2430.8,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 2430.8
+      "USD_outsanding_cost": 2430.8,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/RoundToePump_BlackSuede1_Side.png?v=1756986303",
+      "notes": "7/15x OG"
     },
     {
       "status": "Not Shipped",
@@ -43113,7 +44258,12 @@
       "latest_USD_total_cost": 3593.1,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 3593.1
+      "USD_outsanding_cost": 3593.1,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-09-12_SF_AlysiaSneaker_Navy_01_v2.png?v=1757419087",
+      "notes": "7/15x OG"
     },
     {
       "status": "Not Shipped",
@@ -43160,7 +44310,12 @@
       "latest_USD_total_cost": 14046.72,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 14046.72
+      "USD_outsanding_cost": 14046.72,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Natalie_Black1_Top.png?v=1757419178",
+      "notes": "7/30x OG"
     },
     {
       "status": "Not Shipped",
@@ -43207,7 +44362,12 @@
       "latest_USD_total_cost": 5437.44,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5437.44
+      "USD_outsanding_cost": 5437.44,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25_08_05_SF_NATALIE_Espresso_Polished_calf_01.png?v=1756985914",
+      "notes": "7/30x OG"
     },
     {
       "status": "Not Shipped",
@@ -43254,7 +44414,12 @@
       "latest_USD_total_cost": 21240,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 21240
+      "USD_outsanding_cost": 21240,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_58_PERFECT_BALLET_FLAT_SaddleWovenCalf_01.png?v=1772123680",
+      "notes": "7/15x OG"
     },
     {
       "status": "Not Shipped",
@@ -43301,7 +44466,12 @@
       "latest_USD_total_cost": 8080.64,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 8080.64
+      "USD_outsanding_cost": 8080.64,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectEmma_BlackSuede_1_Side-min.png?v=1756986348",
+      "notes": "7/15x OG"
     },
     {
       "status": "Not Shipped",
@@ -43348,7 +44518,12 @@
       "latest_USD_total_cost": 17192.6,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 17192.6
+      "USD_outsanding_cost": 17192.6,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-03-20_SarahFlint_28_01a_a0b6b2ad-2a87-4537-aee6-2ee9db99fba6.png?v=1756986094",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -43395,7 +44570,12 @@
       "latest_USD_total_cost": 5681.7,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5681.7
+      "USD_outsanding_cost": 5681.7,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectEmma_Taupe_Suede_1_Side-min.png?v=1756986344",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -43442,7 +44622,12 @@
       "latest_USD_total_cost": 4088.7,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4088.7
+      "USD_outsanding_cost": 4088.7,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-06-10_SF_PERFECT_EMMA_85_Black_Suede_01_v3.png?v=1756985902",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -43489,7 +44674,12 @@
       "latest_USD_total_cost": 4856.88,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4856.88
+      "USD_outsanding_cost": 4856.88,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectKittenPump50_BlackSuede_Side1.png?v=1756986169",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -43536,7 +44726,12 @@
       "latest_USD_total_cost": 4871.04,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4871.04
+      "USD_outsanding_cost": 4871.04,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-06-05_SF_05_A_Natalie_BlackSuede.png?v=1757419108",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -43583,7 +44778,12 @@
       "latest_USD_total_cost": 5711.2,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5711.2
+      "USD_outsanding_cost": 5711.2,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_JUDY_LOAFER-ESPRESSO_PEBBLED_LEATHER_01.png?v=1757419053",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -43630,7 +44830,12 @@
       "latest_USD_total_cost": 5664,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5664
+      "USD_outsanding_cost": 5664,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_20_PERFECT_CROSSOVER_PLATOFRM_90_Black_Suede_01.png?v=1769186148",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -43677,7 +44882,12 @@
       "latest_USD_total_cost": 5522.4,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5522.4
+      "USD_outsanding_cost": 5522.4,
+      "est_payment_date": "2026-11-14",
+      "est_payment_week": "2026-11-14",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_CROSSOVER_PLATFORM_80_02_01_v2.png?v=1756985949",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -43724,7 +44934,12 @@
       "latest_USD_total_cost": 5664,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5664
+      "USD_outsanding_cost": 5664,
+      "est_payment_date": "2026-11-19",
+      "est_payment_week": "2026-11-21",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-10-21_SF_PERFECT_CROSSOVER_PLATFORM_100-GOLD_TEXTURED_SAFFIANO_01.png?v=1756985928",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -43771,7 +44986,12 @@
       "latest_USD_total_cost": 3023.16,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 3023.16
+      "USD_outsanding_cost": 3023.16,
+      "est_payment_date": "2026-08-25",
+      "est_payment_week": "2026-08-29",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_PUMP_85_STARRY_NIGHT_BEADED_SATIN_01.png?v=1748546895",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -43818,7 +45038,12 @@
       "latest_USD_total_cost": 2853.24,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 2853.24
+      "USD_outsanding_cost": 2853.24,
+      "est_payment_date": "2026-08-25",
+      "est_payment_week": "2026-08-29",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_PUMP_WOMAN_IN_GOLD_85_Metallic_Beaded_Satin_01.png?v=1748378367",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -43865,7 +45090,12 @@
       "latest_USD_total_cost": 407.25,
       "USD_received": 407.25,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-10",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_AYSIA-SNEAKER_SILVERSAFFIANO_01.png?v=1757419057",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -43912,7 +45142,12 @@
       "latest_USD_total_cost": 4625.6,
       "USD_received": 4625.6,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-10",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectKittenPump_LipstickRedSuede_Side1.png?v=1666389334",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -43959,7 +45194,12 @@
       "latest_USD_total_cost": 231.28,
       "USD_received": 231.28,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-10",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectKittenPump50_TaupesSuede_Side1.png?v=1756986164",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -44006,7 +45246,12 @@
       "latest_USD_total_cost": 228.92,
       "USD_received": 228.92,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-10",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump85_Black1_Side.png?v=1756986359",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -44053,7 +45298,12 @@
       "latest_USD_total_cost": 572.3,
       "USD_received": 572.3,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-10",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/PerfPump85_DarkNavy2_Side-a.png?v=1756986383",
+      "notes": null
     },
     {
       "status": "In Transit",
@@ -44100,7 +45350,12 @@
       "latest_USD_total_cost": 2348.2,
       "USD_received": 0,
       "USD_in_transit_cost": 2348.2,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-10",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25_08_05_SF_PERFECT_PUMP_85_OF_VENUS_Seafoam_Embroidery_01-2.png?v=1756825587",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -44147,7 +45402,12 @@
       "latest_USD_total_cost": 814.2,
       "USD_received": 814.2,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-10",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_32_BOAT_SHOE_Sandstone_Nubuck_01.png?v=1769200123",
+      "notes": "65 shipped, 62 rcvd"
     },
     {
       "status": "Full Receipt",
@@ -44194,7 +45454,12 @@
       "latest_USD_total_cost": 2053.2,
       "USD_received": 2053.2,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-10",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/24-09-12_SF_AlysiaSneaker_Tan_01_v2.png?v=1757419084",
+      "notes": null
     },
     {
       "status": "In Transit",
@@ -44241,7 +45506,12 @@
       "latest_USD_total_cost": 5203.8,
       "USD_received": 0,
       "USD_in_transit_cost": 5203.8,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-15",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pkp-mocha.png?v=1781749723",
+      "notes": null
     },
     {
       "status": "In Transit",
@@ -44288,7 +45558,12 @@
       "latest_USD_total_cost": 6796.8,
       "USD_received": 0,
       "USD_in_transit_cost": 6796.8,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-15",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pp100-mocha.png?v=1781749722",
+      "notes": null
     },
     {
       "status": "In Transit",
@@ -44335,7 +45610,12 @@
       "latest_USD_total_cost": 5664,
       "USD_received": 0,
       "USD_in_transit_cost": 5664,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-15",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Perfect_Pump_85_Lipstick_Red_Suede1_Side-min.png?v=1573828695",
+      "notes": null
     },
     {
       "status": "In Transit",
@@ -44382,7 +45662,12 @@
       "latest_USD_total_cost": 6230.4,
       "USD_received": 0,
       "USD_in_transit_cost": 6230.4,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-15",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pp85-misty-gray.png?v=1781750790",
+      "notes": null
     },
     {
       "status": "In Transit",
@@ -44429,7 +45714,12 @@
       "latest_USD_total_cost": 26783.64,
       "USD_received": 0,
       "USD_in_transit_cost": 26783.64,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-15",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump85_Black1_Side.png?v=1756986359",
+      "notes": null
     },
     {
       "status": "In Transit",
@@ -44476,7 +45766,12 @@
       "latest_USD_total_cost": 6563.16,
       "USD_received": 0,
       "USD_in_transit_cost": 6563.16,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-15",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/RoundToePump_BlackSuede1_Side.png?v=1756986303",
+      "notes": null
     },
     {
       "status": "In Transit",
@@ -44523,7 +45818,12 @@
       "latest_USD_total_cost": 7900.1,
       "USD_received": 0,
       "USD_in_transit_cost": 7900.1,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-15",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-prtp-espresso.png?v=1781750100",
+      "notes": null
     },
     {
       "status": "In Transit",
@@ -44570,7 +45870,12 @@
       "latest_USD_total_cost": 5959,
       "USD_received": 0,
       "USD_in_transit_cost": 5959,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-15",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-emma-black-calf.png?v=1781749724",
+      "notes": null
     },
     {
       "status": "In Transit",
@@ -44617,7 +45922,12 @@
       "latest_USD_total_cost": 8012.2,
       "USD_received": 0,
       "USD_in_transit_cost": 8012.2,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-15",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/PerfPump85_DarkNavy2_Side-a.png?v=1756986383",
+      "notes": null
     },
     {
       "status": "In Transit",
@@ -44664,7 +45974,12 @@
       "latest_USD_total_cost": 3816.12,
       "USD_received": 0,
       "USD_in_transit_cost": 3816.12,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-08-15",
+      "est_payment_week": "2026-08-15",
+      "est_payment_mth": "2026-08-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectKittenPump50_TaupesSuede_Side1.png?v=1756986164",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -44711,7 +46026,12 @@
       "latest_USD_total_cost": 4625.6,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4625.6
+      "USD_outsanding_cost": 4625.6,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pkp-misty-gray.jpg?v=1781750790",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -44758,7 +46078,12 @@
       "latest_USD_total_cost": 407.1,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 407.1
+      "USD_outsanding_cost": 407.1,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_32_BOAT_SHOE_Sandstone_Nubuck_01.png?v=1769200123",
+      "notes": "65 shipped, 62 rcvd"
     },
     {
       "status": "Not Shipped",
@@ -44805,7 +46130,12 @@
       "latest_USD_total_cost": 115.64,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 115.64
+      "USD_outsanding_cost": 115.64,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectKittenPump50_BlackCalf_Side1.png?v=1756986167",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -44852,7 +46182,12 @@
       "latest_USD_total_cost": 4460.4,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4460.4
+      "USD_outsanding_cost": 4460.4,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pp100-bordeaux-suede.png?v=1781749722",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -44899,7 +46234,12 @@
       "latest_USD_total_cost": 4460.4,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4460.4
+      "USD_outsanding_cost": 4460.4,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pp100-mocha.png?v=1781749722",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -44946,7 +46286,12 @@
       "latest_USD_total_cost": 4460.4,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4460.4
+      "USD_outsanding_cost": 4460.4,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/Perfect_Pump_100_Lipstick_Red_Suede1_Side-min.png?v=1738201100",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -44993,7 +46338,12 @@
       "latest_USD_total_cost": 4460.4,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4460.4
+      "USD_outsanding_cost": 4460.4,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pp100-misty-gray.png?v=1781749724",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45040,7 +46390,12 @@
       "latest_USD_total_cost": 6195,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 6195
+      "USD_outsanding_cost": 6195,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-ballet-black-suede.png?v=1781749722",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45087,7 +46442,12 @@
       "latest_USD_total_cost": 7434,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 7434
+      "USD_outsanding_cost": 7434,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-ballet-espresso-suede.jpg?v=1781749720",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45134,7 +46494,12 @@
       "latest_USD_total_cost": 6195,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 6195
+      "USD_outsanding_cost": 6195,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-ballet-lipstick-red.png?v=1781749722",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45181,7 +46546,12 @@
       "latest_USD_total_cost": 5575.5,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5575.5
+      "USD_outsanding_cost": 5575.5,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-ballet-navy.png?v=1781749722",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45228,7 +46598,12 @@
       "latest_USD_total_cost": 7434,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 7434
+      "USD_outsanding_cost": 7434,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-ballet-taupe.png?v=1781749720",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45275,7 +46650,12 @@
       "latest_USD_total_cost": 5162.5,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5162.5
+      "USD_outsanding_cost": 5162.5,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-blakeney-bblack.png?v=1781749723",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45322,7 +46702,12 @@
       "latest_USD_total_cost": 5162.5,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5162.5
+      "USD_outsanding_cost": 5162.5,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-davis-bordeaux.png?v=1781749724",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45369,7 +46754,12 @@
       "latest_USD_total_cost": 5079.9,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5079.9
+      "USD_outsanding_cost": 5079.9,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pmjp100-black-patent.png?v=1781749723",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45416,7 +46806,12 @@
       "latest_USD_total_cost": 9705.5,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 9705.5
+      "USD_outsanding_cost": 9705.5,
+      "est_payment_date": "2026-09-13",
+      "est_payment_week": "2026-09-19",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-alexandra-bordeaux.png?v=1781749721",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45463,7 +46858,12 @@
       "latest_USD_total_cost": 5664,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5664
+      "USD_outsanding_cost": 5664,
+      "est_payment_date": "2026-11-19",
+      "est_payment_week": "2026-11-21",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_CROSSOVER_PLATFORM_80_03_01.png?v=1756985947",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45510,7 +46910,12 @@
       "latest_USD_total_cost": 6987.96,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 6987.96
+      "USD_outsanding_cost": 6987.96,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ReversibleScarfBelt_BlackBrown_01_c2192ac8-b626-453b-8056-455ef6594010.png?v=1764697233",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45557,7 +46962,12 @@
       "latest_USD_total_cost": 3865.68,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 3865.68
+      "USD_outsanding_cost": 3865.68,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ReversibleScarfWaistBelt_CREAMSADDLECALF_1.png?v=1756986155",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45604,7 +47014,12 @@
       "latest_USD_total_cost": 10968.1,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 10968.1
+      "USD_outsanding_cost": 10968.1,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ZipBootie30_Black_1_Side-min.png?v=1756986366",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45651,7 +47066,12 @@
       "latest_USD_total_cost": 5568.42,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5568.42
+      "USD_outsanding_cost": 5568.42,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ZipBootie30_EspressoSuede_1_Side.png?v=1756986254",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45698,7 +47118,12 @@
       "latest_USD_total_cost": 6749.6,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 6749.6
+      "USD_outsanding_cost": 6749.6,
+      "est_payment_date": "2026-09-28",
+      "est_payment_week": "2026-10-03",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-perez-flat-espresso.png?v=1781749722",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45745,7 +47170,12 @@
       "latest_USD_total_cost": 8437,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 8437
+      "USD_outsanding_cost": 8437,
+      "est_payment_date": "2026-09-28",
+      "est_payment_week": "2026-10-03",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-perez-85-black.png?v=1781749722",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45792,7 +47222,12 @@
       "latest_USD_total_cost": 9062.4,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 9062.4
+      "USD_outsanding_cost": 9062.4,
+      "est_payment_date": "2026-09-28",
+      "est_payment_week": "2026-10-03",
+      "est_payment_mth": "2026-09-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-natalie-bordeaux-calf.png?v=1781749722",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45839,7 +47274,12 @@
       "latest_USD_total_cost": 10582.24,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 10582.24
+      "USD_outsanding_cost": 10582.24,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectZipBootie30_Saddle_Vachetta1_Side.png?v=1756986203",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45886,7 +47326,12 @@
       "latest_USD_total_cost": 8605.74,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 8605.74
+      "USD_outsanding_cost": 8605.74,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ZipBootie_BlackLeather1_Side-min.png?v=1756986365",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45933,7 +47378,12 @@
       "latest_USD_total_cost": 5062.2,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5062.2
+      "USD_outsanding_cost": 5062.2,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ZipBootie_EspressoSeude1_Side.png?v=1756986252",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -45980,7 +47430,12 @@
       "latest_USD_total_cost": 8429.92,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 8429.92
+      "USD_outsanding_cost": 8429.92,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectZipBootie70_SaddleVachetta1_Side.png?v=1756986205",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46027,7 +47482,12 @@
       "latest_USD_total_cost": 18223.92,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 18223.92
+      "USD_outsanding_cost": 18223.92,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ZipBootie30_Black_1_Side-min.png?v=1756986366",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46074,7 +47534,12 @@
       "latest_USD_total_cost": 12486.76,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 12486.76
+      "USD_outsanding_cost": 12486.76,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ZipBootie30_EspressoSuede_1_Side.png?v=1756986254",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46121,7 +47586,12 @@
       "latest_USD_total_cost": 15355.34,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 15355.34
+      "USD_outsanding_cost": 15355.34,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ZipBootie_BlackLeather1_Side-min.png?v=1756986365",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46168,7 +47638,12 @@
       "latest_USD_total_cost": 10124.4,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 10124.4
+      "USD_outsanding_cost": 10124.4,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/ZipBootie_EspressoSeude1_Side.png?v=1756986252",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46215,7 +47690,12 @@
       "latest_USD_total_cost": 5664,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5664
+      "USD_outsanding_cost": 5664,
+      "est_payment_date": "2026-11-30",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_20_PERFECT_CROSSOVER_PLATOFRM_90_Black_Suede_01.png?v=1769186148",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46262,7 +47742,12 @@
       "latest_USD_total_cost": 8496,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 8496
+      "USD_outsanding_cost": 8496,
+      "est_payment_date": "2026-11-30",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-03-31_SF_PERFECT_CROSSOVER_PLATFORM_80_02_01_v2.png?v=1756985949",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46309,7 +47794,12 @@
       "latest_USD_total_cost": 5608.54,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5608.54
+      "USD_outsanding_cost": 5608.54,
+      "est_payment_date": "2026-11-30",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump85_SandCalf1_side-min.png?v=1756986341",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46356,7 +47846,12 @@
       "latest_USD_total_cost": 4921.78,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4921.78
+      "USD_outsanding_cost": 4921.78,
+      "est_payment_date": "2026-11-30",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfPump85_TaupeSuede1_Side_UPDATE.png?v=1756986395",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46403,7 +47898,12 @@
       "latest_USD_total_cost": 5608.54,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5608.54
+      "USD_outsanding_cost": 5608.54,
+      "est_payment_date": "2026-11-30",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectPump85_SandCalf1_side-min.png?v=1756986341",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46450,7 +47950,12 @@
       "latest_USD_total_cost": 167.56,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 167.56
+      "USD_outsanding_cost": 167.56,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_20_PERFECT_CROSSOVER_PLATOFRM_90_Black_Suede_01.png?v=1769186148",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46497,7 +48002,12 @@
       "latest_USD_total_cost": 167.56,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 167.56
+      "USD_outsanding_cost": 167.56,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_20_PERFECT_CROSSOVER_PLATOFRM_90_Black_Suede_01.png?v=1769186148",
+      "notes": "Size 34"
     },
     {
       "status": "Not Shipped",
@@ -46544,7 +48054,12 @@
       "latest_USD_total_cost": 4807.32,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4807.32
+      "USD_outsanding_cost": 4807.32,
+      "est_payment_date": "2026-11-30",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfPump85_TaupeSuede1_Side_UPDATE.png?v=1756986395",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46591,7 +48106,12 @@
       "latest_USD_total_cost": 18579.1,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 18579.1
+      "USD_outsanding_cost": 18579.1,
+      "est_payment_date": "2026-11-30",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/Alexandra50_BlackSuede1_Side-1.png?v=1756986282",
+      "notes": "7/15x OG"
     },
     {
       "status": "Not Shipped",
@@ -46638,7 +48158,12 @@
       "latest_USD_total_cost": 10227.06,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 10227.06
+      "USD_outsanding_cost": 10227.06,
+      "est_payment_date": "2026-12-29",
+      "est_payment_week": "2027-01-02",
+      "est_payment_mth": "2026-12-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectEmma_Sand1_Side.png?v=1756986270",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46685,7 +48210,12 @@
       "latest_USD_total_cost": 10817.06,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 10817.06
+      "USD_outsanding_cost": 10817.06,
+      "est_payment_date": "2026-12-31",
+      "est_payment_week": "2027-01-02",
+      "est_payment_mth": "2026-12-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/RoundToePump_BlackSuede1_Side.png?v=1756986303",
+      "notes": "7/15x OG"
     },
     {
       "status": "Not Shipped",
@@ -46732,7 +48262,12 @@
       "latest_USD_total_cost": 8968,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 8968
+      "USD_outsanding_cost": 8968,
+      "est_payment_date": "2026-11-29",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-hambrook-bootie-espresso-calf.png?v=1781749722",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46779,7 +48314,12 @@
       "latest_USD_total_cost": 5050.4,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 5050.4
+      "USD_outsanding_cost": 5050.4,
+      "est_payment_date": "2026-11-30",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-emma-olive.png?v=1781749723",
+      "notes": "7/15x OG"
     },
     {
       "status": "Not Shipped",
@@ -46826,7 +48366,12 @@
       "latest_USD_total_cost": 4531.2,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4531.2
+      "USD_outsanding_cost": 4531.2,
+      "est_payment_date": "2026-11-30",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-natalie-midnight-navy-tweed.png?v=1781749722",
+      "notes": "7/30x OG"
     },
     {
       "status": "Not Shipped",
@@ -46873,7 +48418,12 @@
       "latest_USD_total_cost": 4171.3,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4171.3
+      "USD_outsanding_cost": 4171.3,
+      "est_payment_date": "2026-11-30",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-11-30",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-emma-midnight-navy-tweed.png?v=1781749724",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46920,7 +48470,12 @@
       "latest_USD_total_cost": 6401.5,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 6401.5
+      "USD_outsanding_cost": 6401.5,
+      "est_payment_date": "2026-12-14",
+      "est_payment_week": "2026-12-19",
+      "est_payment_mth": "2026-12-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-helen-bootie-light-mocha.png?v=1781749723",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -46967,7 +48522,12 @@
       "latest_USD_total_cost": 6195,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 6195
+      "USD_outsanding_cost": 6195,
+      "est_payment_date": "2026-12-31",
+      "est_payment_week": "2027-01-02",
+      "est_payment_mth": "2026-12-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-pp85-black-velvet-pearl.png?v=1781749721",
+      "notes": null
     },
     {
       "status": "Not Shipped",
@@ -47014,7 +48574,12 @@
       "latest_USD_total_cost": 9416.4,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 9416.4
+      "USD_outsanding_cost": 9416.4,
+      "est_payment_date": "2027-01-30",
+      "est_payment_week": "2027-01-30",
+      "est_payment_mth": "2027-01-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/fw26-espresso-crosta.png?v=1781749723",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -47061,7 +48626,12 @@
       "latest_USD_total_cost": 174.64,
       "USD_received": 174.64,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-07",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_58_PERFECT_BALLET_FLAT_SaddleWovenCalf_01.png?v=1772123680",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -47108,7 +48678,12 @@
       "latest_USD_total_cost": 4206.7,
       "USD_received": 4206.7,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-10",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_51_PERFECT_DAWN_SANDAL_Textured_Gold_Saffiano_01.png?v=1769207729",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -47155,7 +48730,12 @@
       "latest_USD_total_cost": 6920.7,
       "USD_received": 6920.7,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-10",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_53_PERFECT_DAWN_SANDAL_Cognac_Calf_01-1.png?v=1769207786",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -47202,7 +48782,12 @@
       "latest_USD_total_cost": 4206.7,
       "USD_received": 4206.7,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-10",
+      "est_payment_week": "2026-07-11",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/files/25-12-15_SF_59_PERFECT_DAWN_SANDAL_NavyNappa_01.png?v=1769201574",
+      "notes": null
     },
     {
       "status": "Full Receipt",
@@ -47249,14 +48834,19 @@
       "latest_USD_total_cost": 3237.79,
       "USD_received": 3237.79,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 0
+      "USD_outsanding_cost": 0,
+      "est_payment_date": "2026-07-20",
+      "est_payment_week": "2026-07-25",
+      "est_payment_mth": "2026-07-31",
+      "image_url": "https://cdn.shopify.com/s/files/1/0250/8927/products/PerfectBlockSandal90_GoldNappa1_side-min.png?v=1756986313",
+      "notes": null
     },
     {
       "status": "PO Not Placed",
       "sku_po_id": "SF7001CRBK_",
       "po_season": "S26",
       "quarter": "Q4 2026",
-      "delivery_month": "2026-12-31",
+      "delivery_month": "2026-11-30",
       "launch_month": "2026-06-30",
       "launch_category": "MTO New Launch",
       "thumbnail": "CellImage",
@@ -47269,13 +48859,13 @@
       "freight_method": "Air",
       "oh_qty": 0,
       "13w_sales": 0,
-      "units_ordered": 13,
+      "units_ordered": 17,
       "units_in_transit": null,
       "units_received": null,
       "units_cancelled": null,
-      "units_outstanding": 13,
-      "ex_factory_date": "2026-12-01",
-      "inwh_date": "2026-12-08",
+      "units_outstanding": 17,
+      "ex_factory_date": "2026-11-01",
+      "inwh_date": "2026-11-08",
       "shipment_id": null,
       "target_launch_date": "2026-06-25",
       "delay_flag": null,
@@ -47283,27 +48873,32 @@
       "website_pre_order": null,
       "net_terms_days": 30,
       "est_EUR_unit_cost": 128,
-      "est_EUR_total_cost": 1664,
+      "est_EUR_total_cost": 2176,
       "est_USD_unit_cost": 151.04,
-      "est_USD_total_cost": 1963.52,
+      "est_USD_total_cost": 2567.68,
       "actual_EUR_unit_cost": null,
       "actual_EUR_total_cost": null,
       "actual_USD_unit_cost": null,
       "actual_USD_total_cost": null,
       "latest_EUR_unit_cost": 128,
-      "latest_EUR_total_cost": 1664,
+      "latest_EUR_total_cost": 2176,
       "latest_USD_unit_cost": 151.04,
-      "latest_USD_total_cost": 1963.52,
+      "latest_USD_total_cost": 2567.68,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 1963.52
+      "USD_outsanding_cost": 2567.68,
+      "est_payment_date": "2026-12-01",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-12-31",
+      "image_url": null,
+      "notes": null
     },
     {
       "status": "PO Not Placed",
       "sku_po_id": "SF7001CBK_",
       "po_season": "S26",
       "quarter": "Q4 2026",
-      "delivery_month": "2026-12-31",
+      "delivery_month": "2026-11-30",
       "launch_month": "2026-06-30",
       "launch_category": "MTO New Launch",
       "thumbnail": "CellImage",
@@ -47316,13 +48911,13 @@
       "freight_method": "Air",
       "oh_qty": 0,
       "13w_sales": 0,
-      "units_ordered": 20,
+      "units_ordered": 28,
       "units_in_transit": null,
       "units_received": null,
       "units_cancelled": null,
-      "units_outstanding": 20,
-      "ex_factory_date": "2026-12-01",
-      "inwh_date": "2026-12-08",
+      "units_outstanding": 28,
+      "ex_factory_date": "2026-11-01",
+      "inwh_date": "2026-11-08",
       "shipment_id": null,
       "target_launch_date": "2026-06-25",
       "delay_flag": null,
@@ -47330,27 +48925,32 @@
       "website_pre_order": null,
       "net_terms_days": 30,
       "est_EUR_unit_cost": 128,
-      "est_EUR_total_cost": 2560,
+      "est_EUR_total_cost": 3584,
       "est_USD_unit_cost": 151.04,
-      "est_USD_total_cost": 3020.8,
+      "est_USD_total_cost": 4229.12,
       "actual_EUR_unit_cost": null,
       "actual_EUR_total_cost": null,
       "actual_USD_unit_cost": null,
       "actual_USD_total_cost": null,
       "latest_EUR_unit_cost": 128,
-      "latest_EUR_total_cost": 2560,
+      "latest_EUR_total_cost": 3584,
       "latest_USD_unit_cost": 151.04,
-      "latest_USD_total_cost": 3020.8,
+      "latest_USD_total_cost": 4229.12,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 3020.8
+      "USD_outsanding_cost": 4229.12,
+      "est_payment_date": "2026-12-01",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-12-31",
+      "image_url": null,
+      "notes": null
     },
     {
       "status": "PO Not Placed",
       "sku_po_id": "SF7001CMC_",
       "po_season": "S26",
       "quarter": "Q4 2026",
-      "delivery_month": "2026-12-31",
+      "delivery_month": "2026-11-30",
       "launch_month": "2026-06-30",
       "launch_category": "MTO New Launch",
       "thumbnail": "CellImage",
@@ -47363,107 +48963,13 @@
       "freight_method": "Air",
       "oh_qty": 0,
       "13w_sales": 0,
-      "units_ordered": 6,
-      "units_in_transit": null,
-      "units_received": null,
-      "units_cancelled": null,
-      "units_outstanding": 6,
-      "ex_factory_date": "2026-12-01",
-      "inwh_date": "2026-12-08",
-      "shipment_id": null,
-      "target_launch_date": "2026-06-25",
-      "delay_flag": null,
-      "launch_conflict": "Launch Conflict",
-      "website_pre_order": null,
-      "net_terms_days": 30,
-      "est_EUR_unit_cost": 128,
-      "est_EUR_total_cost": 768,
-      "est_USD_unit_cost": 151.04,
-      "est_USD_total_cost": 906.24,
-      "actual_EUR_unit_cost": null,
-      "actual_EUR_total_cost": null,
-      "actual_USD_unit_cost": null,
-      "actual_USD_total_cost": null,
-      "latest_EUR_unit_cost": 128,
-      "latest_EUR_total_cost": 768,
-      "latest_USD_unit_cost": 151.04,
-      "latest_USD_total_cost": 906.24,
-      "USD_received": 0,
-      "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 906.24
-    },
-    {
-      "status": "PO Not Placed",
-      "sku_po_id": "SF7001CRCG_",
-      "po_season": "S26",
-      "quarter": "Q4 2026",
-      "delivery_month": "2026-12-31",
-      "launch_month": "2026-06-30",
-      "launch_category": "MTO New Launch",
-      "thumbnail": "CellImage",
-      "style_name": "Flint Tote",
-      "color": "Cognac Crosta",
-      "action_plan": null,
-      "style_number": "SF7001CRCG",
-      "vendor": "LAB 20.3",
-      "po_number": null,
-      "freight_method": "Air",
-      "oh_qty": 0,
-      "13w_sales": 0,
-      "units_ordered": 6,
-      "units_in_transit": null,
-      "units_received": null,
-      "units_cancelled": null,
-      "units_outstanding": 6,
-      "ex_factory_date": "2026-12-01",
-      "inwh_date": "2026-12-08",
-      "shipment_id": null,
-      "target_launch_date": "2026-06-25",
-      "delay_flag": null,
-      "launch_conflict": "Launch Conflict",
-      "website_pre_order": null,
-      "net_terms_days": 30,
-      "est_EUR_unit_cost": 128,
-      "est_EUR_total_cost": 768,
-      "est_USD_unit_cost": 151.04,
-      "est_USD_total_cost": 906.24,
-      "actual_EUR_unit_cost": null,
-      "actual_EUR_total_cost": null,
-      "actual_USD_unit_cost": null,
-      "actual_USD_total_cost": null,
-      "latest_EUR_unit_cost": 128,
-      "latest_EUR_total_cost": 768,
-      "latest_USD_unit_cost": 151.04,
-      "latest_USD_total_cost": 906.24,
-      "USD_received": 0,
-      "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 906.24
-    },
-    {
-      "status": "PO Not Placed",
-      "sku_po_id": "SF7001CCG_",
-      "po_season": "S26",
-      "quarter": "Q4 2026",
-      "delivery_month": "2026-12-31",
-      "launch_month": "2026-06-30",
-      "launch_category": "MTO New Launch",
-      "thumbnail": "CellImage",
-      "style_name": "Flint Tote",
-      "color": "Cognac Calf",
-      "action_plan": null,
-      "style_number": "SF7001CCG",
-      "vendor": "LAB 20.3",
-      "po_number": null,
-      "freight_method": "Air",
-      "oh_qty": 0,
-      "13w_sales": 0,
       "units_ordered": 15,
       "units_in_transit": null,
       "units_received": null,
       "units_cancelled": null,
       "units_outstanding": 15,
-      "ex_factory_date": "2026-12-01",
-      "inwh_date": "2026-12-08",
+      "ex_factory_date": "2026-11-01",
+      "inwh_date": "2026-11-08",
       "shipment_id": null,
       "target_launch_date": "2026-06-25",
       "delay_flag": null,
@@ -47484,7 +48990,116 @@
       "latest_USD_total_cost": 2265.6,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 2265.6
+      "USD_outsanding_cost": 2265.6,
+      "est_payment_date": "2026-12-01",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-12-31",
+      "image_url": null,
+      "notes": null
+    },
+    {
+      "status": "PO Not Placed",
+      "sku_po_id": "SF7001CRCG_",
+      "po_season": "S26",
+      "quarter": "Q4 2026",
+      "delivery_month": "2026-11-30",
+      "launch_month": "2026-06-30",
+      "launch_category": "MTO New Launch",
+      "thumbnail": "CellImage",
+      "style_name": "Flint Tote",
+      "color": "Cognac Crosta",
+      "action_plan": null,
+      "style_number": "SF7001CRCG",
+      "vendor": "LAB 20.3",
+      "po_number": null,
+      "freight_method": "Air",
+      "oh_qty": 0,
+      "13w_sales": 0,
+      "units_ordered": 19,
+      "units_in_transit": null,
+      "units_received": null,
+      "units_cancelled": null,
+      "units_outstanding": 19,
+      "ex_factory_date": "2026-11-01",
+      "inwh_date": "2026-11-08",
+      "shipment_id": null,
+      "target_launch_date": "2026-06-25",
+      "delay_flag": null,
+      "launch_conflict": "Launch Conflict",
+      "website_pre_order": null,
+      "net_terms_days": 30,
+      "est_EUR_unit_cost": 128,
+      "est_EUR_total_cost": 2432,
+      "est_USD_unit_cost": 151.04,
+      "est_USD_total_cost": 2869.76,
+      "actual_EUR_unit_cost": null,
+      "actual_EUR_total_cost": null,
+      "actual_USD_unit_cost": null,
+      "actual_USD_total_cost": null,
+      "latest_EUR_unit_cost": 128,
+      "latest_EUR_total_cost": 2432,
+      "latest_USD_unit_cost": 151.04,
+      "latest_USD_total_cost": 2869.76,
+      "USD_received": 0,
+      "USD_in_transit_cost": 0,
+      "USD_outsanding_cost": 2869.76,
+      "est_payment_date": "2026-12-01",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-12-31",
+      "image_url": null,
+      "notes": null
+    },
+    {
+      "status": "PO Not Placed",
+      "sku_po_id": "SF7001CCG_",
+      "po_season": "S26",
+      "quarter": "Q4 2026",
+      "delivery_month": "2026-11-30",
+      "launch_month": "2026-06-30",
+      "launch_category": "MTO New Launch",
+      "thumbnail": "CellImage",
+      "style_name": "Flint Tote",
+      "color": "Cognac Calf",
+      "action_plan": null,
+      "style_number": "SF7001CCG",
+      "vendor": "LAB 20.3",
+      "po_number": null,
+      "freight_method": "Air",
+      "oh_qty": 0,
+      "13w_sales": 0,
+      "units_ordered": 30,
+      "units_in_transit": null,
+      "units_received": null,
+      "units_cancelled": null,
+      "units_outstanding": 30,
+      "ex_factory_date": "2026-11-01",
+      "inwh_date": "2026-11-08",
+      "shipment_id": null,
+      "target_launch_date": "2026-06-25",
+      "delay_flag": null,
+      "launch_conflict": "Launch Conflict",
+      "website_pre_order": null,
+      "net_terms_days": 30,
+      "est_EUR_unit_cost": 128,
+      "est_EUR_total_cost": 3840,
+      "est_USD_unit_cost": 151.04,
+      "est_USD_total_cost": 4531.2,
+      "actual_EUR_unit_cost": null,
+      "actual_EUR_total_cost": null,
+      "actual_USD_unit_cost": null,
+      "actual_USD_total_cost": null,
+      "latest_EUR_unit_cost": 128,
+      "latest_EUR_total_cost": 3840,
+      "latest_USD_unit_cost": 151.04,
+      "latest_USD_total_cost": 4531.2,
+      "USD_received": 0,
+      "USD_in_transit_cost": 0,
+      "USD_outsanding_cost": 4531.2,
+      "est_payment_date": "2026-12-01",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-12-31",
+      "image_url": null,
+      "notes": null
     },
     {
       "status": "PO Not Placed",
@@ -47531,7 +49146,12 @@
       "latest_USD_total_cost": 4720,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 4720
+      "USD_outsanding_cost": 4720,
+      "est_payment_date": "2027-04-02",
+      "est_payment_week": "2027-04-03",
+      "est_payment_mth": "2027-04-30",
+      "image_url": null,
+      "notes": null
     },
     {
       "status": "PO Not Placed",
@@ -47578,7 +49198,12 @@
       "latest_USD_total_cost": 2950,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 2950
+      "USD_outsanding_cost": 2950,
+      "est_payment_date": "2027-04-02",
+      "est_payment_week": "2027-04-03",
+      "est_payment_mth": "2027-04-30",
+      "image_url": null,
+      "notes": null
     },
     {
       "status": "PO Not Placed",
@@ -47625,14 +49250,19 @@
       "latest_USD_total_cost": 2950,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 2950
+      "USD_outsanding_cost": 2950,
+      "est_payment_date": "2027-04-02",
+      "est_payment_week": "2027-04-03",
+      "est_payment_mth": "2027-04-30",
+      "image_url": null,
+      "notes": null
     },
     {
       "status": "PO Not Placed",
       "sku_po_id": "SF7001CRN_",
       "po_season": "S26",
       "quarter": "Q4 2026",
-      "delivery_month": "2026-12-31",
+      "delivery_month": "2026-11-30",
       "launch_month": "2026-06-30",
       "launch_category": "MTO New Launch",
       "thumbnail": "CellImage",
@@ -47645,13 +49275,13 @@
       "freight_method": "Air",
       "oh_qty": 0,
       "13w_sales": 0,
-      "units_ordered": 14,
+      "units_ordered": 26,
       "units_in_transit": null,
       "units_received": null,
       "units_cancelled": null,
-      "units_outstanding": 14,
-      "ex_factory_date": "2026-12-01",
-      "inwh_date": "2026-12-08",
+      "units_outstanding": 26,
+      "ex_factory_date": "2026-11-01",
+      "inwh_date": "2026-11-08",
       "shipment_id": null,
       "target_launch_date": "2026-06-25",
       "delay_flag": null,
@@ -47659,20 +49289,25 @@
       "website_pre_order": null,
       "net_terms_days": 30,
       "est_EUR_unit_cost": 128,
-      "est_EUR_total_cost": 1792,
+      "est_EUR_total_cost": 3328,
       "est_USD_unit_cost": 151.04,
-      "est_USD_total_cost": 2114.56,
+      "est_USD_total_cost": 3927.04,
       "actual_EUR_unit_cost": null,
       "actual_EUR_total_cost": null,
       "actual_USD_unit_cost": null,
       "actual_USD_total_cost": null,
       "latest_EUR_unit_cost": 128,
-      "latest_EUR_total_cost": 1792,
+      "latest_EUR_total_cost": 3328,
       "latest_USD_unit_cost": 151.04,
-      "latest_USD_total_cost": 2114.56,
+      "latest_USD_total_cost": 3927.04,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 2114.56
+      "USD_outsanding_cost": 3927.04,
+      "est_payment_date": "2026-12-01",
+      "est_payment_week": "2026-12-05",
+      "est_payment_mth": "2026-12-31",
+      "image_url": null,
+      "notes": null
     }
   ]
 }
