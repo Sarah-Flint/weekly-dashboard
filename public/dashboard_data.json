@@ -5,7 +5,7 @@
     "quarter": "Q2",
     "lastUpdatedISO": "2026-06-30T03:42:29.060Z",
     "lastUpdatedEST": "Jun 29, 2026 23:42:29",
-    "poLastUpdatedEST": "Jul 02, 2026 13:47:32"
+    "poLastUpdatedEST": "Jul 02, 2026 14:10:20"
   },
   "kpi": [
     {
@@ -44450,7 +44450,7 @@
       "units_outstanding": 0,
       "ex_factory_date": "2026-06-16",
       "inwh_date": "2026-07-21",
-      "shipment_id": null,
+      "shipment_id": "INBSHIP425",
       "target_launch_date": "2026-07-21",
       "flag_delay": null,
       "launch_conflict": "Launch OK",
