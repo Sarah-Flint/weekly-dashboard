@@ -5,7 +5,7 @@
     "quarter": "Q3",
     "lastUpdatedISO": "2026-07-22T14:41:32.187Z",
     "lastUpdatedEST": "Jul 22, 2026 10:41:32",
-    "poLastUpdatedEST": "Jul 23, 2026 10:50:20"
+    "poLastUpdatedEST": "Jul 23, 2026 11:11:16"
   },
   "kpi": [
     {
@@ -47032,7 +47032,7 @@
       "notes": "(& AIR)"
     },
     {
-      "status": "Not Shipped",
+      "status": "Cancelled",
       "sku_po_id": "SF5277CS_PO0000715",
       "po_season": "S26",
       "quarter": "Q3 2026",
@@ -47052,8 +47052,8 @@
       "units_ordered": 7,
       "units_in_transit": null,
       "units_received": null,
-      "units_cancelled": null,
-      "units_outstanding": 7,
+      "units_cancelled": 7,
+      "units_outstanding": 0,
       "ex_factory_date": "2026-07-31",
       "inwh_date": "2026-08-07",
       "shipment_id": null,
@@ -47076,7 +47076,7 @@
       "latest_USD_total_cost": 1263.78,
       "USD_received": 0,
       "USD_in_transit_cost": 0,
-      "USD_outsanding_cost": 1263.78,
+      "USD_outsanding_cost": 0,
       "est_payment_date": "2026-08-30",
       "est_payment_week": "2026-09-05",
       "est_payment_mth": "2026-08-31",
