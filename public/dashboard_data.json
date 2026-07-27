@@ -3,9 +3,9 @@
     "week": "WEEK 29",
     "dateRange": "7/19/26 to 7/25/26",
     "quarter": "Q3",
-    "lastUpdatedISO": "2026-07-27T13:57:11.739Z",
-    "lastUpdatedEST": "Jul 27, 2026 09:57:11",
-    "poLastUpdatedEST": "Jul 27, 2026 10:22:36"
+    "lastUpdatedISO": "2026-07-27T22:35:25.209Z",
+    "lastUpdatedEST": "Jul 27, 2026 18:35:25",
+    "poLastUpdatedEST": "Jul 27, 2026 18:35:28"
   },
   "kpi": [
     {
@@ -15,13 +15,13 @@
       "metric_label": "Gross Revenue Incl Exchanges",
       "_cw": 173010.43,
       "_pw": 153141.35,
-      "_cw_plan": 279125,
+      "_cw_plan": 210375,
       "_mtd": 539934.3,
-      "_mtd_plan": 759236,
+      "_mtd_plan": 664897.6,
       "_qtd": 539934.3,
-      "_qtd_plan": 759236,
+      "_qtd_plan": 664897.6,
       "_ytd": 6724609.33,
-      "_ytd_plan": 7684211.22
+      "_ytd_plan": 7586250.6
     },
     {
       "metric": "total_gross_rev",
@@ -30,13 +30,13 @@
       "metric_label": "Gross Revenue",
       "_cw": 156874.02,
       "_pw": 140465.1,
-      "_cw_plan": 279125,
+      "_cw_plan": 210375,
       "_mtd": 502032.48,
-      "_mtd_plan": 759236,
+      "_mtd_plan": 664897.6,
       "_qtd": 502032.48,
-      "_qtd_plan": 759236,
+      "_qtd_plan": 664897.6,
       "_ytd": 6293727.99,
-      "_ytd_plan": 7684211.22
+      "_ytd_plan": 7586250.6
     },
     {
       "metric": "total_discounts",
@@ -45,13 +45,13 @@
       "metric_label": "Discounts",
       "_cw": -17019.2,
       "_pw": -15107.9,
-      "_cw_plan": -55825,
+      "_cw_plan": -42075,
       "_mtd": -67630.31,
-      "_mtd_plan": -151847,
+      "_mtd_plan": -132979.52,
       "_qtd": -67630.31,
-      "_qtd_plan": -151847,
+      "_qtd_plan": -132979.52,
       "_ytd": -814656.34,
-      "_ytd_plan": -1374885.33
+      "_ytd_plan": -1355472.87
     },
     {
       "metric": "total_gld",
@@ -60,13 +60,13 @@
       "metric_label": "GLD",
       "_cw": 139854.82,
       "_pw": 125357.2,
-      "_cw_plan": 223300,
+      "_cw_plan": 168300,
       "_mtd": 434402.17,
-      "_mtd_plan": 607389,
+      "_mtd_plan": 531918.08,
       "_qtd": 434402.17,
-      "_qtd_plan": 607389,
+      "_qtd_plan": 531918.08,
       "_ytd": 5479071.65,
-      "_ytd_plan": 6309325.89
+      "_ytd_plan": 6230777.73
     },
     {
       "metric": "total_returns",
@@ -75,13 +75,13 @@
       "metric_label": "Returns",
       "_cw": -44958.66,
       "_pw": -39840.99,
-      "_cw_plan": -111650,
+      "_cw_plan": -84150,
       "_mtd": -119450.94,
-      "_mtd_plan": -268089,
+      "_mtd_plan": -229913.56,
       "_qtd": -119450.94,
-      "_qtd_plan": -268089,
+      "_qtd_plan": -229913.56,
       "_ytd": -1778847.34,
-      "_ytd_plan": -2884130.67
+      "_ytd_plan": -2844870.26
     },
     {
       "metric": "total_net_rev",
@@ -90,13 +90,13 @@
       "metric_label": "Net Revenue",
       "_cw": 94896.16,
       "_pw": 85516.21,
-      "_cw_plan": 111650,
+      "_cw_plan": 85000,
       "_mtd": 314951.23,
-      "_mtd_plan": 339300,
+      "_mtd_plan": 305055.07,
       "_qtd": 314951.23,
-      "_qtd_plan": 339300,
+      "_qtd_plan": 305055.07,
       "_ytd": 3700224.31,
-      "_ytd_plan": 3388972
+      "_ytd_plan": 3348131.55
     },
     {
       "metric": "total_orders",
@@ -105,13 +105,13 @@
       "metric_label": "Orders",
       "_cw": 281,
       "_pw": 255,
-      "_cw_plan": 413,
+      "_cw_plan": 314,
       "_mtd": 913,
-      "_mtd_plan": 1123,
+      "_mtd_plan": 991,
       "_qtd": 913,
-      "_qtd_plan": 1123,
+      "_qtd_plan": 991,
       "_ytd": 11280,
-      "_ytd_plan": 13718
+      "_ytd_plan": 13554
     },
     {
       "metric": "total_gross_units",
@@ -165,13 +165,13 @@
       "metric_label": "Discounts",
       "_cw": -10506.2,
       "_pw": -9947.15,
-      "_cw_plan": -20044.01,
+      "_cw_plan": -16774.4,
       "_mtd": -37694.65,
-      "_mtd_plan": -54520.87,
+      "_mtd_plan": -53109.03,
       "_qtd": -37694.65,
-      "_qtd_plan": -54520.87,
+      "_qtd_plan": -53109.03,
       "_ytd": -445391.63,
-      "_ytd_plan": -402399.55
+      "_ytd_plan": -417050.25
     },
     {
       "metric": "new_gld",
@@ -210,13 +210,13 @@
       "metric_label": "Net Revenue",
       "_cw": 43262.56,
       "_pw": 44537.8,
-      "_cw_plan": 44067.34,
+      "_cw_plan": 33548.8,
       "_mtd": 151414.86,
-      "_mtd_plan": 134128.27,
+      "_mtd_plan": 120632.22,
       "_qtd": 151414.86,
-      "_qtd_plan": 134128.27,
+      "_qtd_plan": 120632.22,
       "_ytd": 1678326.08,
-      "_ytd_plan": 1104653.56
+      "_ytd_plan": 1089267.43
     },
     {
       "metric": "new_orders",
@@ -225,13 +225,13 @@
       "metric_label": "Orders",
       "_cw": 141,
       "_pw": 134,
-      "_cw_plan": 163,
+      "_cw_plan": 124,
       "_mtd": 455,
-      "_mtd_plan": 444,
+      "_mtd_plan": 392,
       "_qtd": 455,
-      "_qtd_plan": 444,
+      "_qtd_plan": 392,
       "_ytd": 5678,
-      "_ytd_plan": 4551
+      "_ytd_plan": 4490
     },
     {
       "metric": "new_gross_units",
@@ -285,13 +285,13 @@
       "metric_label": "Discounts",
       "_cw": -10506.2,
       "_pw": -9947.15,
-      "_cw_plan": -35780.99,
+      "_cw_plan": -33791.33,
       "_mtd": -37694.65,
-      "_mtd_plan": -97326.36,
+      "_mtd_plan": -91829.13,
       "_qtd": -37694.65,
-      "_qtd_plan": -97326.36,
+      "_qtd_plan": -91829.13,
       "_ytd": -455326.19,
-      "_ytd_plan": -962220.52
+      "_ytd_plan": -939874.71
     },
     {
       "metric": "returning_gld",
@@ -345,13 +345,13 @@
       "metric_label": "Orders",
       "_cw": 140,
       "_pw": 121,
-      "_cw_plan": 250,
+      "_cw_plan": 190,
       "_mtd": 458,
-      "_mtd_plan": 679,
+      "_mtd_plan": 599,
       "_qtd": 458,
-      "_qtd_plan": 679,
+      "_qtd_plan": 599,
       "_ytd": 5602,
-      "_ytd_plan": 9167
+      "_ytd_plan": 9064
     },
     {
       "metric": "returning_gross_units",
@@ -540,13 +540,13 @@
       "metric_label": "Sessions",
       "_cw": 30489,
       "_pw": 31103,
-      "_cw_plan": 20000,
+      "_cw_plan": 15700,
       "_mtd": 92513,
-      "_mtd_plan": 59500,
+      "_mtd_plan": 51100,
       "_qtd": 92513,
-      "_qtd_plan": 59500,
+      "_qtd_plan": 51100,
       "_ytd": 667954,
-      "_ytd_plan": 597800
+      "_ytd_plan": 708931
     },
     {
       "metric": "total_engaged_sessions",
@@ -555,13 +555,13 @@
       "metric_label": "Engaged Sessions",
       "_cw": 12679,
       "_pw": 12693,
-      "_cw_plan": 6920,
+      "_cw_plan": 2620,
       "_mtd": 38810,
-      "_mtd_plan": 21768.8,
+      "_mtd_plan": 13368.8,
       "_qtd": 38810,
-      "_qtd_plan": 21768.8,
+      "_qtd_plan": 13368.8,
       "_ytd": 355789,
-      "_ytd_plan": 216948.6
+      "_ytd_plan": 328079.6
     },
     {
       "metric": "total_bounces",
@@ -630,13 +630,13 @@
       "metric_label": "Engagement Rate",
       "_cw": 0.42,
       "_pw": 0.41,
-      "_cw_plan": 0.35,
+      "_cw_plan": 0.17,
       "_mtd": 0.42,
-      "_mtd_plan": 0.37,
+      "_mtd_plan": 0.26,
       "_qtd": 0.42,
-      "_qtd_plan": 0.37,
+      "_qtd_plan": 0.26,
       "_ytd": 0.53,
-      "_ytd_plan": 0.36
+      "_ytd_plan": 0.46
     },
     {
       "metric": "bounce_pct",
@@ -645,13 +645,13 @@
       "metric_label": "Bounce Rate",
       "_cw": 0.58,
       "_pw": 0.59,
-      "_cw_plan": 0.65,
+      "_cw_plan": 0.83,
       "_mtd": 0.58,
-      "_mtd_plan": 0.63,
+      "_mtd_plan": 0.74,
       "_qtd": 0.58,
-      "_qtd_plan": 0.63,
+      "_qtd_plan": 0.74,
       "_ytd": 0.44,
-      "_ytd_plan": 0.64
+      "_ytd_plan": 0.54
     },
     {
       "metric": "total_atc_pct",
@@ -1076,15 +1076,15 @@
       "23": 119700,
       "24": 90000,
       "25": 160000,
-      "26": 163000,
-      "27": 116000,
-      "28": 111650,
-      "29": 111650,
-      "30": 94250,
-      "31": 123250,
-      "32": 108750,
-      "33": 101500,
-      "34": 87000,
+      "26": 161370,
+      "27": 134538.86,
+      "28": 85516.21,
+      "29": 85000,
+      "30": 120000,
+      "31": 120000,
+      "32": 100000,
+      "33": 100000,
+      "34": 110000,
       "metric": "total_net_rev_plan",
       "metric_group": "revenue"
     },
