@@ -42,6 +42,26 @@ const MC = ({l, v, ww, pL, inv, sub}) => (
   </div>
 );
 const SH=({t,icon})=><div style={{display:"flex",alignItems:"center",gap:7,marginBottom:13,marginTop:22}}><span style={{fontSize:16}}>{icon}</span><h2 style={{fontSize:15,fontWeight:700,color:C.nv,margin:0}}>{t}</h2></div>;
+// ─── FIELD ACCESSORS (TABLE_PRODUCT_SKU header transition) ─────────────────
+// Sheet headers were renamed:  m_class -> merch_class_group ,  merch_cat -> product_lifecycle
+// Fallback chain keeps the dashboard rendering regardless of which naming the
+// export uses. Safe to collapse to a single key once the Sheet headers are locked.
+const MCLASS = r => r.merch_class_group || r.merch_class || r.m_class || "Other";
+const PLIFE  = r => r.product_lifecycle || r.merch_cat || "Other";
+
+// TABLE_PRODUCT_SKU bleeds into the NetSuite oh_report paste sitting below it
+// (no blank row / no TABLE_ marker). Those rows all carry gld7 = 0 but inflate
+// OH units ~59%. cleanSkus() cuts at the stray header row and drops null rows.
+// Self-healing: if the Sheet bleed is fixed, the cut simply never fires.
+const DROP_SKU_BLEED = true;
+const cleanSkus = rows => {
+  const arr = Array.isArray(rows) ? rows : [];
+  const isHdr = r => r && (String(r.sku || "").indexOf("Item:") === 0 || MCLASS(r) === "Product Grouping");
+  const cut = arr.findIndex(isHdr);
+  const base = (DROP_SKU_BLEED && cut > 0) ? arr.slice(0, cut) : arr;
+  return base.filter(r => r && r.sku && !isHdr(r));
+};
+
 const DEFS={
   // Revenue
   gross:"Total revenue before discounts or returns",disc:"Dollar amount discounted at checkout",gld:"Gross revenue minus discounts",ret:"Dollar value of returned items",
@@ -1046,10 +1066,12 @@ const rows = [
     })()}
     {(()=>{
       const catColors=["#1e40af","#3b82f6","#06b6d4","#10b981","#f59e0b","#ef4444","#8b5cf6"];
-      const cats=(data.product_cat||[]).filter(r=>r.m_class!=="Grand Total"&&(Number(r.gld7)||0)>0).map(r=>({name:r.m_class,value:Number(r.gld7)||0})).sort((a,b)=>b.value-a.value);
+      const cmap={};
+      cleanSkus(data.product_sku).forEach(r=>{const k=MCLASS(r);cmap[k]=(cmap[k]||0)+(Number(r.gld7)||0);});
+      const cats=Object.entries(cmap).filter(([,v])=>v>0).map(([name,value])=>({name,value})).sort((a,b)=>b.value-a.value);
       const total=cats.reduce((a,c)=>a+c.value,0);
       return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20}}>
-        <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:10}}>Sales by Product Category</div>
+        <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:10}}>Sales by Merch Class</div>
         <ResponsiveContainer width="100%" height={160}><PieChart><Pie data={cats} innerRadius={42} outerRadius={65} paddingAngle={2} dataKey="value">{cats.map((c,i)=><Cell key={i} fill={catColors[i%catColors.length]}/>)}</Pie><Tooltip formatter={v=>`${ff(v)} (${(v/total*100).toFixed(0)}%)`}/><Legend iconType="circle" wrapperStyle={{fontSize:11}}/></PieChart></ResponsiveContainer>
         <div style={{display:"flex",justifyContent:"space-around",fontSize:11,marginTop:4,flexWrap:"wrap",gap:4}}>
           {cats.slice(0,4).map((c,i)=><div key={i} style={{textAlign:"center"}}><div style={{fontWeight:700,color:catColors[i]}}>{fmt(c.value)}</div><div style={{color:C.sL}}>{c.name}</div></div>)}
@@ -1058,30 +1080,16 @@ const rows = [
     })()}
     {(()=>{
       const mcColors=["#7c3aed","#2563eb","#0891b2","#059669","#d97706","#dc2626","#6366f1"];
-      const allSkus = data.product_sku || [];
-      const rawMap = {};
-      allSkus.forEach(r => {
-        const mc = r.merch_cat || "Other";
-        rawMap[mc] = (rawMap[mc] || 0) + (Number(r.gld7) || 0);
-      });
-      // Group: Carryover, Carryover Aged, Fashion (anything with "Fashion"), Carryover Other (rest)
-      const grouped = {};
-      Object.entries(rawMap).forEach(([k,v]) => {
-        let grp;
-        if (k === "Carryover") grp = "Carryover";
-        else if (k === "Carryover Aged") grp = "Carryover Aged";
-        else if (k.toLowerCase().includes("fashion")) grp = "Fashion";
-        else grp = "Carryover Other";
-        grouped[grp] = (grouped[grp] || 0) + v;
-      });
-      const mcs = Object.entries(grouped).filter(([,v]) => v > 0).map(([name,value]) => ({name,value})).sort((a,b) => b.value - a.value);
-      const mcTotal = mcs.reduce((a,c) => a + c.value, 0);
+      const lmap={};
+      cleanSkus(data.product_sku).forEach(r=>{const k=PLIFE(r);lmap[k]=(lmap[k]||0)+(Number(r.gld7)||0);});
+      const mcs=Object.entries(lmap).filter(([,v])=>v>0).map(([name,value])=>({name,value})).sort((a,b)=>b.value-a.value);
+      const mcTotal=mcs.reduce((a,c)=>a+c.value,0);
       if (!mcs.length) return null;
       return <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:20}}>
-        <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:10}}>Sales by Merch Class</div>
+        <div style={{fontSize:14,fontWeight:700,color:C.nv,marginBottom:10}}>Sales by Product Lifecycle</div>
         <ResponsiveContainer width="100%" height={160}><PieChart><Pie data={mcs} innerRadius={42} outerRadius={65} paddingAngle={2} dataKey="value">{mcs.map((c,i)=><Cell key={i} fill={mcColors[i%mcColors.length]}/>)}</Pie><Tooltip formatter={v=>`${ff(v)} (${(v/mcTotal*100).toFixed(0)}%)`}/><Legend iconType="circle" wrapperStyle={{fontSize:11}}/></PieChart></ResponsiveContainer>
         <div style={{display:"flex",justifyContent:"space-around",fontSize:11,marginTop:4,flexWrap:"wrap",gap:4}}>
-          {mcs.map((c,i)=><div key={i} style={{textAlign:"center"}}><div style={{fontWeight:700,color:mcColors[i]}}>{fmt(c.value)}</div><div style={{color:C.sL}}>{c.name}</div></div>)}
+          {mcs.slice(0,4).map((c,i)=><div key={i} style={{textAlign:"center"}}><div style={{fontWeight:700,color:mcColors[i]}}>{fmt(c.value)}</div><div style={{color:C.sL}}>{c.name}</div></div>)}
         </div>
       </div>;
     })()}
@@ -1274,14 +1282,14 @@ const rows = [
   const gldKey = pf==="new"?"n_gld7":pf==="returning"?"r_gld7":"gld7";
   const unitKey = pf==="new"?"n_gu_7":pf==="returning"?"r_gu_7":"gu_7";
 
-  const allSkus = data.product_sku || [];
+  const allSkus = cleanSkus(data.product_sku);
 
   // Shared aggregation helper
   const aggregateBy = (rows, keyField, gk, uk) => {
     const map = {};
     const totGld = rows.reduce((a,r)=>a+(Number(r[gk])||0),0);
     rows.forEach(r=>{
-      const n=r[keyField]||"Other";
+      const n=(typeof keyField==="function"?keyField(r):r[keyField])||"Other";
       if(!map[n]) map[n]={n,gld:0,u:0,oh:0,gu90:0};
       map[n].gld+=Number(r[gk])||0;
       map[n].u+=Number(r[uk])||0;
@@ -1298,26 +1306,8 @@ const rows = [
   };
 
   const {totGld: totGldAll, data: styData} = aggregateBy(allSkus, 'style', gldKey, unitKey);
-  const {data: catData} = aggregateBy(allSkus, 'm_class', gldKey, unitKey);
-  const {data: mcData} = (() => {
-    const map = {};
-    const totGld = allSkus.reduce((a,r)=>a+(Number(r[gldKey])||0),0);
-    allSkus.forEach(r=>{
-      const n=r.merch_cat||"Other";
-      if(!map[n]) map[n]={n,gld:0,u:0,oh:0,gu90:0};
-      map[n].gld+=Number(r[gldKey])||0;
-      map[n].u+=Number(r[unitKey])||0;
-      map[n].oh+=Number(r.u_oh)||0;
-      map[n].gu90+=Number(r.gu_90)||0;
-    });
-    return { totGld, data: Object.values(map).map(s=>({
-      ...s,
-      aur:s.u>0?Math.round(s.gld/s.u):0,
-      p:totGld>0?+((s.gld/totGld)*100).toFixed(1):0,
-      st:(s.oh+s.gu90)>0?+((s.gu90/(s.oh+s.gu90))*100).toFixed(1):0,
-      woh:s.u>0?Math.round(s.oh/Math.max(s.u,s.gu90/90*7)):0,
-    })).sort((a,b)=>b.gld-a.gld) };
-  })();
+  const {data: catData} = aggregateBy(allSkus, MCLASS, gldKey, unitKey);
+  const {data: mcData} = aggregateBy(allSkus, PLIFE, gldKey, unitKey);
 
   // Build SKU list
   const skuData = allSkus.map(r=>({
@@ -1332,7 +1322,7 @@ const rows = [
   const skuShown = showAll ? skuData : skuData.slice(0,10);
   const custLabel = pf==="new"?"NEW CUSTOMERS":pf==="returning"?"RETURNING CUSTOMERS":"ALL CUSTOMERS";
   const tblS = {width:"100%",borderCollapse:"collapse",fontSize:11};
-  const textCols = new Set(["Style","Category","Merch Category","SKU","Color"]);
+  const textCols = new Set(["Style","Merch Class","Product Lifecycle","SKU","Color"]);
   const th = (h) => ({textAlign:textCols.has(h)?"left":"right",padding:"6px 6px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap"});
   const td = (a) => ({padding:"7px 6px",textAlign:a||"right"});
   const totGld = styles.reduce((a,r)=>a+r.gld,0);
@@ -1397,11 +1387,11 @@ const rows = [
     </tbody></table>
   </div>
 
-  {/* PRODUCT CATEGORY */}
+  {/* MERCH CLASS */}
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,marginBottom:12,overflowX:"auto"}}>
-    <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>{custLabel} – PRODUCT CATEGORY</div>
+    <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>{custLabel} – MERCH CLASS</div>
     <table style={tblS}><thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-      {["Category","GLD $","Units","AUR","% TTL","OH","ST %"].map(h=><th key={h} style={th(h)}>{h}</th>)}
+      {["Merch Class","GLD $","Units","AUR","% TTL","OH","ST %"].map(h=><th key={h} style={th(h)}>{h}</th>)}
     </tr></thead><tbody>
       {catData.map((s,i)=>(
         <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
@@ -1414,11 +1404,11 @@ const rows = [
     </tbody></table>
   </div>
 
-  {/* MERCH CATEGORY */}
+  {/* PRODUCT LIFECYCLE */}
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,marginBottom:12,overflowX:"auto"}}>
-    <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>{custLabel} – MERCH CATEGORY</div>
+    <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>{custLabel} – PRODUCT LIFECYCLE</div>
     <table style={tblS}><thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-      {["Merch Category","GLD $","Units","AUR","% TTL","OH","ST %"].map(h=><th key={h} style={th(h)}>{h}</th>)}
+      {["Product Lifecycle","GLD $","Units","AUR","% TTL","OH","ST %"].map(h=><th key={h} style={th(h)}>{h}</th>)}
     </tr></thead><tbody>
       {mcData.map((s,i)=>(
         <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
@@ -1436,8 +1426,8 @@ const rows = [
 
 {/* ═══ INVENTORY ═══ */}
 {tab==="inventory"&&(()=>{
-  const allSkus = data.product_sku || [];
-  const invMCats = [...new Set(allSkus.map(r=>r.merch_cat).filter(Boolean))].sort();
+  const allSkus = cleanSkus(data.product_sku);
+  const invMCats = [...new Set(allSkus.map(r=>PLIFE(r)).filter(Boolean))].sort();
   const recentSeasons = ["S26","F25","S25"];
 
   // Time-frame field mapping
@@ -1458,7 +1448,7 @@ const rows = [
       const matchNamed=named.length&&named.includes(r.sn);
       if(!match2024&&!matchNamed) return false;
     }
-    if(invSC.length&&!invSC.includes(r.merch_cat)) return false;
+    if(invSC.length&&!invSC.includes(PLIFE(r))) return false;
     return true;
   });
 
@@ -1478,7 +1468,7 @@ const rows = [
     const imu=avgP>0&&avgPr!==0?+((avgPr/avgP)*100).toFixed(1):0;
     const weeklyRate=tf.weeks?nu/tf.weeks:0;
     const woh=weeklyRate>0?Math.round(owned/weeklyRate):999;
-    return {c:r.color,sn:r.sn,mc:r.merch_cat,style:r.style,mClass:r.m_class,oh,ov,oo,owned,uc,nu,gu,gld,netSales,st:parseFloat(st),avgP,avgPr,imu,woh,weeklyRate};
+    return {c:r.color,sn:r.sn,mc:PLIFE(r),style:r.style,mClass:MCLASS(r),oh,ov,oo,owned,uc,nu,gu,gld,netSales,st:parseFloat(st),avgP,avgPr,imu,woh,weeklyRate};
   };
 
   const skuRows = filtered.map(buildSku);
@@ -1507,7 +1497,7 @@ const rows = [
     return {oh,ov,oo,owned,nu,gu,gld,netSales,uc,st:parseFloat(st),avgP,avgPr,imu,woh};
   };
 
-  // Group: Product Class → Style → Colors
+  // Group: Merch Class → Style → Colors
   const classMap = {};
   alertSkus.forEach(sk => {
     const cls = sk.mClass || 'Other';
@@ -1527,8 +1517,8 @@ const rows = [
     return { name: cls.name, styles: styleArr, ...agg(styleArr.flatMap(s=>s.skus)) };
   });
 
-  // Custom product class order
-  const classOrder = ["Pumps","Flats","Sandals","Boots","Sneakers","Accessories"];
+  // Custom merch class order
+  const classOrder = ["Pumps","Flats","Sandals","Boots","Sneakers","Accessories","Bags"];
   const sorted = [...classData].sort((a,b)=>{
     const ai=classOrder.indexOf(a.name), bi=classOrder.indexOf(b.name);
     return (ai===-1?99:ai)-(bi===-1?99:bi);
@@ -1537,14 +1527,14 @@ const rows = [
   // Grand totals
   const gt = agg(alertSkus);
 
-  // Merch Class summary (grouped by merch_cat)
+  // Product Lifecycle summary (grouped by merch_cat)
   const merchMap = {};
   alertSkus.forEach(sk => {
     const mc = sk.mc || 'Other';
     if (!merchMap[mc]) merchMap[mc] = [];
     merchMap[mc].push(sk);
   });
-  const merchClassData = Object.entries(merchMap).map(([name, skus]) => ({
+  const lifecycleData = Object.entries(merchMap).map(([name, skus]) => ({
     name,
     count: skus.length,
     ...agg(skus),
@@ -1600,7 +1590,7 @@ const rows = [
   </div>
 
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
-    <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Product Class:</span>
+    <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Merch Class:</span>
     {["All",...classOrder].map(v=><button key={v} onClick={()=>toggleInv(setInvMC,invMC,v)} style={btnS(v,invMC)}>{v}</button>)}
   </div>
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
@@ -1608,7 +1598,7 @@ const rows = [
     {["All","S26","F25","S25","2024 & Prior"].map(v=><button key={v} onClick={()=>toggleInv(setInvSeason,invSeason,v)} style={btnS(v,invSeason)}>{v}</button>)}
   </div>
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:6,alignItems:"center"}}>
-    <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Merch Category:</span>
+    <span style={{fontSize:11,fontWeight:600,color:C.nv,minWidth:90}}>Product Lifecycle:</span>
     {["All",...invMCats].map(v=><button key={v} onClick={()=>toggleInv(setInvSC,invSC,v)} style={btnS(v,invSC)}>{v}</button>)}
   </div>
   <div style={{display:"flex",gap:8,flexWrap:"wrap",marginBottom:10,alignItems:"center"}}>
@@ -1621,14 +1611,14 @@ const rows = [
 
   {/* KPI Summary */}
   <div style={{display:"flex",gap:12,flexWrap:"wrap",marginBottom:14}}>
-    <MC l="Total OH Units" v={gt.oh.toLocaleString()} sub={`${sorted.length} product classes · ${alertSkus.length} SKUs`}/>
+    <MC l="Total OH Units" v={gt.oh.toLocaleString()} sub={`${sorted.length} merch classes · ${alertSkus.length} SKUs`}/>
     <MC l="OH Value" v={fmt(gt.ov)} sub="At cost"/>
     <MC l={`Net Units (${tf.label})`} v={gt.nu.toLocaleString()} sub={`ST%: ${gt.st}%`}/>
     <MC l="Total Owned" v={gt.owned.toLocaleString()} sub={`On order: ${gt.oo.toLocaleString()}`}/>
   </div>
 
-  {/* Product Class Summary Table */}
-  <SH t="Product Class Summary"/>
+  {/* Merch Class Summary Table */}
+  <SH t="Merch Class Summary"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,marginBottom:14,overflowX:"auto"}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
@@ -1649,15 +1639,15 @@ const rows = [
     </table>
   </div>
 
-  {/* Merch Class Summary Table */}
-  <SH t="Merch Class Summary"/>
+  {/* Product Lifecycle Summary Table */}
+  <SH t="Product Lifecycle Summary"/>
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,marginBottom:14,overflowX:"auto"}}>
     <table style={{width:"100%",borderCollapse:"collapse",fontSize:11}}>
       <thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
         {invCols.map(col=><th key={col.h} style={{textAlign:col.h==="Name"?"left":"right",padding:"6px 5px",color:C.sL,fontWeight:600,fontSize:10,textTransform:"uppercase",whiteSpace:"nowrap"}}>{col.h}</th>)}
       </tr></thead>
       <tbody>
-        {merchClassData.map(mc=>(
+        {lifecycleData.map(mc=>(
           <tr key={mc.name} style={{borderBottom:`1px solid ${C.bd}`,cursor:"pointer",background:invSC.includes(mc.name)?"#eff6ff":"transparent"}} onClick={()=>toggleInv(setInvSC,invSC,mc.name)} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>{e.currentTarget.style.background=invSC.includes(mc.name)?"#eff6ff":"transparent"}}>
             <td style={{padding:"8px 5px",fontWeight:600,color:C.nv}}>{mc.name} <span style={{fontSize:9,color:C.sL,fontWeight:400}}>({mc.count})</span></td>
             {renderCells(mc,false)}
