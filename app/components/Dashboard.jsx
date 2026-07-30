@@ -78,7 +78,8 @@ const DEFS={
   pagesPerSession:"Average page views per session",pageViews:"Total page views across all sessions",
   cvr:"Orders / sessions for a given page or channel",revenue:"Attributed revenue from orders",
   // Products
-  units:"Gross units ordered in the period (before returns)",pctTtl:"Style or category GLD as a percentage of total GLD",oh:"Current on-hand unit count",
+  units:"Gross units ordered in the period (before returns)",pctTtl:"Style, merch class, or lifecycle GLD as a percentage of total GLD",
+  pctTtlOh:"On-hand units as a percentage of total on-hand units",oh:"Current on-hand unit count",
   // Inventory
   st7:"7D units sold / (OH units + 7D units sold)",st90:"90D units sold / (OH units + 90D units sold)",
   u7:"Units sold in the last 7 days",u90:"Units sold in the last 90 days",
@@ -1288,6 +1289,7 @@ const rows = [
   const aggregateBy = (rows, keyField, gk, uk) => {
     const map = {};
     const totGld = rows.reduce((a,r)=>a+(Number(r[gk])||0),0);
+    const totOh  = rows.reduce((a,r)=>a+(Number(r.u_oh)||0),0);
     rows.forEach(r=>{
       const n=(typeof keyField==="function"?keyField(r):r[keyField])||"Other";
       if(!map[n]) map[n]={n,gld:0,u:0,oh:0,gu90:0};
@@ -1296,10 +1298,11 @@ const rows = [
       map[n].oh+=Number(r.u_oh)||0;
       map[n].gu90+=Number(r.gu_90)||0;
     });
-    return { totGld, data: Object.values(map).filter(s=>s.gld>0).map(s=>({
+    return { totGld, totOh, data: Object.values(map).filter(s=>s.gld>0).map(s=>({
       ...s,
       aur:s.u>0?Math.round(s.gld/s.u):0,
       p:totGld>0?+((s.gld/totGld)*100).toFixed(1):0,
+      pOh:totOh>0?+((s.oh/totOh)*100).toFixed(1):0,
       st:(s.oh+s.gu90)>0?+((s.gu90/(s.oh+s.gu90))*100).toFixed(1):0,
       woh:s.u>0?Math.round(s.oh/Math.max(s.u,s.gu90/90*7)):0,
     })).sort((a,b)=>b.gld-a.gld) };
@@ -1391,14 +1394,14 @@ const rows = [
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,marginBottom:12,overflowX:"auto"}}>
     <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>{custLabel} – MERCH CLASS</div>
     <table style={tblS}><thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-      {["Merch Class","GLD $","Units","AUR","% TTL","OH","ST %"].map(h=><th key={h} style={th(h)}>{h}</th>)}
+      {["Merch Class","GLD $","Units","AUR","% TTL","OH","% TTL OH","ST %"].map(h=><th key={h} style={th(h)}>{h}</th>)}
     </tr></thead><tbody>
       {catData.map((s,i)=>(
         <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
           <td style={{...td("left"),fontWeight:600,color:C.nv}}>{s.n}</td>
           <td style={{...td(),fontWeight:600}}>{ff(s.gld)}</td>
           <td style={td()}>{s.u}</td><td style={td()}>${s.aur}</td><td style={td()}>{s.p}%</td>
-          <td style={td()}>{s.oh.toLocaleString()}</td><td style={td()}>{s.st}%</td>
+          <td style={td()}>{s.oh.toLocaleString()}</td><td style={td()}>{s.pOh}%</td><td style={td()}>{s.st}%</td>
         </tr>
       ))}
     </tbody></table>
@@ -1408,20 +1411,20 @@ const rows = [
   <div style={{background:C.cd,borderRadius:12,border:`1px solid ${C.bd}`,padding:16,marginBottom:12,overflowX:"auto"}}>
     <div style={{fontSize:13,fontWeight:700,color:C.nv,marginBottom:8}}>{custLabel} – PRODUCT LIFECYCLE</div>
     <table style={tblS}><thead><tr style={{borderBottom:`2px solid ${C.bd}`}}>
-      {["Product Lifecycle","GLD $","Units","AUR","% TTL","OH","ST %"].map(h=><th key={h} style={th(h)}>{h}</th>)}
+      {["Product Lifecycle","GLD $","Units","AUR","% TTL","OH","% TTL OH","ST %"].map(h=><th key={h} style={th(h)}>{h}</th>)}
     </tr></thead><tbody>
       {mcData.map((s,i)=>(
         <tr key={i} style={{borderBottom:`1px solid ${C.bd}`}} onMouseEnter={e=>e.currentTarget.style.background=C.b4} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>
           <td style={{...td("left"),fontWeight:600,color:C.nv}}>{s.n}</td>
           <td style={{...td(),fontWeight:600}}>{ff(s.gld)}</td>
           <td style={td()}>{s.u}</td><td style={td()}>${s.aur}</td><td style={td()}>{s.p}%</td>
-          <td style={td()}>{s.oh.toLocaleString()}</td><td style={td()}>{s.st}%</td>
+          <td style={td()}>{s.oh.toLocaleString()}</td><td style={td()}>{s.pOh}%</td><td style={td()}>{s.st}%</td>
         </tr>
       ))}
     </tbody></table>
   </div>
 
-  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gld","units","aur","pctTtl","oh","st90","woh"]}/>
+  <Defs show={showDefs} toggle={()=>setShowDefs(!showDefs)} keys={["gld","units","aur","pctTtl","oh","pctTtlOh","st90","woh"]}/>
 </>})()}
 
 {/* ═══ INVENTORY ═══ */}
