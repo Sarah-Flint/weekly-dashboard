@@ -3,9 +3,9 @@
     "week": "WEEK 29",
     "dateRange": "7/19/26 to 7/25/26",
     "quarter": "Q3",
-    "lastUpdatedISO": "2026-07-30T17:10:49.853Z",
-    "lastUpdatedEST": "Jul 30, 2026 13:10:49",
-    "poLastUpdatedEST": "Jul 30, 2026 13:10:52"
+    "lastUpdatedISO": "2026-07-30T17:13:25.870Z",
+    "lastUpdatedEST": "Jul 30, 2026 13:13:25",
+    "poLastUpdatedEST": "Jul 30, 2026 13:13:30"
   },
   "kpi": [
     {
@@ -14936,29 +14936,6 @@
       "unit_cost": "#NAME?",
       "st_7d%": "-",
       "st_90d%": "-"
-    },
-    {
-      "Product Grouping": "Grand Total",
-      "oh_value": 1809362.47,
-      "u_oh": 12691,
-      "u_oo": 1828,
-      "u_po": 0,
-      "u_owned": 14519,
-      "gu_7": 341,
-      "nu_7": 191,
-      "gu_90": 5423,
-      "nu_90": 3290,
-      "n_gu_7": 170,
-      "r_gu_7": 171,
-      "gld7": 127758.8,
-      "n_gld7": 63469.8,
-      "r_gld7": 64289,
-      "u_avg7": "#NAME?",
-      "woh": "-",
-      "woh_owned": "-",
-      "unit_cost": "#NAME?",
-      "st_7d%": "-",
-      "st_90d%": "-"
     }
   ],
   "product_lifecycle": [
@@ -15139,29 +15116,6 @@
       "gld7": 0,
       "n_gld7": 0,
       "r_gld7": 0,
-      "u_avg7": "#NAME?",
-      "woh": "-",
-      "woh_owned": "-",
-      "unit_cost": "#NAME?",
-      "st_7d%": "-",
-      "st_90d%": "-"
-    },
-    {
-      "Merch Category": "Grand Total",
-      "oh_value": 1809327.92,
-      "u_oh": 12691,
-      "u_oo": 1828,
-      "u_po": 0,
-      "u_owned": 14519,
-      "gu_7": 349,
-      "nu_7": 199,
-      "gu_90": 5650,
-      "nu_90": 3507,
-      "n_gu_7": 172,
-      "r_gu_7": 177,
-      "gld7": 133318.8,
-      "n_gld7": 64859.8,
-      "r_gld7": 68459,
       "u_avg7": "#NAME?",
       "woh": "-",
       "woh_owned": "-",
