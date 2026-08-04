@@ -802,7 +802,7 @@ useEffect(() => {
   return (
     <div style={{fontFamily:"'DM Sans','Inter',system-ui,sans-serif",background:"#f1f5f9",minHeight:"100vh",color:C.sl}}>
       <div style={{background:"linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#1e40af 100%)",color:"#fff",padding:"20px 24px 14px"}}>
-        <div><div style={{fontSize:11,letterSpacing:2,textTransform:"uppercase",opacity:0.6,marginBottom:4}}>Sarah Flint</div>
+        <div><div style={{fontSize:11,letterSpacing:2,textTransform:"uppercase",opacity:0.6,marginBottom:4}}></div>
         <h1 style={{fontSize:22,fontWeight:700,margin:0}}>Weekly Performance Dashboard</h1>
         <div style={{fontSize:13,opacity:0.7,marginTop:4}}>{meta.quarter} · {(meta.week||"").replace("WEEK","Week")} · {meta.dateRange}{meta.lastUpdatedEST ? <span style={{marginLeft:12,fontSize:11,opacity:0.6}}>Updated: {meta.lastUpdatedEST} EST</span> : null}</div></div>
         <div style={{display:"flex",gap:2,marginTop:16,overflowX:"auto"}}>
