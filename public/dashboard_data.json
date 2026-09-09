@@ -5,7 +5,7 @@
     "quarter": "Q3",
     "lastUpdatedISO": "2026-09-08T10:38:14.786Z",
     "lastUpdatedEST": "Sep 08, 2026 06:38:14",
-    "poLastUpdatedEST": "Sep 09, 2026 13:01:51"
+    "poLastUpdatedEST": "Sep 09, 2026 13:06:12"
   },
   "kpi": [
     {
@@ -51737,7 +51737,7 @@
       "inwh_date": "2026-10-17",
       "shipment_id": null,
       "target_launch_date": "2026-09-23",
-      "flag_delay": "DELAY",
+      "flag_delay": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
       "net_terms_days": 60,
@@ -53037,7 +53037,7 @@
       "inwh_date": "2026-10-17",
       "shipment_id": null,
       "target_launch_date": "2026-09-23",
-      "flag_delay": "DELAY",
+      "flag_delay": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
       "net_terms_days": 60,
@@ -54077,7 +54077,7 @@
       "inwh_date": "2026-10-27",
       "shipment_id": null,
       "target_launch_date": "2026-10-28",
-      "flag_delay": "DELAY",
+      "flag_delay": null,
       "launch_conflict": null,
       "website_pre_order": null,
       "net_terms_days": 60,
@@ -56261,7 +56261,7 @@
       "inwh_date": "2026-10-07",
       "shipment_id": null,
       "target_launch_date": "2026-10-07",
-      "flag_delay": "DELAY",
+      "flag_delay": null,
       "launch_conflict": null,
       "website_pre_order": null,
       "net_terms_days": 60,
@@ -56313,7 +56313,7 @@
       "inwh_date": "2026-10-07",
       "shipment_id": null,
       "target_launch_date": "2026-10-07",
-      "flag_delay": "DELAY",
+      "flag_delay": null,
       "launch_conflict": null,
       "website_pre_order": null,
       "net_terms_days": 60,
