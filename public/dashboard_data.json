@@ -5,7 +5,7 @@
     "quarter": "Q3",
     "lastUpdatedISO": "2026-09-21T13:47:22.363Z",
     "lastUpdatedEST": "Sep 21, 2026 09:47:22",
-    "poLastUpdatedEST": "Sep 23, 2026 13:35:18"
+    "poLastUpdatedEST": "Sep 23, 2026 14:38:46"
   },
   "kpi": [
     {
@@ -49003,7 +49003,7 @@
       "inwh_date": "2026-11-06",
       "shipment_id": null,
       "target_launch_date": "2026-10-09",
-      "flag_delay": "DELAY",
+      "flag_delay": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
       "net_terms_days": 60,
@@ -54099,7 +54099,7 @@
       "inwh_date": "2026-10-23",
       "shipment_id": null,
       "target_launch_date": "2026-10-21",
-      "flag_delay": "DELAY",
+      "flag_delay": null,
       "launch_conflict": "Launch Conflict",
       "website_pre_order": null,
       "net_terms_days": 60,
