@@ -5,7 +5,7 @@
     "quarter": "Q3",
     "lastUpdatedISO": "2026-09-28T12:49:14.926Z",
     "lastUpdatedEST": "Sep 28, 2026 08:49:14",
-    "poLastUpdatedEST": "Sep 29, 2026 11:31:56"
+    "poLastUpdatedEST": "Sep 30, 2026 09:25:42"
   },
   "kpi": [
     {
@@ -53531,12 +53531,12 @@
       "units_received": null,
       "units_cancelled": null,
       "units_outstanding": 45,
-      "ex_factory_date": "2026-10-16",
-      "inwh_date": "2026-10-23",
+      "ex_factory_date": "2026-10-02",
+      "inwh_date": "2026-10-09",
       "shipment_id": null,
       "target_launch_date": "2026-10-21",
       "flag_delay": null,
-      "launch_conflict": "Launch Conflict",
+      "launch_conflict": "Launch OK",
       "website_pre_order": null,
       "net_terms_days": 60,
       "est_EUR_unit_cost": 105,
@@ -53554,8 +53554,8 @@
       "USD_received": 0,
       "USD_in_transit_cost": 0,
       "USD_outsanding_cost": 5575.5,
-      "est_payment_date": "2026-12-15",
-      "est_payment_week": "2026-12-19",
+      "est_payment_date": "2026-12-01",
+      "est_payment_week": "2026-12-05",
       "est_payment_mth": "2026-12-31",
       "image_url": null,
       "notes": null
