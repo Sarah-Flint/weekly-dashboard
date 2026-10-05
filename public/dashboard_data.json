@@ -3,9 +3,9 @@
     "week": "WEEK 39",
     "dateRange": "9/27/26 to 10/3/26",
     "quarter": "Q3",
-    "lastUpdatedISO": "2026-10-05T13:06:58.762Z",
-    "lastUpdatedEST": "Oct 05, 2026 09:06:58",
-    "poLastUpdatedEST": "Oct 05, 2026 09:07:00"
+    "lastUpdatedISO": "2026-10-05T13:09:42.619Z",
+    "lastUpdatedEST": "Oct 05, 2026 09:09:42",
+    "poLastUpdatedEST": "Oct 05, 2026 09:09:46"
   },
   "kpi": [
     {
@@ -14096,40 +14096,6 @@
       "woh_owned<16": "N",
       "woh>30": "Y",
       "oh>100": "Y"
-    },
-    {
-      "style_color": "Sf Payment Capture_",
-      "style": "Sf Payment Capture",
-      "color": null,
-      "sku": "SFPmtCapture",
-      "merch_class_group": "MISSING",
-      "product_lifecycle": "Other",
-      "sn": "Other",
-      "oh_value": 0,
-      "u_oh": 0,
-      "u_oo": 0,
-      "u_po": 0,
-      "u_owned": 0,
-      "gu_7": 7,
-      "nu_7": 7,
-      "net_sales_7": 3445,
-      "gu_90": 10,
-      "nu_90": 9,
-      "net_sales_90": 4015.5,
-      "n_gu_7": 0,
-      "r_gu_7": 7,
-      "gld7": 3445,
-      "n_gld7": 0,
-      "r_gld7": 3445,
-      "nu_ytd": 21,
-      "net_sales_ytd": 9877.61,
-      "u_avg7": 7,
-      "woh": 0,
-      "woh_owned": 0,
-      "unit_cost": "#DIV/0!",
-      "woh_owned<16": "Y",
-      "woh>30": "N",
-      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Black Patent",
