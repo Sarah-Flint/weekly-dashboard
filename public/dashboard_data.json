@@ -3,9 +3,9 @@
     "week": "WEEK 42",
     "dateRange": "10/18/26 to 10/24/26",
     "quarter": "Q4",
-    "lastUpdatedISO": "2026-10-26T12:41:34.682Z",
-    "lastUpdatedEST": "Oct 26, 2026 08:41:34",
-    "poLastUpdatedEST": "Oct 26, 2026 08:41:44"
+    "lastUpdatedISO": "2026-10-26T12:47:01.604Z",
+    "lastUpdatedEST": "Oct 26, 2026 08:47:01",
+    "poLastUpdatedEST": "Oct 26, 2026 08:47:04"
   },
   "kpi": [
     {
@@ -15910,9 +15910,9 @@
       "oh>100": "Y"
     },
     {
-      "style_color": "Reversible Scarf Waist Belt_Black And Cognac Calf",
+      "style_color": "Reversible Scarf Waist Belt_Black & Cognac Calf",
       "style": "Reversible Scarf Waist Belt",
-      "color": "Black And Cognac Calf",
+      "color": "Black & Cognac Calf",
       "sku": "SF722CBKCG",
       "merch_class_group": "Accessories",
       "product_lifecycle": "Accessories",
@@ -15942,40 +15942,6 @@
       "woh_owned<16": "N",
       "woh>30": "Y",
       "oh>100": "Y"
-    },
-    {
-      "style_color": "Reversible Scarf Waist Belt_Black & Cognac Calf",
-      "style": "Reversible Scarf Waist Belt",
-      "color": "Black & Cognac Calf",
-      "sku": "SF722CBKCG",
-      "merch_class_group": "Accessories",
-      "product_lifecycle": "Accessories",
-      "sn": "F22",
-      "oh_value": 0,
-      "u_oh": 98,
-      "u_oo": 0,
-      "u_po": 0,
-      "u_owned": 98,
-      "gu_7": 9,
-      "nu_7": 3,
-      "net_sales_7": 848,
-      "gu_90": 86,
-      "nu_90": 63,
-      "net_sales_90": 15217,
-      "n_gu_7": 8,
-      "r_gu_7": 1,
-      "gld7": 2173,
-      "n_gld7": 1908,
-      "r_gld7": 265,
-      "nu_ytd": 434,
-      "net_sales_ytd": 101122.27,
-      "u_avg7": 4.9,
-      "woh": 20.2,
-      "woh_owned": 20.2,
-      "unit_cost": 0,
-      "woh_owned<16": "N",
-      "woh>30": "N",
-      "oh>100": "N"
     },
     {
       "style_color": "Perfect Pump 85_Black Calf",
